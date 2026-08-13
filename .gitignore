@@ -48,8 +48,10 @@ benchmark/cpp/ecore_xmi_benchmark
 benchmark/cpp/validationbenchmark
 benchmark/cpp/comparediag
 
-# ===== 第三方 Eclipse/ARTOP 安装（体积过大，不纳入版本库）=====
-artop/
+# ===== 第三方 Eclipse/ARTOP 安装（仅根目录的完整安装，体积过大，不纳入版本库）=====
+# 注意：锚定到根目录 /artop/，避免误伤源码中合法的 artop 命名目录
+# （如 include/emf/artop/、Java 包 artop/、decompiler 的 org/artop/ 等）
+/artop/
 
 # ===== 编辑器 / 系统 =====
 .vscode/
@@ -59,6 +61,16 @@ artop/
 *~
 .DS_Store
 Thumbs.db
+
+# ===== 二进制文档 / 归档（参考源树中的会议纪要、打包数据等）=====
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+*.zip
+*.gz
+*.tar
+*.tgz
 
 # ===== 备份文件 =====
 *.bak

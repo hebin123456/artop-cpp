@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        working-directory: cpp/emf-cpp
+        run: >
+          cmake -B build -S .
+          -G "Ninja"
+          -DCMAKE_BUILD_TYPE=Release
+          -DEMF_BUILD_TESTS=ON
+          -DEMF_BUILD_EXAMPLES=ON
+          -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=${{ github.workspace }}/cpp/emf-cpp/build/bin
+
+      - name: Build
+        working-directory: cpp/emf-cpp
+        run: cmake --build build --config Release --parallel
+
+      - name: Test
+        working-directory: cpp/emf-cpp/build
+        run: ctest --build-config Release --output-on-failure
