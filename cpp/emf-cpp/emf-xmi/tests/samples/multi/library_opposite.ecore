@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  library_opposite.ecore —— 测试 eOpposite 双向引用自动反向维护
+
+  场景 1 (single↔multi): Book.publisher (single) ↔ Publisher.books (multi)
+    add book to publisher.getBooks() -> book.setPublisher(publisher)
+    remove book from publisher.getBooks() -> book.setPublisher(null)
+
+  场景 2 (multi↔multi): Library.publishers (multi) ↔ Publisher.libraries (multi)
+    add pub to lib.getPublishers() -> lib in pub.getLibraries()
+    remove pub from lib.getPublishers() -> lib NOT in pub.getLibraries()
+
+  注：eOpposite 解析时使用 "/" 分隔（e.g. "#//Publisher/books"），与 EMF XMI 标准一致。
+-->
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="libraryOpposite" nsURI="http://example.com/e2e/libraryOpposite" nsPrefix="libraryOpposite">
+  <eClassifiers xsi:type="ecore:EClass" name="Library">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="books" upperBound="-1"
+        eType="#//Book" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="publishers" upperBound="-1"
+        eType="#//Publisher" eOpposite="#//Publisher/libraries"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Book">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pages" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="author" eType="#//Writer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="publisher" eType="#//Publisher"
+        eOpposite="#//Publisher/books"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Writer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Publisher">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="books" upperBound="-1"
+        eType="#//Book" eOpposite="#//Book/publisher"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" upperBound="-1"
+        eType="#//Library" eOpposite="#//Library/publishers"/>
+  </eClassifiers>
+</ecore:EPackage>

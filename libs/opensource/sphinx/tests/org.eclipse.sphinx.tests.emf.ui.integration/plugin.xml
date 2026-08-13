@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2010 See4sys and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    See4sys - Initial API and implementation
+
+</copyright>
+-->
+
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.sphinx.tests.emf.ui.integration.util.editors.ComponentHb10TestEditor"
+            default="true"
+            extensions="org.eclipse.sphinx.examples.hummingbird10.Component"
+            id="org.eclipse.sphinx.tests.emf.ui.integration.util.editors.ComponentHb10TestEditor"
+            name="ComponentHb10TestEditor">
+      </editor>
+      <editor
+            class="org.eclipse.sphinx.tests.emf.ui.integration.util.editors.IdentifiableHb20TestEditor"
+            default="true"
+            extensions="Identifiable"
+            id="org.eclipse.sphinx.tests.emf.ui.integration.util.editors.IdentifiableHb20TestEditor"
+            name="IdentifiableHb20TestEditor">
+      </editor>
+      <editor
+            class="org.eclipse.sphinx.tests.emf.ui.integration.util.editors.InterfaceHb10TestEditor"
+            default="true"
+            extensions="org.eclipse.sphinx.examples.hummingbird10.Interface"
+            id="org.eclipse.sphinx.tests.emf.ui.integration.util.editors.InterfaceHb10TestEditor"
+            name="InterfaceHb10TestEditor">
+      </editor>
+      <editor
+            class="org.eclipse.sphinx.tests.emf.ui.integration.util.editors.InterfaceHb20TestEditor"
+            default="true"
+            extensions="org.eclipse.sphinx.examples.hummingbird20.typemodel.Interface"
+            id="org.eclipse.sphinx.tests.emf.ui.integration.util.editors.InterfaceHb20TestEditor"
+            name="InterfaceHb20TestEditor">
+      </editor>
+      <editor
+            class="org.eclipse.sphinx.tests.emf.ui.integration.util.editors.ComponentHb20TestEditor"
+            default="true"
+            extensions="org.eclipse.sphinx.examples.hummingbird20.instancemodel.Component"
+            id="org.eclipse.sphinx.tests.emf.ui.integration.util.editors.ComponentHb20TestEditor"
+            name="ComponentHb20TestEditor">
+      </editor>
+   </extension>
+</plugin>

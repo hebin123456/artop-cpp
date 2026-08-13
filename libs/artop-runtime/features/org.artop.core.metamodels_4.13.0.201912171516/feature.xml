@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.artop.core.metamodels"
+      label="%featureName"
+      version="4.13.0.201912171516"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.artop.aal.serialization"
+         download-size="74"
+         install-size="151"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.common"
+         download-size="91"
+         install-size="176"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.autosar21"
+         download-size="525"
+         install-size="4678"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.autosar21.edit"
+         download-size="27"
+         install-size="146"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.autosar21.services"
+         download-size="146"
+         install-size="332"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.autosar3x"
+         download-size="1829"
+         install-size="16909"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.autosar3x.edit"
+         download-size="32"
+         install-size="165"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.autosar3x.services"
+         download-size="148"
+         install-size="333"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.autosar40"
+         download-size="25887"
+         install-size="346798"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.autosar40.edit"
+         download-size="45"
+         install-size="247"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.autosar40.services"
+         download-size="188"
+         install-size="427"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.gautosar"
+         download-size="835"
+         install-size="2421"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.gautosar.edit"
+         download-size="90"
+         install-size="189"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.gautosar.services"
+         download-size="766"
+         install-size="1497"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.extender"
+         download-size="24"
+         install-size="47"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+   <plugin
+         id="org.artop.aal.autosar40.services.common"
+         download-size="2"
+         install-size="2"
+         version="4.13.0.201912171516"
+         unpack="false"/>
+
+</feature>

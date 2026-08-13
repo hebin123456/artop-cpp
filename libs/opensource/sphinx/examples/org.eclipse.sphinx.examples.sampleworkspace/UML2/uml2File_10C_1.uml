@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_LrpO9DiCEd-eN9UjyupEkQ" name="UMLModel">
+  <packagedElement xsi:type="uml:Package" xmi:id="_9-C8oDiCEd-eN9UjyupEkQ" name="Package1"/>
+  <packagedElement xsi:type="uml:Package" xmi:id="_AH-ykDiDEd-eN9UjyupEkQ" name="Package2">
+    <packagedElement xsi:type="uml:Component" name="Component2">
+      <ownedAttribute xsi:type="uml:Port" name="Port">
+        <type xsi:type="uml:Interface" href="../hbProject20_B/uml2File_20B_2.uml#_nFM9oDiGEd-eN9UjyupEkQ"/>
+        <defaultValue xsi:type="uml:LiteralString" value="Port"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Component" name="Component1">
+      <ownedAttribute xsi:type="uml:Port" name="Port">
+        <type xsi:type="uml:Interface" href="../hbProject20_B/uml2File_20B_1.uml#_nFG9oDiGEd-eN9UjyupEkQ"/>
+        <defaultValue xsi:type="uml:LiteralString" value="Port"/>
+      </ownedAttribute>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

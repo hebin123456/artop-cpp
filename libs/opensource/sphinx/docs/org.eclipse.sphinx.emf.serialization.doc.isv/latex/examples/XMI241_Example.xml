@@ -1,0 +1,7 @@
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20110701"
+	xmlns:xmi="http://www.omg.org/spec/XMI/20110701">
+	<uml:Class name="ClassA" xmi:type=”uml:Class”>
+		<ownedAttribute xmi:type="uml:Property" name="attributeA"
+			visibility="private" />
+	</uml:Class>
+</xmi:XMI>

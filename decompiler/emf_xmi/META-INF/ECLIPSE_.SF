@@ -1,0 +1,358 @@
+Signature-Version: 1.0
+SHA-256-Digest-Manifest-Main-Attributes: 7VRO3cDMlooi0+azkpjgtOqS/0mpc
+ TWLyhXCUrB1g1U=
+SHA-256-Digest-Manifest: UmxG1hrlkQvx0soMMbrcw4mhlLaeFUsgrPTsXigQNAQ=
+Created-By: 1.8.0_51 (Oracle Corporation)
+
+Name: plugin.xml
+SHA-256-Digest: oGqnIH6zVKkgYzFFkIHIauZzDBxAxS4eaH+4ncDJFcQ=
+
+Name: org/eclipse/emf/ecore/xmi/impl/GenericXMLResourceFactoryImpl.cla
+ ss
+SHA-256-Digest: qXH1autBCH5S1nRo05ODUvGnMkQqaazgszUPbmk8QsI=
+
+Name: org/eclipse/emf/ecore/xmi/XMLResource$ResourceHandler.class
+SHA-256-Digest: 94BzWbE9jKrRzvgddiRG20M2qQ1t3dxrfwnu4nUQt64=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EcoreResourceFactoryImpl.class
+SHA-256-Digest: huKwm84qjC8NK5m+l9nXztFEUw93yfnhEhF2t4msh2g=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLContentHandlerImpl$XMI.class
+SHA-256-Digest: WpSj1mrg73juI1zGR+9xWPhYFfMujRM9sfaUzR5Nh+Q=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLResourceImpl.class
+SHA-256-Digest: GPIdwtCodK9250bsrKZMM1cE+eMj+AuwrXj1FjpVBbQ=
+
+Name: org/eclipse/emf/ecore/xmi/XMLResource$ResourceEntityHandler.clas
+ s
+SHA-256-Digest: X7x+6J+NQns/MXepOFX6IGV4a0skhOLojTJJS7uHfG0=
+
+Name: org/eclipse/emf/ecore/xmi/impl/StringSegment$SegmentIterator.cla
+ ss
+SHA-256-Digest: JEDJDhcIqTUp6G0qPBdqEbOa4yU9Os0MYStJgBuMc64=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLHandler$MyStack.class
+SHA-256-Digest: OdsLtJPPCX8wXOT5ptsyWR15FrBgYqTFWPxriBvNJ3k=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EcoreResourceFactoryImpl$1.class
+SHA-256-Digest: 7s+LwCOvj5HEQ5nizp7uOt0M9fGk5kJJrqEH9yWsIpA=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLContentHandlerImpl$XMI$Describ
+ er.class
+SHA-256-Digest: ELboA670Xak+uey2FCvY48qGJ70v1XjYTYrdWYNBBcg=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLHandler$SingleReference.class
+SHA-256-Digest: Z21385+KSRTHyUHesGljHQTPheQTzqz9TpyIlfVAkN8=
+
+Name: org/eclipse/emf/ecore/xmi/impl/ConfigurationCache.class
+SHA-256-Digest: jGRT5kN9EZMXvIveB24Be3huCK2BsSAiG7YVr9B0xPM=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLHandler$MyEObjectStack.class
+SHA-256-Digest: mPzgBE6zaUy47+dAG7oZOW63yWXLpTjfMn2qIlj9pxY=
+
+Name: org/eclipse/emf/ecore/xmi/util/XMLProcessor.class
+SHA-256-Digest: 5NE5u/rb62R0iaSmgTNsVWWxeqCCIl55MIbgG30EX6Q=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLSaveImpl$1.class
+SHA-256-Digest: wG0DXJRu+9x8soxLHs9q2rfYq/8LWT5MeInMI2Oop8E=
+
+Name: org/eclipse/emf/ecore/xmi/PackageNotFoundException.class
+SHA-256-Digest: kSIberRIxp9PtCyDJJ2CbeZeAfROR5zYaXFR9coQY2k=
+
+Name: org/eclipse/emf/ecore/xmi/impl/RootXMLContentHandlerImpl$Describ
+ er.class
+SHA-256-Digest: vJntdKu+qqFKLyTnMa6TQRWqbHP1OCzKDN9MKQmcYS0=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLSaveImpl$Lookup.class
+SHA-256-Digest: 3IE+IC+qo8V0JDA5zDYR+hU5rultsAhpBQvQF+sATKk=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLLoadImpl.class
+SHA-256-Digest: YxQDXitosZBT8UHm5YAe1URsN3yICtlxW+6y7j9VS1E=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLSaveImpl$Lookup$FeatureClassif
+ ierPair.class
+SHA-256-Digest: T3FXqumokmH/U+OjmlhQTJgWs1NiL1ReQ5m4c+5rDlU=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFHandler.class
+SHA-256-Digest: 0brScbmNvznPYxOwt7npxYEx5QlKdbqkwYVErInVJ0Q=
+
+Name: org/eclipse/emf/ecore/xmi/XMLResource$URIHandler.class
+SHA-256-Digest: OIYPE+i6NylxbO5Z7kli+1IADnAREL5GkS4z0LMCbEo=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFSaveImpl$EMOFXMLTypeInfoImpl.
+ class
+SHA-256-Digest: RW3msMC3Oo/RKk06B0qoss0Oxu5Io1Gj7a6c0Yl5asc=
+
+Name: org/eclipse/emf/ecore/xmi/XMLOptions.class
+SHA-256-Digest: Vow0cIwe2CVQr24NV84SkZle3BeI5EfmiNNYHQbThWM=
+
+Name: org/eclipse/emf/ecore/xmi/XMIPlugin.class
+SHA-256-Digest: pJDtw/hg5KSITp7Lx6LuA8H4CEpRE/RxIRoFTn1/HVM=
+
+Name: org/eclipse/emf/ecore/xmi/DanglingHREFException.class
+SHA-256-Digest: 6FT/rgiDjOkD9NFHrmbuElOaqU+HgHQ7NWtDv9J26jE=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLResourceImpl$2.class
+SHA-256-Digest: M2qFJMXbVdsfgqnmgmmJeRER1xIpqbMor+tYkvUMcug=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFLoadImpl.class
+SHA-256-Digest: MMr5gSZFmiRaZOepSLWFdSn46WWMK8UCcxFO/lGhPic=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLContentHandlerImpl.class
+SHA-256-Digest: 2bzKyd5IVgiEq1YZXr/JZddwBmoHDe6Eq/cUAGUA0/8=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFHelperImpl$2.class
+SHA-256-Digest: 58x0WzMaNA4HdZkzP/qu5Rnob5IJatKcEpgY04oBj+c=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFSaveImpl.class
+SHA-256-Digest: LJtEaj0NZazdUjMXUCMmTGoYqFVy/p6IsWATH/iEWSM=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMILoadImpl.class
+SHA-256-Digest: MJ/YUK+lCNkMMxKOtJNWjDi3AHF8Ld8Asy+tiz3pzZA=
+
+Name: org/eclipse/emf/ecore/xmi/XMLResource$MissingPackageHandler.clas
+ s
+SHA-256-Digest: x2nu4aZ91JL1l7kQb5nvxzb3u8esgmr+vg8YNsJCOU4=
+
+Name: org/eclipse/emf/ecore/xmi/impl/RootXMLContentHandlerImpl.class
+SHA-256-Digest: PH3w6sjKZFTij0r6son04QaBsDxxH86M/omkgHhaqBA=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFHelperImpl$1.class
+SHA-256-Digest: jztpKSzaPe4zcFzqdxxo7qMXu91gVapM2basK5aZUlQ=
+
+Name: org/eclipse/emf/ecore/xmi/impl/URIHandlerImpl.class
+SHA-256-Digest: /UFJH2v5+viR2ZEqoZxw/bg4+mg2grfydcbUJI4TRAk=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLSaveImpl$Escape.class
+SHA-256-Digest: zqb6vzl26AuD2GSuUa7y44+zI8eGYeR0gR6de1LOVj0=
+
+Name: org/eclipse/emf/ecore/xmi/impl/BasicResourceHandler.class
+SHA-256-Digest: /AbiTfjUtAtYD7TdvcGLjIhuIAkz9ZmDSMzasXhSJ28=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLContentHandlerImpl$1.class
+SHA-256-Digest: x8WF/eeiRdkFy6gjaKz+btFhd1ZwvEk0pMlT+lMxiNs=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLSaveImpl$XMLTypeInfoImpl.class
+SHA-256-Digest: XDTL7iBmpBo7r7Zl/1dJs3gn9qnzo5wB5EbNDybtv5U=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMISaveImpl.class
+SHA-256-Digest: FQr6lg/bJLm71ApY46RAFLiZtIHnyCL3HP628uzZGRs=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMIResourceFactoryImpl.class
+SHA-256-Digest: rMvmpKaKzzCWI9Qi9ilJQtz11VUzMtfpqWypV+2GfFA=
+
+Name: org/eclipse/emf/ecore/xmi/impl/GenericXMLResourceImpl$GenericSAX
+ XMLHandler.class
+SHA-256-Digest: WTom2FAfMaj++VjGCoANNUgEJ50MGq0M1CzNjrb239c=
+
+Name: org/eclipse/emf/ecore/xmi/impl/GenericXMLResourceImpl.class
+SHA-256-Digest: o6HnjxhKpeSUfACnuDdxmdlVgJjCX+5tuliToS4UEJI=
+
+Name: org/eclipse/emf/ecore/xmi/XMLResource.class
+SHA-256-Digest: zxdf0gN/jKsigTxX9jQo8Te8PTw1PuqMspCbaTRztbU=
+
+Name: org/eclipse/emf/ecore/xmi/DOMHelper.class
+SHA-256-Digest: CwgOmPKuZm6avz90wIFUpwlWLjq8iNQQaXUHBkxLEL0=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLResourceFactoryImpl.class
+SHA-256-Digest: 8yYMd8It3hcZEwnwdEH/nGTpH/O9Szm1h+k45EpDBTY=
+
+Name: org/eclipse/emf/ecore/xmi/impl/SAXXMLHandler.class
+SHA-256-Digest: D7KwpOJnRtJ61IgXGj36byav0mnXtxZaY3j32gFGWEA=
+
+Name: org/eclipse/emf/ecore/xmi/XMLHelper$ManyReference.class
+SHA-256-Digest: l+P3dvApFTYxeWXs4sLLB9lUEB4wOOBwGGLq8VyPFWw=
+
+Name: org/eclipse/emf/ecore/xmi/XMIException.class
+SHA-256-Digest: O5QdtdBi2a/M27MpkKN+hgqzHHSwAngo3ydVfztf6so=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLString.class
+SHA-256-Digest: n0cbhk/6gAf2RT1gxCLWQoyPHwISXijJF6LRaUE7B3o=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLHelperImpl$1.class
+SHA-256-Digest: y9GXL8BT9v6L+Nsl579CK9gpVEiS7aXGbel9xyLRoxA=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLContentHandlerImpl$1$1$1.class
+SHA-256-Digest: kNcNe1QTv/+/lDfYHcS0Kws5xBf3bJ0rCW3a0tqZNNM=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFExtendedMetaData.class
+SHA-256-Digest: T2IAvCX8sBcZYODma/LIDrRoacabj4zeOcXbn9Yd5zQ=
+
+Name: org/eclipse/emf/ecore/xmi/XMLResource$ElementHandler.class
+SHA-256-Digest: GOPRpM4iiXF4ze64Ots4NJ8hD9u0Yx5X8/eQ2cy9xKI=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLContentHandlerImpl$2.class
+SHA-256-Digest: YTe6EqbDZLKm13XBvNgl5sAhmKEZwZy/d0DwPnXs1aM=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMIHandler.class
+SHA-256-Digest: e+dPTaSegJANkud2Gr7zhHrbKXWE21t/edQieHzLRY8=
+
+Name: org/eclipse/emf/ecore/xmi/impl/URIHandlerImpl$AbsoluteCrossBundl
+ eAware.class
+SHA-256-Digest: i6qDVBUHJGH8F4Q+OXYMpe1bCWfuIMlFfe1efQd7/AE=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFResourceFactoryImpl.class
+SHA-256-Digest: +h1fuoyN+TWZ+mP13BPLfmG3+Ur+0DJ+SAW/m8J2EBY=
+
+Name: org/eclipse/emf/ecore/xmi/XMIPlugin$Implementation.class
+SHA-256-Digest: K726OYKtgGGyBD7SHGiNtgqzN/OpZlSga21yHvCSm4Y=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLSaveImpl.class
+SHA-256-Digest: UAZjg4VBeHnjMogHI/uhyan5jMPER/3Gajr2zAii8nw=
+
+Name: plugin.properties
+SHA-256-Digest: NC9/7no2nrNQqSERUUclvmO+JOmgA+ZH9+mUAlAYnYo=
+
+Name: org/eclipse/emf/ecore/xmi/impl/NameInfoImpl.class
+SHA-256-Digest: GfKohSiocHL1pRmp0DTuRKk7lJYQyoaWvmeCoucS9cI=
+
+Name: org/eclipse/emf/ecore/xmi/impl/GenericXMLResourceImpl$GenericXML
+ LoadImpl.class
+SHA-256-Digest: 5CqtDgp1+krnvMoab7ro7Ghwg7RBMncA0lR+5ZhCxMw=
+
+Name: org/eclipse/emf/ecore/xmi/XMLSave.class
+SHA-256-Digest: 3xhDJkZCDL2xrUrFu3+eYhS6lpw3kGtX7KJca4Hd6yQ=
+
+Name: org/eclipse/emf/ecore/xmi/XMLHelper.class
+SHA-256-Digest: ERK01WbQ4M/EVDWUd22jKaYl1+dO9NyHZECPXXW9oJk=
+
+Name: org/eclipse/emf/ecore/xmi/XMIResource.class
+SHA-256-Digest: D2epLEh0Wu5MwEzSK253TF0dcnJPQEm+tKk3iY1VaqI=
+
+Name: org/eclipse/emf/ecore/xmi/ClassNotFoundException.class
+SHA-256-Digest: 4KOhLCCYEloT6YKr27XUTYlHuuRlN9gkbD1Y84IMYw8=
+
+Name: META-INF/maven/org.eclipse.emf/org.eclipse.emf.ecore.xmi/pom.pro
+ perties
+SHA-256-Digest: lsTc1D6nJ7rsyGzs4idI9yEhFOUcnaocyCUqVZ0slKE=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLInfoImpl.class
+SHA-256-Digest: wDLCh5ctQUJJ5JD73V0XeR92+vF5aSk5QRHzVXEb4T8=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLResourceImpl$1.class
+SHA-256-Digest: FtWwyffko81AHdU0SwitfUZWyTsExaf7PLBJ07Qa8A0=
+
+Name: META-INF/maven/org.eclipse.emf/org.eclipse.emf.ecore.xmi/pom.xml
+SHA-256-Digest: DadTQz29MKHijFFwmi0xvdbT4h8DF7B1jviLiqo2WzU=
+
+Name: org/eclipse/emf/ecore/xmi/NameInfo.class
+SHA-256-Digest: aU261D1VweNb/etOR9Nxnb0NuSf3RQsgOVB18juklcw=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLParserPoolImpl.class
+SHA-256-Digest: f0aR2xaUJ5FRYV0oAljZ8SNhfDciMRfg0Gcv3/icVBM=
+
+Name: org/eclipse/emf/ecore/xmi/FeatureNotFoundException.class
+SHA-256-Digest: IKdpv1N2RlDXD5Lmed5S0D8PkRibF08PDQ9BTM4kh3E=
+
+Name: org/eclipse/emf/ecore/xmi/XMLResource$XMLMap.class
+SHA-256-Digest: gZmsSe+qGLqZORlSNJ0KNK3CHAqP4Xp3pU1hSoEVRYs=
+
+Name: org/eclipse/emf/ecore/xmi/impl/DefaultDOMHandlerImpl.class
+SHA-256-Digest: IWgSaynHbJvD3TPUq6uUCpuBHPK6grOQM3mMClgISF0=
+
+Name: org/eclipse/emf/ecore/xmi/impl/SAXWrapper.class
+SHA-256-Digest: ZchmuahRVDFhQ3rrfh49liiiqUloa1EmI9GYn7KbXMU=
+
+Name: org/eclipse/emf/ecore/xmi/EcoreBuilder.class
+SHA-256-Digest: JpRVzRbiohzNROD3pAflOGiu2oV+AjL6EemLqxkE/sw=
+
+Name: org/eclipse/emf/ecore/xmi/impl/ResourceEntityHandlerImpl.class
+SHA-256-Digest: QPrQTeg9Dn2I+DEsTLZXrDuSo69Y6FpU7TnYXiLmcs0=
+
+Name: org/eclipse/emf/ecore/xmi/util/DefaultEcoreBuilder.class
+SHA-256-Digest: JQ4EYAOpYh4Ke6ymmSEo/j6cHJpF1kJ1oldbSn+r5mc=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFExtendedMetaData$1.class
+SHA-256-Digest: FQacelBv310noJo/nk8j3HOqkzDnkUw4aWAiw9yUxj0=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLOptionsImpl.class
+SHA-256-Digest: aX1ntqydbQTjOakICmkDVF0L/Tr53x9pQyGSzpQ4R9g=
+
+Name: org/eclipse/emf/ecore/xmi/IllegalValueException.class
+SHA-256-Digest: rolIz/jPagZHKXizwF0QjhBPEJFgCB/VEUwutkSZh5s=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLHandler$ManyReference.class
+SHA-256-Digest: 7Wd5qbWE2S4PiqxB51N8vmwbKiKzyDbhDJ6tTzCh/FI=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMIHelperImpl.class
+SHA-256-Digest: evtbDnMA3Rho3e9AjUYE8RM4q8LTBU1NQRd9m1ln7X4=
+
+Name: org/eclipse/emf/ecore/xmi/impl/StringSegment.class
+SHA-256-Digest: UnL2JF4ZtiuSiYUxs1XD1XuxwIO25Jz2wHXrZc0MPGs=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMIResourceImpl.class
+SHA-256-Digest: je5CwNgr2l64iNfeZhXeh56ytzDnH2Ve8QSr/MoGSo0=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLHelperImpl.class
+SHA-256-Digest: mA0BLNNMcUTvtGBfn5fEwUsXFJitoH/B2YVVosmqbq0=
+
+Name: org/eclipse/emf/ecore/xmi/UnresolvedReferenceException.class
+SHA-256-Digest: n/yh61RyX6VfR51/h9ro5Y0My6auUurAVvAV0Don84I=
+
+Name: org/eclipse/emf/ecore/xmi/XMLParserPool.class
+SHA-256-Digest: HwkoVuIpo4BANTN+B7Bq6dP1yYFKrWlQRYgEy2qupgg=
+
+Name: org/eclipse/emf/ecore/xmi/XMLResource$XMLInfo.class
+SHA-256-Digest: 0o5pvgXcD42qnZv6J9CN9jO7JYgOE2+EAKEtFz+JRCg=
+
+Name: org/eclipse/emf/ecore/xmi/XMLLoad.class
+SHA-256-Digest: OyorlUsojEmtJLOazpK3AfwhTpm/TFP6W4br1QuguEk=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLContentHandlerImpl$1$1.class
+SHA-256-Digest: 33rPHvdB+1pWnR8bGfBUwHkiBDUF2m3K14Qu32eP6X4=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFResourceImpl.class
+SHA-256-Digest: PDnkdcUT3O0uahaARRlTdv0HRcR4ukzczy5EaiXtuI8=
+
+Name: org/eclipse/emf/ecore/xmi/DOMHandler.class
+SHA-256-Digest: 7yeZilFRIJVxd7XG4TzpVEOX0rhWFo7fR+7o9DpKNuI=
+
+Name: about.html
+SHA-256-Digest: Xr7Gf0K+0j6fQpsZ2VTuEbk0KEBYHTpkpDgjrp+oa10=
+
+Name: org/eclipse/emf/ecore/xmi/impl/URIHandlerImpl$PlatformSchemeAwar
+ e.class
+SHA-256-Digest: 3OywxNBr43HXqwvze+tdhZgYyEd9p1c3UDyZjd8fJ4k=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFHelperImpl.class
+SHA-256-Digest: fcrqtD1DFagaJjoisbtiq/z5+yZQXMhK323iue2541U=
+
+Name: org/eclipse/emf/ecore/xmi/impl/StringSegment$Element.class
+SHA-256-Digest: tpWThbNlCRz3riLQ8c4ZnuBHcnwDJKPMVEYpTeV8q2g=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLHelperImpl$NamespaceSupport.cl
+ ass
+SHA-256-Digest: VL+xTlJyy0aOIVtVL1kcVa0fmDGbqCWRcfvOQNC4aM4=
+
+Name: org/eclipse/emf/ecore/xmi/impl/EMOFHandler$Helper.class
+SHA-256-Digest: qjcuZQ5mPjrOy0DaiNYlATtM7Nm19xff6s2pbQbzXRc=
+
+Name: org/eclipse/emf/ecore/xmi/impl/ElementHandlerImpl.class
+SHA-256-Digest: zSCQlDhE30fypzIvQoH+syVWjJ5mbtxt4W233qaeYsQ=
+
+Name: org/eclipse/emf/ecore/xmi/XMIPlugin$Implementation$Activator.cla
+ ss
+SHA-256-Digest: PDhmKvnYPpYJuvNprrFRxnmhygutVrt2shZYlSfDKVs=
+
+Name: org/eclipse/emf/ecore/xmi/XMLDefaultHandler.class
+SHA-256-Digest: GZtlbmMBWeTLr3AA1g+YEcb56ijMqDovEadVculHJb4=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLMapImpl.class
+SHA-256-Digest: ZoO43w2u6KTjLcLz+xH2RzsQJ7j8RTw4z24O7ST2Xtk=
+
+Name: org/eclipse/emf/ecore/xmi/XMLSave$XMLTypeInfo.class
+SHA-256-Digest: qgsxdu4Jh4kAO3SjafyMUh1P64+kWwLmmL2Yt4SSxas=
+
+Name: org/eclipse/emf/ecore/xmi/impl/SAXXMIHandler.class
+SHA-256-Digest: hMk8OJ6Cm5zMOHwl9T31lM4kAhdCpn6KpFpzuOXmhSQ=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLLoadImpl$AttributesProxy.class
+SHA-256-Digest: 0cIl77ruqpbIGSSG3nJJt6PAm6RFJn7dr+CfRqKvJqs=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLHandler.class
+SHA-256-Digest: 6Tn4bNA0T56/Jy7v0yCHdv2YDAHQsk4DHIyXaRM/+ws=
+
+Name: org/eclipse/emf/ecore/xmi/impl/XMLHandler$EClassFeatureNamePair.
+ class
+SHA-256-Digest: QmWbYZpP4r61aj/ZjpgNm+ttXFJn/qosvX/C+/pJckQ=
+

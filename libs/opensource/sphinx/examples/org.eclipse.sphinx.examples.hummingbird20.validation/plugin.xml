@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2012 itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    itemis - Initial API and implementation
+
+</copyright>
+-->
+
+<plugin>
+
+   <!-- Constraint category definition -->
+
+   <extension point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            name="Hummingbird 2.0 Constraints"
+            id="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.category">
+         Constraints for Hummingbird 2.0 metamodel
+      </category>
+   </extension>
+
+   <!-- The constraints themselves -->
+
+   <extension point="org.eclipse.emf.validation.constraintProviders">
+      <constraintProvider cache="true">
+
+       <package namespaceUri="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common"/>
+       <package namespaceUri="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel"/>
+       <package namespaceUri="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/instancemodel"/>
+
+        <constraints categories="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.category">
+            <constraint
+                  id="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.identifiableNamesMustNotContainIllegalCharactersConstraint"
+                  name="Identifiable names must not contain illegal characters"
+                  lang="Java"
+                  class="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.IdentifiableNamesMustNotContainIllegalCharactersConstraint"
+                  severity="WARNING"
+                  mode="Live"
+                  statusCode="101">
+               <description>Checks if the name of identifiable elements does not contain any illegal character.</description>
+               <message>The name of identifiable "{0}" must only contain alphanumeric characters.</message>
+               <target class="Identifiable">
+                  <event name="Set">
+                     <feature name="name" />
+                  </event>
+                  <event name="Unset">
+                    <feature name="name" />
+                  </event>
+               </target>
+            </constraint>
+
+            <constraint
+                  id="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.identifiableNamesMustNotBeBlank"
+                  name="Identifiable names must not be blank"
+                  lang="OCL"
+                  severity="ERROR"
+                  mode="Live"
+                  statusCode="102">
+               <description>Checks if the name of identifiable elements is not blank.</description>
+               <message>The identifiable "{0}" has no name or a name that is empty.</message>
+               <target class="Identifiable">
+                  <event name="Set">
+                     <feature name="name"/>
+                  </event>
+                  <event name="Unset">
+                    <feature name="name" />
+                  </event>
+               </target>
+
+               <![CDATA[
+                  not name.oclIsUndefined() and name.size() > 0
+               ]]>
+
+            </constraint>
+
+            <!-- TODO Switch back to OCL implementation when OCL supports oclContainer() operation or EMF Validation supports one of the below
+                 mentioned workarounds to be implemented:
+                 http://wiki.eclipse.org/MDT/OCL/FAQ#How_do_I_invoke_methods_such_as_eContainer.28.29.2C_eContents.28.29.2C_eGet.28.29.3F -->
+            <!--constraint
+                  id="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.interfaceNamesMustBeUnique"
+                  name="Interface names must be unique"
+                  lang="OCL"
+                  severity="ERROR"
+                  mode="Live"
+                  statusCode="103">
+               <description>Checks if the names of all interfaces within the same platform are unique.</description>
+               <message>The interface "{0}" has the same name as another interface within same platform.</message>
+               <target class="Interface">
+                  <event name="Set">
+                     <feature name="name"/>
+                  </event>
+                  <event name="Unset">
+                    <feature name="name" />
+                  </event>
+               </target>
+
+               <![CDATA[
+                  self.oclContainer().oclAsType(Platform).interfaces->select(i | i <> self and i.name = self.name)->isEmpty()
+               ]]>
+
+            </constraint-->
+            <constraint
+                  id="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.interfaceNamesMustBeUnique"
+                  name="Interface names must be unique"
+                  lang="Java"
+                  class="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.InterfaceNamesMustBeUniqueConstraint"
+                  severity="ERROR"
+                  mode="Live"
+                  statusCode="103">
+               <description>Checks if the names of all interfaces within the same platform are unique.</description>
+               <message>The interface "{0}" has the same name as another interface within same platform.</message>
+               <target class="Interface">
+                  <event name="Set">
+                     <feature name="name"/>
+                  </event>
+                  <event name="Unset">
+                    <feature name="name" />
+                  </event>
+               </target>
+            </constraint>
+
+            <constraint
+                  id="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.targetComponentOfConnectionsMustProvideInterfaceRequiredByTheirSourcePort"
+                  name="Target component of connections must provide interface required by their source port"
+                  lang="OCL"
+                  severity="ERROR"
+                  mode="Live"
+                  statusCode="104">
+               <description>Checks if the target component of connections provides the interface that is required by their source port.</description>
+               <message>The target component of connection "{0}" does not provide the interface that is required by its source port.</message>
+               <target class="Connection">
+                  <event name="Set">
+                     <feature name="targetComponent"/>
+                  </event>
+                  <event name="Unset">
+                    <feature name="targetComponent" />
+                  </event>
+               </target>
+
+               <![CDATA[
+                  targetComponent.type.providedInterfaces->includes(sourcePort.requiredInterface)
+               ]]>
+
+            </constraint>
+         </constraints>
+      </constraintProvider>
+    </extension>
+
+   <!-- Client context definition -->
+
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext id="hummingbird20.identifiable.context">
+         <enablement>
+            <instanceof value="org.eclipse.sphinx.examples.hummingbird20.common.Identifiable"/>
+         </enablement>
+      </clientContext>
+   </extension>
+
+   <!-- Binding of constraint category to client context -->
+
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+      <binding
+            context="hummingbird20.identifiable.context"
+            category="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.category"/>
+   </extension>
+
+</plugin>

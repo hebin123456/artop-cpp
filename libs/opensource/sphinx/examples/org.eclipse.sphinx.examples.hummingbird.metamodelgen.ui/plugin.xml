@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2014 itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    itemis - Initial API and implementation
+
+</copyright>
+-->
+
+<plugin>
+
+   <!-- Common navigator viewer action binding contribution for Hummingbird metamodel generation actions  -->
+
+   <extension point="org.eclipse.ui.navigator.viewer">
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="org.eclipse.sphinx.examples.hummingbird.metamodelgen.ui.hummingbirdMetaModelGenExampleActions" />
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <!-- Common navigator content contribution for Hummingbird metamodel generation actions -->
+
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="org.eclipse.sphinx.examples.hummingbird.metamodelgen.ui.actions.providers.HummingbirdMetaModelGenActionProvider"
+            id="org.eclipse.sphinx.examples.hummingbird.metamodelgen.ui.hummingbirdMetaModelGenExampleActions">
+         <enablement>
+            <or></or>
+         </enablement>
+      </actionProvider>
+   </extension>
+
+</plugin>

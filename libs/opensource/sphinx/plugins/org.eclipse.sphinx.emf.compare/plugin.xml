@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.compare.rcp.matchEngine">
+      <engineFactory
+            class="org.eclipse.sphinx.emf.compare.match.DefaultModelMatchEngineFactory"
+            label="Default Sphinx Model Match Engine Factory"
+            ranking="1">
+      </engineFactory>
+   </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.diffEngine">
+      <descriptor
+            description="Default Sphinx Model Diff Engine"
+            id="org.eclipse.sphinx.emf.compare.diff.modelDiffEngine"
+            impl="org.eclipse.sphinx.emf.compare.diff.ModelDiffEngine"
+            label="Default Sphinx Model Diff Engine"
+            ranking="1">
+      </descriptor>
+   </extension>
+
+</plugin>

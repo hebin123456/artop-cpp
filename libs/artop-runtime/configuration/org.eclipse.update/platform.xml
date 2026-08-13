@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config date="1576599335710" transient="false">
+	<site updateable="true" url="platform:/base/" enabled="true" policy="USER-EXCLUDE">
+		<feature id="org.artop.core.metamodel448" version="4.13.0.201912171516" url="features/org.artop.core.metamodel448_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.core.converters" version="4.13.0.201912171516" url="features/org.artop.core.converters_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.ssl.feature" version="1.1.200.v20190502-0212" url="features/org.eclipse.ecf.core.ssl.feature_1.1.200.v20190502-0212/">
+		</feature>
+		<feature id="org.eclipse.help" version="2.2.700.v20190916-1045" url="features/org.eclipse.help_2.2.700.v20190916-1045/" plugin-identifier="org.eclipse.help.base">
+		</feature>
+		<feature id="org.artop.core.metamodel322" version="4.13.0.201912171516" url="features/org.artop.core.metamodel322_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.ecuc.examples.xtendxpand" version="4.13.0.201912171516" url="features/org.artop.ecuc.examples.xtendxpand_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.feature" version="1.5.3.v20190423-0625" url="features/org.eclipse.ecf.core.feature_1.5.3.v20190423-0625/">
+		</feature>
+		<feature id="org.artop.ecuc.accessors" version="4.13.0.201912171516" url="features/org.artop.ecuc.accessors_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.user.ui" version="2.4.500.v20190903-0934" url="features/org.eclipse.equinox.p2.user.ui_2.4.500.v20190903-0934/">
+		</feature>
+		<feature id="org.eclipse.platform" version="4.13.0.v20190916-1323" url="features/org.eclipse.platform_4.13.0.v20190916-1323/">
+		</feature>
+		<feature id="org.artop.core.viatra.query" version="4.13.0.201912171516" url="features/org.artop.core.viatra.query_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.validation" version="4.13.0.201912171516" url="features/org.artop.validation_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.eclipse.jdt" version="3.18.100.v20190916-1045" url="features/org.eclipse.jdt_3.18.100.v20190916-1045/">
+		</feature>
+		<feature id="org.artop.core.metamodels" version="4.13.0.201912171516" url="features/org.artop.core.metamodels_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.validation.constraints" version="4.13.0.201912171516" url="features/org.artop.validation.constraints_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.core.workspace" version="4.13.0.201912171516" url="features/org.artop.core.workspace_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.examples" version="4.13.0.201912171516" url="features/org.artop.examples_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient45.feature" version="1.0.0.v20190530-1947" url="features/org.eclipse.ecf.filetransfer.httpclient45.feature_1.0.0.v20190530-1947/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.feature" version="3.14.5.v20190423-0614" url="features/org.eclipse.ecf.filetransfer.feature_3.14.5.v20190423-0614/">
+		</feature>
+		<feature id="org.eclipse.e4.rcp" version="1.6.600.v20190907-0426" url="features/org.eclipse.e4.rcp_1.6.600.v20190907-0426/">
+		</feature>
+		<feature id="org.artop.core.viatra.query3x" version="4.13.0.201912171516" url="features/org.artop.core.viatra.query3x_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.ecuc.xtendxpand" version="4.13.0.201912171516" url="features/org.artop.ecuc.xtendxpand_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.ecuc.initializers" version="4.13.0.201912171516" url="features/org.artop.ecuc.initializers_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.validation322" version="4.13.0.201912171516" url="features/org.artop.validation322_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.ssl.feature" version="1.1.100.v20180301-0132" url="features/org.eclipse.ecf.filetransfer.ssl.feature_1.1.100.v20180301-0132/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.core.feature" version="1.6.300.v20190903-0934" url="features/org.eclipse.equinox.p2.core.feature_1.6.300.v20190903-0934/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.extras.feature" version="1.4.500.v20190903-0934" url="features/org.eclipse.equinox.p2.extras.feature_1.4.500.v20190903-0934/">
+		</feature>
+		<feature id="org.artop.core.viatra.query40" version="4.13.0.201912171516" url="features/org.artop.core.viatra.query40_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.demonstrator" version="4.13.0.201912171516" url="features/org.artop.demonstrator_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.core.examples" version="4.13.0.201912171516" url="features/org.artop.core.examples_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.eclipse.rcp" version="4.13.0.v20190916-1045" url="features/org.eclipse.rcp_4.13.0.v20190916-1045/">
+		</feature>
+		<feature id="org.artop.core.metamodel215" version="4.13.0.201912171516" url="features/org.artop.core.metamodel215_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.core.viatra.query21" version="4.13.0.201912171516" url="features/org.artop.core.viatra.query21_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.core.examples.diagrams.gmf" version="4.13.0.201912171516" url="features/org.artop.core.examples.diagrams.gmf_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.ecuc.examples.accessors" version="4.13.0.201912171516" url="features/org.artop.ecuc.examples.accessors_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.eclipse.emf.common" version="2.16.0.v20190625-1131" url="features/org.eclipse.emf.common_2.16.0.v20190625-1131/">
+		</feature>
+		<feature id="org.eclipse.pde" version="3.14.100.v20190916-1045" url="features/org.eclipse.pde_3.14.100.v20190916-1045/">
+		</feature>
+		<feature id="org.artop.validation.examples" version="4.13.0.201912171516" url="features/org.artop.validation.examples_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.rcp.feature" version="1.4.500.v20190903-0934" url="features/org.eclipse.equinox.p2.rcp.feature_1.4.500.v20190903-0934/">
+		</feature>
+		<feature id="org.artop.thirdparty" version="4.13.0.201912171516" url="features/org.artop.thirdparty_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.artop.base" version="4.13.0.201912171516" url="features/org.artop.base_4.13.0.201912171516/">
+		</feature>
+		<feature id="org.eclipse.emf.ecore" version="2.19.0.v20190822-1451" url="features/org.eclipse.emf.ecore_2.19.0.v20190822-1451/">
+		</feature>
+		<feature id="org.artop" version="4.13.0.201912171516" url="features/org.artop_4.13.0.201912171516/">
+		</feature>
+	</site>
+</config>

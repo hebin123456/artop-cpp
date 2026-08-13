@@ -1,0 +1,24 @@
+
+Performance Test Event :org.eclipse.sphinx.emf/perf/model.load
+-Blame Object: ModelLoadingUtil.loadModel P/TestProject
+-RunCount :1
+-Running Time :719 ms
+-Sub Event: org.eclipse.sphinx.emf/perf/model.detectContenttype
+		-RunCount :1
+		-Running Time:703 ms
+		-Running Time percentage:97.77468706536857%
+-Sub Event: org.eclipse.sphinx.emf/perf/model.readContribution
+		-RunCount :1
+		-Running Time:16 ms
+		-Running Time percentage:2.2253129346314324%
+-Blame Object: ModelLoadingUtil.loadModel P/TestProject2
+-RunCount :1
+-Running Time :797 ms
+-Sub Event: org.eclipse.sphinx.emf/perf/model.detectContenttype
+		-RunCount :1
+		-Running Time:16 ms
+		-Running Time percentage:2.0075282308657463%
+-Sub Event: org.eclipse.sphinx.emf/perf/model.readContribution
+		-RunCount :1
+		-Running Time:0 ms
+		-Running Time percentage:0.0%

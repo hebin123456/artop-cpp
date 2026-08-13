@@ -1,0 +1,7 @@
+Search pattern:
+
+(?<!</copyright>\R \*/\R)^package(?= org\.eclipse\.sphinx)
+
+Replacement:
+
+ /**\R * <copyright>\R *\R * Copyright (c) 2014 itemis and others.\R * All rights reserved. This program and the accompanying materials\R * are made available under the terms of the Eclipse Public License v2.0\R * which accompanies this distribution, and is available at\R * https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html\R *\R * Contributors:\R *     itemis - Initial API and implementation\R *\R * </copyright>\R */\Rpackage

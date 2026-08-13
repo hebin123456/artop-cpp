@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:cn="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common" xmlns:tm="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel">
+  <xsd:import namespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common" schemaLocation="Common20XMI.xsd"/>
+  <xsd:complexType name="Platform">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Platform model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="true">
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="componentTypes" type="tm:ComponentType">
+            <xsd:annotation>
+              <xsd:documentation>Aggregates all Component Types with this Platform...</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="interfaces" type="tm:Interface">
+            <xsd:annotation>
+              <xsd:documentation>Aggregates all Interfaces with this Platform...</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Platform" type="tm:Platform">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Platform model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ComponentType">
+    <xsd:annotation>
+      <xsd:documentation>Represents a ComponentType model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="true">
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="providedInterfaces" type="tm:Interface"/>
+          <xsd:element name="ports" type="tm:Port">
+            <xsd:annotation>
+              <xsd:documentation>Aggregates all Ports with this ComponentType...</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="parameters" type="tm:Parameter">
+            <xsd:annotation>
+              <xsd:documentation>Aggregates all Parameters with this ComponentType...</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="providedInterfaces" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComponentType" type="tm:ComponentType">
+    <xsd:annotation>
+      <xsd:documentation>Represents a ComponentType model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Port">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Port model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="true">
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="owner" type="tm:ComponentType">
+            <xsd:annotation>
+              <xsd:documentation>Specifies the component type owner</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="requiredInterface" type="tm:Interface">
+            <xsd:annotation>
+              <xsd:documentation>Specifies the required interface</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="minProviderCount" type="xsd:int"/>
+        <xsd:attribute name="maxProviderCount" type="xsd:int"/>
+        <xsd:attribute name="owner" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Specifies the component type owner</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="requiredInterface" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Specifies the required interface</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Port" type="tm:Port">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Port model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Interface">
+    <xsd:annotation>
+      <xsd:documentation>Represents an Interface model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="true">
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="providingComponentTypes" type="tm:ComponentType">
+            <xsd:annotation>
+              <xsd:documentation>Specifies the providing component types</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="requiringPorts" type="tm:Port">
+            <xsd:annotation>
+              <xsd:documentation>Specifies the requiring ports</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="providingComponentTypes" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Specifies the providing component types</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="requiringPorts" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Specifies the requiring ports</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Interface" type="tm:Interface">
+    <xsd:annotation>
+      <xsd:documentation>Represents an Interface model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Parameter">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Parameter model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="true">
+      <xsd:extension base="cn:Identifiable">
+        <xsd:attribute name="dataType" type="xsd:string"/>
+        <xsd:attribute name="optional" type="xsd:boolean"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Parameter" type="tm:Parameter">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Parameter model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>hbProject10_E</name>
+	<comment></comment>
+	<projects>
+		<project>hbProject10_D</project>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.sphinx.examples.hummingbird.ide.HummingbirdNature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+	</natures>
+</projectDescription>

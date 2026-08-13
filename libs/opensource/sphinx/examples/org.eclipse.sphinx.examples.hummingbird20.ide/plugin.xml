@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.sphinx.emf.workspace.uriChangeDetectorDelegates">
+      <delegate
+            id="org.eclipse.sphinx.examples.hummingbird20.ide.hummingbird20URIChangeDetectorDelegate"
+            class="org.eclipse.sphinx.examples.hummingbird20.ide.internal.referentialintegrity.Hummingbird20URIChangeDetectorDelegate">
+         <applicableFor
+               resourceType="org.eclipse.sphinx.examples.hummingbird20.util.Hummingbird20ResourceImpl">
+         </applicableFor>
+      </delegate>
+   </extension>
+</plugin>

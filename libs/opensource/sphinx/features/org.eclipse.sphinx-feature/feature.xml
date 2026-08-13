@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.sphinx"
+      label="%featureName"
+      version="0.13.1.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.license"
+      license-feature-version="2.0.2.v20181016-2210">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.sphinx.core"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.editors.forms"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.navigators"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.validation"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.gmf.editors"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.xtendxpand"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.jdtpde"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.serialization"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.serialization.generators"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.metamodelgen"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.mwe.dynamic"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.check"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.editors"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.compare"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.search"
+         version="0.0.0"/>
+
+</feature>

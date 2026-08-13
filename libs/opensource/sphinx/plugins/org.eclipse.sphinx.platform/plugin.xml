@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2012 See4sys, BMW Car IT and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    See4sys - Initial API and implementation
+    BMW Car IT - BMW Car IT - [374883] Improve handling of out-of-sync workspace files during descriptor initialization
+
+</copyright>
+-->
+
+<plugin>
+  <extension point="org.eclipse.core.expressions.propertyTesters">
+    <propertyTester class="org.eclipse.sphinx.platform.internal.expressions.OptimizedFilePropertyTester"
+                    id="org.eclipse.sphinx.platform.expressions.filePropertyTester"
+                    namespace="org.eclipse.sphinx.platform"
+                    properties="contentTypeId"
+                    type="org.eclipse.core.resources.IFile">
+    </propertyTester>
+  </extension>
+  <extension
+         id="resourcesyncproblemmarker"
+         name="%resourcesyncproblemmarker.name"
+         point="org.eclipse.core.resources.markers">
+    <super type="org.eclipse.core.resources.problemmarker"/>
+    <persistent value="true" />
+  </extension>
+</plugin>

@@ -1,0 +1,30 @@
+<project name="org.eclipse.sphinx.doc.isv" default="all">
+
+	<property name="wikitext.standalone" value="lib" />
+	<!-- path to wikitext standalone package -->
+
+	<path id="wikitext.tasks.classpath">
+		<fileset dir="${wikitext.standalone}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<taskdef classpathref="wikitext.tasks.classpath" resource="org/eclipse/mylyn/wikitext/core/ant/tasks.properties" />
+	<taskdef classpathref="wikitext.tasks.classpath" resource="org/eclipse/mylyn/internal/wikitext/mediawiki/core/tasks/tasks.properties" />
+
+	<property name="sphinx.wiki.url.base" value="https://wiki.eclipse.org/" />
+
+	<target name="all" description="Generate Eclipse help from the Sphinx documentation">
+		<mediawiki-to-eclipse-help wikiBaseUrl="${sphinx.wiki.url.base}" dest="${basedir}/help" validate="true" failonvalidationerror="true" navigationImages="true" prependImagePrefix="images" formatoutput="true" defaultAbsoluteLinkTarget="sphinx_external" fetchImages="true" title="Sphinx Documentation" generateUnifiedToc="false">
+			<path name="Sphinx" title="Sphinx Documentation" generateToc="true" />
+			<stylesheet url="book.css" />
+			<pageAppendum>
+						= Updating This Document =
+
+						This document is maintained in a collaborative wiki. If you wish to
+						update or modify this document please visit https://wiki.eclipse.org/Sphinx
+			</pageAppendum>
+		</mediawiki-to-eclipse-help>
+	</target>
+
+</project>

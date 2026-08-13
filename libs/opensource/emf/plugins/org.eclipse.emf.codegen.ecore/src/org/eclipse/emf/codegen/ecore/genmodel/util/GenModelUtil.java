@@ -1,0 +1,187 @@
+/**
+ * Copyright (c) 2005-2013 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v20.html
+ * 
+ * Contributors: 
+ *   IBM - Initial API and implementation
+ */
+
+package org.eclipse.emf.codegen.ecore.genmodel.util;
+
+import java.util.Collection;
+import java.util.Map;
+
+import org.eclipse.jdt.core.JavaCore;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.codegen.ecore.generator.Generator;
+import org.eclipse.emf.codegen.ecore.genmodel.GenAnnotation;
+import org.eclipse.emf.codegen.ecore.genmodel.GenBase;
+import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
+import org.eclipse.emf.codegen.ecore.genmodel.GenModelFactory;
+import org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jdt.core.IJavaProject;
+
+/**
+ * This class contains convenient static methods for working with GenModel objects.
+ * @since 2.2.0
+ */
+public class GenModelUtil
+{
+  public static String getAnnotation(GenBase genBase, String sourceURI, String key)
+  {
+    GenAnnotation genAnnotation = genBase.getGenAnnotation(sourceURI);
+    return genAnnotation == null ? null : (String)genAnnotation.getDetails().get(key);
+  }
+
+  public static void setAnnotation(GenBase genBase, String sourceURI, String key, String value)
+  {
+    GenAnnotation genAnnotation = genBase.getGenAnnotation(sourceURI);
+    if (genAnnotation == null)
+    {
+      genAnnotation = GenModelFactory.eINSTANCE.createGenAnnotation();
+      genAnnotation.setSource(sourceURI);
+      genBase.getGenAnnotations().add(genAnnotation);
+    }
+    genAnnotation.getDetails().put(key, value);
+  }
+
+  private static IJavaProject getJavaProject(GenModel genModel)
+  {
+    // Try to get the Java project for the target model directory...
+    //
+    String modelDirectory = genModel.getModelDirectory();
+    try
+    {
+      URI uri = URI.createURI(modelDirectory);
+      IJavaProject javaProject = getJavaProject(uri);
+      if (javaProject != null)
+      {
+        return javaProject;
+      }
+    }
+    catch (Throwable throwable)
+    {
+      // Ignore.
+    }
+
+    // Failing that, try to get the Java project from the GenModel's resource's project.
+    //
+    Resource resource = genModel.eResource();
+    if (resource != null)
+    {
+      return getJavaProject(resource.getURI());
+    }
+    return null;
+  }
+
+  private static IJavaProject getJavaProject(URI uri)
+  {
+    String projectName = null;
+    if (uri != null)
+    {
+      if (uri.isPlatformResource())
+      {
+        projectName = uri.segment(1);
+      }
+      else if (uri.isHierarchical() && uri.segmentCount() > 1)
+      {
+        projectName = uri.segment(0);
+      }
+    }
+
+    if (projectName != null)
+    {
+      IWorkspaceRoot workspaceRoot = EcorePlugin.getWorkspaceRoot();
+      if (workspaceRoot != null)
+      {
+        IProject project = workspaceRoot.getProject(projectName);
+        try
+        {
+          if (project.isAccessible() && project.hasNature(JavaCore.NATURE_ID))
+          {
+            return JavaCore.create(project);
+          }
+        }
+        catch (CoreException exception)
+        {
+          // Ignore.
+        }
+      }
+    }
+    return null;
+  }
+
+  /**
+   * @since 2.9,
+   */
+  public static Map<String, String> getJavaOptions(GenModel genModel)
+  {
+    IJavaProject javaProject = getJavaProject(genModel);
+    Map<String, String> options = javaProject != null ? javaProject.getOptions(true) : JavaCore.getOptions();
+    return options;
+  }
+
+  /**
+   * @since 2.5
+   */
+  public static Generator createGenerator(GenModel genModel)
+  {
+    Generator generator = new Generator();
+    generator.setInput(genModel);
+    return generator;
+  }  
+
+  /**
+   * @since 2.14
+   */
+  public static boolean hasAPIDeprecatedTag(Collection<?>... elements)
+  {
+    for (Collection<?> genBaseElements : elements)
+    {
+      for (Object genBase : genBaseElements)
+      {
+        if (genBase instanceof GenBase && ((GenBase)genBase).hasAPIDeprecatedTag())
+        {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  /**
+   * @since 2.14
+   */
+  public static boolean hasImplicitAPIDeprecatedTag(Collection<?>... elements)
+  {
+    for (Collection<?> genBaseElements : elements)
+    {
+      for (Object genBase : genBaseElements)
+      {
+        if (genBase instanceof GenBase && ((GenBase)genBase).hasImplicitAPIDeprecatedTag())
+        {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  /**
+   * @since 2.18
+   */
+  public static GenModel getGenModel(Resource resource)
+  {
+    return (GenModel)EcoreUtil.getObjectByType(resource.getContents(), GenModelPackage.Literals.GEN_MODEL);
+  }
+}

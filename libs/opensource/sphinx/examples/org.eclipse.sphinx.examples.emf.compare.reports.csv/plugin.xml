@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.compare.rcp.postProcessor">
+      <processor
+            class="org.eclipse.sphinx.examples.emf.compare.reports.csv.ModelCompareCSVReportGenerator"
+            ordinal="10">
+         <nsURI
+               value=".+">
+         </nsURI>
+      </processor>
+   </extension>
+
+</plugin>

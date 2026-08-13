@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.sphinx.emf" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.eclipse.sphinx.emf" id="modelConverters" name="Model Converters"/>
+      </appInfo>
+      <documentation>
+         This extension point enables low-level model converters to contributed which perform an on-the-fly conversion of model instances between different versions during serialization/deserialization.
+
+These model converters can notably be used in order to ensure compatibility with model resources that are based on other (typically older) revisions than the metamodel implementation. For example, a model converter can be written to handle MyMetaModel 1.2.1 resources with a MyMetaModel 1.2.5 implementation. The conversion works in both directions, i.e., can be applied for loading older model resources with a newer metamodel implementation and for saving newer model instances back to older model resources.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="converter" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="converter">
+      <complexType>
+         <sequence>
+            <element ref="behaviorDetails" minOccurs="0" maxOccurs="1"/>
+            <element ref="warning" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.sphinx.emf.resource.AbstractModelConverter:org.eclipse.sphinx.emf.resource.IModelConverter"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="behaviorDetails" type="string">
+      <annotation>
+         <appInfo>
+            <meta.element translatable="true"/>
+         </appInfo>
+         <documentation>
+            A description of the ModelConverter&apos;s behavior details. This description is intended to be displayed to the user in order to inform her/him about the behavior of the ModelConverter.
+         </documentation>
+      </annotation>
+   </element>
+
+   <element name="warning" type="string">
+      <annotation>
+         <appInfo>
+            <meta.element translatable="true"/>
+         </appInfo>
+         <documentation>
+            A message displayed to the user in order to warn her/him about certain characteristics of the ModelConverter.
+         </documentation>
+      </annotation>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         0.7.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) 2008-2010 See4sys, BMW Car IT and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    See4sys - Initial API and implementation
+    BMW Car IT - Added elements for behavior details and warnings
+      </documentation>
+   </annotation>
+
+</schema>

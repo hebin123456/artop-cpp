@@ -1,0 +1,31 @@
+/**
+ * Copyright (c) 2008-2010 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v20.html
+ * 
+ * Contributors: 
+ *   IBM - Initial API and implementation
+ */
+package org.eclipse.emf.edit.provider;
+
+
+
+/**
+ * This is the interface needed to provide color for items in a TableViewer.
+ * This interface is similar to {@link IItemColorProvider}, but this will pass additional information, 
+ * namely the column index.
+ */
+public interface ITableItemColorProvider
+{
+  /**
+   * This does the same thing as ITableColorProvider.getForeground.
+   */
+  public Object getForeground(Object object, int columnIndex);
+
+  /**
+   * This does the same thing as ITableColorProvider.getBackground.
+   */
+  public Object getBackground(Object object, int columnIndex);
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Sphinx Developer Guide">
+   <!--
+   <!- - Reference example for Sphinx Plug-in Developer Guide: Platform Plug-in Developer Guide - ->
+   <topic label="Programmer's Guide">
+      <!- - Overview and detailed description of available building blocks plus links to related examples and tutorials - ->
+      <anchor id="programmersguide"/>
+   </topic>
+   -->
+   <topic label="Tutorials">
+      <!-- Detailed/step-by-step explanation of how examples work and can be used -->
+      <anchor id="tutorials"/>
+      <topic label="Using the Hummingbird Example" href="html/tutorials/Tutorial_UsingHummingbirdExample.html"/>
+      <topic label="My First Sphinx Project" href="html/tutorials/Tutorial_MyFirstSphinxProject.html"/>
+   </topic>
+   <!--
+   <topic label="Examples Guide">
+      <!- - Short description/overview of each example plus links to related tutorial - ->
+      <anchor id="examplesguide"/>
+   </topic>
+   -->
+   <topic label="Reference">
+      <!-- Generated JavaDoc of APIs and generated extension points documentation -->
+	   <topic label="API Reference"/>
+	   <topic label="Extension Point Reference"/>
+   </topic>
+   <topic label="Legal" href="notices.html"/>
+</toc>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.tests.jdt.integration;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.easymock,
+ org.eclipse.sphinx.testutils.integration.referenceworkspace,
+ org.eclipse.sphinx.jdt
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.eclipse.sphinx.tests.jdt.integration.internal.Activator$Implementation
+Export-Package: org.eclipse.sphinx.tests.jdt.integration.internal;x-internal:=true,
+ org.eclipse.sphinx.tests.jdt.integration.loaders,
+ org.eclipse.sphinx.tests.jdt.integration.loaders.mock

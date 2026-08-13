@@ -1,0 +1,7 @@
+# Tracing options for the org.eclipse.sphinx.examples.hummingbird20.diagram plug-in
+
+# Common issues
+org.eclipse.sphinx.examples.hummingbird20.diagram/debug=false
+
+# Visual IDs
+org.eclipse.sphinx.examples.hummingbird20.diagram/debug/visualID=false

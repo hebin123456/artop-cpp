@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.examples.views.documentation;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-Activator: org.eclipse.sphinx.examples.views.documentation.internal.Activator$Implementation
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common.ui,
+ org.eclipse.emf.ecore,
+ org.eclipse.sphinx.platform.ui
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.eclipse.sphinx.examples.views.documentation,
+ org.eclipse.sphinx.examples.views.documentation.internal;x-internal:=true
+

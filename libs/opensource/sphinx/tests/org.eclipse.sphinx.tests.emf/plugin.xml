@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.sphinx.emf.resourceHandlers">
+      <handler
+            class="org.eclipse.sphinx.tests.emf.resource.Hummingbird20ResourceHandler"
+            nsURIPattern="http://www.eclipse.org/sphinx/examples/hummingbird/2\.0\.\d(/\w+)*">
+      </handler>
+   </extension>
+
+</plugin>

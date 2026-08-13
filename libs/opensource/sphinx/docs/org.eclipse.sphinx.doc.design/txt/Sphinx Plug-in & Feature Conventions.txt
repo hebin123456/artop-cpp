@@ -1,0 +1,24 @@
+Sphinx Plug-in & Feature Conventions
+====================================
+
+* appropriate copyright headers based on Sphinx copyright headers in Java source files, plugin.properties and plugin.xml
+* no invalid UI dependencies
+* no imported packages
+* Java package name prefix = plug-in name
+* plug-in name/provider and feature name/provider/description/copyright exported to plugin.properties/feature.properties
+* plug-in provider and feature provider = Eclipse Modeling Project
+* plugin.properties/feature.properties included in Binary Build
+* appropriate plug-in and feature versions
+* presence of required legal files in plug-ins (about.html) and included in Binary Build and Source Build
+* presence of "Bundle-Localization: plugin" header in MANIFEST.MF
+* presence of EPL 2.0 URL and reference to license feature in feature.xml
+* Java 8 as minimum Java execution environment
+* project settings updated wrt latest changes in org.eclipse.sphinx.templates.project.plugin
+* appropriate EMF/EMF UI activator classes in internal package
+* elimination of compiler warnings as far as possible (e.g., missing @override annotations, etc.)
+* feature project name = feature id plus "-feature" postfix
+* pom.xml file with artifact id and version matching MANIFEST.MF/feature.xml and additional Maven plug-ins (e.g., xtend-maven-plugin) as appropriate
+* new plug-ins and features appropriately hooked up in parent features and Maven/Tycho build (i.e., /org.eclipse.sphinx.releng.builds/pom.xml)
+* new plug-ins and features added to Team project set (*.psf) files
+* new plug-ins and features added to Sphinx feature map (/org.eclipse.sphinx.doc.design/excel/SphinxFeatureMap.xlsx)
+* new plug-ins and features added to Sphinx architecture on Sphinx wiki (https://wiki.eclipse.org/Sphinx/architecture) 

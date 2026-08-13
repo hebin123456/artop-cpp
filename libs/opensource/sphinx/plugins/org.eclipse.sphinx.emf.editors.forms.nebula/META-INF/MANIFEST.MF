@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.emf.editors.forms.nebula;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Localization: plugin
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.sphinx.emf.editors.forms;visibility:=reexport,
+ org.eclipse.nebula.widgets.xviewer;visibility:=reexport,
+ org.eclipse.nebula.widgets.xviewer.core;visibility:=reexport
+Export-Package: org.eclipse.sphinx.emf.editors.forms.nebula.internal;x-internal:=true,
+ org.eclipse.sphinx.emf.editors.forms.nebula.providers,
+ org.eclipse.sphinx.emf.editors.forms.nebula.sections
+Bundle-Activator: org.eclipse.sphinx.emf.editors.forms.nebula.internal.Activator$Implementation
+Bundle-RequiredExecutionEnvironment: JavaSE-11

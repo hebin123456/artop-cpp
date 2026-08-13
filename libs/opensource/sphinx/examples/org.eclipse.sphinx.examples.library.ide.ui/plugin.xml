@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2010 See4sys and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    See4sys - Initial API and implementation
+
+</copyright>
+-->
+
+<plugin>
+
+  <!-- Common navigator viewer content binding contribution for EXTLibrary models -->
+
+ <extension point="org.eclipse.ui.navigator.viewer">
+    <viewerContentBinding viewerId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+      <includes>
+        <contentExtension pattern="org.eclipse.sphinx.examples.library.ide.ui.navigatorContent.extendedLibrary" />
+      </includes>
+    </viewerContentBinding>
+  </extension>
+   
+   <!-- Common navigator content contribution for EXTLibrary models -->
+
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            id="org.eclipse.sphinx.examples.library.ide.ui.navigatorContent.extendedLibrary"
+            name="%sphinx.examples.library.ide.ui.navigatorContent.extendedLibrary"
+            activeByDefault="true"
+            contentProvider="org.eclipse.sphinx.emf.explorer.BasicExplorerContentProvider"
+            labelProvider="org.eclipse.sphinx.emf.explorer.BasicExplorerLabelProvider"
+            priority="normal">
+         <triggerPoints>
+            <and>
+               <instanceof value="org.eclipse.core.resources.IFile"/>
+               <test
+                     property="org.eclipse.sphinx.emf.isInScope"
+                     value="true" />
+               <test 
+                     property="org.eclipse.sphinx.emf.metaModelIdMatches"
+                     value="org\.eclipse\.sphinx\.examples\.extlibrary"/>
+            </and>
+         </triggerPoints>
+         <possibleChildren>
+            <and>
+               <instanceof value="org.eclipse.emf.ecore.EObject" />
+               <test 
+                     property="org.eclipse.sphinx.emf.classNameMatches"
+                     value="org\.eclipse\.emf\.examples\.extlibrary\..*"/>
+            </and>
+         </possibleChildren>
+         <dropAssistant 
+               id="org.eclipse.sphinx.examples.library.ide.ui.navigatorContent.dropAssistant.extendedLibrary"
+               class="org.eclipse.sphinx.emf.explorer.BasicDropAdapterAssistant">
+            <possibleDropTargets>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+            </possibleDropTargets>
+         </dropAssistant>      
+      </navigatorContent>
+   </extension>
+   
+   <!-- Form editor with tabbed property sheet contribution for EXTLibrary models -->
+   
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.sphinx.emf.editors.forms.BasicTransactionalFormEditor"
+            contributorClass="org.eclipse.sphinx.emf.editors.forms.BasicTransactionalEditorActionBarContributor"
+            default="true"
+            extensions="Library, Writer, Book"
+            icon="$nl$/icons/full/obj16/libfile_obj.gif"
+            id="org.eclipse.sphinx.examples.library.ide.ui.editors.extendedLibrary"
+            name="%sphinx.examples.library.ide.ui.editors.extendedLibrary.name">
+         <contentTypeBinding 
+               contentTypeId="org.eclipse.emf.examples.library.extendedLibrary"/>
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor 
+            contributorId="org.eclipse.sphinx.examples.library.ide.ui.editors.extendedLibrary"
+            labelProvider="org.eclipse.sphinx.examples.common.ui.providers.AppearanceExampleTabbedPropertySheetTitleProvider">
+         <propertyCategory category="advanced" />
+      </propertyContributor>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs 
+            contributorId="org.eclipse.sphinx.examples.library.ide.ui.editors.extendedLibrary">
+         <propertyTab 
+               label="%sphinx.examples.library.ide.ui.propertyTabs.advanced.label"
+               category="advanced"
+               id="org.eclipse.sphinx.examples.library.ide.ui.propertyTabs.advanced" />
+      </propertyTabs>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections 
+            contributorId="org.eclipse.sphinx.examples.library.ide.ui.editors.extendedLibrary">
+         <propertySection 
+               class="org.eclipse.sphinx.emf.ui.properties.BasicTransactionalAdvancedPropertySection"
+               id="org.eclipse.sphinx.examples.library.ide.ui.propertySections.advanced"
+               tab="org.eclipse.sphinx.examples.library.ide.ui.propertyTabs.advanced">
+            <input type="java.lang.Object" />
+         </propertySection>
+      </propertySections>
+   </extension>
+</plugin>

@@ -1,0 +1,366 @@
+<html>
+<head>
+  <link rel="stylesheet" href="../sphinx.css" type="text/css" media="all">
+  <title>Tutorial - My First Eclipse Sphinx&trade; Project</title>
+</head>
+<body>
+  <h1>Tutorial - My First Eclipse Sphinx&trade; Project</h1>
+
+  <h2>Introduction</h2>
+  <p>This tutorial will guide you through the development of a simple application based on Sphinx.
+  The resulting application is quite simple (1 class, 2 projects, few extension point contributions).
+  However, thanks to the power of Sphinx, it is really functional.
+  <p>Our application is a model-based application.
+  For the purpose of this tutorial we will use the <em>Extended Library Model Example</em> provided by EMF.
+  
+  <h2>Step 1: Getting the example meta-model</h2>
+  <p>The example meta-model is provided by EMF.
+  It consists in three generated plug-ins.
+  Getting them is quite simple:
+  <ol>
+    <li>Open menu <span class="menu">File &gt; New &gt; Example... &gt; Eclipse Modeling Framework &gt; Extended Library Model Example</span>;
+    <li>Click <span class="menu">Next&nbsp;&gt;</span>;
+    <li>Click <span class="menu">Finish</span> to generate the three related projects, <span class="filename">org.eclipse.emf.examples.library</span>, <span class="filename">org.eclipse.emf.examples.library.edit</span> and <span class="filename">org.eclipse.emf.examples.library.editor</span>.
+  </ol>
+
+  <h2>Step 2: Creating the plug-in with meta-model descriptor</h2>
+  <p>The <em>meta-model descriptor</em> is a key-notion of Sphinx.
+  It consists in a class identifying a meta-model to be used in the workspace.
+  Each application based on Sphinx has to provide such a meta-model descriptor for each meta-model it uses.
+  
+  <h3>Step 2.1: Creating the enclosing project</h3>
+  <ol>
+    <li>Open menu <span class="menu">File &gt; New &gt; Project... &gt; Plug-In Project</span> and click <span class="menu">Next&nbsp;&gt;</span>;
+    <li>Call it <span class="input">org.eclipse.sphinx.examples.library.ide</span> and click <span class="menu">Next&nbsp;&gt;</span>;
+    <li>Disable option <span class="menu">This plug-in will make contributions to the UI</span> and click on <span class="menu">Finish</span>.
+  </ol>
+
+  <h3>Step 2.2: Adding the plug-in dependencies</h3>
+  <ol>
+    <li>Edit the <span class="filename">MANIFEST.MF</span> file in <span class="filename">org.eclipse.sphinx.examples.library.ide/META-INF</span>;
+    <li>In the <span class="menu">Dependencies</span> tab, add the required plug-in <span class="input">org.eclipse.sphinx.emf</span>. 
+  </ol>
+  
+  <h3>Step 2.3: Creating the class</h3>
+  <ol>
+    <li>Select the package contained by the <span class="filename">org.eclipse.sphinx.examples.library.ide</span> plug-in and create an new class (right-click, then <span class="menu">New &gt; Class</span>);
+    <li>Call it <span class="input">EXTLibraryMMDescriptor</span>;
+    <li>Provide its superclass <span class="input">org.eclipse.sphinx.emf.metamodel.AbstractMetaModelDescriptor</span>;
+    <li>Click on <span class="menu">Finish</span>.
+  </ol>
+
+  <h3>Step 2.4: Creating the constructor</h3>
+  <p>Edit the EXTLibraryMMDescriptor code to add the following default constructor:
+<pre>public EXTLibraryMMDescriptor() {
+    super("org.eclipse.sphinx.examples.library", EXTLibraryPackage.eNS_URI);
+}</pre>
+
+  <h3>Step 2.5: Contributing to the meta-model descriptor extension point</h3>
+  <p><b><font color="red">TODO: Explain the object of this extension point.</font></b>
+  <p>This plug-in contributes to the meta-model descriptor provided by Sphinx.
+  <ol>
+    <li>Open the <span class="filename">META-INF/MANIFEST.MF</span> file;
+    <li>Select the <span class="menu">Extensions</span> tab;
+    <li>Click <span class="menu">Add...</span>, uncheck option <span class="menu">Show only extension points from the required plug-ins</span> and select extension point <em>org.eclipse.sphinx.emf.metaModelDescriptors</em>; then click <span class="menu">Finish</span>;
+
+    <li>In <b>org.eclipse.sphinx.emf.metaModelDescriptors</b> add a new <em>descriptor</em> with the following property:
+      <table class="properties">
+        <tr>
+          <td class="property_name">id</td>
+          <td class="property_value">org.eclipse.sphinx.examples.extlibrary</td>
+        </tr>
+        <tr>
+          <td class="property_name">class</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.metamodel.EXTLibraryMMDescriptor</td>
+        </tr>
+      </table>
+  </ol>
+  
+  <h2>Step 3: Creating the UI plug-in</h2>
+  <p>Now we will create a second plug-in which deals with all what is related to the user interface.
+  This plug-in does not contain any code.
+  It only contributes to extension points of the Eclipse UI.
+  
+  <h3>Step 3.1: Creating the enclosing project</h3>
+  <ol>
+    <li>Open menu <span class="menu">File &gt; New &gt; Project... &gt; Plug-In Project</span> and click <span class="menu">Next&nbsp;&gt;</span>;
+    <li>Call it <span class="input">org.eclipse.sphinx.examples.library.ide.ui</span> and click <span class="menu">Next&nbsp;&gt;</span>;
+    <li>Enable option <span class="menu">This plug-in will make contributions to the UI</span> and click <span class="menu">Finish</span>.
+  </ol>
+  <p>Now the project exists and may contribute to extension points.
+
+  <h3>Step 3.2: Contributing to the navigator viewer</h3>
+  <p><b><font color="red">TODO: Explain the object of this extension point.</font></b>
+  <p>First, the UI plug-in contributes to the navigator viewer.
+  <ol>
+    <li>Open the <span class="filename">META-INF/MANIFEST.MF</span> file;
+    <li>Select the <span class="menu">Extensions</span> tab;
+    <li>Click <span class="menu">Add...</span>, uncheck option <span class="menu">Show only extension points from the required plug-ins</span> and select extension point <em>org.eclipse.ui.navigator.viewer</em>; then click <span class="menu">Finish</span>;
+
+    <li>In <b>org.eclipse.ui.navigator.viewer</b> add a new <em>viewerContentBinding</em> with the following property:
+      <table class="properties">
+        <tr>
+          <td class="property_name">viewerId</td>
+          <td class="property_value">org.eclipse.sphinx.examples.explorer.views.modelExplorer</td>
+        </tr>
+      </table>
+
+    <li>In <b>org.eclipse.sphinx.examples.explorer.views.modelExplorer</b> add a new <em>includes</em>;
+
+    <li>In <b>(includes)</b> add a new <em>contentExtension</em> with the following property:
+      <table class="properties">
+        <tr>
+          <td class="property_name">pattern</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.ui.navigatorContent.extendedlibrary</td>
+        </tr>
+      </table>
+  </ol>
+    
+  <h3>Step 3.3: Contributing to the navigator content</h3>
+  <p><b><font color="red">TODO: Explain the object of this extension point.</font></b>
+  <p>The UI plug-in contributes to the navigator content.
+  <ol>
+    <li>Click <span class="menu">Add...</span> and select extension point <em>org.eclipse.ui.navigator.navigatorContent</em>; then click <span class="menu">Finish</span>;
+
+    <li>In <b>org.eclipse.ui.navigator.navigatorContent</b> add a new <em>navigatorContent</em> with the following properties:
+      <table class="properties">
+        <tr>
+          <td class="property_name">id</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.ui.navigatorContent.extendedLibrary</td>
+        </tr>
+        <tr>
+          <td class="property_name">name</td>
+          <td class="property_value">Extended Library Content</td>
+        </tr>
+        <tr>
+          <td class="property_name">contentProvider</td>
+          <td class="property_value">org.eclipse.sphinx.emf.explorer.BasicExplorerContentProvider</td>
+        </tr>
+        <tr>
+          <td class="property_name">labelProvider</td>
+          <td class="property_value">org.eclipse.sphinx.emf.explorer.BasicExplorerLabelProvider</td>
+        </tr>
+      </table>
+
+    <li>In <b>Library Content</b> add a new <em>triggerPoints</em>;
+
+    <li>In <b>(triggerPoints)</b> add a new <em>and</em>;
+
+    <li>In <b>(and)</b> add a new <em>instanceof</em> with the following property:
+      <table class="properties">
+        <tr>
+          <td class="property_name">value</td>
+          <td class="property_value">org.eclipse.core.resources.IFile</td>
+        </tr>
+      </table>
+
+    <li>In <b>(and)</b> add a new <em>test</em> with the following properties:
+      <table class="properties">
+        <tr>
+          <td class="property_name">property</td>
+          <td class="property_value">org.eclipse.sphinx.emf.isInScope</td>
+        </tr>
+        <tr>
+          <td class="property_name">value</td>
+          <td class="property_value">true</td>
+        </tr>
+      </table>
+
+    <li>In <b>(and)</b> add a new <em>test</em> with the following properties:
+      <table class="properties">
+        <tr>
+          <td class="property_name">property</td>
+          <td class="property_value">org.eclipse.sphinx.emf.metaModelIdMatches</td>
+        </tr>
+        <tr>
+          <td class="property_name">value</td>
+          <td class="property_value">org\.eclipse\.sphinx\.examples\.extlibrary</td>
+        </tr>
+      </table>
+
+    <li>In <b>Library Content</b> add a new <em>possibleChildren</em>;
+
+    <li>In <b>(possibleChildren)</b> add a new <em>and</em>;
+
+    <li>In <b>(and)</b> add a new <em>instanceof</em> with the following property:
+      <table class="properties">
+        <tr>
+          <td class="property_name">value</td>
+          <td class="property_value">org.eclipse.emf.ecore.EObject</td>
+        </tr>
+      </table>
+
+    <li>In <b>(and)</b> add a new <em>test</em> with the following properties:
+      <table class="properties">
+        <tr>
+          <td class="property_name">property</td>
+          <td class="property_value">org.eclipse.sphinx.emf.classNameMatches</td>
+        </tr>
+        <tr>
+          <td class="property_name">value</td>
+          <td class="property_value">org\.eclipse\.emf\.examples\.extlibrary\..*</td>
+        </tr>
+      </table>
+
+    <li>In <b>Library Content</b> add a new <em>dropAssistant</em> with the following properties:
+      <table class="properties">
+        <tr>
+          <td class="property_name">id</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.ui.navigatorContent.dropAssistant.extendedLibrary</td>
+        </tr>
+        <tr>
+          <td class="property_name">class</td>
+          <td class="property_value">org.eclipse.sphinx.emf.explorer.BasicDropAdapterAssistant</td>
+        </tr>
+      </table>
+
+    <li>In <b>(possibleDropTargets)</b> add a new <em>instanceof</em> with the following property:
+      <table class="properties">
+        <tr>
+          <td class="property_name">value</td>
+          <td class="property_value">org.eclipse.emf.ecore.EObject</td>
+        </tr>
+      </table>
+  </ol>
+  
+  <h3>Step 3.4: Contributing to the Eclipse editors</h3>
+  <p><b><font color="red">TODO: Explain the object of this extension point.</font></b>
+  <p>The UI plug-in contributes to the Eclipse editors.
+  <ol>
+    <li>Click <span class="menu">Add...</span> and select extension point <em>org.eclipse.ui.editors</em>; then click <span class="menu">Finish</span>;
+
+    <li>In <b>org.eclipse.ui.editors</b> provides the following properties to the <em>editor</em>:
+      <table class="properties">
+        <tr>
+          <td class="property_name">id</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.ui.editors.extendedLibrary</td>
+        </tr>
+        <tr>
+          <td class="property_name">name</td>
+          <td class="property_value">Extended Library Example Editor</td>
+        </tr>
+        <tr>
+          <td class="property_name">icon</td>
+          <td class="property_value">&lt;path to a gif file used as an icon&gt;</td>
+        </tr>
+         <tr>
+          <td class="property_name">extensions</td>
+          <td class="property_value">Library, Writer, Book</td>
+        </tr>
+        <tr>
+          <td class="property_name">class</td>
+          <td class="property_value">org.eclipse.sphinx.emf.editors.forms.BasicTransactionalFormEditor</td>
+        </tr>
+        <tr>
+          <td class="property_name">contributorClass</td>
+          <td class="property_value">org.eclipse.sphinx.emf.editors.forms.BasicTransactionalEditorActionBarContributor</td>
+        </tr>
+      </table>
+
+    <li>In <b>Library Example Editor</b> add a new <em>contentTypeBinding</em> with the following property:
+      <table class="properties">
+        <tr>
+          <td class="property_name">contentTypeId</td>
+          <td class="property_value">org.eclipse.emf.examples.library.extendedLibrary</td>
+        </tr>
+      </table>
+  </ol>
+
+  <h3>Step 3.5: Contributing to the Eclipse property contributor</h3>
+  <p><b><font color="red">TODO: Explain the object of this extension point.</font></b>
+  <p>The UI plug-in contributes to the property contributor.
+  <ol>
+    <li>Click <span class="menu">Add...</span> and select extension point <em>org.eclipse.ui.views.properties.tabbed.propertyContributor</em>; then click <span class="menu">Finish</span>;
+
+    <li>In <b>org.eclipse.ui.views.properties.tabbed.propertyContributor</b> provides the following properties to the <em>propertyContributor</em>:
+      <table class="properties">
+        <tr>
+          <td class="property_name">contributorId</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.ui.editors.extendedlibrary</td>
+        </tr>
+        <tr>
+          <td class="property_name">labelProvider</td>
+          <td class="property_value">org.eclipse.sphinx.examples.common.ui.providers.AppearanceExampleTabbedPropertySheetTitleProvider</td>
+        </tr>
+      </table>
+
+    <li>In <b>(propertyContributor)</b> provides the following property to the <em>propertyCategory</em>:
+      <table class="properties">
+        <tr>
+          <td class="property_name">category</td>
+          <td class="property_value">advanced</td>
+        </tr>
+      </table>
+  </ol>
+
+  <h3>Step 3.6: Contributing to the Eclipse property tab</h3>
+  <p><b><font color="red">TODO: Explain the object of this extension point.</font></b>
+  <p>The UI plug-in contributes to the property tab.
+  <ol>
+    <li>Click <span class="menu">Add...</span> and select extension point <em>org.eclipse.ui.views.properties.tabbed.propertyTabs</em>; then click <span class="menu">Finish</span>;
+
+    <li>In <b>org.eclipse.ui.views.properties.tabbed.propertyTabs</b> provides the following property to the <em>propertyTabs</em>:
+      <table class="properties">
+        <tr>
+          <td class="property_name">contributorId</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.ui.editors.extendedLibrary</td>
+        </tr>
+      </table>
+
+    <li>In <b>(propertyTabs)</b> provides the following properties to the <em>propertyTab</em>:
+      <table class="properties">
+        <tr>
+          <td class="property_name">label</td>
+          <td class="property_value">Advanced</td>
+        </tr>
+        <tr>
+          <td class="property_name">category</td>
+          <td class="property_value">advanced</td>
+        </tr>
+        <tr>
+          <td class="property_name">id</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.ui.propertyTabs.advanced</td>
+        </tr>
+      </table>
+  </ol>
+
+  <h3>Step 3.7: Contributing to the Eclipse property sections</h3>
+  <p><b><font color="red">TODO: Explain the object of this extension point.</font></b>
+  <p>The UI plug-in contributes to the property sections.
+  <ol>
+    <li>Click <span class="menu">Add...</span> and select extension point <em>org.eclipse.ui.views.properties.tabbed.propertySections</em>; then click <span class="menu">Finish</span>;
+
+    <li>In <b>org.eclipse.ui.views.properties.tabbed.propertySections</b> provides the following property to the <em>propertySections</em>:
+      <table class="properties">
+        <tr>
+          <td class="property_name">contributorId</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.ui.editors.extendedLibrary</td>
+        </tr>
+      </table>
+
+    <li>In <b>(propertySections)</b> provides the following properties to the <em>propertySection</em>:
+      <table class="properties">
+        <tr>
+          <td class="property_name">tab</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.ui.propertyTabs.advanced</td>
+        </tr>
+        <tr>
+          <td class="property_name">id</td>
+          <td class="property_value">org.eclipse.sphinx.examples.library.ide.ui.propertySections.advanced</td>
+        </tr>
+        <tr>
+          <td class="property_name">class</td>
+          <td class="property_value">org.eclipse.sphinx.emf.ui.properties.BasicTransactionalAdvancedPropertySection</td>
+        </tr>
+      </table>
+
+    <li>In <b>org.eclipse.sphinx.examples.library.ide.ui.propertySections.advanced</b> add a new <em>input</em> with the following property:
+      <table class="properties">
+        <tr>
+          <td class="property_name">type</td>
+          <td class="property_value">java.lang.Object</td>
+        </tr>
+      </table>
+  </ol>
+</body>
+</html>

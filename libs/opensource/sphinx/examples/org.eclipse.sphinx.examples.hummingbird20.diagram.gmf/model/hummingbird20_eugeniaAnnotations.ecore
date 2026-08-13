@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hummingbird20"
+    nsURI="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1" nsPrefix="hb">
+  <eSubpackages name="common" nsURI="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common"
+      nsPrefix="cn">
+    <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//common/Description"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Description">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="mixed"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="name" value=":mixed"/>
+          <details key="kind" value="elementWildcard"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="typemodel" nsURI="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel"
+      nsPrefix="tm">
+    <eClassifiers xsi:type="ecore:EClass" name="Platform" eSuperTypes="#//common/Identifiable">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="mixed"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="componentTypes" lowerBound="1"
+          upperBound="-1" eType="#//typemodel/ComponentType" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
+          eType="#//typemodel/Interface" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="name" value=":mixed"/>
+          <details key="kind" value="elementWildcard"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xSISchemaLocation" upperBound="-1"
+          eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+          transient="true" containment="true">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="name" value="xsi:schemaLocation"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComponentType" eSuperTypes="#//common/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterfaces" upperBound="-1"
+          eType="#//typemodel/Interface" unsettable="true" eOpposite="#//typemodel/Interface/providingComponentTypes"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
+          eType="#//typemodel/Port" containment="true" eOpposite="#//typemodel/Port/owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//typemodel/Parameter" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Port" eSuperTypes="#//common/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1"
+          eType="#//typemodel/ComponentType" eOpposite="#//typemodel/ComponentType/ports"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface" lowerBound="1"
+          eType="#//typemodel/Interface" eOpposite="#//typemodel/Interface/requiringPorts"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minProviderCount" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxProviderCount" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//common/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providingComponentTypes"
+          upperBound="-1" eType="#//typemodel/ComponentType" eOpposite="#//typemodel/ComponentType/providedInterfaces"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringPorts" upperBound="-1"
+          eType="#//typemodel/Port" eOpposite="#//typemodel/Port/requiredInterface"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//common/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="instancemodel" nsURI="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/instancemodel"
+      nsPrefix="im">
+    <eAnnotations source="gmf">
+      <details key="foo" value="bar"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//common/Identifiable">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="mixed"/>
+      </eAnnotations>
+      <eAnnotations source="gmf.diagram">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
+          upperBound="-1" eType="#//instancemodel/Component" volatile="true" transient="true"
+          derived="true" containment="true">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="name" value=":mixed"/>
+          <details key="kind" value="elementWildcard"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xSISchemaLocation" upperBound="-1"
+          eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+          transient="true" containment="true">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="name" value="xsi:schemaLocation"/>
+          <details key="kind" value="element"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixedOuterContent" unique="false"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"
+          transient="true">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="elementWildcard"/>
+          <details key="wildcards" value="http://www.eclipse.org/emf/2003/XMLType"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="suppressedGetVisibility" value="true"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//common/Identifiable">
+      <eAnnotations source="gmf.node">
+        <details key="label" value="name"/>
+        <details key="border.color" value="0,0,0"/>
+        <details key="color" value="245,223,181"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//typemodel/ComponentType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingConnections"
+          upperBound="-1" eType="#//instancemodel/Connection" containment="true" eOpposite="#//instancemodel/Connection/sourceComponent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingConnections"
+          eType="#//instancemodel/Connection" eOpposite="#//instancemodel/Connection/targetComponent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterValues" upperBound="-1"
+          eType="#//instancemodel/ParameterValue" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Connection" eSuperTypes="#//common/Identifiable">
+      <eAnnotations source="gmf.link">
+        <details key="source" value="sourceComponent"/>
+        <details key="target" value="targetComponent"/>
+        <details key="target.decoration" value="arrow"/>
+        <details key="color" value="0,0,0"/>
+        <details key="label" value="name"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceComponent" lowerBound="1"
+          eType="#//instancemodel/Component" transient="true" eOpposite="#//instancemodel/Component/outgoingConnections"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePort" lowerBound="1"
+          eType="#//typemodel/Port"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetComponent" lowerBound="1"
+          eType="#//instancemodel/Component" eOpposite="#//instancemodel/Component/incomingConnections"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" eSuperTypes="#//common/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//typemodel/Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

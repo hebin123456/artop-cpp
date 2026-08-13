@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:cn="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/common" xmlns:tm="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/typemodel" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/typemodel">
+  <xsd:import namespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/common" schemaLocation="Common200XMI.xsd"/>
+  <xsd:complexType name="Platform">
+    <xsd:complexContent>
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="componentTypes" type="tm:ComponentType"/>
+          <xsd:element name="interfaces" type="tm:Interface"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Platform" type="tm:Platform"/>
+  <xsd:complexType name="ComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="providedInterfaces" type="tm:Interface"/>
+          <xsd:element name="ports" type="tm:Port"/>
+          <xsd:element name="parameters" type="tm:Parameter"/>
+        </xsd:choice>
+        <xsd:attribute name="providedInterfaces" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComponentType" type="tm:ComponentType"/>
+  <xsd:complexType name="Port">
+    <xsd:complexContent>
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="owner" type="tm:ComponentType"/>
+          <xsd:element name="requiredInterface" type="tm:Interface"/>
+        </xsd:choice>
+        <xsd:attribute name="minProviderCount" type="xsd:int" use="required"/>
+        <xsd:attribute name="maxProviderCount" type="xsd:int" use="required"/>
+        <xsd:attribute name="owner" type="xsd:string"/>
+        <xsd:attribute name="requiredInterface" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Port" type="tm:Port"/>
+  <xsd:complexType name="Interface">
+    <xsd:complexContent>
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="providingComponentTypes" type="tm:ComponentType"/>
+          <xsd:element name="requiringPorts" type="tm:Port"/>
+        </xsd:choice>
+        <xsd:attribute name="providingComponentTypes" type="xsd:string"/>
+        <xsd:attribute name="requiringPorts" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Interface" type="tm:Interface"/>
+  <xsd:complexType name="Parameter">
+    <xsd:complexContent>
+      <xsd:extension base="cn:Identifiable">
+        <xsd:attribute name="dataType" type="xsd:string"/>
+        <xsd:attribute name="optional" type="xsd:boolean"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Parameter" type="tm:Parameter"/>
+</xsd:schema>

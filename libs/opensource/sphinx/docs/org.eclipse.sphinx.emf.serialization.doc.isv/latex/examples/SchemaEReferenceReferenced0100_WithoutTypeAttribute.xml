@@ -1,0 +1,4 @@
+<xsd:element name="RELATED-REF" 
+             minOccurs="0" maxOccurs="unbounded" 
+             type="node:REF"/>
+

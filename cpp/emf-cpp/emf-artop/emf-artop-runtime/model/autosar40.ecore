@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  autosar40.ecore —— AUTOSAR R4.0 最小可运行元模型
+  对齐 Java: org.artop.aal.autosar40 (静态生成的 Autosar40Package)
+
+  说明:
+    Java ARTOP 的 autosar40 是从完整 MMOD 元模型生成的静态包（740+ subpackages），
+    C++ 端为避免磁盘膨胀不生成全量静态代码，而是提供一个最小但可实例化的动态元模型：
+      - nsURI = "http://autosar.org/schema/r4.0"（与 arxml 根 xmlns 一致）
+      - 根 EClass "AUTOSAR"（与 <AUTOSAR> 根元素一致）
+      - feature 名直接采用 arxml 元素名（SHORT-NAME / AR-PACKAGE 等，含连字符）
+    这样 XMILoader 的 buildInstanceObject 即可将 <AUTOSAR> 实例化为 EObject，
+    并通过 containment 递归构建 AR-PACKAGE 等子结构。
+
+    完整对齐时可用 codegen 从 gautosar.ecore + autosar40 release 生成全量静态包替换此文件。
+-->
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="autosar40"
+    nsURI="http://autosar.org/schema/r4.0"
+    nsPrefix="">
+  <eClassifiers xsi:type="ecore:EClass" name="AUTOSAR">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SHORT-NAME" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ADMIN-DATA" eType="#//AdminData" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AR-PACKAGE" upperBound="-1" eType="#//ARPackage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ARPackage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SHORT-NAME" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AR-PACKAGES" upperBound="-1" eType="#//ARPackage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ELEMENTS" upperBound="-1" eType="#//Referrable" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdminData">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DOC-REVISIONS" upperBound="-1" eType="#//DocRevision" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocRevision">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="REVISION-LABEL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ISSUED-BY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Referrable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SHORT-NAME" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

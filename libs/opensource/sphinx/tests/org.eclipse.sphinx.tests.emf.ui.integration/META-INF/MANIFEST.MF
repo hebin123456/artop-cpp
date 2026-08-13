@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.tests.emf.ui.integration;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.sphinx.emf.ui,
+ org.eclipse.sphinx.emf.editors.forms,
+ org.eclipse.sphinx.testutils.integration.referenceworkspace
+Export-Package: org.eclipse.sphinx.tests.emf.ui.integration.internal;x-internal:=true,
+ org.eclipse.sphinx.tests.emf.ui.integration.util,
+ org.eclipse.sphinx.tests.emf.ui.integration.util.editors
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.eclipse.sphinx.tests.emf.ui.integration.internal.Activator$Implementation

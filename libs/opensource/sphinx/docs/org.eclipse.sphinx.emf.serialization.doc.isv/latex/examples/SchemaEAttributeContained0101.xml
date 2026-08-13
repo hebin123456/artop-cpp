@@ -1,0 +1,7 @@
+<xsd:element name="PROPERTY" minOccurs="0" maxOccurs="unbounded" >
+  <xsd:complexType>
+    <xsd:choice minOccurs="0" maxOccurs="1" >
+      <xsd:element name="STRING" type="node:STRING"/>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:element>

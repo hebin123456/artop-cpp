@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="annotation_item_provider_adapter_factory" name="%_UI_AnnotationItemProviderAdapterFactoryRegistry_extensionpoint" schema="schema/annotation_item_provider_adapter_factory.exsd"/>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.eclipse.org/emf/2002/Ecore"
+            class="org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.emf.ecore.edit.annotation_item_provider_adapter_factory">
+      <factory
+            uri="http://www.eclipse.org/emf/2002/Ecore"
+            class="org.eclipse.emf.ecore.provider.annotation.EcoreAnnotationItemProviderAdapterFactory">
+      </factory>
+      <factory
+            uri="http:///org/eclipse/emf/ecore/util/ExtendedMetaData"
+            class="org.eclipse.emf.ecore.provider.annotation.ExtendedMetaDataAnnotationItemProviderAdapterFactory">
+      </factory>
+      <factory
+            uri="http:///org/eclipse/emf/ecore/util/DateConversionDelegate"
+            class="org.eclipse.emf.ecore.provider.annotation.DateConversionDelegateAnnotationItemProviderAdapterFactory">
+      </factory>
+   </extension>
+
+</plugin>

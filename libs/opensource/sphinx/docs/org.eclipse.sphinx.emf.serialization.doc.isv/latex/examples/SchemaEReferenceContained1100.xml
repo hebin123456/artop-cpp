@@ -1,0 +1,29 @@
+<xsd:element name="CHILDREN" minOccurs="0" maxOccurs="1" >
+  <xsd:complexType>
+    <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+      <xsd:element name="CHILD" type="node:NODE"/>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="CHILDREN" minOccurs="0" maxOccurs="1" >
+  <xsd:complexType>
+    <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+      <xsd:element name="CHILD">
+        <xsd:complexType>
+  	      <xsd:group ref="node:NODE--SUPERTYPE-GROUP"/>
+  	      <xsd:attribute name="TYPE" value="node:NODE--SUBTYPES-ENUM"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="CHILDREN" minOccurs="0" maxOccurs="1" >
+  <xsd:complexType>
+    <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+      <xsd:element name="CHILD" type="xsd:anyType"/>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:element>
+

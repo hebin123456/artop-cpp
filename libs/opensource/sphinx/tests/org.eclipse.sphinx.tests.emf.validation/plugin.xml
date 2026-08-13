@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2021 Elektrobit and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    Elektrobit - Initial API and implementation
+
+</copyright>
+-->
+
+<plugin>
+
+   <!-- Constraint category definition -->
+
+   <extension point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            name="Hummingbird 2.0 Constraints"
+            id="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.category">
+         Constraints for Hummingbird 2.0 metamodel
+      </category>
+   </extension>
+
+   <!-- The constraints themselves -->
+
+   <extension point="org.eclipse.emf.validation.constraintProviders">
+      <constraintProvider cache="true">
+
+       <package namespaceUri="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common"/>
+
+        <constraints categories="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.category">
+            <constraint
+                  id="org.eclipse.sphinx.tests.emf.validation.constraints.CustomApplicationErrorInNameConstraint"
+                  name="The name must not contain Error"
+                  lang="Java"
+                  class="org.eclipse.sphinx.tests.emf.validation.constraints.CustomApplicationErrorInNameConstraint"
+                  severity="ERROR"
+                  mode="Live"
+                  statusCode="101">
+               <description>Checks if the name is correct.</description>
+               <message>The name of &quot;{0}&quot; must not contain &quot;Error&quot; in name.</message>
+               <target class="Identifiable">
+                  <event name="Set">
+                     <feature name="name" />
+                  </event>
+                  <event name="Unset">
+                    <feature name="name" />
+                  </event>
+               </target>
+            </constraint>
+
+
+            <!-- TODO Switch back to OCL implementation when OCL supports oclContainer() operation or EMF Validation supports one of the below
+                 mentioned workarounds to be implemented:
+                 http://wiki.eclipse.org/MDT/OCL/FAQ#How_do_I_invoke_methods_such_as_eContainer.28.29.2C_eContents.28.29.2C_eGet.28.29.3F -->
+            <!--constraint
+                  id="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.interfaceNamesMustBeUnique"
+                  name="Interface names must be unique"
+                  lang="OCL"
+                  severity="ERROR"
+                  mode="Live"
+                  statusCode="103">
+               <description>Checks if the names of all interfaces within the same platform are unique.</description>
+               <message>The interface "{0}" has the same name as another interface within same platform.</message>
+               <target class="Interface">
+                  <event name="Set">
+                     <feature name="name"/>
+                  </event>
+                  <event name="Unset">
+                    <feature name="name" />
+                  </event>
+               </target>
+
+               <![CDATA[
+                  self.oclContainer().oclAsType(Platform).interfaces->select(i | i <> self and i.name = self.name)->isEmpty()
+               ]]>
+
+            </constraint-->
+
+         </constraints>
+      </constraintProvider>
+    </extension>
+
+   <!-- Client context definition -->
+
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext id="hummingbird20.identifiable.context">
+         <enablement>
+            <instanceof value="org.eclipse.sphinx.examples.hummingbird20.common.Identifiable"/>
+         </enablement>
+      </clientContext>
+   </extension>
+
+   <!-- Binding of constraint category to client context -->
+
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+      <binding
+            context="hummingbird20.identifiable.context"
+            category="org.eclipse.sphinx.examples.hummingbird20.validation.constraints.category"/>
+   </extension>
+
+</plugin>

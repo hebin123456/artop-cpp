@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.sphinx.emf.editors"
+      label="%featureName"
+      version="0.13.1.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.license"
+      license-feature-version="2.0.2.v20181016-2210">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.sphinx.emf.editors"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

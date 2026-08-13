@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.emf.editors.viatra.query;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Automatic-Module-Name: org.eclipse.sphinx.emf.editors.viatra.query
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.sphinx.emf.editors.forms,
+ org.eclipse.viatra.query.runtime.ui;bundle-version="2.2.0"
+Bundle-Vendor: %providerName

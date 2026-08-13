@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.sphinx.emf.mwe.dynamic.launching.launchConfigurationTypes.workflow">
+<mapAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.ARGUMENTS">
+<mapEntry key="booleanArg" value="false"/>
+<mapEntry key="stringArg" value="stringValue"/>
+<mapEntry key="uriArg" value="file://C:/folder/file.ext"/>
+</mapAttribute>
+<booleanAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.AUTO_SAVE" value="true"/>
+<stringAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.MODEL" value=""/>
+<stringAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.WORKFLOW" value="/org.eclipse.sphinx.examples.workflows/src/org/eclipse/sphinx/examples/workflows/simple/xtend/SimpleXtendWorkflow.xtend"/>
+</launchConfiguration>

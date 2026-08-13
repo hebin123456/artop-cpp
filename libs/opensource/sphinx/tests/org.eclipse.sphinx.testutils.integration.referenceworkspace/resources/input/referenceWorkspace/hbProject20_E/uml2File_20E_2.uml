@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_41ir8DceEd-LKrMfMyVojg" name="UMLModel">
+  <packagedElement xmi:type="uml:Package" xmi:id="_Bu7O8DckEd-LNrMfMyVojg" name="package1">
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_1U_TwGoKEd-HU7fEYfGspQ" name="FunctionBehavior20E2_1">
+      <specification xmi:type="uml:Operation" href="uml2File_20E_3.uml#_VMHdYGoLEd-HU7fEYfGspQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_M0qDMGoLEd-HU7fEYfGspQ" name="FunctionBehavior20E2_2">
+      <specification xmi:type="uml:Operation" href="uml2File_20E_3.uml#_bw_foGoLEd-HU7fEYfGspQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_7vyq0GpIEd-HU7fEYfGspQ" name="FunctionBehavior320E2_3" specification="_qkp0gGpIEd-HU7fEYfGspQ"/>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="__HrzsGpIEd-HU7fEYfGspQ" name="FunctionBehavior20E2_4" specification="_uToAoGpIEd-HU7fEYfGspQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_DH4ecDcfEw-LNrMfMyVojg" name="package2">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_nwo0wGpIEd-HU7fEYfGspQ" name="Inteface20E_2">
+      <ownedOperation xmi:id="_qkp0gGpIEd-HU7fEYfGspQ" name="Operation20E2_1" method="_7vyq0GpIEd-HU7fEYfGspQ"/>
+      <ownedOperation xmi:id="_uToAoGpIEd-HU7fEYfGspQ" name="Operation20E2_2" method="__HrzsGpIEd-HU7fEYfGspQ"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

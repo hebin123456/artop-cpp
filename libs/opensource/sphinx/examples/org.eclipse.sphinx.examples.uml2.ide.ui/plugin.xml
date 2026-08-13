@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2013 See4sys, itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    See4sys - Initial API and implementation
+    itemis - Added support for UML models stored in OMG XMI and CMOF files
+    itemis - [421547] Sphinx UML Example integration: support for UML-specific actions and property sheets
+    
+</copyright>
+-->
+
+<plugin>
+
+  <!-- Common navigator viewer content binding contribution for UML2 models -->
+
+ <extension point="org.eclipse.ui.navigator.viewer">
+    <viewerContentBinding viewerId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+      <includes>
+        <contentExtension pattern="org.eclipse.sphinx.examples.uml2.ide.ui.navigatorContent.uml2" />
+      </includes>
+    </viewerContentBinding>
+    <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+      <includes>
+        <contentExtension pattern="org.eclipse.sphinx.examples.uml2.ide.ui.navigatorContent.uml2" />
+      </includes>
+    </viewerContentBinding>
+  </extension>
+   
+   <!-- Common navigator content contribution for UML2 models -->
+
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            id="org.eclipse.sphinx.examples.uml2.ide.ui.navigatorContent.uml2"
+            name="%org.eclipse.sphinx.examples.uml2.ide.ui.navigatorContent.uml2"
+            activeByDefault="true"
+            contentProvider="org.eclipse.sphinx.emf.explorer.BasicExplorerContentProvider"
+            labelProvider="org.eclipse.sphinx.emf.explorer.BasicExplorerLabelProvider"
+            priority="normal">
+         <triggerPoints>
+            <and>
+               <instanceof value="org.eclipse.core.resources.IFile"/>
+               <test
+                     property="org.eclipse.sphinx.emf.isInScope"
+                     value="true" />
+               <test 
+                     property="org.eclipse.sphinx.emf.metaModelIdMatches"
+                     value="org\.eclipse\.sphinx\.examples\.uml2"/>
+            </and>
+         </triggerPoints>
+         <possibleChildren>
+            <and>
+               <instanceof value="org.eclipse.uml2.uml.Element" />
+            </and>
+         </possibleChildren>
+         <dropAssistant 
+               id="org.eclipse.sphinx.examples.uml2.ide.ui.navigatorContent.dropAssistant.uml2"
+               class="org.eclipse.sphinx.emf.explorer.BasicDropAdapterAssistant">
+            <possibleDropTargets>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+            </possibleDropTargets>
+         </dropAssistant>      
+      </navigatorContent>
+   </extension>
+   
+   <!-- Form editor with tabbed property sheet contribution for UML2 models -->
+   
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.sphinx.emf.editors.forms.BasicTransactionalFormEditor"
+            contributorClass="org.eclipse.sphinx.emf.editors.forms.BasicTransactionalEditorActionBarContributor"
+            default="true"
+            extensions="Model, Package, Profile"
+            icon="$nl$/icons/full/obj16/umlfile_obj.gif"
+            id="org.eclipse.sphinx.examples.uml2.ide.ui.editors.uml2"
+            name="%org.eclipse.sphinx.examples.uml2.ide.ui.editors.uml2.name">
+         <contentTypeBinding contentTypeId="org.eclipse.uml2"/>
+         <contentTypeBinding contentTypeId="org.eclipse.uml2.uml"/>
+         <contentTypeBinding contentTypeId="org.omg.uml"/>
+         <contentTypeBinding contentTypeId="org.omg.mof.cmof"/>
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor 
+            contributorId="org.eclipse.sphinx.examples.uml2.ide.ui.editors.uml2"
+            labelProvider="org.eclipse.sphinx.examples.common.ui.providers.AppearanceExampleTabbedPropertySheetTitleProvider">
+         <propertyCategory category="advanced" />
+      </propertyContributor>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs 
+            contributorId="org.eclipse.sphinx.examples.uml2.ide.ui.editors.uml2">
+         <propertyTab 
+               label="%org.eclipse.sphinx.examples.uml2.ide.ui.propertyTabs.advanced.label"
+               category="advanced"
+               id="org.eclipse.sphinx.examples.uml2.ide.ui.propertyTabs.advanced" />
+      </propertyTabs>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections 
+            contributorId="org.eclipse.sphinx.examples.uml2.ide.ui.editors.uml2">
+         <propertySection 
+               class="org.eclipse.sphinx.examples.uml2.ide.ui.properties.UML2AdvancedPropertySection"
+               id="org.eclipse.sphinx.examples.uml2.ide.ui.propertySections.advanced"
+               tab="org.eclipse.sphinx.examples.uml2.ide.ui.propertyTabs.advanced">
+            <input type="java.lang.Object" />
+         </propertySection>
+      </propertySections>
+   </extension>
+</plugin>

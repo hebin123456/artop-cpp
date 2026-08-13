@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.emf.validation.bridge;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Activator: org.eclipse.sphinx.emf.validation.bridge.Activator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.sphinx.platform
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.sphinx.emf.validation.bridge,
+ org.eclipse.sphinx.emf.validation.bridge.extensions,
+ org.eclipse.sphinx.emf.validation.bridge.util
+Bundle-RequiredExecutionEnvironment: JavaSE-11

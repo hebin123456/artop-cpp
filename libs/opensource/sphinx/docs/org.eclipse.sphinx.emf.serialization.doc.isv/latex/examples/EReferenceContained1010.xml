@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NODE xmlns="NodesURI" name="root">
+  <CHILDREN>
+    <NODES>
+      <DESC>this is childNode 1</DESC>
+      <DESC>this is childNode 2</DESC>
+    </NODES>
+    <SUB-NODES>
+      <DESC>this is childSubNode</DESC>
+    </SUB-NODES>
+  </CHILDREN>
+</NODE>

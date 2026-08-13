@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.artop.aal.autosar40;singleton:=true
+Archiver-Version: Plexus Archiver
+Built-By: tomcat
+Require-Bundle: org.artop.aal.autosar448;resolution:=optional;visibili
+ ty:=reexport,org.artop.aal.autosar447;resolution:=optional;visibility
+ :=reexport,org.artop.aal.autosar446;resolution:=optional;visibility:=
+ reexport,org.artop.aal.autosar445;resolution:=optional;visibility:=re
+ export,org.artop.aal.autosar444;resolution:=optional;visibility:=reex
+ port,org.artop.aal.autosar443;resolution:=optional;visibility:=reexpo
+ rt,org.artop.aal.autosar442;resolution:=optional;visibility:=reexport
+ ,org.artop.aal.autosar430;resolution:=optional;visibility:=reexport,o
+ rg.artop.aal.autosar422;resolution:=optional;visibility:=reexport,org
+ .artop.aal.autosar403;resolution:=optional;visibility:=reexport,org.a
+ rtop.aal.autosar411;resolution:=optional;visibility:=reexport,org.art
+ op.aal.autosar412;resolution:=optional;visibility:=reexport,org.artop
+ .aal.autosar421;resolution:=optional;visibility:=reexport,org.artop.a
+ al.autosar402;resolution:=optional;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ManifestVersion: 2
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Bundle-Version: 4.13.0.201912171516
+Bundle-Localization: plugin
+Created-By: Apache Maven 3.6.0
+Build-Jdk: 1.8.0_222
+

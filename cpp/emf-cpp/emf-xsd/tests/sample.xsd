@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/library"
+           xmlns:tns="http://www.example.com/library"
+           elementFormDefault="qualified">
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:include schemaLocation="common.xsd"/>
+
+  <xs:annotation>
+    <xs:documentation>Library schema for book management.</xs:documentation>
+    <xs:appinfo>app-specific metadata</xs:appinfo>
+  </xs:annotation>
+
+  <xs:simpleType name="ISBNType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{10,13}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="BookType" mixed="false">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="author" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="year" type="xs:int"/>
+      <xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="isbn" type="tns:ISBNType" use="required"/>
+    <xs:attribute name="lang" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="LibraryType">
+    <xs:sequence>
+      <xs:element name="book" type="tns:BookType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="library" type="tns:LibraryType"/>
+  <xs:element name="book" type="tns:BookType"/>
+
+  <xs:attribute name="globalAttr" type="xs:string"/>
+</xs:schema>

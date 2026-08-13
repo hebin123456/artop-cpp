@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.sphinx.emf.workspace.modelLoadManager">
+      <modelLoadManager
+            class="org.eclipse.sphinx.tests.emf.workspace.extension.loading.custom.CustomModelLoadManager">
+      </modelLoadManager>
+   </extension>
+
+</plugin>

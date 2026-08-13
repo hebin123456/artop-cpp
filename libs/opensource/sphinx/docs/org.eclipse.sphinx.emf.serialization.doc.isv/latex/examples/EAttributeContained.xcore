@@ -1,0 +1,38 @@
+@Ecore(nsURI="nodesURI")
+package nodes 
+
+annotation "http://www.eclipse.org/emf/2002/Ecore" 
+as Ecore
+
+annotation "http:///org/eclipse/emf/ecore/util/ExtendedMetaData" 
+as ExtendedMetaData
+
+annotation "http:///org/eclipse/sphinx/emf/serialization/XMLPersistenceMappingExtendedMetaData" 
+as XMLPersistenceMappingExtendedMetaData
+
+
+
+/**
+ * Class Node
+ */
+@ExtendedMetaData(name="NODE")
+@XMLPersistenceMappingExtendedMetaData(wrapperName="NODE")
+class Node {
+	@ExtendedMetaData(name="NODE")
+	@XMLPersistenceMappingExtendedMetaData(
+		wrapperName="NODES", 
+		featureWrapperElement="true",
+		featureElement="true",
+		classifierWrapperElement="false",
+		classifierElement="false"
+	)
+	String[] property
+}
+
+
+/**
+ * Datatype String
+ */
+@ExtendedMetaData(name="STRING")
+@XMLPersistenceMappingExtendedMetaData(wrapperName="STRING-VALUES")
+type String wraps java.lang.String

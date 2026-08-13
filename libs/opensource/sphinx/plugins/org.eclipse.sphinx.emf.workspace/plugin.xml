@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2013 See4sys, itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    See4sys - Initial API and implementation
+    itemis - [409459] Enable asynchronous loading of affected models when creating or resolving references to elements in other models
+    itemis - [409014] Listener URIChangeDetector registered for all transactional editing domains
+
+</copyright>
+-->
+
+<plugin>
+
+   <extension-point id="editingDomains" name="%editingDomains.name" schema="schema/editingDomains.exsd"/>
+   <extension-point id="uriChangeDetectorDelegates" name="%uriChangeDetectorDelegates.name" schema="schema/uriChangeDetectorDelegates.exsd"/>
+   <extension-point id="uriChangeListeners" name="%uriChangeListeners.name" schema="schema/uriChangeListeners.exsd"/>
+   <extension-point id="modelSaveLifecycleListeners" name="%modelSaveLifecycleListeners.name" schema="schema/modelSaveLifecycleListeners.exsd"/>
+   <extension-point id="modelLoadManager" name="%modelLoadManager.name" schema="schema/modelLoadManager.exsd"/>
+   
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.core.resources.IFile"
+            class="org.eclipse.sphinx.emf.workspace.internal.EditingDomainAdapterFactory">
+         <adapter
+               type="org.eclipse.emf.edit.domain.IEditingDomainProvider" />
+      </factory>
+      <factory
+            adaptableType="org.eclipse.core.resources.IContainer"
+            class="org.eclipse.sphinx.emf.workspace.internal.EditingDomainAdapterFactory">
+         <adapter
+               type="org.eclipse.sphinx.emf.domain.IContainerEditingDomainProvider" />
+      </factory>
+      <factory
+            adaptableType="org.eclipse.emf.transaction.TransactionalEditingDomain"
+            class="org.eclipse.sphinx.emf.workspace.internal.EditingDomainAdapterFactory">
+         <adapter
+               type="org.eclipse.sphinx.emf.saving.IResourceSaveIndicator" />
+      </factory>
+      <factory
+            adaptableType="org.eclipse.sphinx.emf.model.IModelDescriptor"
+            class="org.eclipse.sphinx.emf.workspace.internal.ModelDescriptorAdapterFactory">
+         <adapter
+               type="org.eclipse.sphinx.emf.saving.IModelSaveIndicator">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="org.eclipse.sphinx.emf.metamodel.IMetaModelDescriptor"
+            class="org.eclipse.sphinx.emf.workspace.internal.MetaModelDescriptorAdapterFactory">
+         <adapter
+               type="org.eclipse.sphinx.emf.loading.IModelLoadService">
+         </adapter>
+      </factory>
+   </extension>
+   <extension
+         id="modelSaveProvider"
+         name="%modelSaveProvider.name"
+         point="org.eclipse.core.resources.modelProviders">
+      <modelProvider
+            class="org.eclipse.sphinx.emf.workspace.internal.saving.ModelSaveProvider">
+      </modelProvider>
+      <enablement>
+         <instanceof value="org.eclipse.core.resources.IProject" />
+      </enablement>
+   </extension>
+   <extension
+         point="org.eclipse.sphinx.emf.editingDomainFactoryListeners">
+      <listener
+            class="org.eclipse.sphinx.emf.workspace.referentialintegrity.URIChangeDetector$URIChangeDetectorInstaller"
+            id="org.eclipse.sphinx.emf.workspace.referentialintegrity.uriChangeDetectorInstaller">
+         <applicableFor
+               metaModelDescriptorIdPattern="org.eclipse.sphinx.emf.metamodel.any">
+         </applicableFor>
+      </listener>
+   </extension>
+   <extension
+         point="org.eclipse.sphinx.emf.workspace.uriChangeDetectorDelegates">
+      <delegate
+            class="org.eclipse.sphinx.emf.workspace.referentialintegrity.XMIURIChangeDetectorDelegate"
+            id="org.eclipse.sphinx.emf.workspace.XMIURIChangeDetectorDelegate">
+         <applicableFor
+               resourceType="org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl">
+         </applicableFor>
+      </delegate>
+   </extension>
+
+</plugin>

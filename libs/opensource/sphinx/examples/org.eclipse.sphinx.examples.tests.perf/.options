@@ -1,0 +1,35 @@
+#This options let configure the performance stats framework in general. 
+#Enable or disable profiling of performance events.
+org.eclipse.sphinx.platform/perf=true
+
+#Enable or disable manual reset of the data base containing events.
+#If true is set you need to call removeAllStats method to clear the base.If false is set , the base is cleared on runtime. 
+org.eclipse.sphinx.platform/perf/jUnitOptions/keepEventInfoAfterLogging=true
+
+#If false is set all events will be logged in a separated log file named with the concrete AbstractperformanceStat class name.
+org.eclipse.sphinx.platform/perf/logOptions/logInSeparateLogFile=false
+
+#If true is set all events having a running time null will be logged as warning.
+org.eclipse.sphinx.platform/perf/logOptions/logErrorOnTimeout=true
+
+#If true is set all events having a running time null will be logged as warning.
+org.eclipse.sphinx.platform/perf/logOptions/logWarningOnNoTime=true
+
+#If true is set all log file will be erased when the application is shut down.
+org.eclipse.sphinx.platform/perf/logOptions/clearLogFilesOnStartup=true
+
+org.eclipse.sphinx.platform/perf/logOptions/logEventsDetails=false
+
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideSampleMethod1_part1=true
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideSampleMethod1_part2=true
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideSampleMethod1_part3=true
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideSampleMethod2=true
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideSampleMethod3=true
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideAllMethod=true
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideSampleMethod1_part1/timeOutValue=10
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideSampleMethod1_part2/timeOutValue=700
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideSampleMethod1_part3/timeOutValue=700
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideSampleMethod2/timeOutValue=10
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideSampleMethod3/timeOutValue=700
+org.eclipse.sphinx.examples.tests.perf/perf/eventOptions/ExamplePerformanceStats/InsideAllMethod/timeOutValue=700
+ 

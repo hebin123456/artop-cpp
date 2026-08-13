@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  library_ext.ecore —— 端到端多文件测试用的扩展 EPackage
+  跨文件引用：
+    - eSuperTypes 引用 library.ecore 里的 Library
+    - eType 引用 library.ecore 里的 Book
+    - 这样加载 library_ext.ecore 时，依赖 library.ecore 的 classifiers
+-->
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="libraryExt" nsURI="http://example.com/e2e/libraryExt" nsPrefix="libraryExt">
+  <eClassifiers xsi:type="ecore:EClass" name="AnnotatedLibrary" eSuperTypes="library.ecore#//Library">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="note" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="highlighted" upperBound="-1"
+        eType="ecore:EClass library.ecore#//Book" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BookCollection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="books" upperBound="-1"
+        eType="ecore:EClass library.ecore#//Book" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

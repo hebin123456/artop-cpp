@@ -1,0 +1,14 @@
+<xsd:element name="NODES" minOccurs="0" maxOccurs="1" >
+  <xsd:complexType>
+    <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+      <xsd:element name="NODE" type="node:NODE"/>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:element>
+<xsd:element name="SUB-NODES" minOccurs="0" maxOccurs="1" >
+  <xsd:complexType>
+    <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+      <xsd:element name="SUB-NODE" type="node:SUB-NODE"/>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:element>

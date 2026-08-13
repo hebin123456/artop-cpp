@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: hummingbird20.codegen.xpand;singleton:=true
+Bundle-Version: 0.7.0.qualifier
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.eclipse.sphinx.examples.hummingbird.codegen.xpand.extensions
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.sphinx.tests.xtendxpand.integration;bundle-version="0.7.0"

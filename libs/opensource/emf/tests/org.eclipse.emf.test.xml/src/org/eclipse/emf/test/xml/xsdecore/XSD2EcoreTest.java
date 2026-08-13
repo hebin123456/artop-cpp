@@ -1,0 +1,187 @@
+/**
+ * Copyright (c) 2002-2007 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v20.html
+ *
+ * Contributors:
+ *   IBM - Initial API and implementation
+ */
+package org.eclipse.emf.test.xml.xsdecore;
+
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Vector;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMIResource;
+import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
+import org.eclipse.emf.test.common.TestUtil;
+import org.eclipse.emf.test.xml.AllSuites;
+import org.eclipse.emf.test.xml.xmi.CompareXML;
+import org.eclipse.xsd.ecore.XSDEcoreBuilder;
+import org.eclipse.xsd.util.XSDResourceFactoryImpl;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+
+/**
+ * Test for conversion from XSD to ECore - compare against expected output
+ */
+public class XSD2EcoreTest
+{
+  DocumentBuilder builder = null;
+
+  XSDEcoreBuilder xsdEcoreBuilder;
+  Resource resource;
+
+  // list of xsd files to generate .ecore
+  Vector<String> xsdfiles;
+
+  // expected output for .ecore files for given xsd files
+  Vector<String> ecorefiles;
+
+  // base uri of the xsd and ecore files
+  final static String BASE_XSD_URI = TestUtil.getTestCommonDirectory() + "/models/MovieDB/";
+  final static String BASE_ECORE_URI = TestUtil.getTestCommonDirectory() + "/models/MovieDB/";
+
+  // to serialize .ecore files turn this on
+  final static boolean SERIALISE_ECORE = false;
+
+  @Before
+  public void setUp() throws Exception
+  {
+    xsdEcoreBuilder = new XSDEcoreBuilder();
+    ecorefiles = new Vector<String>();
+    xsdfiles = new Vector<String>();
+
+    Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xsd", new XSDResourceFactoryImpl());
+    Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setNamespaceAware(true);
+    builder = factory.newDocumentBuilder();
+    // Add XSD file to convert to ECORE
+    xsdfiles.add(BASE_XSD_URI + "order.xsd");
+
+    // Add in the right order the files to compare with the output
+
+    ecorefiles.add(BASE_ECORE_URI + "db.ecore");
+    ecorefiles.add(BASE_ECORE_URI + "customer.ecore");
+    ecorefiles.add(BASE_ECORE_URI + "order.ecore");
+  }
+
+  @After
+  public void tearDown() throws Exception
+  {
+    builder = null;
+    xsdEcoreBuilder = null;
+    xsdfiles = null;
+    ecorefiles = null;
+  }
+
+  @Test
+  public void xsd2ecore() throws Exception
+  {
+    URI uri = null;
+
+    for (int k = 0; k < xsdfiles.size(); k++)
+    {
+
+      File file = new File(xsdfiles.get(k));
+      uri = URI.createFileURI(file.getCanonicalFile().toString());
+
+      // generate resources
+      Collection<Resource> resources = xsdEcoreBuilder.generateResources(uri);
+
+      // fix ecore generated resources
+      resources = fixEcoreResorces(resources);
+      int counter = 0;
+
+      for (Iterator<Resource> rs = resources.iterator(); rs.hasNext();)
+      {
+        resource = rs.next();
+        ByteArrayOutputStream outputstream = new ByteArrayOutputStream(2064);
+        resource.save(outputstream, Collections.EMPTY_MAP);
+
+        if (SERIALISE_ECORE)
+        {
+          FileOutputStream fileoutput = new FileOutputStream(BASE_ECORE_URI+"out" + counter
+              + ".xml");
+          resource.save(fileoutput, Collections.EMPTY_MAP);
+          //resource.save(System.out, Collections.EMPTY_MAP);
+        }
+        String expectedOutput = ecorefiles.get(counter++);
+        CompareXML.compareFiles(builder, expectedOutput ,new ByteArrayInputStream(outputstream.toByteArray()) );
+      }
+    }
+  }
+
+  private Collection<Resource> fixEcoreResorces(Collection<Resource> generatedResources)
+  {
+    ResourceSet resourceSet = new ResourceSetImpl();
+    for (Resource resource : generatedResources)
+    {
+      if (resource instanceof XMIResource)
+      {
+        // fix resource URI
+        EPackage ePackage = (EPackage)resource.getContents().get(0);
+        String ecoreFileName = ePackage.getName();
+        int index = ecoreFileName.lastIndexOf('.');
+        if (index >= 0)
+        {
+          ecoreFileName = ecoreFileName.substring(index+1);
+        }
+        ecoreFileName = ecoreFileName + ".ecore";
+        URI ecoreURI = URI.createFileURI(TestUtil.getPluginDirectory(AllSuites.PLUGIN_ID) + "/data/xsd_ecore/" + ecoreFileName);
+        Resource newResource = resourceSet.createResource(URI.createURI("*.ecore"));
+        newResource.setURI(ecoreURI);
+
+        // fix Name of resource
+        String name = ePackage.getName();
+        int dot = name.lastIndexOf(".");
+        if (dot != -1)
+        {
+          name = name.substring(dot + 1);
+          ePackage.setName(name);
+        }
+
+        // The call to org.eclipse.xsd.ecore.XSDEcoreBuilder.serialize(Element) introduces indentation and line breaks with Java 11.
+        // So we will normalize them away so that the tests don't fail.
+        for (TreeIterator<EObject> eAllContents = ePackage.eAllContents(); eAllContents.hasNext(); )
+        {
+          EObject eObject = eAllContents.next();
+          if (EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY.isInstance(eObject))
+          {
+            if ("appinfo".equals(eObject.eGet(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY__KEY)))
+            {
+              String value = (String)eObject.eGet(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY__VALUE);
+              eObject.eSet(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY__VALUE, value.replaceAll("[\n\r ]", ""));
+            }
+          }
+        }
+
+        newResource.getContents().add(ePackage);
+      }
+
+    }
+    return resourceSet.getResources();
+  }
+}

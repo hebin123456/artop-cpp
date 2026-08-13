@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <!-- Sphinx workflow launch configuration UI -->
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            id="org.eclipse.sphinx.emf.mwe.dynamic.launching.ui.launchConfigurationTabGroups.workflow"
+            type="org.eclipse.sphinx.emf.mwe.dynamic.launching.launchConfigurationTypes.workflow"
+            class="org.eclipse.sphinx.emf.mwe.dynamic.launching.ui.WorkflowLaunchConfigurationTabGroup">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            id="org.eclipse.sphinx.emf.mwe.dynamic.launching.ui.launchConfigurationTypeImages.workflow"
+            configTypeID="org.eclipse.sphinx.emf.mwe.dynamic.launching.launchConfigurationTypes.workflow"
+            icon="$nl$/icons/full/obj16/workflow_lnch.png">
+      </launchConfigurationTypeImage>
+   </extension>
+</plugin>

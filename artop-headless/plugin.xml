@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         id="arxmlValidationApp"
+         point="org.eclipse.core.runtime.applications"
+         name="AUTOSAR arxml Validation (headless)">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run class="com.example.arxml.validation.headless.ArxmlValidationApplication"/>
+      </application>
+   </extension>
+   <extension
+         id="arxmlBenchmarkApp"
+         point="org.eclipse.core.runtime.applications"
+         name="AUTOSAR arxml Read/Write Benchmark (headless)">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run class="com.example.arxml.validation.headless.ArxmlBenchmarkApplication"/>
+      </application>
+   </extension>
+</plugin>

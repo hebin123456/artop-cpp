@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.sphinx.examples"
+      label="%featureName"
+      version="0.13.1.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.license"
+      license-feature-version="2.0.2.v20181016-2210">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.sphinx.examples.core"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.core.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.navigators"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.validation"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.validation.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.xtendxpand"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.xtendxpand.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.metamodels.hummingbird"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.metamodels.hummingbird.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.metamodels.uml2"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.metamodels.uml2.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.workflows"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.workflows.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.emf.compare"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.examples.emf.compare.source"
+         version="0.0.0"/>
+
+</feature>

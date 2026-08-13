@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tm:Platform xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tm="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel" xsi:schemaLocation="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel TypeModel20XMI.xsd" name="Platform"><componentTypes name="ComponentType3" providedInterfaces="//@interfaces.0"/><interfaces name="Interface3" providingComponentTypes="//@componentTypes.0"/></tm:Platform>

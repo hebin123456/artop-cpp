@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2014 See4sys, itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    See4sys - Initial API and implementation
+    itemis - [409510] Enable resource scope-sensitive proxy resolutions without forcing metamodel implementations to subclass EObjectImpl
+    itemis - Moved contribution of ExtendedUMLResourceFactoryImpl to new UML2WorkspaceEditingDomainFactory class to avoid conflict with
+             contribution of standard UMLResourceFactoryImpl by Eclipse UML2 project
+    itemis - [425252] UML property section hangs when accessing reference property of a stereotype application
+
+</copyright>
+-->
+
+<plugin>
+   <extension
+         point="org.eclipse.sphinx.emf.metaModelDescriptors">
+      <descriptor
+            class="org.eclipse.sphinx.examples.uml2.ide.metamodel.UML2MMDescriptor"
+            id="org.eclipse.sphinx.examples.uml2">
+      </descriptor>
+   </extension>
+
+     <extension
+         point="org.eclipse.sphinx.emf.workspace.editingDomains">
+      <factory
+            class="org.eclipse.sphinx.examples.uml2.ide.internal.UML2WorkspaceEditingDomainFactory">
+         <requiredFor
+               metaModelDescriptorIdPattern="org.eclipse.sphinx.examples.uml2"/>
+      </factory>
+   </extension>
+     <extension
+           point="org.eclipse.sphinx.emf.resourceScopeProviders">
+        <provider
+              class="org.eclipse.sphinx.examples.uml2.ide.scoping.UML2ProjectResourceScopeProvider"
+              id="org.eclipse.sphinx.examples.uml2.ide.provider1">
+           <applicableFor
+                 metaModelDescriptorIdPattern="org.eclipse.sphinx.examples.uml2">
+           </applicableFor>
+        </provider>
+     </extension>
+
+</plugin>

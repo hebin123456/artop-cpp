@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2014 itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    itemis - Initial API and implementation
+
+</copyright>
+-->
+
+<plugin>
+   <extension point="org.eclipse.ui.navigator.viewer">
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="org.eclipse.sphinx.emf.mwe.dynamic.ui.basicWorkflowActions" />
+         </includes>
+      </viewerActionBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="org.eclipse.sphinx.emf.mwe.dynamic.ui.actions.providers.BasicWorkflowActionProvider"
+            id="org.eclipse.sphinx.emf.mwe.dynamic.ui.basicWorkflowActions">
+         <enablement>
+            <or>
+               <instanceof
+                     value="org.eclipse.emf.ecore.EObject" />
+               <instanceof
+                     value="org.eclipse.emf.edit.provider.IWrapperItemProvider" />
+               <instanceof
+                     value="org.eclipse.emf.ecore.util.FeatureMap.Entry" />
+               <instanceof
+                     value="org.eclipse.sphinx.emf.edit.TransientItemProvider" />
+               <instanceof
+                     value="org.eclipse.core.resources.IFile" />
+               <instanceof
+                     value="org.eclipse.jdt.core.ICompilationUnit" />
+               <instanceof
+                     value="org.eclipse.jdt.core.IType" />
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+</plugin>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.sphinx.emf.mwe.dynamic.launching.launchConfigurationTypes.workflow">
+<mapAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.ARGUMENTS"/>
+<booleanAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.AUTO_SAVE" value="true"/>
+<stringAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.MODEL" value="org.eclipse.sphinx.examples.hummingbird20.workflows/model/sample.instancemodel#//MyComp1"/>
+<stringAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.WORKFLOW" value="org.eclipse.sphinx.examples.workflows.model.PrintModelContentWorkflow"/>
+</launchConfiguration>

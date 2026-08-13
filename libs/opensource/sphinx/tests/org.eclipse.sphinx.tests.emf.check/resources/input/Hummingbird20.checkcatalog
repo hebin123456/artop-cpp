@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkcatalog:Catalog
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:checkcatalog="http://www.eclipse.org/sphinx/check/catalog"
+    id="HummingbirdValidationRules"
+    label="Hummingbird Validation Rules">
+  <categories
+      id="Category1"
+      label="Category number 1"/>
+  <categories
+      id="Category2"
+      label="Category number 2"/>
+  <constraints
+      id="ApplicationNameNotValid"
+      label="Application Name Not Valid"
+      description="Checks if the name of an application is valid"
+      message="The application name is not valid {0}."
+      categories="Category1 Category2"/>
+  <constraints
+      id="IdentifiableNameNotValid"
+      label="Identifiable Name Not Valid"
+      description="Checks if the name of an identifiable is valid"
+      message="The identifiable name is not valid {0}."
+      categories="Category1 Category2"/>
+  <constraints
+      id="ComponentNameNotValid"
+      label="Component Name Not Valid"
+      description="Checks if the name of an application is valid"
+      severity="Warning"
+      message="The component name &quot;{0}&quot; is not valid."
+      categories="Category1"/>
+  <constraints
+      id="ParameterValuesNotValid"
+      label="Parameter Values Not Valid"
+      description="Checks if the values of a component's parameters are valid"
+      message="The value of a parameter must be an integer number."
+      categories="Category2"
+      comment=""/>
+  <constraints
+      id="ConnectionTargetComponentNotValid"
+      label="Connection Target Component Not Valid"
+      description="Checks if the target component of a connection provides the interface that is required by the connection's source port"
+      message="The target component &quot;{0}&quot; of connection &quot;{1}&quot; does not provide interface &quot;{2}&quot; which is required by the connection's source port."
+      categories="Category1"/>
+</checkcatalog:Catalog>

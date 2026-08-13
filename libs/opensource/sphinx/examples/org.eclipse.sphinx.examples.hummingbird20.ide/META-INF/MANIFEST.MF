@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.examples.hummingbird20.ide;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.sphinx.emf.workspace,
+ org.eclipse.sphinx.examples.hummingbird20;visibility:=reexport
+Bundle-Activator: org.eclipse.sphinx.examples.hummingbird20.ide.internal.Activator.Implementation
+Export-Package: org.eclipse.sphinx.examples.hummingbird20.ide.internal;x-internal:=true,
+ org.eclipse.sphinx.examples.hummingbird20.ide.internal.referentialintegrity;x-internal:=true

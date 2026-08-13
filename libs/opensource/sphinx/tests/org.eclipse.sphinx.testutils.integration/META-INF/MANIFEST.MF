@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.testutils.integration;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.sphinx.testutils;visibility:=reexport,
+ org.apache.felix.scr;resolution:=optional
+Export-Package: org.eclipse.sphinx.testutils.integration,
+ org.eclipse.sphinx.testutils.integration.internal;x-internal:=true,
+ org.eclipse.sphinx.testutils.integration.messages
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.eclipse.sphinx.testutils.integration.internal.Activator$Implementation

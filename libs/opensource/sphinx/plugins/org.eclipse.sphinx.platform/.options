@@ -1,0 +1,18 @@
+# ------------------------------------------------------ #
+#  Default debugging options for org.eclipse.sphinx.platform  #
+# ------------------------------------------------------ #
+
+# -----------------------------------------------------------------------------
+# Performance monitoring options
+
+org.eclipse.sphinx.platform/perf=false
+org.eclipse.sphinx.platform/perf/jUnitOptions/keepEventInfoAfterLogging=false
+# If true, log in '.log' file inside '.metadata' folder; log in 'Error Log' view otherwise.
+org.eclipse.sphinx.platform/perf/logOptions/logInSeparateLogFile=false
+org.eclipse.sphinx.platform/perf/logOptions/logErrorOnTimeout=true
+org.eclipse.sphinx.platform/perf/logOptions/logWarningOnNoTime=true
+org.eclipse.sphinx.platform/perf/logOptions/clearLogFilesOnStartup=true
+org.eclipse.sphinx.platform/perf/logOptions/logEventsDetails=false
+ 
+
+ 

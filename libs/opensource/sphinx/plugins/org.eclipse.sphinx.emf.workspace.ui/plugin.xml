@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="org.eclipse.sphinx.emf.workspace.ui.actions.providers.CommonModelActionProvider"
+            id="org.eclipse.sphinx.emf.ui.actions.commonModelActions">
+         <enablement>
+            <or>
+               <instanceof
+                     value="org.eclipse.emf.ecore.EObject">
+               </instanceof>
+               <instanceof
+                     value="org.eclipse.emf.edit.provider.IWrapperItemProvider">
+               </instanceof>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+</plugin>

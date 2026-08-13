@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.sphinx.emf.workspace" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.eclipse.sphinx.emf.workspace" id="modelSaveLifecycleListeners" name="Model Save Lifecycle Listeners"/>
+      </appInfo>
+      <documentation>
+         This extension point allows the contribution of a model save lifecycle listener.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="listener" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="listener">
+      <complexType>
+         <sequence>
+            <element ref="applicableFor" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The meta-model descriptor identifier.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.sphinx.emf.workspace.saving.IModelSaveLifecycleListener"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="override" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="applicableFor">
+      <complexType>
+         <attribute name="metaModelDescriptorIdPattern" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The matching pattern for identifier of meta-model descriptor.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         0.8.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         &lt;extension
+      point=&quot;org.eclipse.sphinx.emf.workspace.modelSaveLifecycleListeners&quot;&gt;
+   &lt;listener
+         id=&quot;org.example.saving.myModelSaveLifecycleListener&quot;
+         class=&quot;org.example.saving.MyModelSaveLifecycleListener&quot;&gt;
+      &lt;applicableFor
+            metaModelDescriptorIdPattern=&quot;org.example.mymetamodel&quot; /&gt;
+   &lt;/listener&gt;
+   &lt;listener
+         id=&quot;org.example.saving.myOtherModelSaveLifecycleListener&quot;
+         class=&quot;org.example.saving.MyOtherModelSaveLifecycleListener&quot;
+         override=&quot;org.example.saving.SomeExistingModelSaveLifecycleListener&quot;&gt;
+      &lt;applicableFor
+            metaModelDescriptorIdPattern=&quot;org.example.myversionedmetamodel\d\d&quot; /&gt;
+   &lt;/listener&gt;
+&lt;/extension&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) 2013 itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    itemis - Initial API and implementation
+      </documentation>
+   </annotation>
+
+</schema>

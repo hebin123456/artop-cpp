@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.artop.base"
+      label="%featureName"
+      version="4.13.0.201912171516"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.artop.core.metamodels"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.core.converters"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.core.workspace"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.core.viatra.query"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.core.viatra.query21"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.core.viatra.query3x"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.core.viatra.query40"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.ecuc.initializers"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.ecuc.xtendxpand"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.ecuc.accessors"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.validation"
+         version="4.13.0.201912171516"/>
+
+   <includes
+         id="org.artop.validation.constraints"
+         version="4.13.0.201912171516"/>
+
+</feature>

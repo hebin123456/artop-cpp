@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2015 itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    itemis - Initial API and implementation
+
+</copyright>
+-->
+
+<plugin>
+   <extension
+         point="org.eclipse.search.searchPages">
+      <page
+            canSearchEnclosingProjects="true"
+            class="org.eclipse.sphinx.emf.search.ui.pages.ModelSearchPage"
+            icon="$nl$/icons/full/obj16/msearch_obj.gif"
+            id="org.eclipse.sphinx.emf.search.ui.model.search"
+            label="Model Search"
+            showScopeSection="true">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.search.searchResultViewPages">
+      <viewPage
+            class="org.eclipse.sphinx.emf.search.ui.pages.ModelSearchResultViewPage"
+            id="org.eclipse.sphinx.emf.search.ui.viewPage"
+            searchResultClass="org.eclipse.sphinx.emf.search.ui.ModelSearchResult">
+      </viewPage>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.eclipse.search.ui.views.SearchView">
+         <propertyCategory
+               category="advanced"></propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.eclipse.search.ui.views.SearchView">
+         <propertyTab
+               category="advanced"
+               id="org.eclipse.sphinx.emf.search.ui.propertyTabs.advanced"
+               label="Advanced">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.eclipse.search.ui.views.SearchView">
+         <propertySection
+               class="org.eclipse.sphinx.emf.ui.properties.BasicTransactionalAdvancedPropertySection"
+               id="org.eclipse.sphinx.emf.search.ui.propertySections.advanced"
+               tab="org.eclipse.sphinx.emf.search.ui.propertyTabs.advanced">
+            <input
+                  type="java.lang.Object">
+            </input>
+         </propertySection>
+      </propertySections>
+   </extension>
+   <extension
+         point="org.eclipse.sphinx.emf.metaModelServices">
+      <service
+            class="org.eclipse.sphinx.emf.search.ui.services.BasicModelSearchService"
+            id="org.eclipse.sphinx.emf.search.ui.basicModelSearch"
+            type="org.eclipse.sphinx.emf.search.ui.services.IModelSearchService">
+         <applicableFor
+               metaModelDescriptorIdPattern=".*">
+         </applicableFor>
+      </service>
+   </extension>
+</plugin>

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.testutils.integration.referenceworkspace;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.sphinx.examples.uml2.ide;visibility:=reexport,
+ org.eclipse.sphinx.examples.hummingbird10;visibility:=reexport,
+ org.eclipse.sphinx.examples.hummingbird20;visibility:=reexport,
+ org.eclipse.uml2.uml;visibility:=reexport,
+ org.eclipse.sphinx.testutils.integration;visibility:=reexport
+Export-Package: org.eclipse.sphinx.testutils.integration.referenceworkspace,
+ org.eclipse.sphinx.testutils.integration.referenceworkspace.internal,
+ org.eclipse.sphinx.testutils.integration.referenceworkspace.tests
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.eclipse.sphinx.testutils.integration.referenceworkspace.internal.Activator$Implementation

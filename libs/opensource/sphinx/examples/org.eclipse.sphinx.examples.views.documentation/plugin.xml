@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.sphinx.platform.ui.documentationViewFormatters">
+      <formatter
+            class="org.eclipse.sphinx.examples.views.documentation.EObjectDocumentationViewFormatter"
+            priority="0">
+         <instanceof
+               value="org.eclipse.emf.ecore.EObject">
+         </instanceof>
+      </formatter>
+   </extension>
+</plugin>

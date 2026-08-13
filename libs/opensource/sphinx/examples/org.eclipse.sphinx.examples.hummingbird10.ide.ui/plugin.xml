@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2011-2015 See4sys, itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    See4sys - Initial API and implementation
+    itemis - [450882] Enable navigation to ancestor tree items in Model Explorer kind of model views
+    itemis - [480135] Introduce metamodel and view content agnostic problem decorator for model elements
+
+</copyright>
+-->
+
+<plugin>
+
+  <!-- Common navigator viewer content binding contribution for Hummingbird 1.0 models -->
+
+  <extension point="org.eclipse.ui.navigator.viewer">
+    <viewerContentBinding viewerId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+      <includes>
+        <contentExtension pattern="org.eclipse.sphinx.examples.hummingbird10.ide.ui.navigatorContent.hummingbird" />
+      </includes>
+    </viewerContentBinding>
+  </extension>
+
+   <!-- Common navigator content contribution for Hummingbird 1.0 models -->
+
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            id="org.eclipse.sphinx.examples.hummingbird10.ide.ui.navigatorContent.hummingbird"
+            name="%sphinx.examples.hummingbird10.ide.ui.navigatorContent.hummingbird.name"
+            activeByDefault="true"
+            contentProvider="org.eclipse.sphinx.examples.hummingbird10.ide.ui.providers.Hummingbird10ExplorerContentProvider"
+            labelProvider="org.eclipse.sphinx.examples.hummingbird10.ide.ui.providers.Hummingbird10ExplorerLabelProvider"
+            priority="normal">
+         <triggerPoints>
+            <and>
+               <instanceof value="org.eclipse.core.resources.IFile"/>
+               <test
+                     property="org.eclipse.sphinx.emf.isInScope"
+                     value="true" />
+               <test
+                     property="org.eclipse.sphinx.emf.metaModelIdMatches"
+                     value="org\.eclipse\.sphinx\.examples\.hummingbird10"/>
+            </and>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+               <and>
+                  <instanceof
+                        value="org.eclipse.emf.edit.provider.IWrapperItemProvider">
+                  </instanceof>
+                  <test
+                        property="org.eclipse.sphinx.emf.valueClassNameMatches"
+                        value="org\.eclipse\.sphinx\.examples\.hummingbird10\..*">
+                  </test>
+               </and>
+               <and>
+                  <instanceof
+                        value="org.eclipse.emf.ecore.EObject">
+                  </instanceof>
+                  <test
+                        property="org.eclipse.sphinx.emf.classNameMatches"
+                        value="org\.eclipse\.sphinx\.examples\.hummingbird10\..*">
+                  </test>
+               </and>
+                <and>
+                  <instanceof
+                        value="org.eclipse.sphinx.emf.edit.TransientItemProvider">
+                  </instanceof>
+                  <test
+               		    property="org.eclipse.sphinx.emf.parentClassNameMatches"
+                        value="org\.eclipse\.sphinx\.examples\.hummingbird10\..*">
+                   </test>
+               </and>
+            </or>
+         </possibleChildren>
+         <dropAssistant
+               id="org.eclipse.sphinx.examples.hummingbird10.ide.ui.navigatorContent.dropAssistant.hummingbird"
+               class="org.eclipse.sphinx.emf.explorer.BasicDropAdapterAssistant">
+            <possibleDropTargets>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+            </possibleDropTargets>
+         </dropAssistant>
+      </navigatorContent>
+   </extension>
+
+</plugin>

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.platform.launching;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.debug.core,
+ org.eclipse.sphinx.platform
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-ActivationPolicy: lazy
+Eclipse-BuddyPolicy: global
+Export-Package: org.eclipse.sphinx.platform.launching,
+ org.eclipse.sphinx.platform.launching.internal;x-internal:=true,
+ org.eclipse.sphinx.platform.launching.internal.messages;x-internal:=true
+Bundle-Activator: org.eclipse.sphinx.platform.launching.internal.Activator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin

@@ -1,0 +1,86 @@
+<html>
+<head>
+  <link rel="stylesheet" href="../sphinx.css" type="text/css" media="all">
+  <title>Tutorial - Using the Hummingbird Example</title>
+</head>
+<body>
+  <h1>Tutorial - Using the Hummingbird Example</h1>
+  
+  <h2>Introduction</h2>
+  <p>Sphinx provides an example called <em>Hummingbird</em> to illustrate its main interesting features.
+  This example consists in a small model-based application manipulating a meta-model.
+  <p>Sphinx is able to manage simultaneously several versions of a same metamodel.
+  Thus, two ecore models are provided, <em>Hummingbird10</em> and <em>Hummingbird20</em>, that represent version 1.0 and version 2.0 of a same meta-model.
+  <p>This tutorial introduces the Hummingbird example and proposes a step-by-step tour of its main functions.
+  
+  <h2>Step 1: Creating a new project</h2>
+  <p>The first step consists in creating a new project to experiment the Hummingbird example.
+  <ol>
+    <li>Run Sphinx;
+    <li>Create a new simple project (menu <span class="menu">File &gt; New &gt; Project... &gt; General &gt; Project</span>);
+    <li>Call it <span class="input">MyProject</span>.
+  </ol>
+
+  <h2>Step 2: Creating a new model</h2>
+  <p>The second step consists in creating a new model conform with the Hummingbird meta-model.
+  <ol>
+    <li>Create an empty model (right-click on the project, then <span class="menu">new &gt; Other... &gt; Example EMF Model Creation Wizards &gt; Hummingbird10 Model</span>);
+    <li>Call it <span class="input">MyModel.hummingbird</span>;
+    <li>Select <span class="menu">Application</span> as root model object of this model.
+  </ol>
+  <p>At this step, the project has no yet the Hummingbird nature.
+  
+  <h2>Step 3: Providing the Hummingbird nature</h2>
+  <p>To give the Hummingbird nature to our project, we need to edit the <span class="filename">.project</span> file.
+  <ol>
+    <li>Open the <span class="filename">.project</span> file;
+    <li>In section <span class="input">natures</span>, add the following line:
+  </ol>
+<pre>&lt;nature&gt;org.eclipse.sphinx.examples.hummingbird.ide.HummingbirdNature&lt;/nature&gt;</pre>
+  <p>Now, the icon of the project has a new decoration, "20", that tells that the project has the Hummingbird nature.
+  More precisely, it is supposed to be configured to the last version of the Hummingbird meta-model, 2.0.
+  <p>A warning decoration also appears on the model icon to indicate that its version (Hummingbird 1.0) is not compatible with the version of the enclosing project.
+  A message is available in the <span class="viewname">Problems</span> view to explain this warning.
+  
+  <h2>Step 4: Setting the version of the meta-model</h2>
+  <p>By default, the last version of the meta-model is supposed to be associated to the project.
+  This preference may be changed by editing the <span class="filename">.settings</span> directory.
+  <ol>
+    <li>Create a directory called <span class="filename">.settings</span> on top of the project;
+    <li>Create a file called <span class="input">org.eclipse.sphinx.examples.hummingbird.ide.prefs</span> in this directory;
+    <li>Add in this file the following line:
+  </ol>
+<pre>hummingbird.metamodel.version=org.eclipse.sphinx.examples.hummingbird10</pre>
+  <p>Now the warning disappears and the nature decoration of the project changes.
+  
+  <h2>Step 5: Model Explorer View</h2>
+  <p>An explorer example is provided to illustrate the relation with the edited models.
+  <ol>
+    <li>Open the <span class="viewname">Model Explorer</span> view (menu <span class="menu">Window &gt; Show View &gt; Other... &gt; Sphinx Example Views &gt; Model Explorer</span>).
+  </ol>
+  <p>In this explorer we can see about the same content as in other navigator views, except that we also see the root object of our model. 
+  
+  <h2>Step 6: Editing the model</h2>
+  <p>Now we will add objects in our model.
+  <ol>
+    <li>Double-click on the model to open the associated editor;
+    <li>In the editor, right-click on the <span class="menu">Application</span> root object and add a new subcomponent (<span class="menu">New Child &gt; Components &gt; Component</span>).
+  </ol>
+  <p>Now the editor tab is marked dirty (with a star '*' in front of the name).
+  The <span class="viewname">Model Explorer</span> view is also marked dirty.
+  Saving one of them will save the changes.
+  <p>Several means exist to edit the model.
+  Creating a new element may also be done from the <span class="viewname">Model Explorer</span> view.
+  
+  <h2>Step 7: Exploring other features</h2>
+  <p>Sphinx provides many interesting features.
+  Let's explore them through the Hummingbird example:
+  <ul>
+    <li>comparison of two models;
+    <li>merge between two models;
+    <li>validation of a model;
+    <li>etc.
+  </ul>
+</body>
+</html>
+

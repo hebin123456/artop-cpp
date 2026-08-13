@@ -1,0 +1,129 @@
+/**
+ * Copyright (c) 2009 TIBCO Software Inc. and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v20.html
+ * 
+ * Contributors: 
+ *   Adrian Price
+ */
+package org.eclipse.emf.test.models.switch1.impl;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.test.models.switch1.EClass0;
+import org.eclipse.emf.test.models.switch1.EClass1;
+import org.eclipse.emf.test.models.switch1.Switch1Factory;
+import org.eclipse.emf.test.models.switch1.Switch1Package;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class Switch1FactoryImpl extends EFactoryImpl implements Switch1Factory
+{
+  /**
+   * Creates the default factory implementation.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public static Switch1Factory init()
+  {
+    try
+    {
+      Switch1Factory theSwitch1Factory = (Switch1Factory)EPackage.Registry.INSTANCE.getEFactory(Switch1Package.eNS_URI);
+      if (theSwitch1Factory != null)
+      {
+        return theSwitch1Factory;
+      }
+    }
+    catch (Exception exception)
+    {
+      EcorePlugin.INSTANCE.log(exception);
+    }
+    return new Switch1FactoryImpl();
+  }
+
+  /**
+   * Creates an instance of the factory.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Switch1FactoryImpl()
+  {
+    super();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EObject create(EClass eClass)
+  {
+    switch (eClass.getClassifierID())
+    {
+      case Switch1Package.ECLASS0: return createEClass0();
+      case Switch1Package.ECLASS1: return createEClass1();
+      default:
+        throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass0 createEClass0()
+  {
+    EClass0Impl eClass0 = new EClass0Impl();
+    return eClass0;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass1 createEClass1()
+  {
+    EClass1Impl eClass1 = new EClass1Impl();
+    return eClass1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Switch1Package getSwitch1Package()
+  {
+    return (Switch1Package)getEPackage();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @deprecated
+   * @generated
+   */
+  @Deprecated
+  public static Switch1Package getPackage()
+  {
+    return Switch1Package.eINSTANCE;
+  }
+
+} //Switch1FactoryImpl

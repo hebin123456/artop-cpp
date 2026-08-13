@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2015 See4sys, itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    See4sys - Initial API and implementation
+	itemis - Added Java element filters from JDT to Sphinx model explorer
+    itemis - [480135] Introduce metamodel and view content agnostic problem decorator for model elements
+
+</copyright>
+-->
+
+<plugin>
+
+  <!-- Model explorer view with tabbed property sheet contribution for UML, Hummingbird, and other metamodels with examplary IDE integrations -->
+
+  <extension point="org.eclipse.ui.views">
+    <view allowMultiple="false"
+          icon="icons/full/obj16/modexpl_obj.png"
+          category="org.eclipse.sphinx.examples.common.ui.views.category.sphinxExampleViews"
+          class="org.eclipse.sphinx.emf.explorer.ExtendedCommonNavigator"
+          id="org.eclipse.sphinx.examples.explorer.views.modelExplorer"
+          name="%sphinx.examples.explorer.views.modelExplorer.name" />
+  </extension>
+
+  <extension point="org.eclipse.ui.navigator.viewer">
+    <viewer viewerId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+    </viewer>
+    <viewerContentBinding viewerId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+      <includes>
+        <contentExtension pattern="org.eclipse.ui.navigator.resourceContent" />
+        <contentExtension pattern="org.eclipse.ui.navigator.resources.workingSets" />
+        <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*" />
+        <!-- Java Content from JDT required for obtaining problem marker decorations on IResource items (see https://bugs.eclipse.org/bugs/show_bug.cgi?id=264404 for details) -->
+        <contentExtension pattern="org.eclipse.jdt.java.ui.javaContent" />
+        <contentExtension pattern="org.eclipse.jdt.java.ui.filters.*" />
+        <contentExtension pattern="org.eclipse.ui.navigator.resources.linkHelper"/>
+        <contentExtension pattern="org.eclipse.sphinx.emf.explorer.linkHelper"/>
+      </includes>
+    </viewerContentBinding>
+    <viewerActionBinding viewerId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+      <includes>
+        <actionExtension pattern="org.eclipse.ui.navigator.resources.*" />
+        <actionExtension pattern="org.eclipse.sphinx.emf.*" />
+        <actionExtension pattern="org.eclipse.sphinx.examples.*" />
+      </includes>
+    </viewerActionBinding>
+    <dragAssistant
+          class="org.eclipse.ui.navigator.resources.ResourceDragAdapterAssistant"
+          viewerId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+    </dragAssistant>
+  </extension>
+
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+    <propertyContributor contributorId="org.eclipse.sphinx.examples.explorer.views.modelExplorer"
+                         labelProvider="org.eclipse.sphinx.examples.common.ui.providers.AppearanceExampleTabbedPropertySheetTitleProvider">
+      <propertyCategory category="advanced" />
+    </propertyContributor>
+  </extension>
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+    <propertyTabs contributorId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+      <propertyTab label="Advanced"
+                   category="advanced"
+                   id="org.eclipse.sphinx.examples.explorer.propertyTabs.advanced" />
+    </propertyTabs>
+  </extension>
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+    <propertySections contributorId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+      <propertySection class="org.eclipse.sphinx.emf.ui.properties.BasicTransactionalAdvancedPropertySection"
+                       id="org.eclipse.sphinx.examples.explorer.propertySections.advanced"
+                       tab="org.eclipse.sphinx.examples.explorer.propertyTabs.advanced">
+        <input type="java.lang.Object" />
+      </propertySection>
+    </propertySections>
+  </extension>
+
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            class="org.eclipse.sphinx.emf.explorer.decorators.BasicExplorerProblemDecorator"
+            id="org.eclipse.sphinx.emf.explorer.modelExplorerProblemDecorator"
+            label="%sphinx.emf.explorer.modelExplorerProblemDecorator.label"
+            lightweight="true"
+            state="true">
+           <description>%sphinx.emf.explorer.modelExplorerProblemDecorator.description</description>
+            <enablement>
+               <or>
+                  <objectClass
+                        name="org.eclipse.core.resources.IResource" />
+                  <objectClass
+                        name="org.eclipse.emf.ecore.EObject" />
+                  <objectClass
+                        name="org.eclipse.sphinx.emf.edit.TransientItemProvider" />
+                  <objectClass
+                        name="org.eclipse.emf.edit.provider.IWrapperItemProvider" />
+               </or>
+            </enablement>
+      </decorator>
+   </extension>
+
+</plugin>

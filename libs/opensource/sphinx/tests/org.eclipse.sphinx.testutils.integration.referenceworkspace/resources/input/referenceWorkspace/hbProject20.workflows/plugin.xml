@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.sphinx.emf.mwe.dynamic.workflowHandlers">
+      <handler
+            class="hbProject20.workflows.util.Hummingbird20WorkflowHandler">
+         <applicableFor>
+            <instanceof
+                  value="hbProject20.workflows.check.CheckHummingbird20Workflow">
+            </instanceof>
+            <instanceof
+                  value="hbProject20.workflows.naming.ApplyHummingbird20NamingConventionWorkflow">
+            </instanceof>
+         </applicableFor>
+      </handler>
+   </extension>
+</plugin>

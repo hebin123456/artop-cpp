@@ -1,0 +1,10 @@
+<xsd:element name="RELATED-REF" minOccurs="0" maxOccurs="unbounded" >
+  <xsd:complexType>
+    <xsd:choice minOccurs="0" maxOccurs="1" >
+      <xsd:element name="NODE-REFTYPE" type="node:REF"/>
+      <xsd:element name="SUB-NODE-REFTYPE" type="node:REF"/>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:element>
+
+

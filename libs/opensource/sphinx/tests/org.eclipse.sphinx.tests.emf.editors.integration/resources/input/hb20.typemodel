@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tm:Platform xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tm="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel TypeModel20XMI.xsd" name="osx"><componentTypes name="type1" providedInterfaces="//@interfaces.0">
+    <ports name="port1" minProviderCount="1" maxProviderCount="1"/>
+    <parameters name="p1"/>
+    <parameters name="P11"/>
+  </componentTypes><componentTypes name="type2" providedInterfaces="//@interfaces.1">
+    <ports name="port2" requiredInterface="//@interfaces.2" minProviderCount="1" maxProviderCount="1"/>
+    <parameters name="p2"/>
+    <parameters name="p22"/>
+  </componentTypes><componentTypes name="type3" providedInterfaces="//@interfaces.2">
+    <ports name="port3" requiredInterface="//@interfaces.1" minProviderCount="1" maxProviderCount="1"/>
+    <parameters name="p3"/>
+    <parameters name="p33"/>
+  </componentTypes><componentTypes name="type4" providedInterfaces="//@interfaces.3">
+    <ports name="port4" requiredInterface="//@interfaces.0" minProviderCount="1" maxProviderCount="1"/>
+    <parameters name="p4"/>
+    <parameters name="p44"/>
+  </componentTypes><interfaces name="interface1" providingComponentTypes="//@componentTypes.0" requiringPorts="//@componentTypes.3/@ports.0"/><interfaces name="interface2" providingComponentTypes="//@componentTypes.1" requiringPorts="//@componentTypes.2/@ports.0"/><interfaces name="interface3" providingComponentTypes="//@componentTypes.2" requiringPorts="//@componentTypes.1/@ports.0"/><interfaces name="interface4" providingComponentTypes="//@componentTypes.3"/></tm:Platform>

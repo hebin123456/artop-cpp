@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Version: 0.13.1.qualifier
+Bundle-Localization: plugin
+Bundle-SymbolicName: org.eclipse.sphinx.examples.explorer;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.ui.navigator.resources,
+ org.eclipse.sphinx.emf.explorer,
+ org.eclipse.ui.views.properties.tabbed,
+ org.eclipse.sphinx.examples.common.ui
+Bundle-ActivationPolicy: lazy

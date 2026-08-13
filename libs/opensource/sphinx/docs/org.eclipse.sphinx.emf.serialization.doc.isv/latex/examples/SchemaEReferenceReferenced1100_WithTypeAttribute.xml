@@ -1,0 +1,15 @@
+<xsd:element name="RELATED-REFS" minOccurs="0" maxOccurs="1" >
+  <xsd:complexType>
+    <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+      <xsd:element name="RELATED-REF">
+        <xsd:complexType>
+          <xsd:simpleContent>
+            <xsd:extension base="node:REF">
+              <xsd:attribute name="TYPE" type="node:NODE--SUBTYPES-ENUM" use="optional"/>
+            </xsd:extension>
+          </xsd:simpleContent>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:element>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: hbProject20.workflows;singleton:=true
+Bundle-Version: 0.9.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.xtend.lib,
+ org.eclipse.sphinx.emf.mwe.dynamic,
+ org.eclipse.sphinx.examples.hummingbird20,
+ org.eclipse.sphinx.examples.workflows.lib,
+ org.eclipse.sphinx.emf.check
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: hbProject20.workflows.util,
+ hbProject20.workflows.check,
+ hbProject20.workflows.naming

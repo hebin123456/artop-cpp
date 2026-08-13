@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NODE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="NodesURI" name="root">
+  <CHILDREN>
+    <CHILD name="childNode1">
+      <DESC>this is childNode 1</DESC>
+    </CHILD>
+    <CHILD name="childNode2">
+      <DESC>this is childNode 2</DESC>
+    </CHILD>
+    <CHILD TYPE="SUB-NODE" name="childSubNode">
+      <DESC>this is childSubNode</DESC>
+    </CHILD>
+  </CHILDREN>
+</NODE>

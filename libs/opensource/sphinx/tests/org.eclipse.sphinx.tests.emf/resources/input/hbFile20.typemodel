@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tm:Platform xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tm="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel TypeModel20XMI.xsd" name="Platform"><description><translations language="de-DE" resourceURI="file:/deutsch.txt"/><translations language="fr-FR" resourceURI="file:/français.txt"/>Description1</description><componentTypes name="ComponentType1" providedInterfaces="//Interface1">
+    <ports name="Port1a" requiredInterface="//Interface2" minProviderCount="1" maxProviderCount="1"/>
+    <ports name="Port1b" requiredInterface="//Interface2" minProviderCount="1" maxProviderCount="12"/>
+    <parameters name="Parameter1a"/>
+    <parameters name="Parameter1b" optional="true"/>
+  </componentTypes><componentTypes name="ComponentType2" providedInterfaces="//Interface1">
+    <ports name="Port2a" minProviderCount="1" maxProviderCount="1"/>
+    <ports name="Port2b" minProviderCount="1" maxProviderCount="12"/>
+    <parameters name="Parameter2a"/>
+    <parameters name="Parameter2b" optional="true"/>
+  </componentTypes><interfaces name="Interface1" providingComponentTypes="//ComponentType1 //ComponentType2"/><interfaces name="Interface2" requiringPorts="//ComponentType1/Port1b //ComponentType1/Port1a"/></tm:Platform>

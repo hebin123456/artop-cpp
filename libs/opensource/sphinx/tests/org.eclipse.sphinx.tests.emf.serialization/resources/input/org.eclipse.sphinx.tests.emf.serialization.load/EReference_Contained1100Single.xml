@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes:NODE xmlns:nodes="http://www.eclipse.org/rmf/serialization/model/nodes.ecore" name="root">
+  <nodes:EREFERENCE-CONTAINED-1100-SINGLES>
+    <nodes:EREFERENCE-CONTAINED-1100-SINGLE name="intermediateNode1">
+      <nodes:EREFERENCE-CONTAINED-0100-SINGLE name="leafNode1"/>
+    </nodes:EREFERENCE-CONTAINED-1100-SINGLE>
+  </nodes:EREFERENCE-CONTAINED-1100-SINGLES>
+</nodes:NODE>

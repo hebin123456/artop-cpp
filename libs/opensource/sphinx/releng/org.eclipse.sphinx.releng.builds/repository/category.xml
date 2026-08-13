@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.sphinx_0.13.1.qualifier.jar" id="org.eclipse.sphinx" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.category"/>
+   </feature>
+   <feature url="features/org.eclipse.sphinx.sdk_0.13.1.qualifier.jar" id="org.eclipse.sphinx.sdk" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.category"/>
+   </feature>
+   <feature url="features/org.eclipse.sphinx.examples_0.13.1.qualifier.jar" id="org.eclipse.sphinx.examples" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.category"/>
+   </feature>
+   <feature url="features/org.eclipse.sphinx.testutils_0.13.1.qualifier.jar" id="org.eclipse.sphinx.testutils" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.auxiliaries.category"/>
+   </feature>
+   <feature url="features/org.eclipse.sphinx.thirdparty_0.13.1.qualifier.jar" id="org.eclipse.sphinx.thirdparty" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.auxiliaries.category"/>
+   </feature>
+   <feature url="features/org.eclipse.sphinx.nebula_0.13.1.qualifier.jar" id="org.eclipse.sphinx.nebula" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.nebula.category"/>
+   </feature>
+   <feature url="features/org.eclipse.sphinx.nebula.sdk_0.13.1.qualifier.jar" id="org.eclipse.sphinx.nebula.sdk" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.nebula.category"/>
+   </feature>
+   <feature url="features/org.eclipse.sphinx.examples.nebula_0.13.1.qualifier.jar" id="org.eclipse.sphinx.examples.nebula" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.nebula.category"/>
+   </feature>
+   <feature url="features/org.eclipse.sphinx.viatra.query_0.13.1.qualifier.jar" id="org.eclipse.sphinx.viatra.query" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.viatra.query.category"/>
+   </feature>
+   <feature url="features/org.eclipse.sphinx.viatra.query.sdk_0.13.1.qualifier.jar" id="org.eclipse.sphinx.viatra.query.sdk" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.viatra.query.category"/>
+   </feature>
+   <feature url="features/org.eclipse.sphinx.examples.viatra.query_0.13.1.qualifier.jar" id="org.eclipse.sphinx.examples.viatra.query" version="0.13.1.qualifier">
+      <category name="org.eclipse.sphinx.viatra.query.category"/>
+   </feature>
+   <category-def name="org.eclipse.sphinx.category" label="Sphinx (Incubation)">
+      <description>
+         Integrated modeling tool platform that eases the development of IDE-like tool support for modeling languages used in software and systems development.
+      </description>
+   </category-def>
+   <category-def name="org.eclipse.sphinx.auxiliaries.category" label="Sphinx Auxiliaries (Incubation)">
+      <description>
+         Third-party libraries, test helpers, and other things that can be used along with Sphinx.
+      </description>
+   </category-def>
+   <category-def name="org.eclipse.sphinx.viatra.query.category" label="Sphinx Viatra/Query (Incubation)">
+      <description>
+         Sphinx Viatra/Query Extensions.
+      </description>
+   </category-def>
+   <category-def name="org.eclipse.sphinx.nebula.category" label="Sphinx Nebula (Incubation)">
+      <description>
+         Sphinx Nebula Extensions.
+      </description>
+   </category-def>
+</site>

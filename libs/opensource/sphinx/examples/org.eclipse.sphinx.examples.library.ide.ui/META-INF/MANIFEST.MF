@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.examples.library.ide.ui;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.sphinx.emf.explorer,
+ org.eclipse.sphinx.emf.editors.forms,
+ org.eclipse.sphinx.examples.common.ui,
+ org.eclipse.sphinx.examples.library.ide
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-Localization: plugin

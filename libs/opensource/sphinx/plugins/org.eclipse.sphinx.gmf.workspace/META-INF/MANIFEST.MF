@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.gmf.workspace;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.gmf.runtime.diagram.core;visibility:=reexport,
+ org.eclipse.sphinx.emf.workspace;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Eclipse-BuddyPolicy: dependent
+Export-Package: org.eclipse.sphinx.gmf.workspace.domain.factory,
+ org.eclipse.sphinx.gmf.workspace.internal;x-internal:=true,
+ org.eclipse.sphinx.gmf.workspace.metamodel
+Bundle-Activator: org.eclipse.sphinx.gmf.workspace.internal.Activator$Implementation
+Bundle-RequiredExecutionEnvironment: JavaSE-11

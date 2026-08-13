@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.sphinx.examples.hummingbird20.editors.nebula.Hummingbird20ComponentFormEditor"
+            contributorClass="org.eclipse.sphinx.emf.editors.forms.BasicTransactionalEditorActionBarContributor"
+            extensions="org.eclipse.sphinx.examples.hummingbird20.instancemodel.Component"
+            id="org.eclipse.sphinx.examples.hummingbird20.editors.nebula.parameterValues"
+            name="%sphinx.examples.hummingbird20.editors.nebula.parameterValues.name">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.eclipse.sphinx.examples.hummingbird20.editors.nebula.parameterValues"
+            labelProvider="org.eclipse.sphinx.emf.ui.properties.BasicTabbedPropertySheetTitleProvider">
+         <propertyCategory
+               category="advanced"></propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+    <propertyTabs contributorId="org.eclipse.sphinx.examples.hummingbird20.editors.nebula.parameterValues">
+      <propertyTab label="Advanced"
+                   category="advanced"
+                   id="org.eclipse.sphinx.examples.hummingbird20.editors.nebula.propertyTabs.advanced" />
+      </propertyTabs>
+  </extension>
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+    <propertySections contributorId="org.eclipse.sphinx.examples.hummingbird20.editors.nebula.parameterValues">
+      <propertySection class="org.eclipse.sphinx.emf.ui.properties.BasicTransactionalAdvancedPropertySection"
+                       id="org.eclipse.sphinx.examples.hummingbird20.editors.nebula.propertySections.advanced"
+                       tab="org.eclipse.sphinx.examples.hummingbird20.editors.nebula.propertyTabs.advanced">
+        <input type="java.lang.Object" />
+      </propertySection>
+    </propertySections>
+  </extension>
+
+</plugin>

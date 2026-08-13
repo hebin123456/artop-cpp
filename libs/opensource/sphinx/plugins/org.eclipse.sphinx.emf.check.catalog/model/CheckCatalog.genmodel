@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="&lt;copyright>&#xD;&#xA;&#xD;&#xA;Copyright (c) 2014-2015 itemis and others.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v2.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html&#xD;&#xA;&#xD;&#xA;Contributors: &#xD;&#xA;    itemis - Initial API and implementation&#xD;&#xA;&#xD;&#xA;&lt;/copyright>"
+    modelDirectory="/org.eclipse.sphinx.emf.check.catalog/src-gen" editDirectory="/org.eclipse.sphinx.emf.check.catalog.edit/src-gen"
+    editorDirectory="/org.eclipse.sphinx.emf.check.catalog.editor/src-gen" modelPluginID="org.eclipse.sphinx.emf.check.catalog"
+    templateDirectory="" modelName="CheckCatalog" modelPluginClass="org.eclipse.sphinx.emf.check.catalog.Activator"
+    editPluginClass="org.eclipse.sphinx.emf.check.catalog.edit.Activator" editorPluginClass="org.eclipse.sphinx.emf.check.catalog.editor.Activator"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testsDirectory=""
+    testSuiteClass="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" testsPluginID="org.eclipse.sphinx.emf.check.catalog.tests"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>CheckCatalog.ecore</foreignModel>
+  <genPackages prefix="CheckCatalog" basePackage="org.eclipse.sphinx.emf.check" disposableProviderFactory="true"
+      providerPackageSuffix="edit" presentationPackageSuffix="editor" fileExtensions="checkcatalog"
+      ecorePackage="CheckCatalog.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CheckCatalog.ecore#//Severity">
+      <genEnumLiterals ecoreEnumLiteral="CheckCatalog.ecore#//Severity/Error"/>
+      <genEnumLiterals ecoreEnumLiteral="CheckCatalog.ecore#//Severity/Warning"/>
+      <genEnumLiterals ecoreEnumLiteral="CheckCatalog.ecore#//Severity/Info"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="CheckCatalog.ecore#//Identifiable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CheckCatalog.ecore#//Identifiable/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CheckCatalog.ecore#//Identifiable/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CheckCatalog.ecore#//Identifiable/description"/>
+    </genClasses>
+    <genClasses ecoreClass="CheckCatalog.ecore#//Catalog">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CheckCatalog.ecore#//Catalog/categories"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CheckCatalog.ecore#//Catalog/constraints"/>
+    </genClasses>
+    <genClasses ecoreClass="CheckCatalog.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CheckCatalog.ecore#//Constraint/severity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CheckCatalog.ecore#//Constraint/message"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CheckCatalog.ecore#//Constraint/categories"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CheckCatalog.ecore#//Constraint/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="CheckCatalog.ecore#//Category"/>
+  </genPackages>
+</genmodel:GenModel>

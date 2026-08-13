@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.emf.metamodelgen;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Activator: org.eclipse.sphinx.emf.metamodelgen.internal.Activator$Implementation
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.emf.common,
+ org.eclipse.sphinx.platform;visibility:=reexport,
+ org.eclipse.sphinx.emf;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.eclipse.sphinx.emf.metamodelgen.internal;x-internal:=true,
+ org.eclipse.sphinx.emf.metamodelgen.operations
+Bundle-Localization: plugin

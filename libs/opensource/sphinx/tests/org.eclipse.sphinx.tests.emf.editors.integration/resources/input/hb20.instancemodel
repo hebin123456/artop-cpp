@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<im:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:im="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/instancemodel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/instancemodel InstanceModel20XMI.xsd" name="app1"><components name="compo1" incomingConnections="//@components.6/@outgoingConnections.0">
+    <type href="#//@componentTypes.0"/>
+    <outgoingConnections name="conn1" targetComponent="//@components.6"/>
+  </components><components name="compo2" incomingConnections="//@components.5/@outgoingConnections.0">
+    <type href="#//@componentTypes.1"/>
+    <outgoingConnections name="conn2" targetComponent="//@components.5"/>
+  </components><components name="compo3" incomingConnections="//@components.4/@outgoingConnections.0">
+    <type href="#//@componentTypes.2"/>
+    <outgoingConnections name="conn3" targetComponent="//@components.4"/>
+  </components><components name="compo4" incomingConnections="//@components.3/@outgoingConnections.0">
+    <type href="#//@componentTypes.3"/>
+    <outgoingConnections name="conn4" targetComponent="//@components.3"/>
+  </components><components name="compo5" incomingConnections="//@components.2/@outgoingConnections.0">
+    <type href="#//@componentTypes.0"/>
+    <outgoingConnections name="conn5" targetComponent="//@components.2"/>
+  </components><components name="compo6" incomingConnections="//@components.1/@outgoingConnections.0">
+    <type href="#//@componentTypes.1"/>
+    <outgoingConnections name="conn6" targetComponent="//@components.1"/>
+  </components><components name="compo7" incomingConnections="//@components.0/@outgoingConnections.0">
+    <type href="#//@componentTypes.2"/>
+    <outgoingConnections name="conn7" targetComponent="//@components.0"/>
+  </components></im:Application>

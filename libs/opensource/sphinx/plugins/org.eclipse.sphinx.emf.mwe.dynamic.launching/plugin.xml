@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <!-- Sphinx workflow launch configuration -->
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            id="org.eclipse.sphinx.emf.mwe.dynamic.launching.launchConfigurationTypes.workflow"
+            name="%sphinx.emf.mwe.dynamic.launching.launchConfigurationTypes.workflow.name"
+            modes="run"
+            delegate="org.eclipse.sphinx.emf.mwe.dynamic.launching.WorkflowLaunchConfigurationDelegate"
+            sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
+            sourcePathComputerId="org.eclipse.jdt.launching.sourceLookup.javaSourcePathComputer">
+      </launchConfigurationType>
+   </extension>
+</plugin>

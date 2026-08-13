@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.sphinx.emf.workspace" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.eclipse.sphinx.emf.workspace" id="editingDomains" name="Editing Domains"/>
+      </appInfo>
+      <documentation>
+         This extension point allows the configuration of workspace management related implementations to use. The implementation classes configured by this extension point must not be configured more than once by available plugins, since it is not possible to have multiple strategies at once.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="factory" minOccurs="0" maxOccurs="1"/>
+            <element ref="mapping" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="mapping">
+      <annotation>
+         <documentation>
+            Active implementation for mapping resources to editing domains. Can only contributed once.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.sphinx.emf.workspace.domain.IWorkspaceEditingDomainMapping"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="factory">
+      <annotation>
+         <documentation>
+            Active EditingDomain factory implementation. Can only contributed once.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="requiredFor" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="class" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.sphinx.emf.workspace.domain.factory.IExtendedTransactionalEditingDomainFactory"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="requiredFor">
+      <annotation>
+         <documentation>
+            Allows to specify the identifier of the meta-model descriptor this editing domain factory is required for.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="metaModelDescriptorIdPattern" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A meta-model descriptor identifier or a regular expression allowing to gather several meta-model descriptors.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         0.7.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         &lt;extension point=&quot;org.eclipse.sphinx.emf.workspace.editingDomain&quot;&gt;
+    &lt;factory 
+        class=&quot;org.example.domain.MyWorkspaceEditingDomainFactory&quot;/&gt;
+    &lt;mapping 
+        class=&quot;org.example.domain.DefaultWorkspaceEditingDomainMapping&quot;/&gt;
+&lt;/extension&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) 2008-2010 See4sys and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    See4sys - Initial API and implementation
+      </documentation>
+   </annotation>
+
+</schema>

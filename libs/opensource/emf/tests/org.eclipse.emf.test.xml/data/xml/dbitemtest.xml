@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<db:dbitem 
+ xmlns:dbp="http:///org.eclipse.emf.test.models/dbprice" 
+ xmlns:db="http:///org.eclipse.emf.test.models/dbitem">
+  <db:red_pen>
+    <dbp:price>23</dbp:price>
+  </db:red_pen>
+  <blue_pen/>
+  <db:red_pencil>
+    <price>24</price>
+  </db:red_pencil>
+  <blue_pencil/>
+</db:dbitem>

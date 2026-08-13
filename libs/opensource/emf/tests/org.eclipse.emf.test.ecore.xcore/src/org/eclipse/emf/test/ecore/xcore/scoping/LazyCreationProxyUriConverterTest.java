@@ -1,0 +1,114 @@
+/**
+ * Copyright (c) 2011-2012 Eclipse contributors and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v20.html
+ */
+package org.eclipse.emf.test.ecore.xcore.scoping;
+
+
+import org.eclipse.emf.codegen.ecore.genmodel.GenClass;
+import org.eclipse.emf.codegen.ecore.genmodel.GenModelFactory;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.xcore.scoping.LazyCreationProxyURIConverter;
+import org.eclipse.emf.test.ecore.xcore.XcoreStandaloneInjectorProvider;
+import org.eclipse.xtext.common.types.JvmGenericType;
+import org.eclipse.xtext.common.types.TypesFactory;
+import org.eclipse.xtext.common.types.TypesPackage;
+import org.eclipse.xtext.testing.InjectWith;
+import org.eclipse.xtext.testing.XtextRunner;
+import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.util.Pair;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import com.google.inject.Inject;
+
+import static org.junit.Assert.*;
+
+
+@RunWith(XtextRunner.class)
+@InjectWith(XcoreStandaloneInjectorProvider.class)
+public class LazyCreationProxyUriConverterTest
+{
+  @Inject
+  LazyCreationProxyURIConverter converter;
+
+  @Test
+  public void testUriConversion_1() throws Exception
+  {
+    LazyCreationProxyURIConverter converter = getProxyUriConverter();
+
+    GenClass genClass = GenModelFactory.eINSTANCE.createGenClass();
+    final QualifiedName name = QualifiedName.create("foo.bar", "Baz");
+    converter.installProxyURI(URI.createFileURI("foo.test"), genClass, name);
+
+    Pair<EClass, QualifiedName> proxyInfo = converter.decodeProxy(genClass);
+    assertSame(genClass.eClass(), proxyInfo.getFirst());
+    assertEquals(name.toString(), proxyInfo.getSecond().toString());
+  }
+
+  protected LazyCreationProxyURIConverter getProxyUriConverter()
+  {
+    return converter;
+  }
+
+  @Test
+  public void testUriConversion_2() throws Exception
+  {
+    // Disabled test for EClass support.
+  }
+
+  @Test
+  public void testUriConversion_3() throws Exception
+  {
+    LazyCreationProxyURIConverter converter = getProxyUriConverter();
+
+    JvmGenericType genericType = TypesFactory.eINSTANCE.createJvmGenericType();
+    final QualifiedName name = QualifiedName.create("foo.bar", "Baz");
+    converter.installProxyURI(URI.createFileURI("foo.test"), genericType, name);
+
+    Pair<EClass, QualifiedName> proxyInfo = converter.decodeProxy(genericType);
+    assertSame(TypesPackage.Literals.JVM_TYPE, proxyInfo.getFirst());
+    assertEquals(name.toString(), proxyInfo.getSecond().toString());
+  }
+
+  @Test
+  public void testUriConversion_4() throws Exception
+  {
+    LazyCreationProxyURIConverter converter = getProxyUriConverter();
+
+    EOperation op = EcoreFactory.eINSTANCE.createEOperation();
+    final QualifiedName name = QualifiedName.create("foo.bar", "Baz");
+    try
+    {
+      converter.installProxyURI(URI.createFileURI("foo.test"), op, name);
+      fail();
+    }
+    catch (IllegalArgumentException e)
+    {
+      // Ignore
+    }
+  }
+
+  @Test
+  public void testUriConversion_5() throws Exception
+  {
+    LazyCreationProxyURIConverter converter = getProxyUriConverter();
+
+    JvmGenericType genericType = TypesFactory.eINSTANCE.createJvmGenericType();
+    try
+    {
+      converter.decodeProxy(genericType);
+      fail();
+    }
+    catch (IllegalArgumentException e)
+    {
+      // Ignore
+    }
+  }
+}

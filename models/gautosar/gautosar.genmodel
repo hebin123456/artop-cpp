@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="&lt;copyright>&#xA;&#xA;Copyright (c) Continental, itemis and others.&#xA;All rights reserved. This program and the accompanying materials are made&#xA;available under the terms of the Artop Software License Based on Released&#xA;AUTOSAR Material (ASLR) which accompanies this distribution, and is available&#xA;at http://www.artop.org/aslr.html&#xA;&#xA;Contributors: &#xA;    Continental - Initial API and implementation&#xA;    itemis - [2109] Integrate AUTOSAR extender API into GAUTOSAR metamodel&#xA;&#xA;&lt;/copyright>&#xA;"
+    modelDirectory="/org.artop.aal.gautosar/src" creationIcons="false" creationSubmenus="true"
+    editDirectory="/org.artop.aal.gautosar.edit/src" editorDirectory="" modelPluginID="org.artop.aal.gautosar"
+    modelName="gautosar" modelPluginClass="gautosar.Activator" editPluginClass="gautosar.edit.Activator"
+    nonNLSMarkers="true" rootExtendsClass="org.artop.aal.common.metamodel.MinimalARObjectImpl"
+    testsDirectory="" complianceLevel="7.0" suppressGenModelAnnotations="false" copyrightFields="false"
+    providerRootExtendsClass="org.artop.aal.common.edit.AutosarItemProviderAdapter"
+    editPluginID="org.artop.aal.gautosar.edit" runtimeVersion="2.6">
+  <foreignModel>model/gautosar.ecore</foreignModel>
+  <modelPluginVariables>org.eclipse.sphinx.platform</modelPluginVariables>
+  <modelPluginVariables>org.artop.eel.common</modelPluginVariables>
+  <genPackages prefix="Gautosar" disposableProviderFactory="true" providerPackageSuffix="providers"
+      ecorePackage="gautosar.ecore#/">
+    <nestedGenPackages prefix="Ggenericstructure" disposableProviderFactory="true"
+        ecorePackage="gautosar.ecore#//ggenericstructure">
+      <nestedGenPackages prefix="Gprimitivetypes" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//ggenericstructure/gprimitivetypes">
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/String"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/Boolean"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/Float"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/Integer"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/DateTime"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/UnlimitedNatural"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/Identifier"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/BaseTypeEncodingString"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/VerbatimString"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/Numerical"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/PositiveInteger"/>
+        <genDataTypes ecoreDataType="gautosar.ecore#//ggenericstructure/gprimitivetypes/NameToken"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Ginfrastructure" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//ggenericstructure/ginfrastructure">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ginfrastructure/GARObject">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//ggenericstructure/ginfrastructure/GARObject/gChecksum"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//ggenericstructure/ginfrastructure/GARObject/gTimestamp"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ginfrastructure/GIdentifiable">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//ggenericstructure/ginfrastructure/GIdentifiable/gUuid"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//ggenericstructure/ginfrastructure/GIdentifiable/gCategory"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ginfrastructure/GIdentifiable/gDesc"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ginfrastructure/GIdentifiable/gAdminData"/>
+          <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/ginfrastructure/GIdentifiable/gGetExtensions"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ginfrastructure/GARPackage">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ginfrastructure/GARPackage/gElements"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ginfrastructure/GARPackage/gSubPackages"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ginfrastructure/GAUTOSAR">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ginfrastructure/GAUTOSAR/gArPackages"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ginfrastructure/GAUTOSAR/gAdminData"/>
+          <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/ginfrastructure/GAUTOSAR/gGetMixed"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ginfrastructure/GPackageableElement">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ginfrastructure/GPackageableElement/gARPackage"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ginfrastructure/GReferrable">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//ggenericstructure/ginfrastructure/GReferrable/gShortName"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Ggeneraltemplateclasses" disposableProviderFactory="true"
+          ecorePackage="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses">
+        <nestedGenPackages prefix="Gdocumentation" disposableProviderFactory="true"
+            providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/GAnnotation"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/GRemark">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/GRemark/gPs"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/GGeneralAnnotation">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/GGeneralAnnotation/gAnnotationOrigin"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/GGeneralAnnotation/gAnnotationText"/>
+          </genClasses>
+          <nestedGenPackages prefix="Gtextmodel" disposableProviderFactory="true"
+              ecorePackage="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel">
+            <nestedGenPackages prefix="Gmultilanguagedata" disposableProviderFactory="true"
+                providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/gmultilanguagedata">
+              <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/gmultilanguagedata/GMultiLanguageParagraph">
+                <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                    ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/gmultilanguagedata/GMultiLanguageParagraph/gL1s"/>
+              </genClasses>
+              <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/gmultilanguagedata/GMultiLanguageOverviewParagraph">
+                <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                    ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/gmultilanguagedata/GMultiLanguageOverviewParagraph/gL2s"/>
+              </genClasses>
+            </nestedGenPackages>
+            <nestedGenPackages prefix="Glanguagedatamodel" disposableProviderFactory="true"
+                providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/glanguagedatamodel">
+              <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/glanguagedatamodel/GLParagraph"/>
+              <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/glanguagedatamodel/GLOverviewParagraph"/>
+            </nestedGenPackages>
+            <nestedGenPackages prefix="Ginlinetextmodel" disposableProviderFactory="true"
+                providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/ginlinetextmodel">
+              <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/ginlinetextmodel/GMixedContentForParagraph">
+                <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/ginlinetextmodel/GMixedContentForParagraph/gGetMixed"/>
+              </genClasses>
+              <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/ginlinetextmodel/GMixedContentForOverviewParagraph">
+                <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/ginlinetextmodel/GMixedContentForOverviewParagraph/gGetMixed"/>
+                <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/ginlinetextmodel/GMixedContentForOverviewParagraph/gGetMixedText"/>
+                <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/ginlinetextmodel/GMixedContentForOverviewParagraph/gSetMixedText">
+                  <genParameters ecoreParameter="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/ginlinetextmodel/GMixedContentForOverviewParagraph/gSetMixedText/text"/>
+                </genOperations>
+              </genClasses>
+            </nestedGenPackages>
+          </nestedGenPackages>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="Gprimitivetypes" disposableProviderFactory="true"
+            providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gprimitivetypes">
+          <genEnums typeSafeEnumCompatible="false" ecoreEnum="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gprimitivetypes/GByteOrderEnum">
+            <genEnumLiterals ecoreEnumLiteral="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gprimitivetypes/GByteOrderEnum/mostSignificantByteFirst"/>
+            <genEnumLiterals ecoreEnumLiteral="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gprimitivetypes/GByteOrderEnum/mostSignificantByteLast"/>
+          </genEnums>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="Gspecialdata" disposableProviderFactory="true"
+            providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gspecialdata">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSd">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSd/gGid"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSdgContents">
+            <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSdgContents/gGetSdgs"/>
+            <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSdgContents/gGetSds"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSdg">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSdg/gGid"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSdg/gSdgContentsType"/>
+          </genClasses>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="Gadmindata" disposableProviderFactory="true" providerPackageSuffix="providers"
+            ecorePackage="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gadmindata">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gadmindata/GAdminData">
+            <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/ggeneraltemplateclasses/gadmindata/GAdminData/gGetSdgs"/>
+          </genClasses>
+        </nestedGenPackages>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gvarianthandling" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//ggenericstructure/gvarianthandling">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/gvarianthandling/GSwSystemconstDependentFormula"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/gvarianthandling/GAttributeValueVariationPoint"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gformulalanguage" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//ggenericstructure/gformulalanguage">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//ggenericstructure/gformulalanguage/GFormulaExpression">
+          <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/gformulalanguage/GFormulaExpression/gGetMixed"/>
+          <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/gformulalanguage/GFormulaExpression/gGetMixedText"/>
+          <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/gformulalanguage/GFormulaExpression/gSetMixedText">
+            <genParameters ecoreParameter="gautosar.ecore#//ggenericstructure/gformulalanguage/GFormulaExpression/gSetMixedText/text"/>
+          </genOperations>
+          <genOperations ecoreOperation="gautosar.ecore#//ggenericstructure/gformulalanguage/GFormulaExpression/gIsSetMixed"/>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Gecucparameterdef" disposableProviderFactory="true"
+        providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gecucparameterdef">
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GParamConfMultiplicity">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GParamConfMultiplicity/gGetLowerMultiplicityAsString"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GParamConfMultiplicity/gSetLowerMultiplicityAsString">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GParamConfMultiplicity/gSetLowerMultiplicityAsString/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GParamConfMultiplicity/gGetUpperMultiplicityAsString"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GParamConfMultiplicity/gSetUpperMultiplicityAsString">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GParamConfMultiplicity/gSetUpperMultiplicityAsString/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GParamConfMultiplicity/gGetUpperMultiplicityInfinite"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GParamConfMultiplicity/gSetUpperMultiplicityInfinite">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GParamConfMultiplicity/gSetUpperMultiplicityInfinite/value"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GContainerDef">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GContainerDef/gGetPostBuildChangeable"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GContainerDef/gSetPostBuildChangeable">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GContainerDef/gSetPostBuildChangeable/value"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GModuleDef">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GModuleDef/gGetRefinedModuleDef"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GModuleDef/gSetRefinedModuleDef">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GModuleDef/gSetRefinedModuleDef/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GModuleDef/gGetContainers"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GCommonConfigurationAttributes">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GCommonConfigurationAttributes/gGetOrigin"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GCommonConfigurationAttributes/gSetOrigin">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GCommonConfigurationAttributes/gSetOrigin/value"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GConfigParameter">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GConfigParameter/gGetSymbolicNameValue"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GConfigParameter/gSetSymbolicNameValue">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GConfigParameter/gSetSymbolicNameValue/value"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GConfigReference"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GParamConfContainerDef">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GParamConfContainerDef/gGetParameters"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GParamConfContainerDef/gGetReferences"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GParamConfContainerDef/gGetSubContainers"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GChoiceContainerDef">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GChoiceContainerDef/gGetChoices"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GBooleanParamDef"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GIntegerParamDef"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GFloatParamDef"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GEnumerationParamDef">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GEnumerationParamDef/gGetLiterals"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GEnumerationParamDef/gGetDefaultValue"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GEnumerationParamDef/gSetDefaultValue">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GEnumerationParamDef/gSetDefaultValue/value"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GEnumerationLiteralDef"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GAbstractStringParamDef"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GStringParamDef"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GLinkerSymbolDef"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GFunctionNameDef"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GReferenceDef">
+        <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gautosar.ecore#//gecucparameterdef/GReferenceDef/gRefDestination"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GSymbolicNameReferenceDef"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GInstanceReferenceDef">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GInstanceReferenceDef/gGetDestinationType"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GInstanceReferenceDef/gSetDestinationType">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GInstanceReferenceDef/gSetDestinationType/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GInstanceReferenceDef/gGetDestinationContext"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GInstanceReferenceDef/gSetDestinationContext">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GInstanceReferenceDef/gSetDestinationContext/value"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GForeignReferenceDef">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GForeignReferenceDef/gGetDestinationType"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GForeignReferenceDef/gSetDestinationType">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucparameterdef/GForeignReferenceDef/gSetDestinationType/value"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucparameterdef/GChoiceReferenceDef">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucparameterdef/GChoiceReferenceDef/gGetDestinations"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Gecucdescription" disposableProviderFactory="true"
+        providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gecucdescription">
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GModuleConfiguration">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GModuleConfiguration/gGetDefinition"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GModuleConfiguration/gSetDefinition">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucdescription/GModuleConfiguration/gSetDefinition/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GModuleConfiguration/gGetContainers"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GContainer">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GContainer/gGetDefinition"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GContainer/gSetDefinition">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucdescription/GContainer/gSetDefinition/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GContainer/gGetParameterValues"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GContainer/gGetReferenceValues"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GContainer/gGetSubContainers"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GParameterValue">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GParameterValue/gGetDefinition"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GParameterValue/gSetDefinition">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucdescription/GParameterValue/gSetDefinition/value"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GConfigReferenceValue">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GConfigReferenceValue/gGetDefinition"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GConfigReferenceValue/gSetDefinition">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucdescription/GConfigReferenceValue/gSetDefinition/value"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GReferenceValue">
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GReferenceValue/gGetValue"/>
+        <genOperations ecoreOperation="gautosar.ecore#//gecucdescription/GReferenceValue/gSetValue">
+          <genParameters ecoreParameter="gautosar.ecore#//gecucdescription/GReferenceValue/gSetValue/value"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GInstanceReferenceValue"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GBooleanValue">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gecucdescription/GBooleanValue/gValue"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GEnumerationValue">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gecucdescription/GEnumerationValue/gValue"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GIntegerValue">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gecucdescription/GIntegerValue/gValue"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GStringValue">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gecucdescription/GStringValue/gValue"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GLinkerSymbolValue"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GFunctionNameValue"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gecucdescription/GFloatValue">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gecucdescription/GFloatValue/gValue"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Gswcomponents" disposableProviderFactory="true" ecorePackage="gautosar.ecore#//gswcomponents">
+      <nestedGenPackages prefix="Gcomponents" disposableProviderFactory="true" providerPackageSuffix="providers"
+          ecorePackage="gautosar.ecore#//gswcomponents/gcomponents">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/GApplicationSwComponentType"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/GAtomicSwComponentType"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/GSwComponentType">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/GSwComponentType/gPorts"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/GServiceSwComponentType"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/GSensorActuatorSwComponentType"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/GPortPrototype"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/GPPortPrototype">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/GPPortPrototype/gProvidedInterface"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/GRPortPrototype">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/GRPortPrototype/gRequiredInterface"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/GAbstractRequiredPortPrototype"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/GAbstractProvidedPortPrototype"/>
+        <nestedGenPackages prefix="Ginstancerefs" disposableProviderFactory="true"
+            providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GVariableInAtomicSwcIRef"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GRVariableInAtomicSwcIRef">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GRVariableInAtomicSwcIRef/gContextRequiredPort"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GRVariableInAtomicSwcIRef/gTargetDataElement"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GPVariableInAtomicSwcIRef">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GPVariableInAtomicSwcIRef/gContextProvidedPort"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GPVariableInAtomicSwcIRef/gTargetDataElement"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GOperationInAtomicSwcIRef"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GROperationInAtomicSwcIRef">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GROperationInAtomicSwcIRef/gContextRequiredPort"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GROperationInAtomicSwcIRef/gTargetRequiredOperation"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GPOperationInAtomicSwcIRef">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GPOperationInAtomicSwcIRef/gContextProvidedPort"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GPOperationInAtomicSwcIRef/gTargetProvidedOperation"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GModeGroupInAtomicSwcIRef"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GRModeGroupInAtomicSwcIRef">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GRModeGroupInAtomicSwcIRef/gContextRequiredPort"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GRModeGroupInAtomicSwcIRef/gTargetModeGroup"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GPModeGroupInAtomicSwcIRef">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GPModeGroupInAtomicSwcIRef/gContextProvidedPort"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GPModeGroupInAtomicSwcIRef/gTargetModeGroup"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GParameterInAtomicSwcIRef">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GParameterInAtomicSwcIRef/gContextPort"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GParameterInAtomicSwcIRef/gTargetParameter"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GRModeInAtomicSwcIRef">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GRModeInAtomicSwcIRef/gContextRequiredPort"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GRModeInAtomicSwcIRef/gContextModeDeclarationGroupPrototype"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomponents/ginstancerefs/GRModeInAtomicSwcIRef/gTargetModeDeclaration"/>
+          </genClasses>
+        </nestedGenPackages>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gportinterface" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gportinterface">
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="gautosar.ecore#//gswcomponents/gportinterface/GArgumentDirectionEnum">
+          <genEnumLiterals ecoreEnumLiteral="gautosar.ecore#//gswcomponents/gportinterface/GArgumentDirectionEnum/in"/>
+          <genEnumLiterals ecoreEnumLiteral="gautosar.ecore#//gswcomponents/gportinterface/GArgumentDirectionEnum/out"/>
+          <genEnumLiterals ecoreEnumLiteral="gautosar.ecore#//gswcomponents/gportinterface/GArgumentDirectionEnum/inout"/>
+        </genEnums>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gportinterface/GPortInterface">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gportinterface/GPortInterface/gIsService"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gportinterface/GSenderReceiverInterface">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gportinterface/GSenderReceiverInterface/gDataElements"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gportinterface/GClientServerInterface">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gportinterface/GClientServerInterface/gOperations"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gportinterface/GClientServerInterface/gPossibleErrors"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gportinterface/GParameterInterface">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gportinterface/GParameterInterface/gParameters"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gportinterface/GNvDataInterface"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gportinterface/GModeSwitchInterface">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gportinterface/GModeSwitchInterface/gModeGroups"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gportinterface/GTriggerInterface"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gportinterface/GArgumentDataPrototype">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gportinterface/GArgumentDataPrototype/gDirection"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gportinterface/GClientServerOperation">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gportinterface/GClientServerOperation/gArguments"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gportinterface/GClientServerOperation/gPossibleErrors"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gportinterface/GApplicationError">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gportinterface/GApplicationError/gErrorCode"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gdatatype" disposableProviderFactory="true" ecorePackage="gautosar.ecore#//gswcomponents/gdatatype">
+        <nestedGenPackages prefix="Gdatatypes" disposableProviderFactory="true" providerPackageSuffix="providers"
+            ecorePackage="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/GApplicationDataType"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/GAutosarDataType"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/GApplicationPrimitiveDataType"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/GARLimit">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/GARLimit/gValue"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/GApplicationRecordDataType">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/GApplicationRecordDataType/gElements"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/GApplicationCompositeDataType"/>
+          <nestedGenPackages prefix="Glocalconstraints" disposableProviderFactory="true"
+              providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/glocalconstraints">
+            <genEnums typeSafeEnumCompatible="false" ecoreEnum="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GIntervalTypeEnum">
+              <genEnumLiterals ecoreEnumLiteral="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GIntervalTypeEnum/closed"/>
+              <genEnumLiterals ecoreEnumLiteral="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GIntervalTypeEnum/infinite"/>
+              <genEnumLiterals ecoreEnumLiteral="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GIntervalTypeEnum/open"/>
+            </genEnums>
+            <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GLimit"/>
+            <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GAbstractLimit">
+              <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GAbstractLimit/gIntervalType"/>
+            </genClasses>
+          </nestedGenPackages>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="Gdataprototypes" disposableProviderFactory="true"
+            providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gdatatype/gdataprototypes">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdataprototypes/GAutosarDataPrototype">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gdataprototypes/GAutosarDataPrototype/gType"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdataprototypes/GDataPrototype"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdataprototypes/GParameterDataPrototype"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdataprototypes/GVariableDataPrototype"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdataprototypes/GApplicationRecordElement"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gdataprototypes/GApplicationCompositeElementDataPrototype">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gdataprototypes/GApplicationCompositeElementDataPrototype/gElementType"/>
+          </genClasses>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="Gcomputationmethod" disposableProviderFactory="true"
+            providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuMethod">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuMethod/gCompuPhysToInternal"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuMethod/gCompuInternalToPhys"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuMethod/gUnit"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompu">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompu/gCompuContent"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuContent"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScales">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScales/gCompuScales"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScale">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScale/gCompuScaleContents"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScale/gLowerLimit"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScale/gUpperLimit"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScale/gShortLabel"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScaleContents"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScaleConstantContents">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScaleConstantContents/gCompuConst"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScaleRationalFormula">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuScaleRationalFormula/gCompuRationalCoeffs"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuConst">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuConst/gCompuConstContentType"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuConstContent"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuConstTextContent">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuConstTextContent/gVt"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuConstNumericContent">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuConstNumericContent/gV"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuConstFormulaContent"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuRationalCoeffs">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuRationalCoeffs/gCompuNumerator"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuRationalCoeffs/gCompuDenominator"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gcomputationmethod/GCompuNominatorDenominator"/>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="Gunits" disposableProviderFactory="true" providerPackageSuffix="providers"
+            ecorePackage="gautosar.ecore#//gswcomponents/gdatatype/gunits">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gunits/GUnit">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gdatatype/gunits/GUnit/gPhysicalDimension"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gunits/GUnit/gFactorSiToUnit"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gunits/GUnit/gOffsetSiToUnit"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gdatatype/gunits/GPhysicalDimension">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gunits/GPhysicalDimension/gCurrentExp"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gunits/GPhysicalDimension/gLengthExp"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gunits/GPhysicalDimension/gLuminousIntensityExp"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gunits/GPhysicalDimension/gMassExp"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gunits/GPhysicalDimension/gMolarAmountExp"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gunits/GPhysicalDimension/gTemperatureExp"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gdatatype/gunits/GPhysicalDimension/gTimeExp"/>
+          </genClasses>
+        </nestedGenPackages>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gcomposition" disposableProviderFactory="true" providerPackageSuffix="providers"
+          ecorePackage="gautosar.ecore#//gswcomponents/gcomposition">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomposition/GSwComponentPrototype">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomposition/GSwComponentPrototype/gType"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomposition/GCompositionSwComponentType">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomposition/GCompositionSwComponentType/gComponents"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomposition/GCompositionSwComponentType/gConnectors"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomposition/GSwConnector"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomposition/GAssemblySwConnector">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomposition/GAssemblySwConnector/gRequester"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomposition/GAssemblySwConnector/gProvider"/>
+        </genClasses>
+        <nestedGenPackages prefix="Ginstancerefs" disposableProviderFactory="true"
+            providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gcomposition/ginstancerefs">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomposition/ginstancerefs/GPPortInCompositionIRef">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomposition/ginstancerefs/GPPortInCompositionIRef/gTargetProvidedPort"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomposition/ginstancerefs/GPPortInCompositionIRef/gContextComponent"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcomposition/ginstancerefs/GRPortInCompositionIRef">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomposition/ginstancerefs/GRPortInCompositionIRef/gTargetRequiredPort"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcomposition/ginstancerefs/GRPortInCompositionIRef/gContextComponent"/>
+          </genClasses>
+        </nestedGenPackages>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gswcinternalbehavior" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gswcinternalbehavior">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/GSwcInternalBehavior">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GSwcInternalBehavior/gRunnables"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GSwcInternalBehavior/gEvents"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GSwcInternalBehavior/gPerInstanceMemories"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GSwcInternalBehavior/gComponent"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gswcinternalbehavior/GSwcInternalBehavior/gSupportsMultipleInstantiation"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/GRunnableEntity">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GRunnableEntity/gWaitPoints"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gswcinternalbehavior/GRunnableEntity/gSymbol"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GRunnableEntity/gReadVariables"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GRunnableEntity/gWrittenVariables"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GRunnableEntity/gDataReadAccess"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GRunnableEntity/gDataWriteAccess"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GRunnableEntity/gDataSendPoints"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GRunnableEntity/gDataReceivePoints"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/GRunnableEntity/gServerCallPoints"/>
+        </genClasses>
+        <nestedGenPackages prefix="Grteevents" disposableProviderFactory="true" providerPackageSuffix="providers"
+            ecorePackage="gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent/gStartOnEvent"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GDataReceivedEvent">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GDataReceivedEvent/gData"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GSwcModeSwitchEvent"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GTimingEvent">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GTimingEvent/gPeriod"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GWaitPoint">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GWaitPoint/gTimeout"/>
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GWaitPoint/gTriggers"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GDataReceiveErrorEvent">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GDataReceiveErrorEvent/gData"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GOperationInvokedEvent">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GOperationInvokedEvent/gOperation"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GAsynchronousServerCallReturnsEvent">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GAsynchronousServerCallReturnsEvent/gEventSource"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GDataSendCompletedEvent">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/grteevents/GDataSendCompletedEvent/gEventSource"/>
+          </genClasses>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="Gdataelements" disposableProviderFactory="true"
+            providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gdataelements">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gdataelements/GVariableAccess">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/gdataelements/GVariableAccess/gDataElement"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gdataelements/GParameterAccess">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/gdataelements/GParameterAccess/gParameter"/>
+          </genClasses>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="Gperinstancememory" disposableProviderFactory="true"
+            providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gperinstancememory">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gperinstancememory/GPerInstanceMemory">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gswcinternalbehavior/gperinstancememory/GPerInstanceMemory/gType"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gswcinternalbehavior/gperinstancememory/GPerInstanceMemory/gTypeDefinition"/>
+          </genClasses>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="Gmodedeclarationgroup" disposableProviderFactory="true"
+            providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gmodedeclarationgroup">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gmodedeclarationgroup/GModeSwitchPoint">
+            <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcinternalbehavior/gmodedeclarationgroup/GModeSwitchPoint/gModeGroup"/>
+          </genClasses>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="Gservercall" disposableProviderFactory="true" providerPackageSuffix="providers"
+            ecorePackage="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gservercall">
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gservercall/GServerCallPoint">
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gswcinternalbehavior/gservercall/GServerCallPoint/gTimeout"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gservercall/GAsynchronousServerCallPoint"/>
+          <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcinternalbehavior/gservercall/GSynchronousServerCallPoint"/>
+        </nestedGenPackages>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gswcimplementation" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gswcimplementation">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gswcimplementation/GSwcImplementation">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gswcimplementation/GSwcImplementation/gBehavior"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gcommunication" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gswcomponents/gcommunication">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcommunication/GPPortComSpec"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcommunication/GServerComSpec">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gcommunication/GServerComSpec/gQueueLength"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcommunication/GServerComSpec/gOperation"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcommunication/GSenderComSpec">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcommunication/GSenderComSpec/gDataElement"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcommunication/GQueuedSenderComSpec"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcommunication/GNonqueuedSenderComSpec">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcommunication/GNonqueuedSenderComSpec/gInitValue"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcommunication/GRPortComSpec"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcommunication/GClientComSpec">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcommunication/GClientComSpec/gOperation"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcommunication/GReceiverComSpec">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcommunication/GReceiverComSpec/gDataElement"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcommunication/GQueuedReceiverComSpec">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gswcomponents/gcommunication/GQueuedReceiverComSpec/gQueueLength"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gswcomponents/gcommunication/GNonqueuedReceiverComSpec">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gswcomponents/gcommunication/GNonqueuedReceiverComSpec/gInitValue"/>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Gcommonstructure" disposableProviderFactory="true"
+        ecorePackage="gautosar.ecore#//gcommonstructure">
+      <nestedGenPackages prefix="Gimplementation" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gcommonstructure/gimplementation">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gimplementation/GImplementation">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/gimplementation/GImplementation/gResourceConsumption"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/gimplementation/GImplementation/gCodeDescriptors"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gimplementation/GCode"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gimplementation/GEngineeringObject"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gimplementation/GAutosarEngineeringObject"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gresourceconsumption" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gcommonstructure/gresourceconsumption">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gresourceconsumption/GResourceConsumption"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gmodedeclaration" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gcommonstructure/gmodedeclaration">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gmodedeclaration/GModeDeclarationGroupPrototype">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/gmodedeclaration/GModeDeclarationGroupPrototype/gType"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gmodedeclaration/GModeDeclarationGroup">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/gmodedeclaration/GModeDeclarationGroup/gModeDeclarations"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/gmodedeclaration/GModeDeclarationGroup/gInitialMode"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gmodedeclaration/GModeDeclaration"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Ginternalbehavior" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gcommonstructure/ginternalbehavior">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/ginternalbehavior/GExecutableEntity">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/ginternalbehavior/GExecutableEntity/gRunsInsideExclusiveAreas"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/ginternalbehavior/GExecutableEntity/gCanEnterExclusiveAreas"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/ginternalbehavior/GExclusiveArea"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/ginternalbehavior/GInternalBehavior">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/ginternalbehavior/GInternalBehavior/gExclusiveAreas"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gconstants" disposableProviderFactory="true" providerPackageSuffix="providers"
+          ecorePackage="gautosar.ecore#//gcommonstructure/gconstants">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gconstants/GValueSpecification"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gdatadefproperties" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gcommonstructure/gdatadefproperties">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gdatadefproperties/GSwDataDefPropsConditional">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/gdatadefproperties/GSwDataDefPropsConditional/gBaseType"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/gdatadefproperties/GSwDataDefPropsConditional/gInvalidValue"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/gdatadefproperties/GSwDataDefPropsConditional/gCompuMethod"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gbasetypes" disposableProviderFactory="true" providerPackageSuffix="providers"
+          ecorePackage="gautosar.ecore#//gcommonstructure/gbasetypes">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gbasetypes/GBaseType">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/gbasetypes/GBaseType/gBaseTypeDefinitionType"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeDefinition"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeDirectDefinition">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeDirectDefinition/gBaseTypeSizeDefinitionType"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeDirectDefinition/gBaseTypeEncoding"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeDirectDefinition/gMemAlignment"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeDirectDefinition/gByteOrder"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeSizeDefinition"/>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeAbsSize">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeAbsSize/gBaseTypeSize"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeMaxSize">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute gautosar.ecore#//gcommonstructure/gbasetypes/GBaseTypeMaxSize/gMaxBaseTypeSize"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gbasetypes/GSwBaseType"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Gsystemconstant" disposableProviderFactory="true"
+          providerPackageSuffix="providers" ecorePackage="gautosar.ecore#//gcommonstructure/gsystemconstant">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gcommonstructure/gsystemconstant/GSwSystemconst"/>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Gsystem" disposableProviderFactory="true" providerPackageSuffix="providers"
+        ecorePackage="gautosar.ecore#//gsystem">
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gsystem/GSystem"/>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gsystem/GRootSwCompositionPrototype">
+        <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gautosar.ecore#//gsystem/GRootSwCompositionPrototype/gSoftwareComposition"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gautosar.ecore#//gsystem/GSystemMapping">
+        <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gautosar.ecore#//gsystem/GSystemMapping/gSwImplMappings"/>
+      </genClasses>
+      <nestedGenPackages prefix="Gswmapping" disposableProviderFactory="true" providerPackageSuffix="providers"
+          ecorePackage="gautosar.ecore#//gsystem/gswmapping">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gsystem/gswmapping/GSwcToImplMapping">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gsystem/gswmapping/GSwcToImplMapping/gComponentImplementation"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gsystem/gswmapping/GSwcToImplMapping/gComponents"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Ginstanceref" disposableProviderFactory="true" providerPackageSuffix="providers"
+          ecorePackage="gautosar.ecore#//gsystem/ginstanceref">
+        <genClasses image="false" ecoreClass="gautosar.ecore#//gsystem/ginstanceref/GComponentInSystemIRef">
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gsystem/ginstanceref/GComponentInSystemIRef/gContextComposition"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gsystem/ginstanceref/GComponentInSystemIRef/gContextComponents"/>
+          <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference gautosar.ecore#//gsystem/ginstanceref/GComponentInSystemIRef/gTargetComponent"/>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

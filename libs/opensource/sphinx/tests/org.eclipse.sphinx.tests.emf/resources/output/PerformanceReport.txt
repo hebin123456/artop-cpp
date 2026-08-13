@@ -1,0 +1,24 @@
+
+Performance Test Event :org.eclipse.sphinx.emf/perf/model.load
+-Blame Object: ModelLoadingUtil.loadModel P/TestProject
+-RunCount :1
+-Running Time :734 ms Overlap Failure : true
+-Sub Event: org.eclipse.sphinx.emf/perf/model.load.detectContenttype
+		-RunCount :1
+		-Running Time:719 ms
+		-Running Time percentage:97.95640326975476%
+-Sub Event: org.eclipse.sphinx.emf/perf/model.load.readContribution
+		-RunCount :1
+		-Running Time:3515 ms
+		-Running Time percentage:478.8828337874659%
+-Blame Object: ModelLoadingUtil.loadModel P/TestProject2
+-RunCount :1
+-Running Time :781 ms Overlap Failure : true
+-Sub Event: org.eclipse.sphinx.emf/perf/model.load.detectContenttype
+		-RunCount :1
+		-Running Time:16 ms
+		-Running Time percentage:2.0486555697823303%
+-Sub Event: org.eclipse.sphinx.emf/perf/model.load.readContribution
+		-RunCount :0
+		-Running Time:0 ms
+		-Running Time percentage:0.0%

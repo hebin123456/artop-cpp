@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.sphinx.emf" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.eclipse.sphinx.emf" id="resourceLocators" name="Resource Locators"/>
+      </appInfo>
+      <documentation>
+         This extension point allow tools built on Sphinx to contribute a resource locator for their different resources like icons/messages. The resource locator class referenced in the extension point must have an attribute called &quot;INSTANCE&quot; which return an instance of this locator.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="locator"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="locator">
+      <complexType>
+         <attribute name="mmEPackagesNsURIPattern" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A regular expression which represents the Ns URI of the meta model EPackages
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.emf.common.util.ResourceLocator"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         0.7.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         public final class Activator extends EMFPlugin{
+ 
+  public static final Activator INSTANCE = new Activator();
+  
+  
+  private static Implementation plugin;
+
+
+  public Activator()
+  {
+    super
+      (new ResourceLocator [] 
+       {
+       });
+  }
+
+
+  @Override
+  public ResourceLocator getPluginResourceLocator()
+  {
+    return plugin;
+  }
+
+ 
+  public static Implementation getPlugin()
+  {
+    return plugin;
+  }
+
+  
+  public static class Implementation extends EclipsePlugin
+  {
+    
+    public Implementation()
+    {
+      super();
+
+      // Remember the static instance.
+      //
+      plugin = this;
+    }
+  }
+
+}
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) 2008-2010 See4sys and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    See4sys - Initial API and implementation
+      </documentation>
+   </annotation>
+
+</schema>

@@ -1,0 +1,30 @@
+package example
+
+/**
+ * Class Node
+ */
+class ClassA {
+	String attributeA
+	String[] attributeB
+	contains ClassB referenceA
+	contains ClassB[] referenceB
+	refers ClassC referenceC
+	refers ClassC[] referenceD
+}
+
+class ClassB {
+	String attributeC
+}
+
+class SubClassB extends ClassB {
+	String[] attributeD
+}
+
+
+class ClassC {
+	String attributeF
+}
+
+class SubClassC extends ClassC {
+	String[] attributeG
+}

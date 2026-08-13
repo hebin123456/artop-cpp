@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.artop.aal.serialization;singleton:=true
+Archiver-Version: Plexus Archiver
+Built-By: tomcat
+Require-Bundle: org.artop.aal.common;visibility:=reexport,org.artop.ee
+ l.serialization
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: %providerName
+Export-Package: org.artop.aal.serialization,org.artop.aal.serializatio
+ n.internal;x-internal:=true,org.artop.aal.serialization.internal.mess
+ ages;x-internal:=true,org.artop.aal.serialization.internal.util;x-int
+ ernal:=true
+Bundle-Name: %pluginName
+Bundle-Version: 4.13.0.201912171516
+Bundle-Localization: plugin
+Bundle-Activator: org.artop.aal.serialization.internal.Activator$Imple
+ mentation
+Created-By: Apache Maven 3.6.0
+Build-Jdk: 1.8.0_222
+

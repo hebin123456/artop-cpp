@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.sphinx.emf.serialization;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore.xmi,
+ org.apache.xerces;bundle-version="2.12.2"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.eclipse.sphinx.emf.serialization,
+ org.eclipse.sphinx.emf.serialization.internal;x-internal:=true
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Activator: org.eclipse.sphinx.emf.serialization.internal.Activator$Implementation

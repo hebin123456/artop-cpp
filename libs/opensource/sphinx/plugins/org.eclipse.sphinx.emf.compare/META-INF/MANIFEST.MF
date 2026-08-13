@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.emf.compare;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-Activator: org.eclipse.sphinx.emf.compare.internal.Activator$Implementation
+Require-Bundle: com.google.guava,
+ org.eclipse.xtend.lib;visibility:=reexport,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.sphinx.emf;visibility:=reexport,
+ org.eclipse.emf.compare;visibility:=reexport,
+ org.eclipse.emf.compare.rcp;visibility:=reexport,
+ org.eclipse.emf.compare.edit
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.eclipse.sphinx.emf.compare.diff,
+ org.eclipse.sphinx.emf.compare.domain,
+ org.eclipse.sphinx.emf.compare.internal;x-internal:=true,
+ org.eclipse.sphinx.emf.compare.internal.messages;x-internal:=true,
+ org.eclipse.sphinx.emf.compare.match,
+ org.eclipse.sphinx.emf.compare.report,
+ org.eclipse.sphinx.emf.compare.scope,
+ org.eclipse.sphinx.emf.compare.util
+

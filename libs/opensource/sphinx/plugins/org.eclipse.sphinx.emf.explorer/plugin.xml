@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?eclipse version="3.2"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2010 See4sys and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    See4sys - Initial API and implementation
+
+</copyright>
+-->
+
+<plugin>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="org.eclipse.sphinx.emf.explorer.internal.actions.providers.UndoRedoOverrideActionProvider"
+            id="org.eclipse.sphinx.emf.explorer.undoRedoOverrideActionProvider"
+            overrides="org.eclipse.ui.navigator.resources.UndoRedoActionProvider">
+         <enablement>
+				<!-- 'true' -->
+   				<or/>
+         </enablement>
+      </actionProvider>
+      
+      <actionProvider
+              class="org.eclipse.sphinx.emf.explorer.internal.actions.providers.ResourceMgmtOverrideActionProvider"
+              id="org.eclipse.sphinx.emf.explorer.resourceMgmtOverrideActionProvider"
+              overrides="org.eclipse.ui.navigator.resources.ResourceMgmtActions">
+           <enablement>
+                <or>
+					<adapt type="org.eclipse.core.resources.IResource" />	 
+					<adapt type="java.util.Collection"> 
+						<count value="0" />
+					</adapt>
+				</or>
+           </enablement>
+       </actionProvider> 
+
+      <actionProvider
+            class="org.eclipse.sphinx.emf.explorer.actions.providers.BasicModelEditActionProvider"
+            id="org.eclipse.sphinx.emf.explorer.basicModelEditActions">
+         <enablement>
+            <or>
+               <instanceof
+                     value="org.eclipse.emf.ecore.EObject" />
+               <instanceof
+                     value="org.eclipse.emf.edit.provider.IWrapperItemProvider" />
+               <instanceof
+                     value="org.eclipse.sphinx.emf.edit.TransientItemProvider" />
+            </or>
+         </enablement>
+      </actionProvider>
+      <actionProvider
+            class="org.eclipse.sphinx.emf.explorer.actions.providers.BasicModelUndoRedoActionProvider"
+            id="org.eclipse.sphinx.emf.explorer.basicModelUndoRedoActions">
+         <enablement>
+             <or>
+               <instanceof
+                     value="org.eclipse.emf.ecore.EObject" />
+               <instanceof
+                     value="org.eclipse.emf.edit.provider.IWrapperItemProvider" />
+               <instanceof
+                     value="org.eclipse.sphinx.emf.edit.TransientItemProvider" />
+            </or>
+         </enablement>
+      </actionProvider>
+      <actionProvider
+            class="org.eclipse.sphinx.emf.explorer.actions.providers.BasicModelRefactorActionProvider"
+            id="org.eclipse.sphinx.emf.explorer.basicModelRefactorActions">
+         <enablement>
+             <or>
+               <instanceof
+                     value="org.eclipse.emf.ecore.EObject" />
+               <instanceof
+                     value="org.eclipse.emf.edit.provider.IWrapperItemProvider" />
+               <instanceof
+                     value="org.eclipse.sphinx.emf.edit.TransientItemProvider" />
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+   <extension point="org.eclipse.ui.navigator.viewer">
+ 			<viewerActionBinding
+ 					viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+ 				<includes>
+ 					<actionExtension
+						 pattern="org.eclipse.sphinx.emf.explorer.resourceMgmtOverrideActionProvider">
+ 					</actionExtension>
+ 				</includes>
+ 			</viewerActionBinding>
+ 	</extension>
+
+   <extension
+        point="org.eclipse.ui.navigator.linkHelper">
+      <linkHelper
+            class="org.eclipse.sphinx.emf.explorer.BasicLinkHelper"
+            id="org.eclipse.sphinx.emf.explorer.linkHelper">
+         <editorInputEnablement>
+            <instanceof 
+                  value="org.eclipse.emf.common.ui.URIEditorInput" />
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof
+                  value="org.eclipse.emf.ecore.EObject" />
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+
+</plugin>

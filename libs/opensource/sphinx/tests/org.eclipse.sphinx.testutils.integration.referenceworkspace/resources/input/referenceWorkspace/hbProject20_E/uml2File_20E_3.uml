@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_41ir8DceEd-LNrMaMyVojg" name="UMLModel">
+  <packagedElement xmi:type="uml:Package" xmi:id="_Bu9O3DckEd-LNrMfMyVojg" name="package1"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_DH5mcDcfEw-LNrMfMyVojg" name="package2">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_RKzkEGoLEd-HU7fEYfGspQ" name="Interface20E_3">
+      <ownedOperation xmi:id="_VMHdYGoLEd-HU7fEYfGspQ" name="Operation20E3_1">
+        <method xmi:type="uml:FunctionBehavior" href="uml2File_20E_2.uml#_1U_TwGoKEd-HU7fEYfGspQ"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_bw_foGoLEd-HU7fEYfGspQ" name="Operation20E3_2">
+        <method xmi:type="uml:FunctionBehavior" href="uml2File_20E_2.uml#_M0qDMGoLEd-HU7fEYfGspQ"/>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

@@ -1,0 +1,2 @@
+<xsd:element name="NODE" minOccurs="0" maxOccurs="unbounded" type="node:NODE"/>
+<xsd:element name="SUB-NODE" minOccurs="0" maxOccurs="unbounded" type="node:SUB-NODE"/>

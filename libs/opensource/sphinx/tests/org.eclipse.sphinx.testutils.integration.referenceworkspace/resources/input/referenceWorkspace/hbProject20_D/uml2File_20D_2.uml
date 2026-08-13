@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_45ir8DceEd-LNrMfMyVojg" name="UMLModel">
+  <packagedElement xmi:type="uml:Package" xmi:id="_Tzcl0J-3Ed-7F5d5g5RYLw" name="package1"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_Tzcl0Z-3Ed-7F5d5g5RYLw" name="package2">
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_Tzcl0p-3Ed-7F5d5g5RYLw" name="FunctionBehavior20D2_1"/>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_Tzcl05-3Ed-7F5d5g5RYLw" name="FunctionBehavior20D2_2"/>
+  </packagedElement>
+</uml:Model>

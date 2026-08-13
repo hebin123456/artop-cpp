@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.artop.thirdparty"
+      label="%featureName"
+      version="4.13.0.201912171516"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.apache.commons.lang"
+         download-size="291"
+         install-size="618"
+         version="2.6.0.v201404270220"
+         unpack="false"/>
+
+   <plugin
+         id="org.jdom"
+         download-size="173"
+         install-size="363"
+         version="1.1.1.v201101151400"
+         unpack="false"/>
+
+   <plugin
+         id="javax.xml"
+         download-size="246"
+         install-size="413"
+         version="1.3.4.v201005080400"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.xerces"
+         download-size="1273"
+         install-size="2681"
+         version="2.9.0.v201101211617"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.xml.resolver"
+         download-size="94"
+         install-size="201"
+         version="1.2.0.v201005080400"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.xml.serializer"
+         download-size="286"
+         install-size="577"
+         version="2.7.1.v201005080400"
+         unpack="false"/>
+
+   <plugin
+         id="javax.activation"
+         download-size="53"
+         install-size="104"
+         version="1.1.0.v201211130549"
+         unpack="false"/>
+
+   <plugin
+         id="com.google.guava"
+         download-size="2841"
+         install-size="6376"
+         version="27.1.0.v20190517-1946"
+         unpack="false"/>
+
+   <plugin
+         id="com.google.inject"
+         download-size="519"
+         install-size="1177"
+         version="3.0.0.v201605172100"
+         unpack="false"/>
+
+   <plugin
+         id="org.antlr.runtime"
+         download-size="201"
+         install-size="426"
+         version="3.2.0.v201101311130"
+         unpack="false"/>
+
+</feature>

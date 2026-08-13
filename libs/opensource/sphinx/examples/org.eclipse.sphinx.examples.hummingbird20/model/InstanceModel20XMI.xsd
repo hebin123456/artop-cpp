@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:cn="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common" xmlns:im="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/instancemodel" xmlns:tm="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/instancemodel">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:import namespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel" schemaLocation="TypeModel20XMI.xsd"/>
+  <xsd:import namespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common" schemaLocation="Common20XMI.xsd"/>
+  <xsd:complexType name="Application">
+    <xsd:annotation>
+      <xsd:documentation>Represents an Application model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="true">
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="components" type="im:Component">
+            <xsd:annotation>
+              <xsd:documentation>Aggregates all Components with this Application...</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Application" type="im:Application">
+    <xsd:annotation>
+      <xsd:documentation>Represents an Application model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Component">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Component model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="true">
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="tm:ComponentType">
+            <xsd:annotation>
+              <xsd:documentation>Reference to the type of this Component</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="outgoingConnections" type="im:Connection"/>
+          <xsd:element name="incomingConnections" type="im:Connection"/>
+          <xsd:element name="parameterValues" type="im:ParameterValue">
+            <xsd:annotation>
+              <xsd:documentation>Aggregates all ParameterValues with this Component...</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="parameterExpressions" type="im:ParameterExpression"/>
+        </xsd:choice>
+        <xsd:attribute name="type" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Reference to the type of this Component</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="incomingConnections" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Component" type="im:Component">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Component model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Connection">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Connection model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="true">
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourcePort" type="tm:Port">
+            <xsd:annotation>
+              <xsd:documentation>Specifies the source port</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="targetComponent" type="im:Component">
+            <xsd:annotation>
+              <xsd:documentation>Specifies the target component</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="sourcePort" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Specifies the source port</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="targetComponent" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Specifies the target component</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Connection" type="im:Connection">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Connection model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ParameterValue">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Parameter Value model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="true">
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="tm:Parameter">
+            <xsd:annotation>
+              <xsd:documentation>Reference to the type of this Parameter</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="value" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Specifies the value of this ParameterValue</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="type" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Reference to the type of this Parameter</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ParameterValue" type="im:ParameterValue">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Parameter Value model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ParameterExpression" mixed="true">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="expressions" type="im:Formula"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="ParameterExpression" type="im:ParameterExpression"/>
+  <xsd:complexType name="Formula">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="value" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Formula" type="im:Formula"/>
+  <xsd:complexType name="CustomApplication">
+    <xsd:complexContent>
+      <xsd:extension base="im:Application"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CustomApplication" type="im:CustomApplication"/>
+</xsd:schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<library:Library xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:library="http://example.com/emfdemo/library" name="City Central Library">
+  <books title="The Pragmatic Programmer" publishDate="1999-10-20T00:00:00.000+0000" category="Technology" isbn="978-0201616224" pages="320" price="49.99" publisher="//@publishers.1" authors="//@authors.0 //@authors.1"/>
+  <books title="Just for Fun" publishDate="2001-06-01T00:00:00.000+0000" category="Non-Fiction" isbn="978-0066620732" pages="288" price="27.99" publisher="//@publishers.0" authors="//@authors.2"/>
+  <magazines title="Communications of the ACM" publishDate="2024-01-01T00:00:00.000+0000" category="Science" issueNumber="67" periodicity="12"/>
+  <authors name="Ada Lovelace" email="ada@example.com" birthYear="1815" books="//@books.0"/>
+  <authors name="Alan Turing" email="alan@example.com" birthYear="1912" books="//@books.0"/>
+  <authors name="Linus Torvalds" email="linus@example.com" birthYear="1969" books="//@books.1"/>
+  <publishers name="O'Reilly Media" email="contact@oreilly.com" books="//@books.1">
+    <address street="1005 Gravenstein Hwy N" city="Sebastopol" country="USA" zipCode="95472"/>
+  </publishers>
+  <publishers name="Addison-Wesley" email="info@aw.com" books="//@books.0">
+    <address street="75 Arlington St" city="Boston" country="USA" zipCode="02116"/>
+  </publishers>
+</library:Library>

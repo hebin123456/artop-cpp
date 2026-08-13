@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="images/../../../css/book.css" type="text/css"/>
+<link rel="stylesheet" href="images/../../../css/emf-book.css" type="text/css"/>
+<title>Generating an EMF Model using XML Schema (XSD)</title>
+</head>
+<body lang="EN-US" xml:lang="EN-US">
+<h1>Generating an EMF Model using XML Schema (XSD)</h1>
+
+<p>Last updated: May 21, 2008</p>
+
+<p>This tutorial provides a step-by-step description for creating an EMF model
+from an XML Schema and then generating a simple model editor for it. Following
+this tutorial will show how easy EMF makes it to go from a simple model
+definition in an XML Schema to a fully functioning editor for that model.</p>
+
+<p>The screenshots are based on version 3.2.0 RC6 of the Eclipse SDK and version 2.2.0 RC6a
+of EMF.</p>
+
+<p>The XML Schema file we use in this tutorial can be found here:
+<a  target="_code" href="images/../library.xsd">library.xsd</a>. Save it
+somewhere on your workstation for later use.</p>
+
+<p>The basic mapping rules from XML Schema to Ecore are:</p>
+
+<ul>
+<li>A schema maps to an EPackage. Any included schemas that declare different
+target namespaces map to their own EPackages.</li>
+
+<li>A complex type definition maps to an EClass.</li>
+
+<li>A simple type definition maps to an EDataType.</li>
+
+<li>An attribute declaration or a nested element declaration maps to an
+EAttribute or EReference, depending on its type.</li>
+
+<li>An EClass called DocumentRoot is created to hold any top-level element
+or attribute declarations.</li>
+</ul>
+
+<p>From a modeling perspective, XML Schema is not as expressive as Ecore. It can
+neither specify the type of a reference target nor define bidirectional
+references (though EMF provides its own way to overcome these limitations).</p>
+
+<hr/>
+<h2>Contents</h2>
+
+<table border="0" cellspacing="2" cellpadding="2" width="100%">
+<tr>
+<td valign="top" width="60">Step 0:</td>
+<td valign="top"><a href="#step0">Prerequisites</a></td>
+</tr>
+
+<tr>
+<td valign="top">Step 1:</td>
+<td valign="top"><a href="#step1">Import the Model from XML Schema</a>
+</td>
+</tr>
+
+<tr>
+<td valign="top">Step 2:</td>
+<td valign="top"><a href="#step2">Generate the EMF Model Code</a>
+</td>
+</tr>
+
+<tr>
+<td valign="top">Step 3:</td>
+<td valign="top"><a href="#step3">Generate an Editor for the
+Model</a> </td>
+</tr>
+
+<tr>
+<td valign="top">Step 4:</td>
+<td valign="top"><a href="#step4">Run the Generated Editor</a>
+</td>
+</tr>
+</table>
+<br/>
+
+<hr/>
+<p style="text-align: right"><a id="step0" name="step0">&nbsp;</a><a href="#top">contents</a></p>
+<h2>Step 0: Prerequisites</h2>
+
+<p>This tutorial requires both the EMF Runtime package, which includes the
+EMF generator and related plug-ins, and the XML Schema Definition (XSD)
+Runtime package. This latter package provides an EMF model of XML Schema, which
+EMF relies on for reading schemas. For simplicity, a combined EMF and XSD SDK
+package is available. After installing the package(s), verify that they are
+available in your Eclipse environment:</p>
+
+<ul>
+<li>Bring up the "Help/About Eclipse Platform" dialog.<br/>
+<img src="images/../../clibmod/images/img001.gif" alt="Help/About Eclipse Platform"/><br/>
+&nbsp;</li>
+
+<li>Click on "Plug-in Details".<br/>
+<img src="images/../../clibmod/images/img002.gif" alt="Plug-in Details"/><br/>
+&nbsp;</li>
+
+<li>Check that the highlighted set of plug-ins are present.<br/>
+<img src="images/img001.gif" alt="Required plug-ins: org.eclipse.emf, org.eclipse.emf.codegen, org.eclipse.emf.codegen.ecore, org.eclipse.emf.codegen.ecore.ui, org.eclipse.emf.codegen.ui, org.eclipse.emf.common, org.eclipse.emf.common.ui, org.eclipse.emf.converter, org.eclipse.emf.ecore, org.eclipse.emf.ecore.edit, org.eclipse.emf.ecore.editor, org.eclipse.emf.ecore.xmi, org.eclipse.emf.edit, org.eclipse.emf.edit.ui, org.eclipse.emf.importer, org.eclipse.emf.mapping, org.eclipse.emf.mapping.ui, org.eclipse.emf.mapping.xsd2ecore, org.eclipse.emf.mapping.xsd2ecore.editor, org.eclipse.xsd, org.eclipse.xsd.ecore.importer, org.eclipse.xsd.edit, org.eclipse.xsd.editor"/><br/>
+&nbsp;</li>
+</ul>
+
+<p>Additional EMF and XSD plug-ins are not required for this tutorial.
+They may or may not appear, depending on which packages you installed.</p>
+
+<hr/>
+<p style="text-align: right"><a id="step1" name="step1">&nbsp;</a><a href="#top">contents</a></p>
+<h2>Step 1: Import the Model from XML Schema</h2>
+
+<p>Create a new EMF project in the workspace:</p>
+
+<ul>
+<li>Bring up the "File/New/Project..." dialog.<br/>
+<img src="images/../../clibmod/images/img101.gif" alt="File/New/Project..."/><br/>
+&nbsp;</li>
+
+<li>Expand "Eclipse Modeling Framework" and select "EMF Project". Click the
+"Next" button.<br/>
+<img src="images/../../clibmod/images/img102.gif" alt="EMF Project"/><br/>
+&nbsp;</li>
+
+<li>Give the project a name, say, "library". Then, click the "Next" button.<br/>
+<img src="images/../../clibmod/images/img103.gif" alt="Name the project"/><br/>
+&nbsp;</li>
+
+<li>Select "XML Schema" and click the "Next" button.<br/>
+<img src="images/img101.gif" alt="XML Schema"/><br/>
+&nbsp;</li>
+
+<li>Click on the "Browse" button and locate the schema file.<br/>
+<img src="images/img102.gif" alt="Browse for schema file"/><br/>
+&nbsp;</li>
+
+<li>The schema will be examined, and a default generator model name will be
+suggested. You can change the name in the entry box if you wish. You can also
+select "Create XML Schema to Ecore Map" to generate a model of the mapping
+used for your schema. Then, click the "Next" button.<br/>
+<img src="images/img104.gif" alt="Generator model name"/><br/>
+&nbsp;</li>
+
+<li>In general, more than one package may be produced from a single schema if it
+includes other schemas that declare different target namespaces. Select the
+package for which you want to generate an EMF model -- in this case, the only
+package, "org.eclipse.example.library". Click the "Finish" button.<br/>
+<img src="images/img105.gif" alt="Select package"/><br/>
+&nbsp;</li>
+
+<li>An Ecore model (library.ecore) and a generator model (library.genmodel) will
+be created. If "Create XML Schema to Ecore Map" was checked above, a mapping
+model (library.xsd2ecore) will also be created. It can be opened to see exactly
+how the schema was mapped to Ecore. The generator model is automatically opened
+in the main view.<br/>
+<img src="images/img106.gif" alt="Opened generator"/><br/>
+&nbsp;</li>
+</ul>
+
+<hr/>
+<p style="text-align: right"><a id="step2" name="step2">&nbsp;</a><a href="#top">contents</a></p>
+<h2>Step 2: Generate the EMF Model Code</h2>
+
+<p>The generator model shows a root object, representing the whole model. This
+model object has children that represent its packages, whose children then
+represent classifiers (classes and datatypes, including enumerated types). The
+children of classes are class attributes, references, and operations; the
+children of enumerated types are enum literals.</p>
+
+<ul>
+<li>The model can be expanded to see its various elements.<br/>
+<img src="images/img201.gif" alt="Expanded generator model"/><br/>
+&nbsp;</li>
+
+<li>There are properties associated with each object. If the Properties view
+isn't already showing, right-click the "Library" model object and select "Show
+Properties View" from the pop-up menu, or simply double-click the "Library"
+object.<br/>
+<img src="images/../../clibmod/images/img202.gif" alt="Show Properties View"/><br/>
+&nbsp;</li>
+
+<li>These properties control the behavior of the code generator.<br/>
+<img src="images/img203.gif" alt="Generator model properties"/><br/>
+&nbsp;</li>
+</ul>
+
+<p>In most cases, the properites need not be changed from their default values,
+but these options can provide a great deal of control over the code that gets
+generated. For now, select several different generator model objects, and
+observe their properties.</p>
+
+<p>The generator model is also the place where you initiate the code generation.
+By right-clicking on an object in the model, you can generate code for it.</p>
+
+<ul>
+<li>Right-click the "Library" model object and select "Generate Model Code" from
+the pop-up menu.<br/>
+<img src="images/img204.gif" alt="Generate Model Code"/><br/>
+&nbsp;</li>
+
+<li>Observe the generated files.<br/>
+<img src="images/img205.gif" alt="Generated files"/><br/>
+</li>
+</ul>
+
+<p>After generation, the class interfaces and enum class will have been created,
+and a new pair of interfaces will have been created for the package itself and
+for the factory. There will also be two new packages, with "impl" and "util"
+suffixes, which contain implementations of the interfaces and additional utility
+classes, and both types of manifest files for the model plug-in: "plugin.xml" and "MANIFEST.MF".</p>
+
+<p>If you change the model, you can regenerate it, and changes will be merged
+with any hand modifications that may have been made to the code. You can also
+selectively generate a subset of the model code by right-clicking on a package,
+class, or enum object and selecting "Generate Model Code" from the pop-up
+menu.</p>
+
+<hr/>
+<p style="text-align: right"><a id="step3" name="step3">&nbsp;</a><a href="#top">contents</a></p>
+<h2>Step 3: Generate an Editor for the Model</h2>
+
+<p>A fully functional Eclipse editor can also be generated for any model. By
+default, it is split between two plug-ins: an "edit" plug-in includes adapters
+that provide a structured view and perform command-based editing of the model
+objects; an "editor" plug-in provides the UI for the editor and wizard.</p>
+
+<ul>
+<li>In the generator, right-click the "Library" model object and select
+"Generate Edit Code" from the pop-up menu.<br/>
+<img src="images/img301.gif" alt="Generate Edit Code"/><br/>
+&nbsp;</li>
+
+<li>Right-click the model object again and select "Generate Editor Code" from
+the pop-up menu.<br/>
+<img src="images/img302.gif" alt="Generate Editor Code"/><br/>
+&nbsp;</li>
+
+<li>Observe the generated projects in the Package Explorer view, with "edit" and
+"editor" suffixes.<br/>
+<img src="images/../../clibmod/images/img303.gif" alt="Edit and editor projects"/><br/>
+&nbsp;</li>
+</ul>
+
+<p>In general, if you wish to generate the model, edit, and editor plug-ins in a
+single step, you can do so by selecting "Generate All" from the pop-up menu.  This will also create a tests plug-in, containing generated JUnit test code.</p>
+
+<p>The code should be compiled automatically as it is generated, and should
+recompile whenever it is changed. If you have disabled automatic building in the
+workbench preferences, you can initiate compilation manually:</p>
+
+<ul>
+<li>Select "Build All" from the "Project" menu.<br/>
+<img src="images/../../clibmod/images/img304.gif" alt="Project/Build All"/><br/>
+&nbsp;</li>
+
+<li>Observe the Problems view. There should be no errors in the library,
+library.edit, and library.editor projects.<br/>
+<img src="images/../../clibmod/images/img305.gif" alt="No errors"/><br/>
+&nbsp;</li>
+</ul>
+
+<hr/>
+<p style="text-align: right"><a id="step4" name="step4">&nbsp;</a><a href="#top">contents</a></p>
+<h2>Step 4: Run the Generated Editor</h2>
+
+<p>In order to test the new plug-ins, a second instance of Eclipse must be
+launched. The plug-ins will run in this workbench.</p>
+
+<ul>
+<li>Select one of the projects and choose "Run As/Eclipse Application" from the
+"Run" menu or toolbar drop-down.<br/>
+<img src="images/../../clibmod/images/img401.gif" alt="Run/Run As/Eclipse Application"/><br/>
+&nbsp;</li>
+
+<li>Wait for a second instance of the Eclipse platform to come up. Bring up the
+"Help/About Eclipse Platform" dialog, click on the "Plug-in Details" button, and
+verify that the generated plug-ins are there.<br/>
+<img src="images/../../clibmod/images/img402.gif" alt="Generated plug-ins: library.editor, library.edit, library"/><br/>
+&nbsp;</li>
+</ul>
+
+<p>The Library Model wizard can now be used to create a new instance of the
+model.</p>
+
+<ul>
+<li>Bring up the "File/New/Project..." dialog.<br/>
+<img src="images/../../clibmod/images/img101.gif" alt="File/New/Project..."/><br/>
+&nbsp;</li>
+
+<li>Expand "General" and select "Project". Click the "Next" button.<br/>
+<img src="images/../../clibmod/images/img403.gif" alt="Simple Project"/><br/>
+&nbsp;</li>
+
+<li>Give the project a name and click the "Finish" button.<br/>
+<img src="images/../../clibmod/images/img404.gif" alt="Name the project"/><br/>
+&nbsp;</li>
+
+<li>Right-click the project and select "New/Other..." from the pop-up menu.<br/>
+<img src="images/../../clibmod/images/img405.gif" alt="New/Other..."/><br/>
+&nbsp;</li>
+
+<li>Expand "Example EMF Model Creation Wizards" and select "Library Model".
+Click the "Next" button.<br/>
+<img src="images/../../clibmod/images/img406.gif" alt="Library Model"/><br/>
+&nbsp;</li>
+
+<li>Enter a file name for the library model. Make sure it ends with
+a ".library" extension. Then, click the "Next" button.<br/>
+<img src="images/../../clibmod/images/img407.gif" alt="Name the library model file"/><br/>
+&nbsp;</li>
+
+<li>Select "Library" as the model object and click the "Finish" button.<br/>
+<img src="images/../../clibmod/images/img408.gif" alt="Select the model object"/><br/>
+&nbsp;</li>
+
+<li>The newly created library model is opened in the main view.<br/>
+<img src="images/../../clibmod/images/img409.gif" alt="New library model"/><br/>
+&nbsp;</li>
+</ul>
+
+<p>The root object in this editor corresponds to the My.library resource. Under
+it lies a single library, the object which was selected as the model object in
+the wizard.</p>
+
+<ul>
+<li>Expand the "platform:/resource/librarytest/My.library" resource to see the
+"Library" object. Select it.<br/>
+<img src="images/../../clibmod/images/img410.gif" alt="Expanded resource"/><br/>
+&nbsp;</li>
+
+<li>If the Properties view isn't already showing, right-click the "Library"
+object and select "Show Properties View" from the pop-up menu.<br/>
+<img src="images/../../clibmod/images/img411.gif" alt="Show Properties View"/><br/>
+&nbsp;</li>
+
+<li>In the Properties view, click on the "Value" column of the "Name" property,
+and give a name to the library. The label in the main view will be updated when
+you hit Enter.<br/>
+<img src="images/../../clibmod/images/img412.gif" alt="Name the library"/><br/>
+&nbsp;</li>
+
+<li>Right-click the library and select "New Child/Writer" from the pop-up menu.
+A new writer is added to the library.<br/>
+ <img src="images/../../clibmod/images/img413.gif" alt="New Child/Writer"/><br/>
+&nbsp;</li>
+
+<li>Enter the name of the writer in the Properties view.<br/>
+<img src="images/../../clibmod/images/img414.gif" alt="Name the writer"/><br/>
+&nbsp;</li>
+
+<li>Similarly, a book can be added to the library.<br/>
+<img src="images/../../clibmod/images/img415.gif" alt="New Child/Book"/><br/>
+&nbsp;</li>
+
+<li>All the book's attributes and references can edited in the Properties
+view.<br/>
+<img src="images/../../clibmod/images/img416.gif" alt="Book properties"/><br/>
+&nbsp;</li>
+
+<li>You can save, close, and then re-open the model using the text editor if you
+wish to see the schema-based XML serialization (right-click "My.library",
+then select "Open With/Text Editor").<br/>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;library:Library xmlns:library="http://www.example.eclipse.org/Library">
+  &lt;name>Skills Center&lt;/name>
+  &lt;writers>
+    &lt;name>JRR Tolkien&lt;/name>
+    &lt;books>#//@books.0&lt;/books>
+  &lt;/writers>
+  &lt;books>
+    &lt;title>Fellowship of the Ring&lt;/title>
+    &lt;pages>324&lt;/pages>
+    &lt;category>ScienceFiction&lt;/category>
+    &lt;author>#//@writers.0&lt;/author>
+  &lt;/books>
+&lt;/library:Library></pre></li>
+</ul>
+
+<hr/>
+<p style="text-align: right"><a href="#top">contents</a></p>
+</body>
+</html>

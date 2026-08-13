@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2010 See4sys and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    See4sys - Initial API and implementation
+    See4sys - Added popup menu contribution for basic rename action
+
+</copyright>
+-->
+
+<plugin>
+   <extension-point id="propertySourceFilters"
+         name="Property Source Filters"
+         schema="schema/propertySourceFilters.exsd" />
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="org.eclipse.sphinx.emf.ui.actions.providers.BasicEditorActionProvider"
+            id="org.eclipse.sphinx.emf.ui.actions.editorActions">
+         <enablement>
+            <or>
+               <instanceof
+                     value="org.eclipse.emf.ecore.EObject">
+               </instanceof>
+               <instanceof
+                     value="org.eclipse.emf.edit.provider.IWrapperItemProvider">
+               </instanceof>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+</plugin>

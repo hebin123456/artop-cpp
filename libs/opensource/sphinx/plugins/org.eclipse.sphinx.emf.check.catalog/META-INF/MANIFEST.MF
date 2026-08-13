@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.emf.check.catalog;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipse.sphinx.emf.check.catalog.Activator$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.eclipse.sphinx.emf.check.catalog,
+ org.eclipse.sphinx.emf.check.catalog.impl,
+ org.eclipse.sphinx.emf.check.catalog.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy

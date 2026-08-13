@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.examples.hummingbird20.check;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.common,
+ org.eclipse.emf.ecore,
+ com.google.inject,
+ org.eclipse.sphinx.examples.hummingbird20,
+ org.eclipse.sphinx.emf.check
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.sphinx.examples.hummingbird20.check.simple,
+ org.eclipse.sphinx.examples.hummingbird20.check.withcatalog

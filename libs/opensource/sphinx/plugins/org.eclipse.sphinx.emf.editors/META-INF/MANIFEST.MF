@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.emf.editors;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Activator: org.eclipse.sphinx.emf.editors.internal.Activator$Implementation
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.sphinx.emf.workspace.ui;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.eclipse.sphinx.emf.editors,
+ org.eclipse.sphinx.emf.editors.internal;x-internal:=true
+Bundle-Localization: plugin

@@ -1,0 +1,2067 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gautosar" nsURI="http://artop.org/gautosar" nsPrefix="">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="modelPluginVersion" value="4.13.0"/>
+    <details key="editPluginVersion" value="4.13.0"/>
+  </eAnnotations>
+  <eSubpackages name="ggenericstructure" nsURI="http://artop.org/gautosar/gs" nsPrefix="">
+    <eSubpackages name="gprimitivetypes" nsURI="http://artop.org/gautosar/gs/pt" nsPrefix="">
+      <eClassifiers xsi:type="ecore:EDataType" name="String" instanceClassName="java.lang.String"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Boolean" instanceClassName="java.lang.Boolean"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Float" instanceClassName="java.lang.Double"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Integer" instanceClassName="java.lang.Integer"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="DateTime" instanceClassName="javax.xml.datatype.XMLGregorianCalendar"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="UnlimitedNatural" instanceClassName="java.math.BigInteger"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Identifier" instanceClassName="java.lang.String"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="BaseTypeEncodingString" instanceClassName="java.lang.String"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="VerbatimString" instanceClassName="java.lang.String"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Numerical" instanceClassName="java.math.BigDecimal"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="PositiveInteger" instanceClassName="java.lang.Long"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="NameToken" instanceClassName="java.lang.String"/>
+    </eSubpackages>
+    <eSubpackages name="ginfrastructure" nsURI="http://artop.org/gautosar/gs/in" nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GARObject" abstract="true" interface="true">
+        <eAnnotations source="merge.config">
+          <details key="mode" value="replace"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gChecksum" eType="#//ggenericstructure/gprimitivetypes/String"
+            volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+            derived="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gTimestamp" eType="#//ggenericstructure/gprimitivetypes/DateTime"
+            volatile="true" transient="true" defaultValueLiteral="0001-01-01T00:00:00+00:00"
+            unsettable="true" derived="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GIdentifiable" abstract="true" interface="true"
+          eSuperTypes="#//ggenericstructure/ginfrastructure/GReferrable">
+        <eOperations name="gGetExtensions">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="body" value="&#xA;&#x9;return getExtensions();&#xA;&#x9;&#x9;"/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gUuid" eType="#//ggenericstructure/gprimitivetypes/String"
+            volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+            derived="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gCategory" eType="#//ggenericstructure/gprimitivetypes/String"
+            volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+            derived="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gDesc" eType="#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/gmultilanguagedata/GMultiLanguageOverviewParagraph"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gAdminData" eType="#//ggenericstructure/ggeneraltemplateclasses/gadmindata/GAdminData"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GARPackage" abstract="true" interface="true"
+          eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gElements" upperBound="-1"
+            eType="#//ggenericstructure/ginfrastructure/GPackageableElement" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gSubPackages" upperBound="-1"
+            eType="#//ggenericstructure/ginfrastructure/GARPackage" volatile="true"
+            transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="4.X" value="arPackages"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GAUTOSAR" abstract="true" interface="true"
+          eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+        <eOperations name="gGetMixed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gArPackages" upperBound="-1"
+            eType="#//ggenericstructure/ginfrastructure/GARPackage" volatile="true"
+            transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="topLevelPackages"/>
+            <details key="3.X" value="topLevelPackages"/>
+            <details key="4.X" value="arPackages"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gAdminData" eType="#//ggenericstructure/ggeneraltemplateclasses/gadmindata/GAdminData"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GPackageableElement" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gARPackage" eType="#//ggenericstructure/ginfrastructure/GARPackage"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GReferrable" abstract="true" interface="true"
+          eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="NONE"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gShortName" lowerBound="1"
+            eType="#//ggenericstructure/gprimitivetypes/Identifier" volatile="true"
+            transient="true" defaultValueLiteral="" unsettable="true" derived="true"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="ggeneraltemplateclasses" nsURI="http://artop.org/gautosar/gs/gtc"
+        nsPrefix="">
+      <eSubpackages name="gdocumentation" nsURI="http://artop.org/gautosar/gs/gtc/d"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GAnnotation" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/GGeneralAnnotation">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="NONE"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GRemark" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="NONE"/>
+            <details key="4.X" value="DocumentationBlock"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gPs" upperBound="-1"
+              eType="#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/gmultilanguagedata/GMultiLanguageParagraph"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GGeneralAnnotation" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="NONE"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gAnnotationOrigin"
+              unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+              volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+              derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gAnnotationText"
+              eType="#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/GRemark"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eSubpackages name="gtextmodel" nsURI="http://artop.org/gautosar/gs/gtc/d/tm"
+            nsPrefix="">
+          <eSubpackages name="gmultilanguagedata" nsURI="http://artop.org/gautosar/gs/gtc/d/tm/mld"
+              nsPrefix="">
+            <eClassifiers xsi:type="ecore:EClass" name="GMultiLanguageParagraph" abstract="true"
+                interface="true">
+              <eAnnotations source="class.mapping">
+                <details key="2.1" value="MlData1"/>
+                <details key="3.X" value="MlData1"/>
+                <details key="4.X" value="MultiLanguageParagraph"/>
+              </eAnnotations>
+              <eStructuralFeatures xsi:type="ecore:EReference" name="gL1s" upperBound="-1"
+                  eType="#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/glanguagedatamodel/GLParagraph"
+                  volatile="true" transient="true" derived="true" resolveProxies="false"/>
+            </eClassifiers>
+            <eClassifiers xsi:type="ecore:EClass" name="GMultiLanguageOverviewParagraph"
+                abstract="true" interface="true">
+              <eAnnotations source="class.mapping">
+                <details key="2.1" value="MlData2"/>
+                <details key="3.X" value="MlData2"/>
+              </eAnnotations>
+              <eStructuralFeatures xsi:type="ecore:EReference" name="gL2s" upperBound="-1"
+                  eType="#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/glanguagedatamodel/GLOverviewParagraph"
+                  volatile="true" transient="true" derived="true" resolveProxies="false"/>
+            </eClassifiers>
+          </eSubpackages>
+          <eSubpackages name="glanguagedatamodel" nsURI="http://artop.org/gautosar/gs/gtc/d/tm/ldm"
+              nsPrefix="">
+            <eClassifiers xsi:type="ecore:EClass" name="GLParagraph" abstract="true"
+                interface="true" eSuperTypes="#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/ginlinetextmodel/GMixedContentForParagraph">
+              <eAnnotations source="class.mapping">
+                <details key="2.1" value="L1"/>
+                <details key="3.X" value="L1"/>
+              </eAnnotations>
+            </eClassifiers>
+            <eClassifiers xsi:type="ecore:EClass" name="GLOverviewParagraph" abstract="true"
+                interface="true" eSuperTypes="#//ggenericstructure/ggeneraltemplateclasses/gdocumentation/gtextmodel/ginlinetextmodel/GMixedContentForOverviewParagraph">
+              <eAnnotations source="class.mapping">
+                <details key="2.1" value="L2"/>
+                <details key="3.X" value="L2"/>
+              </eAnnotations>
+            </eClassifiers>
+          </eSubpackages>
+          <eSubpackages name="ginlinetextmodel" nsURI="http://artop.org/gautosar/gs/gtc/d/itm"
+              nsPrefix="">
+            <eClassifiers xsi:type="ecore:EClass" name="GMixedContentForParagraph"
+                abstract="true" interface="true">
+              <eAnnotations source="class.mapping">
+                <details key="2.1" value="MixedContent1"/>
+                <details key="3.X" value="MixedContent1"/>
+              </eAnnotations>
+              <eOperations name="gGetMixed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                  <details key="body" value="&#xA;&#x9;&#x9;return getMixed();&#xA;&#x9;&#x9;"/>
+                </eAnnotations>
+              </eOperations>
+            </eClassifiers>
+            <eClassifiers xsi:type="ecore:EClass" name="GMixedContentForOverviewParagraph"
+                abstract="true" interface="true">
+              <eAnnotations source="class.mapping">
+                <details key="2.1" value="MixedContent2"/>
+                <details key="3.X" value="MixedContent2"/>
+              </eAnnotations>
+              <eOperations name="gGetMixed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                  <details key="body" value="&#xA;&#x9;&#x9;&#x9;return getMixed();&#xA;&#x9;&#x9;"/>
+                </eAnnotations>
+              </eOperations>
+              <eOperations name="gGetMixedText" eType="#//ggenericstructure/gprimitivetypes/String">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                  <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#x9;return getMixedText();&#xA;&#x9;&#x9;"/>
+                </eAnnotations>
+              </eOperations>
+              <eOperations name="gSetMixedText">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                  <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;setMixedText(text);&#xA;&#x9;&#x9;"/>
+                </eAnnotations>
+                <eParameters name="text" eType="#//ggenericstructure/gprimitivetypes/String"/>
+              </eOperations>
+            </eClassifiers>
+          </eSubpackages>
+        </eSubpackages>
+      </eSubpackages>
+      <eSubpackages name="gprimitivetypes" nsURI="http://artop.org/gautosar/gs/gtc/pt"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EEnum" name="GByteOrderEnum">
+          <eLiterals name="mostSignificantByteFirst" literal="MOST_SIGNIFICANT_BYTE_FIRST"/>
+          <eLiterals name="mostSignificantByteLast" value="1" literal="MOST_SIGNIFICANT_BYTE_LAST"/>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages name="gspecialdata" nsURI="http://artop.org/gautosar/gs/gtc/sd"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GSd" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gGid" lowerBound="1"
+              eType="#//ggenericstructure/gprimitivetypes/NameToken" volatile="true"
+              transient="true" defaultValueLiteral="" unsettable="true" derived="true"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GSdgContents" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eOperations name="gGetSdgs">
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+              <eTypeArguments eClassifier="#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSdg"/>
+            </eGenericType>
+          </eOperations>
+          <eOperations name="gGetSds">
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+              <eTypeArguments eClassifier="#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSd"/>
+            </eGenericType>
+          </eOperations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GSdg" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gGid" lowerBound="1"
+              eType="#//ggenericstructure/gprimitivetypes/NameToken" volatile="true"
+              transient="true" defaultValueLiteral="" unsettable="true" derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gSdgContentsType"
+              ordered="false" eType="#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSdgContents"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages name="gadmindata" nsURI="http://artop.org/gautosar/gs/gtc/ad"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GAdminData" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eOperations name="gGetSdgs">
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+              <eTypeArguments eClassifier="#//ggenericstructure/ggeneraltemplateclasses/gspecialdata/GSdg"/>
+            </eGenericType>
+          </eOperations>
+        </eClassifiers>
+      </eSubpackages>
+    </eSubpackages>
+    <eSubpackages name="gvarianthandling" nsURI="http://artop.org/gautosar/gs/vh"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GSwSystemconstDependentFormula"
+          abstract="true" interface="true" eSuperTypes="#//ggenericstructure/gformulalanguage/GFormulaExpression">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="NONE"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GAttributeValueVariationPoint" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/gvarianthandling/GSwSystemconstDependentFormula">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="ValueByFormula"/>
+          <details key="3.X" value="ValueByFormula"/>
+        </eAnnotations>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="gformulalanguage" nsURI="http://artop.org/gautosar/gs/fl"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GFormulaExpression" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="NONE"/>
+        </eAnnotations>
+        <eOperations name="gGetMixed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMap">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#x9;return getMixed();&#xA;&#x9;&#x9;"/>
+          </eAnnotations>
+        </eOperations>
+        <eOperations name="gGetMixedText" eType="#//ggenericstructure/gprimitivetypes/String">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#x9;return getMixedText();&#xA;&#x9;&#x9;"/>
+          </eAnnotations>
+        </eOperations>
+        <eOperations name="gSetMixedText">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;setMixedText(text);&#xA;&#x9;&#x9;"/>
+          </eAnnotations>
+          <eParameters name="text" eType="#//ggenericstructure/gprimitivetypes/String"/>
+        </eOperations>
+        <eOperations name="gIsSetMixed" eType="#//ggenericstructure/gprimitivetypes/Boolean"/>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="gecucparameterdef" nsURI="http://artop.org/gautosar/pd" nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="GParamConfMultiplicity" abstract="true"
+        interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucDefinitionElement"/>
+      </eAnnotations>
+      <eOperations name="gGetLowerMultiplicityAsString" eType="#//ggenericstructure/gprimitivetypes/String">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="&#xA;&#x9;if(lowerMultiplicity == null){&#xA;&#x9;&#x9;return null;&#xA;&#x9;}&#xA;&#x9;return lowerMultiplicity.getMixedText();&#xA;&#x9;&#x9;"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="gSetLowerMultiplicityAsString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;if(lowerMultiplicity == null){&#xA;&#x9;&#x9;PositiveIntegerValueVariationPoint newLowerMultiplicity = autosar40.genericstructure.varianthandling.attributevaluevariationpoints.AttributevaluevariationpointsFactory.eINSTANCE.createPositiveIntegerValueVariationPoint();&#xA;&#x9;&#x9;newLowerMultiplicity.setMixedText(value);&#xA;&#x9;&#x9;setLowerMultiplicity(newLowerMultiplicity);&#xA;&#x9;} else {&#xA;&#x9;&#x9;lowerMultiplicity.setMixedText(value);&#xA;&#x9;}&#xA;&#x9;&#x9;"/>
+        </eAnnotations>
+        <eParameters name="value" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      </eOperations>
+      <eOperations name="gGetUpperMultiplicityAsString" eType="#//ggenericstructure/gprimitivetypes/String">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="&#xA;&#x9;if(upperMultiplicity == null){&#xA;&#x9;&#x9;return null;&#xA;&#x9;}&#xA;&#x9;return upperMultiplicity.getMixedText();&#xA;&#x9;&#x9;"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="gSetUpperMultiplicityAsString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;if(upperMultiplicity == null){&#xA;&#x9;&#x9;PositiveIntegerValueVariationPoint newUpperMultiplicity = autosar40.genericstructure.varianthandling.attributevaluevariationpoints.AttributevaluevariationpointsFactory.eINSTANCE.createPositiveIntegerValueVariationPoint();&#xA;&#x9;&#x9;newUpperMultiplicity.setMixedText(value);&#xA;&#x9;&#x9;setUpperMultiplicity(newUpperMultiplicity);&#xA;&#x9;} else {&#xA;&#x9;&#x9;upperMultiplicity.setMixedText(value);&#xA;&#x9;}&#xA;&#x9;&#x9;"/>
+        </eAnnotations>
+        <eParameters name="value" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      </eOperations>
+      <eOperations name="gGetUpperMultiplicityInfinite" eType="#//ggenericstructure/gprimitivetypes/Boolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="&#xA;&#x9;if (upperMultiplicityInfinite != null) {&#xA;&#x9;&#x9;String mixed = upperMultiplicityInfinite.getMixedText();&#xA;&#x9;&#x9;// see [TPS_GST_0003]&#xA;&#x9;&#x9;return !(&quot;false&quot;.equalsIgnoreCase(mixed) || &quot;0&quot;.equals(mixed)); &#xA;&#x9;}&#xA;&#x9;return false;&#xA;&#x9;&#x9;"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="gSetUpperMultiplicityInfinite">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;if (upperMultiplicityInfinite == null){ &#xA;&#x9;&#x9;BooleanValueVariationPoint newUpperMultiplicityInfinite = autosar40.genericstructure.varianthandling.attributevaluevariationpoints.AttributevaluevariationpointsFactory.eINSTANCE.createBooleanValueVariationPoint();&#xA;&#x9;&#x9;newUpperMultiplicityInfinite.setMixedText(value.toString());&#xA;&#x9;&#x9;setUpperMultiplicityInfinite(newUpperMultiplicityInfinite);&#xA;&#x9;} else { &#xA;&#x9;&#x9;upperMultiplicityInfinite.setMixedText(value.toString());&#xA;&#x9;}&#xA;&#x9;&#x9;"/>
+        </eAnnotations>
+        <eParameters name="value" eType="#//ggenericstructure/gprimitivetypes/Boolean"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GContainerDef" abstract="true" interface="true"
+        eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable #//gecucparameterdef/GParamConfMultiplicity">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucContainerDef"/>
+      </eAnnotations>
+      <eOperations name="gGetPostBuildChangeable" eType="#//ggenericstructure/gprimitivetypes/Boolean"/>
+      <eOperations name="gSetPostBuildChangeable">
+        <eParameters name="value" eType="#//ggenericstructure/gprimitivetypes/Boolean"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GModuleDef" abstract="true" interface="true"
+        eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement #//gecucparameterdef/GParamConfMultiplicity">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucModuleDef"/>
+      </eAnnotations>
+      <eOperations name="gGetRefinedModuleDef" eType="#//gecucparameterdef/GModuleDef"/>
+      <eOperations name="gSetRefinedModuleDef">
+        <eParameters name="value" eType="#//gecucparameterdef/GModuleDef"/>
+      </eOperations>
+      <eOperations name="gGetContainers">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucparameterdef/GContainerDef"/>
+        </eGenericType>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GCommonConfigurationAttributes" abstract="true"
+        interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucCommonAttributes"/>
+      </eAnnotations>
+      <eOperations name="gGetOrigin" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      <eOperations name="gSetOrigin">
+        <eParameters name="value" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GConfigParameter" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GParamConfMultiplicity #//gecucparameterdef/GCommonConfigurationAttributes">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucParameterDef"/>
+      </eAnnotations>
+      <eOperations name="gGetSymbolicNameValue" eType="#//ggenericstructure/gprimitivetypes/Boolean"/>
+      <eOperations name="gSetSymbolicNameValue">
+        <eParameters name="value" eType="#//ggenericstructure/gprimitivetypes/Boolean"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GConfigReference" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GParamConfMultiplicity #//gecucparameterdef/GCommonConfigurationAttributes">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucAbstractReferenceDef"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GParamConfContainerDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GContainerDef">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucParamConfContainerDef"/>
+      </eAnnotations>
+      <eOperations name="gGetParameters">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucparameterdef/GConfigParameter"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="gGetReferences">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucparameterdef/GConfigReference"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="gGetSubContainers">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucparameterdef/GContainerDef"/>
+        </eGenericType>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GChoiceContainerDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GContainerDef">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucChoiceContainerDef"/>
+      </eAnnotations>
+      <eOperations name="gGetChoices">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucparameterdef/GParamConfContainerDef"/>
+        </eGenericType>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GBooleanParamDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GConfigParameter">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucBooleanParamDef"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GIntegerParamDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GConfigParameter">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucIntegerParamDef"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GFloatParamDef" abstract="true" interface="true"
+        eSuperTypes="#//gecucparameterdef/GConfigParameter">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucFloatParamDef"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GEnumerationParamDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GConfigParameter">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucEnumerationParamDef"/>
+      </eAnnotations>
+      <eOperations name="gGetLiterals">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucparameterdef/GEnumerationLiteralDef"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="gGetDefaultValue" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      <eOperations name="gSetDefaultValue">
+        <eParameters name="value" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GEnumerationLiteralDef" abstract="true"
+        interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucEnumerationLiteralDef"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GAbstractStringParamDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GConfigParameter">
+      <eAnnotations source="class.mapping">
+        <details key="2.1" value="NONE"/>
+        <details key="3.X" value="NONE"/>
+        <details key="4.X" value="EcucAbstractStringParamDef"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GStringParamDef" abstract="true" interface="true"
+        eSuperTypes="#//gecucparameterdef/GAbstractStringParamDef">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucStringParamDef"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GLinkerSymbolDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GAbstractStringParamDef">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucLinkerSymbolDef"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GFunctionNameDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GAbstractStringParamDef">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucFunctionNameDef"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GReferenceDef" abstract="true" interface="true"
+        eSuperTypes="#//gecucparameterdef/GConfigReference">
+      <eAnnotations source="class.mapping">
+        <details key="3.X" value="ReferenceParamDef"/>
+        <details key="4.X" value="EcucReferenceDef"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="gRefDestination" eType="#//gecucparameterdef/GContainerDef"
+          volatile="true" transient="true" derived="true" resolveProxies="false">
+        <eAnnotations source="feature.mapping">
+          <details key="2.1" value="destination"/>
+          <details key="3.X" value="destination"/>
+          <details key="4.X" value="destination"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GSymbolicNameReferenceDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GReferenceDef">
+      <eAnnotations source="class.mapping">
+        <details key="3.X" value="SymbolicNameReferenceParamDef"/>
+        <details key="4.X" value="EcucSymbolicNameReferenceDef"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GInstanceReferenceDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GConfigReference">
+      <eAnnotations source="class.mapping">
+        <details key="3.X" value="InstanceReferenceParamDef"/>
+        <details key="4.X" value="EcucInstanceReferenceDef"/>
+      </eAnnotations>
+      <eOperations name="gGetDestinationType" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      <eOperations name="gSetDestinationType">
+        <eParameters name="value" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      </eOperations>
+      <eOperations name="gGetDestinationContext" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      <eOperations name="gSetDestinationContext">
+        <eParameters name="value" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GForeignReferenceDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GConfigReference">
+      <eAnnotations source="class.mapping">
+        <details key="3.X" value="ForeignReferenceParamDef"/>
+        <details key="4.X" value="EcucForeignReferenceDef"/>
+      </eAnnotations>
+      <eOperations name="gGetDestinationType" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      <eOperations name="gSetDestinationType">
+        <eParameters name="value" eType="#//ggenericstructure/gprimitivetypes/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GChoiceReferenceDef" abstract="true"
+        interface="true" eSuperTypes="#//gecucparameterdef/GConfigReference">
+      <eAnnotations source="class.mapping">
+        <details key="3.X" value="ChoiceReferenceParamDef"/>
+        <details key="4.X" value="EcucChoiceReferenceDef"/>
+      </eAnnotations>
+      <eOperations name="gGetDestinations">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucparameterdef/GParamConfContainerDef"/>
+        </eGenericType>
+      </eOperations>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="gecucdescription" nsURI="http://artop.org/gautosar/ed" nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="GModuleConfiguration" abstract="true"
+        interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucModuleConfigurationValues"/>
+      </eAnnotations>
+      <eOperations name="gGetDefinition" eType="#//gecucparameterdef/GModuleDef"/>
+      <eOperations name="gSetDefinition">
+        <eParameters name="value" eType="#//gecucparameterdef/GModuleDef"/>
+      </eOperations>
+      <eOperations name="gGetContainers">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucdescription/GContainer"/>
+        </eGenericType>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GContainer" abstract="true" interface="true"
+        eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucContainerValue"/>
+      </eAnnotations>
+      <eOperations name="gGetDefinition" eType="#//gecucparameterdef/GContainerDef"/>
+      <eOperations name="gSetDefinition">
+        <eParameters name="value" eType="#//gecucparameterdef/GContainerDef"/>
+      </eOperations>
+      <eOperations name="gGetParameterValues">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucdescription/GParameterValue"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="gGetReferenceValues">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucdescription/GConfigReferenceValue"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="gGetSubContainers">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//gecucdescription/GContainer"/>
+        </eGenericType>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GParameterValue" abstract="true" interface="true"
+        eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucParameterValue"/>
+      </eAnnotations>
+      <eOperations name="gGetDefinition" eType="#//gecucparameterdef/GConfigParameter"/>
+      <eOperations name="gSetDefinition">
+        <eParameters name="value" eType="#//gecucparameterdef/GConfigParameter"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GConfigReferenceValue" abstract="true"
+        interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucAbstractReferenceValue"/>
+      </eAnnotations>
+      <eOperations name="gGetDefinition" eType="#//gecucparameterdef/GConfigReference"/>
+      <eOperations name="gSetDefinition">
+        <eParameters name="value" eType="#//gecucparameterdef/GConfigReference"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GReferenceValue" abstract="true" interface="true"
+        eSuperTypes="#//gecucdescription/GConfigReferenceValue">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucReferenceValue"/>
+      </eAnnotations>
+      <eOperations name="gGetValue" eType="#//ggenericstructure/ginfrastructure/GReferrable"/>
+      <eOperations name="gSetValue">
+        <eParameters name="value" eType="#//ggenericstructure/ginfrastructure/GReferrable"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GInstanceReferenceValue" abstract="true"
+        interface="true" eSuperTypes="#//gecucdescription/GConfigReferenceValue">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="EcucInstanceReferenceValue"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GBooleanValue" abstract="true" interface="true"
+        eSuperTypes="#//gecucdescription/GParameterValue">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="NONE"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gValue" eType="#//ggenericstructure/gprimitivetypes/Boolean"
+          volatile="true" transient="true" defaultValueLiteral="false" unsettable="true"
+          derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GEnumerationValue" abstract="true"
+        interface="true" eSuperTypes="#//gecucdescription/GParameterValue">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="NONE"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gValue" eType="#//ggenericstructure/gprimitivetypes/String"
+          volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+          derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GIntegerValue" abstract="true" interface="true"
+        eSuperTypes="#//gecucdescription/GParameterValue">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="NONE"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gValue" eType="#//ggenericstructure/gprimitivetypes/UnlimitedNatural"
+          volatile="true" transient="true" defaultValueLiteral="0" unsettable="true"
+          derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GStringValue" abstract="true" interface="true"
+        eSuperTypes="#//gecucdescription/GParameterValue">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="NONE"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gValue" eType="#//ggenericstructure/gprimitivetypes/String"
+          volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+          derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GLinkerSymbolValue" abstract="true"
+        interface="true" eSuperTypes="#//gecucdescription/GStringValue">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="NONE"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GFunctionNameValue" abstract="true"
+        interface="true" eSuperTypes="#//gecucdescription/GLinkerSymbolValue">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="NONE"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GFloatValue" abstract="true" interface="true"
+        eSuperTypes="#//gecucdescription/GParameterValue">
+      <eAnnotations source="class.mapping">
+        <details key="4.X" value="NONE"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gValue" eType="#//ggenericstructure/gprimitivetypes/Float"
+          volatile="true" transient="true" defaultValueLiteral="0.0" unsettable="true"
+          derived="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="gswcomponents" nsURI="http://artop.org/gautosar/swc" nsPrefix="">
+    <eSubpackages name="gcomponents" nsURI="http://artop.org/gautosar/swc/components"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GApplicationSwComponentType" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcomponents/GAtomicSwComponentType">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="ApplicationSoftwareComponentType"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GAtomicSwComponentType" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcomponents/GSwComponentType">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="AtomicSoftwareComponentType"/>
+          <details key="3.X" value="AtomicSoftwareComponentType"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GSwComponentType" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="ComponentType"/>
+          <details key="3.X" value="ComponentType"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gPorts" upperBound="-1"
+            eType="#//gswcomponents/gcomponents/GPortPrototype" volatile="true" transient="true"
+            derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GServiceSwComponentType" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcomponents/GAtomicSwComponentType">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="ServiceComponentType"/>
+          <details key="3.X" value="ServiceComponentType"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GSensorActuatorSwComponentType"
+          abstract="true" interface="true" eSuperTypes="#//gswcomponents/gcomponents/GAtomicSwComponentType">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="SensorActuatorSoftwareComponentType"/>
+          <details key="3.X" value="SensorActuatorSoftwareComponentType"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GPortPrototype" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable"/>
+      <eClassifiers xsi:type="ecore:EClass" name="GPPortPrototype" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcomponents/GAbstractProvidedPortPrototype">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gProvidedInterface"
+            eType="#//gswcomponents/gportinterface/GPortInterface" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GRPortPrototype" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcomponents/GAbstractRequiredPortPrototype">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gRequiredInterface"
+            eType="#//gswcomponents/gportinterface/GPortInterface" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GAbstractRequiredPortPrototype"
+          abstract="true" interface="true" eSuperTypes="#//gswcomponents/gcomponents/GPortPrototype">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="NONE"/>
+          <details key="4.0" value="NONE"/>
+          <details key="4.1.X" value="AbstractRequiredPortPrototype"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GAbstractProvidedPortPrototype"
+          abstract="true" interface="true" eSuperTypes="#//gswcomponents/gcomponents/GPortPrototype">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="NONE"/>
+          <details key="4.0" value="NONE"/>
+          <details key="4.1.X" value="AbstractProvidedPortPrototype"/>
+          <details key="4.3.X" value="AbstractProvidedPortPrototype"/>
+          <details key="4.42" value="AbstractProvidedPortPrototype"/>
+          <details key="4.43" value="AbstractProvidedPortPrototype"/>
+          <details key="4.44" value="AbstractProvidedPortPrototype"/>
+          <details key="4.45" value="AbstractProvidedPortPrototype"/>
+          <details key="4.46" value="AbstractProvidedPortPrototype"/>
+          <details key="4.47" value="AbstractProvidedPortPrototype"/>
+          <details key="4.48" value="AbstractProvidedPortPrototype"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eSubpackages name="ginstancerefs" nsURI="http://artop.org/gautosar/swc/components/ir"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GVariableInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="NONE"/>
+            <details key="3.X" value="NONE"/>
+            <details key="4.X" value="VariableInAtomicSwcInstanceRef, VariableInAtomicSWCTypeInstanceRef"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GRVariableInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gcomponents/ginstancerefs/GVariableInAtomicSwcIRef">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="DataReadAccessDataElement, DataReceivePointDataElement, DataReceivedEventData, DataReceiveErrorEventData"/>
+            <details key="3.X" value="DataReadAccessDataElement, DataReceivePointDataElement, DataReceivedEventData, DataReceiveErrorEventData"/>
+            <details key="4.X" value="RVariableInAtomicSwcInstanceRef"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextRequiredPort"
+              eType="#//gswcomponents/gcomponents/GAbstractRequiredPortPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="rPortPrototype"/>
+              <details key="3.X" value="rPortPrototype"/>
+              <details key="4.X" value="contextRPort"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetDataElement"
+              eType="#//gswcomponents/gdatatype/gdataprototypes/GVariableDataPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="dataElementPrototype"/>
+              <details key="3.X" value="dataElementPrototype"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GPVariableInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gcomponents/ginstancerefs/GVariableInAtomicSwcIRef">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="DataWriteAccessDataElement, DataSendPointDataElement"/>
+            <details key="3.X" value="DataWriteAccessDataElement, DataSendPointDataElement"/>
+            <details key="4.X" value="PVariableInAtomicSwcInstanceRef"/>
+            <details key="4.3.X" value="VariableInAtomicSwcInstanceRef"/>
+            <details key="4.42" value="VariableInAtomicSwcInstanceRef"/>
+            <details key="4.43" value="VariableInAtomicSwcInstanceRef"/>
+            <details key="4.44" value="VariableInAtomicSwcInstanceRef"/>
+            <details key="4.45" value="VariableInAtomicSwcInstanceRef"/>
+            <details key="4.46" value="VariableInAtomicSwcInstanceRef"/>
+            <details key="4.47" value="VariableInAtomicSwcInstanceRef"/>
+            <details key="4.48" value="VariableInAtomicSwcInstanceRef"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextProvidedPort"
+              eType="#//gswcomponents/gcomponents/GAbstractProvidedPortPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="pPortPrototype"/>
+              <details key="3.X" value="pPortPrototype"/>
+              <details key="4.X" value="contextPPort"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetDataElement"
+              eType="#//gswcomponents/gdatatype/gdataprototypes/GVariableDataPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="dataElementPrototype"/>
+              <details key="3.X" value="dataElementPrototype"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GOperationInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="NONE"/>
+            <details key="3.X" value="NONE"/>
+            <details key="4.X" value="OperationInAtomicSwcInstanceRef"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GROperationInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gcomponents/ginstancerefs/GOperationInAtomicSwcIRef">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="ServerCallPointOperation"/>
+            <details key="3.X" value="ServerCallPointOperation"/>
+            <details key="4.X" value="ROperationInAtomicSwcInstanceRef"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextRequiredPort"
+              eType="#//gswcomponents/gcomponents/GAbstractRequiredPortPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="rPortPrototype"/>
+              <details key="3.X" value="rPortPrototype"/>
+              <details key="4.X" value="contextRPort"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetRequiredOperation"
+              eType="#//gswcomponents/gportinterface/GClientServerOperation" volatile="true"
+              transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="operationPrototype"/>
+              <details key="3.X" value="operationPrototype"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GPOperationInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gcomponents/ginstancerefs/GOperationInAtomicSwcIRef">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="OperationInvokedEventOperation"/>
+            <details key="3.X" value="OperationInvokedEventOperation"/>
+            <details key="4.X" value="POperationInAtomicSwcInstanceRef"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextProvidedPort"
+              eType="#//gswcomponents/gcomponents/GAbstractProvidedPortPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="pPortPrototype"/>
+              <details key="3.X" value="pPortPrototype"/>
+              <details key="4.X" value="contextPPort"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetProvidedOperation"
+              eType="#//gswcomponents/gportinterface/GClientServerOperation" volatile="true"
+              transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="operationPrototype"/>
+              <details key="3.X" value="operationPrototype"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GModeGroupInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="NONE"/>
+            <details key="3.X" value="NONE"/>
+            <details key="4.X" value="ModeGroupInAtomicSwcInstanceRef"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GRModeGroupInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gcomponents/ginstancerefs/GModeGroupInAtomicSwcIRef">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="NONE"/>
+            <details key="3.X" value="NONE"/>
+            <details key="4.X" value="RModeGroupInAtomicSWCInstanceRef"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextRequiredPort"
+              eType="#//gswcomponents/gcomponents/GAbstractRequiredPortPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="4.X" value="contextRPort"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetModeGroup"
+              eType="#//gcommonstructure/gmodedeclaration/GModeDeclarationGroupPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GPModeGroupInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gcomponents/ginstancerefs/GModeGroupInAtomicSwcIRef">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="ModeSwitchPointModeGroup"/>
+            <details key="3.X" value="ModeSwitchPointModeGroup"/>
+            <details key="4.X" value="PModeGroupInAtomicSwcInstanceRef"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextProvidedPort"
+              eType="#//gswcomponents/gcomponents/GAbstractProvidedPortPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="pPortPrototype"/>
+              <details key="3.X" value="pPortPrototype"/>
+              <details key="4.X" value="contextPPort"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetModeGroup"
+              eType="#//gcommonstructure/gmodedeclaration/GModeDeclarationGroupPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="modeDeclarationGroupPrototype"/>
+              <details key="3.X" value="modeDeclarationGroupPrototype"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GParameterInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="CalprmAccessCalprmElementPrototype"/>
+            <details key="3.X" value="CalprmAccessCalprmElementPrototype"/>
+            <details key="4.X" value="ParameterInAtomicSWCTypeInstanceRef"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextPort" eType="#//gswcomponents/gcomponents/GPortPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="portPrototype"/>
+              <details key="3.X" value="portPrototype"/>
+              <details key="4.X" value="portPrototype"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetParameter"
+              eType="#//gswcomponents/gdatatype/gdataprototypes/GDataPrototype" volatile="true"
+              transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="calprmElementPrototype"/>
+              <details key="3.X" value="calprmElementPrototype"/>
+              <details key="4.X" value="targetDataPrototype"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GRModeInAtomicSwcIRef" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="ModeSwitchEventMode"/>
+            <details key="3.X" value="ModeSwitchEventMode"/>
+            <details key="4.X" value="RModeInAtomicSwcInstanceRef"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextRequiredPort"
+              eType="#//gswcomponents/gcomponents/GAbstractRequiredPortPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="rPortPrototype"/>
+              <details key="3.X" value="rPortPrototype"/>
+              <details key="4.X" value="contextPort"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextModeDeclarationGroupPrototype"
+              eType="#//gcommonstructure/gmodedeclaration/GModeDeclarationGroupPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="modeDeclarationGroupPrototype"/>
+              <details key="3.X" value="modeDeclarationGroupPrototype"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetModeDeclaration"
+              eType="#//gcommonstructure/gmodedeclaration/GModeDeclaration" volatile="true"
+              transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="modeDeclaration"/>
+              <details key="3.X" value="modeDeclaration"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+      </eSubpackages>
+    </eSubpackages>
+    <eSubpackages name="gportinterface" nsURI="http://artop.org/gautosar/swc/pi" nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GPortInterface" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gIsService" eType="#//ggenericstructure/gprimitivetypes/Boolean"
+            volatile="true" transient="true" defaultValueLiteral="false" unsettable="true"
+            derived="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GSenderReceiverInterface" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gportinterface/GPortInterface">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gDataElements" upperBound="-1"
+            eType="#//gswcomponents/gdatatype/gdataprototypes/GVariableDataPrototype"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GClientServerInterface" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gportinterface/GPortInterface">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gOperations" upperBound="-1"
+            eType="#//gswcomponents/gportinterface/GClientServerOperation" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gPossibleErrors" upperBound="-1"
+            eType="#//gswcomponents/gportinterface/GApplicationError" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GParameterInterface" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gportinterface/GPortInterface">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="CalprmInterface"/>
+          <details key="3.X" value="CalprmInterface"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gParameters" upperBound="-1"
+            eType="#//gswcomponents/gdatatype/gdataprototypes/GParameterDataPrototype"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="calprmElements"/>
+            <details key="3.X" value="calprmElements"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GNvDataInterface" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gportinterface/GPortInterface">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="NONE"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GModeSwitchInterface" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gportinterface/GPortInterface">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="SenderReceiverInterface"/>
+          <details key="3.X" value="SenderReceiverInterface"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gModeGroups" upperBound="-1"
+            eType="#//gcommonstructure/gmodedeclaration/GModeDeclarationGroupPrototype"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="4.X" value="modeGroup"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GTriggerInterface" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gportinterface/GPortInterface">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="NONE"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GArgumentDataPrototype" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gdatatype/gdataprototypes/GAutosarDataPrototype">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="ArgumentPrototype"/>
+          <details key="3.X" value="ArgumentPrototype"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gDirection" eType="#//gswcomponents/gportinterface/GArgumentDirectionEnum"
+            volatile="true" transient="true" unsettable="true" derived="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GClientServerOperation" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="OperationPrototype"/>
+          <details key="3.X" value="OperationPrototype"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gArguments" upperBound="-1"
+            eType="#//gswcomponents/gportinterface/GArgumentDataPrototype" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gPossibleErrors" upperBound="-1"
+            eType="#//gswcomponents/gportinterface/GApplicationError" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="GArgumentDirectionEnum">
+        <eLiterals name="in" literal="IN"/>
+        <eLiterals name="out" value="1" literal="OUT"/>
+        <eLiterals name="inout" value="2" literal="INOUT"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GApplicationError" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gErrorCode" eType="#//ggenericstructure/gprimitivetypes/Integer"
+            volatile="true" transient="true" defaultValueLiteral="0" unsettable="true"
+            derived="true"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="gdatatype" nsURI="http://artop.org/gautosar/swc/d" nsPrefix="">
+      <eSubpackages name="gdatatypes" nsURI="http://artop.org/gautosar/swc/d/d" nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GApplicationDataType" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gdatatypes/GAutosarDataType">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="Datatype"/>
+            <details key="3.X" value="Datatype"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GAutosarDataType" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="NONE"/>
+            <details key="3.X" value="NONE"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GApplicationPrimitiveDataType"
+            abstract="true" interface="true" eSuperTypes="#//gswcomponents/gdatatype/gdatatypes/GApplicationDataType">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="PrimitiveType"/>
+            <details key="3.X" value="PrimitiveType"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GARLimit" abstract="true" interface="true"
+            eSuperTypes="#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GAbstractLimit">
+          <eAnnotations source="class.mapping">
+            <details key="4.0" value="Limit"/>
+            <details key="4.1.X" value="LimitValueVariationPoint"/>
+            <details key="4.2.X" value="LimitValueVariationPoint"/>
+            <details key="4.3.X" value="LimitValueVariationPoint"/>
+            <details key="4.42" value="LimitValueVariationPoint"/>
+            <details key="4.43" value="LimitValueVariationPoint"/>
+            <details key="4.44" value="LimitValueVariationPoint"/>
+            <details key="4.45" value="LimitValueVariationPoint"/>
+            <details key="4.46" value="LimitValueVariationPoint"/>
+            <details key="4.47" value="LimitValueVariationPoint"/>
+            <details key="4.48" value="LimitValueVariationPoint"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gValue" unique="false"
+              eType="#//ggenericstructure/gprimitivetypes/String" volatile="true"
+              transient="true" defaultValueLiteral="" unsettable="true" derived="true">
+            <eAnnotations source="feature.mapping">
+              <details key="4.X" value="mixedText"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GApplicationRecordDataType" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gdatatypes/GApplicationCompositeDataType">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="RecordType"/>
+            <details key="3.X" value="RecordType"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gElements" upperBound="-1"
+              eType="#//gswcomponents/gdatatype/gdataprototypes/GApplicationRecordElement"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GApplicationCompositeDataType"
+            abstract="true" interface="true" eSuperTypes="#//gswcomponents/gdatatype/gdatatypes/GApplicationDataType">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="CompositeType"/>
+            <details key="3.X" value="CompositeType"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eSubpackages name="glocalconstraints" nsURI="http://artop.org/gautosar/swc/d/d/lc"
+            nsPrefix="">
+          <eClassifiers xsi:type="ecore:EEnum" name="GIntervalTypeEnum">
+            <eLiterals name="closed"/>
+            <eLiterals name="infinite" value="1"/>
+            <eLiterals name="open" value="2"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="GLimit" abstract="true" interface="true"
+              eSuperTypes="#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GAbstractLimit #//ggenericstructure/gvarianthandling/GAttributeValueVariationPoint">
+            <eAnnotations source="class.mapping">
+              <details key="4.1.X" value="LimitValueVariationPoint"/>
+              <details key="4.2.X" value="LimitValueVariationPoint"/>
+              <details key="4.3.X" value="LimitValueVariationPoint"/>
+              <details key="4.42" value="LimitValueVariationPoint"/>
+              <details key="4.43" value="LimitValueVariationPoint"/>
+              <details key="4.44" value="LimitValueVariationPoint"/>
+              <details key="4.45" value="LimitValueVariationPoint"/>
+              <details key="4.46" value="LimitValueVariationPoint"/>
+              <details key="4.47" value="LimitValueVariationPoint"/>
+              <details key="4.48" value="LimitValueVariationPoint"/>
+            </eAnnotations>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="GAbstractLimit" abstract="true"
+              interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+            <eAnnotations source="class.mapping">
+              <details key="2.1" value="NONE"/>
+              <details key="3.X" value="NONE"/>
+              <details key="4.X" value="NONE"/>
+            </eAnnotations>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="gIntervalType"
+                eType="#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GIntervalTypeEnum"
+                volatile="true" transient="true" unsettable="true" derived="true"/>
+          </eClassifiers>
+        </eSubpackages>
+      </eSubpackages>
+      <eSubpackages name="gdataprototypes" nsURI="http://artop.org/gautosar/swc/d/dp"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GAutosarDataPrototype" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gdataprototypes/GDataPrototype">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="DataPrototype"/>
+            <details key="3.X" value="DataPrototype"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gType" eType="#//gswcomponents/gdatatype/gdatatypes/GAutosarDataType"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GDataPrototype" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable"/>
+        <eClassifiers xsi:type="ecore:EClass" name="GParameterDataPrototype" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gdataprototypes/GAutosarDataPrototype">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="CalprmElementPrototype"/>
+            <details key="3.X" value="CalprmElementPrototype"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GVariableDataPrototype" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gdataprototypes/GAutosarDataPrototype">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="DataElementPrototype, InterRunnableVariable"/>
+            <details key="3.X" value="DataElementPrototype, InterRunnableVariable"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GApplicationRecordElement" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gdataprototypes/GApplicationCompositeElementDataPrototype">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="RecordElement"/>
+            <details key="3.X" value="RecordElement"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GApplicationCompositeElementDataPrototype"
+            abstract="true" interface="true" eSuperTypes="#//gswcomponents/gdatatype/gdataprototypes/GDataPrototype">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="DataPrototype"/>
+            <details key="3.X" value="DataPrototype"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gElementType" eType="#//gswcomponents/gdatatype/gdatatypes/GApplicationDataType"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="type"/>
+              <details key="3.X" value="type"/>
+              <details key="4.X" value="type"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages name="gcomputationmethod" nsURI="http://artop.org/gautosar/swc/d/cm"
+          nsPrefix="gcm">
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuMethod" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuPhysToInternal"
+              eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompu" volatile="true"
+              transient="true" derived="true" resolveProxies="false"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuInternalToPhys"
+              eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompu" volatile="true"
+              transient="true" derived="true" resolveProxies="false"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gUnit" eType="#//gswcomponents/gdatatype/gunits/GUnit"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompu" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuContent" eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompuContent"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="compuContentType"/>
+              <details key="3.X" value="compuContentType"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuContent" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject"/>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuScales" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gcomputationmethod/GCompuContent">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuScales" upperBound="-1"
+              eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompuScale" volatile="true"
+              transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuScale" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuScaleContents"
+              eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompuScaleContents"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="compuScaleContentsType"/>
+              <details key="3.X" value="compuScaleContentsType"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gLowerLimit" eType="#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GLimit"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gUpperLimit" eType="#//gswcomponents/gdatatype/gdatatypes/glocalconstraints/GLimit"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gShortLabel" unique="false"
+              eType="#//ggenericstructure/gprimitivetypes/Identifier" volatile="true"
+              transient="true" defaultValueLiteral="" unsettable="true" derived="true"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuScaleContents" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject"/>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuScaleConstantContents" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gcomputationmethod/GCompuScaleContents">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuConst" eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompuConst"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuScaleRationalFormula" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gcomputationmethod/GCompuScaleContents">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuRationalCoeffs"
+              eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompuRationalCoeffs"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuConst" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuConstContentType"
+              eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompuConstContent"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuConstContent" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject"/>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuConstTextContent" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gcomputationmethod/GCompuConstContent">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gVt" eType="#//ggenericstructure/gprimitivetypes/VerbatimString"
+              volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+              derived="true">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="vt/mixedText"/>
+              <details key="3.X" value="vt/mixedText"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuConstNumericContent" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gcomputationmethod/GCompuConstContent">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gV" eType="#//ggenericstructure/gprimitivetypes/Numerical"
+              volatile="true" transient="true" unsettable="true" derived="true"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuConstFormulaContent" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gdatatype/gcomputationmethod/GCompuConstContent"/>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuRationalCoeffs" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuNumerator"
+              eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompuNominatorDenominator"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuDenominator"
+              eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompuNominatorDenominator"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GCompuNominatorDenominator" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject"/>
+      </eSubpackages>
+      <eSubpackages name="gunits" nsURI="http://artop.org/gautosar/swc/d/u" nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GUnit" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gPhysicalDimension"
+              eType="#//gswcomponents/gdatatype/gunits/GPhysicalDimension" volatile="true"
+              transient="true" derived="true" resolveProxies="false"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gFactorSiToUnit"
+              eType="#//ggenericstructure/gprimitivetypes/Float" volatile="true" transient="true"
+              defaultValueLiteral="0.0" unsettable="true" derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gOffsetSiToUnit"
+              eType="#//ggenericstructure/gprimitivetypes/Float" volatile="true" transient="true"
+              defaultValueLiteral="0.0" unsettable="true" derived="true"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GPhysicalDimension" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gCurrentExp" eType="#//ggenericstructure/gprimitivetypes/Numerical"
+              volatile="true" transient="true" unsettable="true" derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gLengthExp" eType="#//ggenericstructure/gprimitivetypes/Numerical"
+              volatile="true" transient="true" unsettable="true" derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gLuminousIntensityExp"
+              eType="#//ggenericstructure/gprimitivetypes/Numerical" volatile="true"
+              transient="true" unsettable="true" derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gMassExp" eType="#//ggenericstructure/gprimitivetypes/Numerical"
+              volatile="true" transient="true" unsettable="true" derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gMolarAmountExp"
+              eType="#//ggenericstructure/gprimitivetypes/Numerical" volatile="true"
+              transient="true" unsettable="true" derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gTemperatureExp"
+              eType="#//ggenericstructure/gprimitivetypes/Numerical" volatile="true"
+              transient="true" unsettable="true" derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gTimeExp" eType="#//ggenericstructure/gprimitivetypes/Numerical"
+              volatile="true" transient="true" unsettable="true" derived="true"/>
+        </eClassifiers>
+      </eSubpackages>
+    </eSubpackages>
+    <eSubpackages name="gcomposition" nsURI="http://artop.org/gautosar/swc/composition"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GSwComponentPrototype" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="ComponentPrototype"/>
+          <details key="3.X" value="ComponentPrototype"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gType" eType="#//gswcomponents/gcomponents/GSwComponentType"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GCompositionSwComponentType" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcomponents/GSwComponentType">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="CompositionType"/>
+          <details key="3.X" value="CompositionType"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gComponents" upperBound="-1"
+            eType="#//gswcomponents/gcomposition/GSwComponentPrototype" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gConnectors" upperBound="-1"
+            eType="#//gswcomponents/gcomposition/GSwConnector" volatile="true" transient="true"
+            derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GSwConnector" abstract="true" interface="true"
+          eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="ConnectorPrototype"/>
+          <details key="3.X" value="ConnectorPrototype"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GAssemblySwConnector" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcomposition/GSwConnector">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="AssemblyConnectorPrototype"/>
+          <details key="3.X" value="AssemblyConnectorPrototype"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gRequester" eType="#//gswcomponents/gcomposition/ginstancerefs/GRPortInCompositionIRef"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gProvider" eType="#//gswcomponents/gcomposition/ginstancerefs/GPPortInCompositionIRef"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eSubpackages name="ginstancerefs" nsURI="http://artop.org/gautosar/swc/composition/ir"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GPPortInCompositionIRef" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="AssemblyConnectorPrototypeProvider"/>
+            <details key="3.X" value="AssemblyConnectorPrototypeProvider"/>
+            <details key="4.X" value="PPortInCompositionInstanceRef"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetProvidedPort"
+              eType="#//gswcomponents/gcomponents/GAbstractProvidedPortPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="pPortPrototype"/>
+              <details key="3.X" value="pPortPrototype"/>
+              <details key="4.X" value="targetPPort"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextComponent"
+              eType="#//gswcomponents/gcomposition/GSwComponentPrototype" volatile="true"
+              transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="componentPrototype"/>
+              <details key="3.X" value="componentPrototype"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GRPortInCompositionIRef" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="AssemblyConnectorPrototypeRequester"/>
+            <details key="3.X" value="AssemblyConnectorPrototypeRequester"/>
+            <details key="4.X" value="RPortInCompositionInstanceRef"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetRequiredPort"
+              eType="#//gswcomponents/gcomponents/GAbstractRequiredPortPrototype"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="rPortPrototype"/>
+              <details key="3.X" value="rPortPrototype"/>
+              <details key="4.X" value="targetRPort"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gContextComponent"
+              eType="#//gswcomponents/gcomposition/GSwComponentPrototype" volatile="true"
+              transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="componentPrototype"/>
+              <details key="3.X" value="componentPrototype"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+      </eSubpackages>
+    </eSubpackages>
+    <eSubpackages name="gswcinternalbehavior" nsURI="http://artop.org/gautosar/swc/sib"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GSwcInternalBehavior" abstract="true"
+          interface="true" eSuperTypes="#//gcommonstructure/ginternalbehavior/GInternalBehavior">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="InternalBehavior"/>
+          <details key="3.X" value="InternalBehavior"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gRunnables" upperBound="-1"
+            eType="#//gswcomponents/gswcinternalbehavior/GRunnableEntity" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gEvents" upperBound="-1"
+            eType="#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gPerInstanceMemories"
+            upperBound="-1" eType="#//gswcomponents/gswcinternalbehavior/gperinstancememory/GPerInstanceMemory"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gComponent" eType="#//gswcomponents/gcomponents/GAtomicSwComponentType"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="4.X" value="atomicSwComponentType"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gSupportsMultipleInstantiation"
+            eType="#//ggenericstructure/gprimitivetypes/Boolean" volatile="true" transient="true"
+            defaultValueLiteral="false" unsettable="true" derived="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GRunnableEntity" abstract="true"
+          interface="true" eSuperTypes="#//gcommonstructure/ginternalbehavior/GExecutableEntity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gWaitPoints" upperBound="-1"
+            eType="#//gswcomponents/gswcinternalbehavior/grteevents/GWaitPoint" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gSymbol" eType="#//ggenericstructure/gprimitivetypes/String"
+            volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+            derived="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gReadVariables" upperBound="-1"
+            eType="#//gswcomponents/gdatatype/gdataprototypes/GVariableDataPrototype"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="4.X" value="readLocalVariables/accessedVariable/localVariable"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gWrittenVariables"
+            upperBound="-1" eType="#//gswcomponents/gdatatype/gdataprototypes/GVariableDataPrototype"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="4.X" value="writtenLocalVariables/accessedVariable/localVariable"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gDataReadAccess" upperBound="-1"
+            eType="#//gswcomponents/gswcinternalbehavior/gdataelements/GVariableAccess"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gDataWriteAccess" upperBound="-1"
+            eType="#//gswcomponents/gswcinternalbehavior/gdataelements/GVariableAccess"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gDataSendPoints" upperBound="-1"
+            eType="#//gswcomponents/gswcinternalbehavior/gdataelements/GVariableAccess"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gDataReceivePoints"
+            upperBound="-1" eType="#//gswcomponents/gswcinternalbehavior/gdataelements/GVariableAccess"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="4.X" value="dataReceivePointByArguments"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gServerCallPoints"
+            upperBound="-1" eType="#//gswcomponents/gswcinternalbehavior/gservercall/GServerCallPoint"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eSubpackages name="grteevents" nsURI="http://artop.org/gautosar/swc/sib/rtee"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GRTEEvent" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gStartOnEvent" eType="#//gswcomponents/gswcinternalbehavior/GRunnableEntity"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GDataReceivedEvent" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gData" eType="#//gswcomponents/gcomponents/ginstancerefs/GRVariableInAtomicSwcIRef"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GSwcModeSwitchEvent" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="ModeSwitchEvent"/>
+            <details key="3.X" value="ModeSwitchEvent"/>
+          </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GTimingEvent" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gPeriod" eType="#//ggenericstructure/gprimitivetypes/Float"
+              volatile="true" transient="true" defaultValueLiteral="0.0" unsettable="true"
+              derived="true"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GWaitPoint" abstract="true" interface="true"
+            eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gTimeout" eType="#//ggenericstructure/gprimitivetypes/Float"
+              volatile="true" transient="true" defaultValueLiteral="0.0" unsettable="true"
+              derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gTriggers" upperBound="-1"
+              eType="#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent" volatile="true"
+              transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="3.X" value="trigger"/>
+              <details key="4.X" value="trigger"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GDataReceiveErrorEvent" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gData" eType="#//gswcomponents/gcomponents/ginstancerefs/GRVariableInAtomicSwcIRef"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GOperationInvokedEvent" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gOperation" eType="#//gswcomponents/gcomponents/ginstancerefs/GPOperationInAtomicSwcIRef"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GAsynchronousServerCallReturnsEvent"
+            abstract="true" interface="true" eSuperTypes="#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gEventSource" eType="#//gswcomponents/gswcinternalbehavior/gservercall/GAsynchronousServerCallPoint"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="4.X" value="eventSource/asynchronousServerCallPoint"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GDataSendCompletedEvent" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gswcinternalbehavior/grteevents/GRTEEvent">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gEventSource" eType="#//gswcomponents/gswcinternalbehavior/gdataelements/GVariableAccess"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages name="gdataelements" nsURI="http://artop.org/gautosar/swc/sib/de"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GVariableAccess" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="DataReadAccess, DataWriteAccess, DataReceivePoint, DataSendPoint"/>
+            <details key="3.X" value="DataReadAccess, DataWriteAccess, DataReceivePoint, DataSendPoint"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gDataElement" eType="#//gswcomponents/gcomponents/ginstancerefs/GVariableInAtomicSwcIRef"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="4.X" value="accessedVariable/autosarVariable"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GParameterAccess" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+          <eAnnotations source="class.mapping">
+            <details key="2.1" value="CalprmAccess"/>
+            <details key="3.X" value="CalprmAccess"/>
+          </eAnnotations>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gParameter" eType="#//gswcomponents/gcomponents/ginstancerefs/GParameterInAtomicSwcIRef"
+              volatile="true" transient="true" derived="true" resolveProxies="false">
+            <eAnnotations source="feature.mapping">
+              <details key="2.1" value="calprmAccess"/>
+              <details key="3.X" value="calprmAccess"/>
+              <details key="4.X" value="accessedParameter/autosarParameter"/>
+            </eAnnotations>
+          </eStructuralFeatures>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages name="gperinstancememory" nsURI="http://artop.org/gautosar/swc/sib/pim"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GPerInstanceMemory" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gType" eType="#//ggenericstructure/gprimitivetypes/String"
+              volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+              derived="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gTypeDefinition"
+              eType="#//ggenericstructure/gprimitivetypes/String" volatile="true"
+              transient="true" defaultValueLiteral="" unsettable="true" derived="true"/>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages name="gmodedeclarationgroup" nsURI="http://artop.org/gautosar/swc/sib/mdg"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GModeSwitchPoint" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="gModeGroup" eType="#//gswcomponents/gcomponents/ginstancerefs/GPModeGroupInAtomicSwcIRef"
+              volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages name="gservercall" nsURI="http://artop.org/gautosar/swc/sib/sc"
+          nsPrefix="">
+        <eClassifiers xsi:type="ecore:EClass" name="GServerCallPoint" abstract="true"
+            interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="gTimeout" eType="#//ggenericstructure/gprimitivetypes/Float"
+              volatile="true" transient="true" defaultValueLiteral="0.0" unsettable="true"
+              derived="true"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="GAsynchronousServerCallPoint"
+            abstract="true" interface="true" eSuperTypes="#//gswcomponents/gswcinternalbehavior/gservercall/GServerCallPoint"/>
+        <eClassifiers xsi:type="ecore:EClass" name="GSynchronousServerCallPoint" abstract="true"
+            interface="true" eSuperTypes="#//gswcomponents/gswcinternalbehavior/gservercall/GServerCallPoint"/>
+      </eSubpackages>
+    </eSubpackages>
+    <eSubpackages name="gswcimplementation" nsURI="http://artop.org/gautosar/swc/si"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GSwcImplementation" abstract="true"
+          interface="true" eSuperTypes="#//gcommonstructure/gimplementation/GImplementation">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="Implementation"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gBehavior" eType="#//gswcomponents/gswcinternalbehavior/GSwcInternalBehavior"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="gcommunication" nsURI="http://artop.org/gautosar/swc/communication"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GPPortComSpec" abstract="true" interface="true"
+          eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject"/>
+      <eClassifiers xsi:type="ecore:EClass" name="GServerComSpec" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcommunication/GPPortComSpec">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gQueueLength" eType="#//ggenericstructure/gprimitivetypes/Integer"
+            volatile="true" transient="true" defaultValueLiteral="0" unsettable="true"
+            derived="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gOperation" lowerBound="1"
+            eType="#//gswcomponents/gportinterface/GClientServerOperation" volatile="true"
+            transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="operation/operationPrototype"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GSenderComSpec" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcommunication/GPPortComSpec">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gDataElement" lowerBound="1"
+            eType="#//gswcomponents/gdatatype/gdataprototypes/GVariableDataPrototype"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="dataElement/dataElementPrototype"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GQueuedSenderComSpec" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcommunication/GSenderComSpec"/>
+      <eClassifiers xsi:type="ecore:EClass" name="GNonqueuedSenderComSpec" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcommunication/GSenderComSpec">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="UnqueuedSenderComSpec"/>
+          <details key="3.X" value="UnqueuedSenderComSpec"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gInitValue" eType="#//gcommonstructure/gconstants/GValueSpecification"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GRPortComSpec" abstract="true" interface="true"
+          eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject"/>
+      <eClassifiers xsi:type="ecore:EClass" name="GClientComSpec" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcommunication/GRPortComSpec">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gOperation" lowerBound="1"
+            eType="#//gswcomponents/gportinterface/GClientServerOperation" volatile="true"
+            transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="operation/operationPrototype"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GReceiverComSpec" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcommunication/GRPortComSpec">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gDataElement" lowerBound="1"
+            eType="#//gswcomponents/gdatatype/gdataprototypes/GVariableDataPrototype"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="dataElement/dataElementPrototype"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GQueuedReceiverComSpec" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcommunication/GReceiverComSpec">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gQueueLength" eType="#//ggenericstructure/gprimitivetypes/Integer"
+            volatile="true" transient="true" defaultValueLiteral="0" unsettable="true"
+            derived="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GNonqueuedReceiverComSpec" abstract="true"
+          interface="true" eSuperTypes="#//gswcomponents/gcommunication/GReceiverComSpec">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="UnqueuedReceiverComSpec"/>
+          <details key="3.X" value="UnqueuedReceiverComSpec"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gInitValue" eType="#//gcommonstructure/gconstants/GValueSpecification"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="gcommonstructure" nsURI="http://artop.org/gautosar/cs" nsPrefix="">
+    <eSubpackages name="gimplementation" nsURI="http://artop.org/gautosar/cs/implementation"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GImplementation" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="none"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gResourceConsumption"
+            eType="#//gcommonstructure/gresourceconsumption/GResourceConsumption"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gCodeDescriptors" upperBound="-1"
+            eType="#//gcommonstructure/gimplementation/GCode" volatile="true" transient="true"
+            derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="codeDescriptor"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GCode" abstract="true" interface="true"
+          eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable"/>
+      <eClassifiers xsi:type="ecore:EClass" name="GEngineeringObject" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="none"/>
+          <details key="3.X" value="none"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GAutosarEngineeringObject" abstract="true"
+          interface="true" eSuperTypes="#//gcommonstructure/gimplementation/GEngineeringObject">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="Xfile"/>
+          <details key="3.X" value="Xfile"/>
+        </eAnnotations>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="gresourceconsumption" nsURI="http://artop.org/gautosar/cs/rc"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GResourceConsumption" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable"/>
+    </eSubpackages>
+    <eSubpackages name="gmodedeclaration" nsURI="http://artop.org/gautosar/cs/md"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GModeDeclarationGroupPrototype"
+          abstract="true" interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gType" eType="#//gcommonstructure/gmodedeclaration/GModeDeclarationGroup"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GModeDeclarationGroup" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gModeDeclarations"
+            lowerBound="1" upperBound="-1" eType="#//gcommonstructure/gmodedeclaration/GModeDeclaration"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gInitialMode" lowerBound="1"
+            eType="#//gcommonstructure/gmodedeclaration/GModeDeclaration" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GModeDeclaration" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable"/>
+    </eSubpackages>
+    <eSubpackages name="ginternalbehavior" nsURI="http://artop.org/gautosar/cs/ib"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GExecutableEntity" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="NONE"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gRunsInsideExclusiveAreas"
+            upperBound="-1" eType="#//gcommonstructure/ginternalbehavior/GExclusiveArea"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="insideExclusiveAreas/exclusiveArea"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gCanEnterExclusiveAreas"
+            upperBound="-1" eType="#//gcommonstructure/ginternalbehavior/GExclusiveArea"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="usesExclusiveAreas/exclusiveArea"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GExclusiveArea" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable"/>
+      <eClassifiers xsi:type="ecore:EClass" name="GInternalBehavior" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="NONE"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gExclusiveAreas" upperBound="-1"
+            eType="#//gcommonstructure/ginternalbehavior/GExclusiveArea" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="gconstants" nsURI="http://artop.org/gautosar/cs/const" nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GValueSpecification" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject"/>
+    </eSubpackages>
+    <eSubpackages name="gdatadefproperties" nsURI="http://artop.org/gautosar/cs/ddp"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GSwDataDefPropsConditional" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="SwDataDefProps"/>
+          <details key="3.X" value="SwDataDefProps"/>
+          <details key="4.X" value="SwDataDefPropsConditional"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gBaseType" eType="#//gcommonstructure/gbasetypes/GSwBaseType"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gInvalidValue" eType="#//gcommonstructure/gconstants/GValueSpecification"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gCompuMethod" eType="#//gswcomponents/gdatatype/gcomputationmethod/GCompuMethod"
+            volatile="true" transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="gbasetypes" nsURI="http://artop.org/gautosar/cs/bt" nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GBaseType" abstract="true" interface="true"
+          eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gBaseTypeDefinitionType"
+            eType="#//gcommonstructure/gbasetypes/GBaseTypeDefinition" volatile="true"
+            transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="4.X" value="baseTypeDefinition"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GBaseTypeDefinition" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject"/>
+      <eClassifiers xsi:type="ecore:EClass" name="GBaseTypeDirectDefinition" abstract="true"
+          interface="true" eSuperTypes="#//gcommonstructure/gbasetypes/GBaseTypeDefinition">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gBaseTypeSizeDefinitionType"
+            eType="#//gcommonstructure/gbasetypes/GBaseTypeSizeDefinition" volatile="true"
+            transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="baseTypeSizeDefintionType"/>
+            <details key="3.X" value="baseTypeSizeDefintionType"/>
+            <details key="4.X" value="baseTypeSizeDefintionType"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gBaseTypeEncoding"
+            ordered="false" eType="#//ggenericstructure/gprimitivetypes/BaseTypeEncodingString"
+            volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+            derived="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gMemAlignment" ordered="false"
+            eType="#//ggenericstructure/gprimitivetypes/Integer" volatile="true" transient="true"
+            defaultValueLiteral="0" unsettable="true" derived="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gByteOrder" ordered="false"
+            eType="#//ggenericstructure/ggeneraltemplateclasses/gprimitivetypes/GByteOrderEnum"
+            volatile="true" transient="true" unsettable="true" derived="true">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="byteOrder/content"/>
+            <details key="3.X" value="byteOrder/content"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GBaseTypeSizeDefinition" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="BaseTypeSizeDefintion"/>
+          <details key="4.1.X" value="PHANTOM"/>
+          <details key="4.2.X" value="PHANTOM"/>
+          <details key="4.3.X" value="PHANTOM"/>
+          <details key="4.42" value="PHANTOM"/>
+          <details key="4.43" value="PHANTOM"/>
+          <details key="4.44" value="PHANTOM"/>
+          <details key="4.45" value="PHANTOM"/>
+          <details key="4.46" value="PHANTOM"/>
+          <details key="4.47" value="PHANTOM"/>
+          <details key="4.48" value="PHANTOM"/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GBaseTypeAbsSize" abstract="true"
+          interface="true" eSuperTypes="#//gcommonstructure/gbasetypes/GBaseTypeSizeDefinition">
+        <eAnnotations source="class.mapping">
+          <details key="4.1.X" value="PHANTOM"/>
+          <details key="4.2.X" value="PHANTOM"/>
+          <details key="4.3.X" value="PHANTOM"/>
+          <details key="4.42" value="PHANTOM"/>
+          <details key="4.43" value="PHANTOM"/>
+          <details key="4.44" value="PHANTOM"/>
+          <details key="4.45" value="PHANTOM"/>
+          <details key="4.46" value="PHANTOM"/>
+          <details key="4.47" value="PHANTOM"/>
+          <details key="4.48" value="PHANTOM"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gBaseTypeSize" ordered="false"
+            eType="#//ggenericstructure/gprimitivetypes/PositiveInteger" volatile="true"
+            transient="true" defaultValueLiteral="0" unsettable="true" derived="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GBaseTypeMaxSize" abstract="true"
+          interface="true" eSuperTypes="#//gcommonstructure/gbasetypes/GBaseTypeSizeDefinition">
+        <eAnnotations source="class.mapping">
+          <details key="4.1.X" value="PHANTOM"/>
+          <details key="4.2.X" value="PHANTOM"/>
+          <details key="4.3.X" value="PHANTOM"/>
+          <details key="4.42" value="PHANTOM"/>
+          <details key="4.43" value="PHANTOM"/>
+          <details key="4.44" value="PHANTOM"/>
+          <details key="4.45" value="PHANTOM"/>
+          <details key="4.46" value="PHANTOM"/>
+          <details key="4.47" value="PHANTOM"/>
+          <details key="4.48" value="PHANTOM"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="gMaxBaseTypeSize" ordered="false"
+            eType="#//ggenericstructure/gprimitivetypes/PositiveInteger" volatile="true"
+            transient="true" defaultValueLiteral="0" unsettable="true" derived="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="GSwBaseType" abstract="true" interface="true"
+          eSuperTypes="#//gcommonstructure/gbasetypes/GBaseType"/>
+    </eSubpackages>
+    <eSubpackages name="gsystemconstant" nsURI="http://artop.org/gautosar/cs/sc" nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GSwSystemconst" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="NONE"/>
+          <details key="3.X" value="NONE"/>
+        </eAnnotations>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="gsystem" nsURI="http://artop.org/gautosar/s" nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="GSystem" abstract="true" interface="true"
+        eSuperTypes="#//ggenericstructure/ginfrastructure/GPackageableElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GRootSwCompositionPrototype" abstract="true"
+        interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+      <eAnnotations source="class.mapping">
+        <details key="2.1" value="SoftwareComposition"/>
+        <details key="3.X" value="SoftwareComposition"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="gSoftwareComposition"
+          eType="#//gswcomponents/gcomposition/GCompositionSwComponentType" volatile="true"
+          transient="true" derived="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GSystemMapping" abstract="true" interface="true"
+        eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="gSwImplMappings" upperBound="-1"
+          eType="#//gsystem/gswmapping/GSwcToImplMapping" volatile="true" transient="true"
+          derived="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eSubpackages name="gswmapping" nsURI="http://artop.org/gautosar/s/swm" nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GSwcToImplMapping" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GIdentifiable">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="SwCompToImplMapping"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gComponentImplementation"
+            eType="#//gswcomponents/gswcimplementation/GSwcImplementation" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gComponents" upperBound="-1"
+            eType="#//gsystem/ginstanceref/GComponentInSystemIRef" volatile="true"
+            transient="true" derived="true" resolveProxies="false"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="ginstanceref" nsURI="http://artop.org/gautosar/s/ir" nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="GComponentInSystemIRef" abstract="true"
+          interface="true" eSuperTypes="#//ggenericstructure/ginfrastructure/GARObject">
+        <eAnnotations source="class.mapping">
+          <details key="2.1" value="SwCompToImplMappingComponent"/>
+          <details key="3.X" value="SwCompToImplMappingComponent"/>
+          <details key="4.X" value="ComponentInSystemInstanceRef"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gContextComposition"
+            eType="#//gsystem/GRootSwCompositionPrototype" volatile="true" transient="true"
+            derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="softwareComposition"/>
+            <details key="3.X" value="softwareComposition"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gContextComponents"
+            upperBound="-1" eType="#//gswcomponents/gcomposition/GSwComponentPrototype"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="componentPrototypes"/>
+            <details key="3.X" value="componentPrototypes"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="gTargetComponent" eType="#//gswcomponents/gcomposition/GSwComponentPrototype"
+            volatile="true" transient="true" derived="true" resolveProxies="false">
+          <eAnnotations source="feature.mapping">
+            <details key="2.1" value="targetComponentPrototype"/>
+            <details key="3.X" value="targetComponentPrototype"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+</ecore:EPackage>

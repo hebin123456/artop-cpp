@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:cn="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/common" xmlns:im="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/instancemodel" xmlns:tm="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/typemodel" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/instancemodel">
+  <xsd:import namespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/typemodel" schemaLocation="TypeModel200XMI.xsd"/>
+  <xsd:import namespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/common" schemaLocation="Common200XMI.xsd"/>
+  <xsd:complexType name="Application">
+    <xsd:complexContent>
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="components" type="im:Component"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Application" type="im:Application"/>
+  <xsd:complexType name="Component">
+    <xsd:complexContent>
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="tm:ComponentType"/>
+          <xsd:element name="outgoingConnections" type="im:Connection"/>
+          <xsd:element name="incomingConnections" type="im:Connection"/>
+          <xsd:element name="parameterValues" type="im:ParameterValue"/>
+        </xsd:choice>
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="incomingConnections" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Component" type="im:Component"/>
+  <xsd:complexType name="Connection">
+    <xsd:complexContent>
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourcePort" type="tm:Port"/>
+          <xsd:element name="targetComponent" type="im:Component"/>
+        </xsd:choice>
+        <xsd:attribute name="sourcePort" type="xsd:string"/>
+        <xsd:attribute name="targetComponent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Connection" type="im:Connection"/>
+  <xsd:complexType name="ParameterValue">
+    <xsd:complexContent>
+      <xsd:extension base="cn:Identifiable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="tm:Parameter"/>
+        </xsd:choice>
+        <xsd:attribute name="value" type="xsd:string"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ParameterValue" type="im:ParameterValue"/>
+</xsd:schema>

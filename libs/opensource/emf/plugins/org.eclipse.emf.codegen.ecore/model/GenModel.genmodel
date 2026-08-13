@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.codegen.ecore/src" creationCommands="false"
+    editDirectory="/org.eclipse.emf.codegen.ecore.ui/src" editorDirectory="/org.eclipse.emf.codegen.ecore.ui/src"
+    modelPluginID="org.eclipse.emf.codegen.ecore" runtimeJar="true" modelName="GenModel"
+    editPluginClass="org.eclipse.emf.codegen.ecore.genmodel.provider.GenModelEditPlugin"
+    editorPluginClass="" updateClasspath="false" testsDirectory="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" editPluginID="org.eclipse.emf.codegen.ecore.ui" language="en"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" decoration="Live"
+    eclipsePlatformVersion="Photon" autoResizeProperties="true" findAction="true"
+    expandAllAction="true" collapseAllAction="true" revertAction="true">
+  <foreignModel>GenModel.ecore</foreignModel>
+  <genPackages prefix="GenModel" basePackage="org.eclipse.emf.codegen.ecore" disposableProviderFactory="true"
+      multipleEditorPages="false" generateModelWizard="false" contentTypeIdentifier="org.eclipse.emf.codegen.genmodel"
+      ecorePackage="GenModel.ecore#/">
+    <genEnums ecoreEnum="GenModel.ecore#//GenProviderKind">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenProviderKind/Singleton"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenProviderKind/Stateful"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenProviderKind/None"/>
+    </genEnums>
+    <genEnums ecoreEnum="GenModel.ecore#//GenPropertyKind">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenPropertyKind/Editable"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenPropertyKind/Readonly"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenPropertyKind/None"/>
+    </genEnums>
+    <genEnums ecoreEnum="GenModel.ecore#//GenResourceKind">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenResourceKind/None"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenResourceKind/Basic"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenResourceKind/XMI"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenResourceKind/XML"/>
+    </genEnums>
+    <genEnums ecoreEnum="GenModel.ecore#//GenDelegationKind">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenDelegationKind/None"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenDelegationKind/Reflective"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenDelegationKind/Virtual"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenDelegationKind/Dynamic"/>
+    </genEnums>
+    <genEnums ecoreEnum="GenModel.ecore#//GenJDKLevel">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK14"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK50"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK60"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK70"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK80"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK90"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK100"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK110"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK120"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK130"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK140"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK150"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK160"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK170"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK180"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK190"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK200"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK210"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK220"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK230"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK240"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK250"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK260"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenJDKLevel/JDK270"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GenModel.ecore#//GenRuntimeVersion">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF22"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF23"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF24"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF25"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF26"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF27"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF28"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF29"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF210"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF211"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF212"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF213"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF214"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF215"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF216"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF217"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF218"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF219"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF220"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF221"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF222"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF223"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF224"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF225"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF226"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF227"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF228"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF229"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF230"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF231"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF232"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF233"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF234"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF235"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF236"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF237"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF238"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF239"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF240"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF241"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF242"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF243"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF244"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF245"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF246"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimeVersion/EMF247"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GenModel.ecore#//GenRuntimePlatform">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimePlatform/IDE"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimePlatform/RCP"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimePlatform/RAP"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenRuntimePlatform/GWT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GenModel.ecore#//GenDecoration">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenDecoration/None"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenDecoration/Manual"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenDecoration/Live"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GenModel.ecore#//GenEclipsePlatformVersion">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Juno"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Kepler"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Luna"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Mars"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Neon"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Oxygen"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Photon"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2018_09"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2018_12"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2019_03"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2019_06"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2019_09"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2019_12"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2020_03"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2020_06"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2020_09"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2020_12"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2021_03"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2021_06"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2021_09"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2021_12"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2022_03"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2022_06"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2022_09"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2022_12"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2023_03"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2023_06"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2023_09"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2023_12"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2024_03"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2024_06"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2024_09"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2024_12"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2025_03"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2025_06"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2025_09"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2025_12"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2026_03"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2026_06"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenEclipsePlatformVersion/Eclipse_2026_09"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GenModel.ecore#//GenCodeStyle">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenCodeStyle/UnnecessaryElse"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenCodeStyle/SwitchMissingDefaultCase"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenCodeStyle/UnnecessaryAssignmentBeforeReturn"/>
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenCodeStyle/UnnecessaryDeprecatedMethod"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GenModel.ecore#//GenOSGiStyle">
+      <genEnumLiterals ecoreEnumLiteral="GenModel.ecore#//GenOSGiStyle/ProvideCapabilityGeneratedPackage"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="GenModel.ecore#//Path"/>
+    <genDataTypes ecoreDataType="GenModel.ecore#//PropertyEditorFactory"/>
+    <genClasses ecoreClass="GenModel.ecore#//GenModel">
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="A copyright string to appear in the header of each generated artifact"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/copyrightText"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The target directory for generated model code"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/modelDirectory"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether to include support for child creation"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/creationCommands"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether to generate child creation icons"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/creationIcons"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Whether to organize qualified child creation actions into sub-menus"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/creationSubmenus"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="The target directory for generated edit code"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/editDirectory"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="The target directory for generated editor code"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/editorDirectory"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The unique string that identifies the model plug-in to Eclipse"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/modelPluginID"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="The location of the dynamic templates directory"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/templateDirectory"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="Whether the compiled classes are to be packaged in a JAR file (for JARed plugins, this should be false)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/runtimeJar"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/foreignModel"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="Whether to ignore pre-compiled, packaged templates"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/dynamicTemplates"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="Redirect output to the specified alternate file names (use {0} in place of the normal file name)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/redirection"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="Whether to overwrite exisiting read-only files"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/forceOverwrite"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/nonExternalizedStringTag"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="The name of the model"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/modelName"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The fully qualified name for the model plug-in class"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/modelPluginClass"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="The fully qualified name for the edit plug-in class"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/editPluginClass"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="The fully qualified name for the editor plug-in class"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/editorPluginClass"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="Whether project classpaths or manifests should be updated during generation"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/updateClasspath"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether an XML Schema should be generated with the model"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/generateSchema"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="Whether strings that do not require externalization should be marked"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/nonNLSMarkers"/>
+      <genFeatures createChild="false" propertyCategory="ModelClass" propertyDescription="If a Root Implements Interface is specified and is a modeled class, but is not available within the generator model, enter the namespace URI of its package"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/staticPackages"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Plug-ins to be included in the model's classpath, optionally specifying classpath variable names (as VARIABLE=plugin.id)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/modelPluginVariables"/>
+      <genFeatures createChild="false" propertyCategory="ModelClass" propertyDescription="The base from which interfaces for model classes with no supertypes extend"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/rootExtendsInterface"/>
+      <genFeatures createChild="false" propertyCategory="ModelClass" propertyDescription="The base from which implementations of model classes with no supertypes extend"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/rootExtendsClass"/>
+      <genFeatures createChild="false" propertyCategory="ModelClass" propertyDescription="An interface already implemented by the Root Extends Class, which must also be mixed in by classes whose supertypes do not implement it themselves"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/rootImplementsInterface"/>
+      <genFeatures createChild="false" propertyCategory="ModelFeature" propertyDescription="Whether to use standard Java, rather than EMF, collection and object types for features and operations"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/suppressEMFTypes"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to suppress the generated package from the interface"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/suppressEMFMetaData"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to suppress the generation of @model tags in the Javadoc"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/suppressEMFModelTags"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to generate separate interface and implementation classes"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/suppressInterfaces"/>
+      <genFeatures createChild="false" propertyCategory="ModelFeature" propertyDescription="An alternate interface for feature maps to be provided by a wrapper"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/featureMapWrapperInterface"/>
+      <genFeatures createChild="false" propertyCategory="ModelFeature" propertyDescription="An internal interface for handling feature map wrappers within the class implementation"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/featureMapWrapperInternalInterface"/>
+      <genFeatures createChild="false" propertyCategory="ModelFeature" propertyDescription="A wrapper class for feature maps to present an alternate interface"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/featureMapWrapperClass"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="Whether to generate with runtime compabitibility support"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/runtimeCompatibility"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Whether to generate for Rich Client Platform"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/richClientPlatform"/>
+      <genFeatures property="None" createChild="false" propertyCategory="Model" propertyDescription="Whether the generated accessor methods should delegate to the reflective methods"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/reflectiveDelegation"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="Whether to fully format generated Java files with the JDT code formatter"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/codeFormatting"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="Whether to fully format comments in generated Java files with the JDT code formatter"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/commentFormatting"/>
+      <genFeatures createChild="false" propertyCategory="Tests" propertyDescription="The target directory for generated unit tests"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/testsDirectory"/>
+      <genFeatures createChild="false" propertyCategory="Tests" propertyDescription="The fully-qualified name for the test suite class"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/testSuiteClass"/>
+      <genFeatures createChild="false" propertyCategory="ModelFeature" propertyDescription="Name of the bit field in which to represent values of boolean attributes and whether unsettable features are set"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/booleanFlagsField"/>
+      <genFeatures createChild="false" propertyCategory="ModelFeature" propertyDescription="Number of bits to reserve in the boolean flags field, typically because they are used by parent classes"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/booleanFlagsReservedBits"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/importerID"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="Whether to generate the OSGi bundle manifest"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/bundleManifest"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Delegation pattern to use for feature accessors"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/featureDelegation"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to respect the resolveProxies setting for containment references"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/containmentProxies"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether reflective methods should call super and be smaller or duplicate the code from super and be faster"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/minimalReflectiveMethods"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to suppress the support for containment features updating the container"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/suppressContainment"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to suppress generating support for notification"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/suppressNotification"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to generate bean-like array accessors for many-valued features"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/arrayAccessors"/>
+      <genFeatures createChild="false" propertyCategory="ModelFeature" propertyDescription="Whether to suppress generated support for unsettable features "
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/suppressUnsettable"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="The class to be used to provide an implementation of the source manipulation API for merging Java code"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/facadeHelperClass"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="The JDK compliance level for the generated Java code"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/complianceLevel"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to suppress generation-related annotations, like those that record documentation and operation bodies, from the package metadata"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/suppressGenModelAnnotations"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="Whether the copyright text should be used to produce a field in each generated class"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/copyrightFields"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to generate slower reflective method implementations that remain binary compatible even when features are added to base classes defined in other models"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/binaryCompatibleReflectiveMethods"/>
+      <genFeatures createChild="false" propertyCategory="ModelClass" propertyDescription="Whether generated model classes should have public, rather than protected, constructors"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/publicConstructors"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="Plug-ins to be included in the .JETEmitter project's classpath, optionally specifying classpath variable names (as VARIABLE=plugin.id)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/templatePluginVariables"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="The base from which implementations of item providers for classes with no supertypes extend"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/providerRootExtendsClass"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="The unique string that identifies the edit plug-in to Eclipse"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/editPluginID"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Plug-ins to be included in the edit plug-in's classpath, optionally specifying classpath variable names (as VARIABLE=plugin.id)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/editPluginVariables"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="The unique string that identifies the editor plug-in to Eclipse"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/editorPluginID"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Plug-ins to be included in the editor plug-in's classpath, optionally specifying classpath variable names (as VARIABLE=plugin.id)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/editorPluginVariables"/>
+      <genFeatures createChild="false" propertyCategory="Tests" propertyDescription="The unique string that identifies the tests plug-in to Eclipse"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/testsPluginID"/>
+      <genFeatures createChild="false" propertyCategory="Tests" propertyDescription="Plug-ins to be included in the tests plug-in's classpath, optionally specifying classpath variable names (as VARIABLE=plugin.id)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/testsPluginVariables"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether item providers should use an optimized hasChildren() implementation that does not access children values where possible"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/optimizedHasChildren"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether item providers should provide support for specifying column labels"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/tableProviders"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether item providers should provide support for specifying label colors"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/colorProviders"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether item providers should provide support for specifying label fonts"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/fontProviders"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="The version of the EMF runtime against which to target the generated code"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/runtimeVersion"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="The two letter code for the language to use, instead of the system default, in computing upper and lower case strings"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/language"/>
+      <genFeatures createChild="false" propertyCategory="ModelFeature" propertyDescription="Whether the values of enum attributes should be packed in the boolean flags bit field"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/packedEnums"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenModel/genPackages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenModel/usedGenPackages"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Pattern for deriving interface names from model element names (&quot;{0}&quot; by default)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/interfaceNamePattern"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Pattern for deriving class names from model element names (&quot;{0}Impl&quot; by default)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/classNamePattern"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether support for reflective operation invocation should be generated."
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/operationReflection"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Whether to generate for Rich Ajax Platform"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/richAjaxPlatform"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="The target runtime environment for which to generate"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/runtimePlatform"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="Whether to check for unused imports in the generated Java code and remove them"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/importOrganizing"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="The key used for merging generated plugin.xml file contents; an empty string disables merging"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/pluginKey"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="The style of validation decorations to support"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/decoration"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether item providers should provide support for specifying styled labels"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/styleProviders"/>
+      <genFeatures createChild="false" propertyCategory="JET" propertyDescription="Whether to invoke the configured source clean actions after generating"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/cleanup"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="Whether to generate bundles that are purely compatible with any OSGi runtime implementation"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/oSGiCompatible"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="The version of the Eclipse runtime against which to target the generated code for an RCP or IDE runtime platform"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/eclipsePlatformVersion"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="The Javadoc documentation to generate for the model-level artifacts such as plug-in classes, including any @since or @deprecated tags"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/modelDocumentation"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Whether the columns in the properties view should automatically resize to fit the content size as well as the client area"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/autoResizeProperties"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="The depth to which properties should be automaticall expanded in the properties view"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/autoExpandProperties"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Whether the generated editor should support the Find/Replace action"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/findAction"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Whether the generated editor should support an expand-all action"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/expandAllAction"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Whether the generated editor should support a collapse-all action"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/collapseAllAction"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Whether the generated editor should support a File -> Revert action"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/revertAction"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="A set of style options that affect the code style of generated method bodies"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/codeStyle"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="A set of style options that affect OSGi-related artifacts, such as headers in the MANIFEST.MF"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenModel/oSGiStyle"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GenModel.ecore#//GenPackage">
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="The prefix for names of several packaged-related classes, including package, factory, switch, and adapter factory"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/prefix"/>
+      <genFeatures createChild="false" propertyCategory="All" propertyDescription="The base package for all generated code"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/basePackage"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to generate model-specific resource and resource factory implementations and which basic type to extend"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/resource"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether the generated item provider adapter factory should be able to dispose its item providers"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/disposableProviderFactory"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to generate an adapter factory and switch class for the package"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/adapterFactory"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to initialize package meta-data by loading from serialized form (required for large models)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/loadInitialization"/>
+      <genFeatures createChild="false" propertyCategory="Package Suffixes" propertyDescription="The suffix of the package for interfaces"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/interfacePackageSuffix"/>
+      <genFeatures createChild="false" propertyCategory="Package Suffixes" propertyDescription="The suffix of the package for factory and package interfaces"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/metaDataPackageSuffix"/>
+      <genFeatures createChild="false" propertyCategory="Package Suffixes" propertyDescription="The suffix of the package for implementation classes"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/classPackageSuffix"/>
+      <genFeatures createChild="false" propertyCategory="Package Suffixes" propertyDescription="The suffix of the utility package"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/utilityPackageSuffix"/>
+      <genFeatures createChild="false" propertyCategory="Package Suffixes" propertyDescription="The suffix of the package for item providers"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/providerPackageSuffix"/>
+      <genFeatures createChild="false" propertyCategory="Package Suffixes" propertyDescription="The suffix of the package for ui classes"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/presentationPackageSuffix"/>
+      <genFeatures createChild="false" propertyCategory="Package Suffixes" propertyDescription="The suffix of the package for JUnit tests"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/testsPackageSuffix"/>
+      <genFeatures createChild="false" propertyCategory="Tests" propertyDescription="Whether to generate an example class in the test plugin"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/generateExampleClass"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to generate an interface defining metadata literals"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/literalsInterface"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to generate converters for data types in the factory and the resource"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/dataTypeConverters"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Whether the generated editor should have multiple pages"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/multipleEditorPages"/>
+      <genFeatures createChild="false" propertyCategory="Editor" propertyDescription="Whether the model new wizard should be generated"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/generateModelWizard"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether the generated item provider adapter factory should support extensible child creation"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/extensibleProviderFactory"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether the generated item provider adapter factory should include child creation extenders"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/childCreationExtenders"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="A content type identifier against which to register this model's resource factory"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/contentTypeIdentifier"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The file extension against which to register the model's resource factory, or multiple, comma-separated file extensions for its content type"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/fileExtensions"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="Ecore"
+          propertyDescription="The Ecore model element for this package" ecoreFeature="ecore:EReference GenModel.ecore#//GenPackage/ecorePackage"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenPackage/genModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenPackage/genEnums"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenPackage/genDataTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenPackage/genClasses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenPackage/nestedGenPackages"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenPackage/genClassifiers"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The workspace-relative location at which to generate a published version of the Ecore model resource"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/publicationLocation"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The Javadoc to be generated, including any @since or @deprecated tags"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/documentation"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The file extension of the resource used to initialize package meta-data when loading from serialized form (required for large models)"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/loadInitializationFileExtension"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether this package's implementation class should directly initialize its entirely family containment tree"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenPackage/familyTreeInitialization"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GenModel.ecore#//GenClass">
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether to generate an item provider and which pattern to use"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenClass/provider"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether to generate an icon file for this class"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenClass/image"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to use a dynamic implementation instead of a generated implementation"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenClass/dynamic"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="Ecore"
+          propertyDescription="The Ecore model element for this class" ecoreFeature="ecore:EReference GenModel.ecore#//GenClass/ecoreClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenClass/genFeatures"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenClass/genOperations"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Which feature the item provider should use in forming the object labels"
+          ecoreFeature="ecore:EReference GenModel.ecore#//GenClass/labelFeature"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GenModel.ecore#//GenFeature">
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether this feature should be included in the property sheet and whether it should be editable"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/property"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether the item provider should forward notifications for this feature"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/notify"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether objects in this feature are returned as children"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/children"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether child objects can be created via this feature"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/createChild"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="The category for this feature's property descriptor"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/propertyCategory"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="The filter flags for this feature's property descriptor"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/propertyFilterFlags"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="The description of this feature's property descriptor"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/propertyDescription"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether this feature should be edited as a multi-line property"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/propertyMultiLine"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="Whether the choices for values of this feature should be sorted for display when editing the property"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/propertySortChoices"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenFeature/genClass"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="Ecore"
+          propertyDescription="The Ecore model element for this structural feature"
+          ecoreFeature="ecore:EReference GenModel.ecore#//GenFeature/ecoreFeature"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to suppress the generated get accessor from the interface"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/suppressedGetVisibility"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to suppress the generated set accessor from the interface"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/suppressedSetVisibility"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to suppress the generated is-set accessor from the interface"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/suppressedIsSetVisibility"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to suppress the generated unset accessor from the interface"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/suppressedUnsetVisibility"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The body to be generated for the get-accessor method of the feature in the implementation class"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/get"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="A URI that specifies a registered property editor factory that will be used to create property editors"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenFeature/propertyEditorFactory"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GenModel.ecore#//GenBase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenBase/genAnnotations"/>
+      <genOperations ecoreOperation="GenModel.ecore#//GenBase/getGenAnnotation">
+        <genParameters ecoreParameter="GenModel.ecore#//GenBase/getGenAnnotation/source"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GenModel.ecore#//GenEnum">
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to generate the Java 5.0 enum to be binary compatible with the older type safe enum pattern"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenEnum/typeSafeEnumCompatible"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="Ecore"
+          propertyDescription="The Ecore model element for this enumerated type" ecoreFeature="ecore:EReference GenModel.ecore#//GenEnum/ecoreEnum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenEnum/genEnumLiterals"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GenModel.ecore#//GenEnumLiteral">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenEnumLiteral/genEnum"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="Ecore"
+          propertyDescription="The Ecore model element for this enumerated type literal"
+          ecoreFeature="ecore:EReference GenModel.ecore#//GenEnumLiteral/ecoreEnumLiteral"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The Javadoc to be generated, including any @since or @deprecated tags"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenEnumLiteral/documentation"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="GenModel.ecore#//GenClassifier">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenClassifier/genPackage"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenClassifier/genTypeParameters"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The Javadoc to be generated, including any @since or @deprecated tags"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenClassifier/documentation"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GenModel.ecore#//GenDataType">
+      <genFeatures property="Readonly" createChild="false" propertyCategory="Ecore"
+          propertyDescription="The Ecore model element for this data type" ecoreFeature="ecore:EReference GenModel.ecore#//GenDataType/ecoreDataType"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The body to be generated for the create-from-string method of the data type in the factory implementation class"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenDataType/create"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The body to be generated for the convert-to-string method of the data type in the factory implementation class"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenDataType/convert"/>
+      <genFeatures createChild="false" propertyCategory="Edit" propertyDescription="A URI that specifies a registered property editor factory that will be used to create property editors for attributes of this type"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenDataType/propertyEditorFactory"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GenModel.ecore#//GenOperation">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenOperation/genClass"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="Ecore"
+          propertyDescription="The Ecore model element for this operation" ecoreFeature="ecore:EReference GenModel.ecore#//GenOperation/ecoreOperation"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenOperation/genParameters"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenOperation/genTypeParameters"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="Whether to suppress the generated method from the interface"
+          ecoreFeature="ecore:EAttribute GenModel.ecore#//GenOperation/suppressedVisibility"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The body to be generated for the method of the operation in the implementation class"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenOperation/body"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GenModel.ecore#//GenParameter">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenParameter/genOperation"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="Ecore"
+          ecoreFeature="ecore:EReference GenModel.ecore#//GenParameter/ecoreParameter"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="GenModel.ecore#//GenTypedElement">
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The Javadoc to be generated, including any @since or @deprecated tags"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenTypedElement/documentation"/>
+    </genClasses>
+    <genClasses ecoreClass="GenModel.ecore#//GenAnnotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenAnnotation/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenAnnotation/details"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenAnnotation/genBase"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference GenModel.ecore#//GenAnnotation/references"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenAnnotation/contents"/>
+    </genClasses>
+    <genClasses provider="None" image="false" ecoreClass="GenModel.ecore#//GenTypeParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GenModel.ecore#//GenTypeParameter/ecoreTypeParameter"/>
+      <genFeatures createChild="false" propertyCategory="Model" propertyDescription="The Javadoc to be generated"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute GenModel.ecore#//GenTypeParameter/documentation"/>
+    </genClasses>
+  </genPackages>
+  <oSGiStyle>ProvideCapabilityGeneratedPackage</oSGiStyle>
+</genmodel:GenModel>

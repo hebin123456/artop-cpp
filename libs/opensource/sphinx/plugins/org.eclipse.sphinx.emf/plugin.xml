@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2015 See4sys, itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    See4sys - Initial API and implementation
+    itemis - [409014] Listener URIChangeDetector registered for all transactional editing domains
+    itemis - [480135] Introduce metamodel and view content agnostic problem decorator for model elements
+
+</copyright>
+-->
+
+<plugin>
+   <extension-point id="customCommands" name="%customCommands.name" schema="schema/customCommands.exsd"/>
+   <extension-point id="editingDomainFactoryListeners" name="%editingDomainFactoryListeners.name" schema="schema/editingDomainFactoryListeners.exsd"/>
+   <extension-point id="metaModelDescriptors" name="%metaModelDescriptors.name" schema="schema/metaModelDescriptors.exsd"/>
+   <extension-point id="modelConverters" name="%modelConvertes.name" schema="schema/modelConverters.exsd"/>
+   <extension-point id="resourceHandlers" name="%resourceHandlers.name" schema="schema/resourceHandlers.exsd"/>
+   <extension-point id="resourceLocators" name="%resourceLocators.name" schema="schema/resourceLocators.exsd"/>
+   <extension-point id="resourceScopeProviders" name="%resourceScopeProviders.name" schema="schema/resourceScopeProviders.exsd"/>
+   <extension-point id="metaModelServices" name="%metaModelServices.name" schema="schema/metaModelServices.exsd"/>
+   <extension point="org.eclipse.core.expressions.propertyTesters">
+    <propertyTester class="org.eclipse.sphinx.emf.internal.expressions.EMFObjectPropertyTester"
+                    id="org.eclipse.sphinx.emf.expressions.eObjectPropertyTester"
+                    namespace="org.eclipse.sphinx.emf"
+                    properties="instanceOf, classNameMatches"
+                    type="org.eclipse.emf.ecore.EObject">
+    </propertyTester>
+    <propertyTester
+          class="org.eclipse.sphinx.emf.internal.expressions.EMFObjectPropertyTester"
+          id="org.eclipse.sphinx.emf.expressions.transientItemProviderPropertyTester"
+          namespace="org.eclipse.sphinx.emf"
+          properties="parentClassNameMatches"
+          type="org.eclipse.sphinx.emf.edit.TransientItemProvider">
+    </propertyTester>
+    <propertyTester class="org.eclipse.sphinx.emf.internal.expressions.EMFObjectPropertyTester"
+                    id="org.eclipse.sphinx.emf.expressions.wrapperItemProviderPropertyTester"
+                    namespace="org.eclipse.sphinx.emf"
+                    properties="valueClassNameMatches, ownerClassNameMatches"
+                    type="org.eclipse.emf.edit.provider.IWrapperItemProvider">
+    </propertyTester>
+    <propertyTester
+          class="org.eclipse.sphinx.emf.internal.expressions.FilePropertyTester"
+          id="org.eclipse.sphinx.emf.expressions.filePropertyTester"
+          namespace="org.eclipse.sphinx.emf"
+          properties="isInScope, metaModelIdMatches"
+          type="org.eclipse.core.resources.IFile">
+    </propertyTester>
+  </extension>
+   <extension
+         point="org.eclipse.core.filesystem.filesystems">
+      <filesystem
+            scheme="platform">
+         <run
+               class="org.eclipse.sphinx.emf.internal.filesystem.PlatformURIFileSystem">
+         </run>
+      </filesystem>
+   </extension>
+   <extension
+         point="org.eclipse.sphinx.emf.editingDomainFactoryListeners">
+      <listener
+            class="org.eclipse.sphinx.emf.internal.resource.URIResourceCacheUpdater$URIResourceCacheUpdaterInstaller"
+            id="org.eclipse.sphinx.emf.internal.resource.uriResourceCacheUpdaterInstaller">
+         <applicableFor
+               metaModelDescriptorIdPattern="org.eclipse.sphinx.emf.metamodel.any">
+         </applicableFor>
+      </listener>
+      <listener
+            class="org.eclipse.sphinx.emf.internal.ecore.proxymanagement.blacklist.ModelIndexUpdater$ModelIndexUpdaterInstaller"
+            id="org.eclipse.sphinx.emf.internal.ecore.proxymanagement.blacklist.modelIndexUpdaterInstaller">
+         <applicableFor
+               metaModelDescriptorIdPattern="org.eclipse.sphinx.emf.metamodel.any">
+         </applicableFor>
+      </listener>
+      <listener
+            class="org.eclipse.sphinx.emf.internal.model.ModelDescriptorSynchronizerComplement$ModelDescriptorSynchronizerComplementInstaller"
+            id="org.eclipse.sphinx.emf.internal.model.modelDescriptorSynchronizerComplementInstaller">
+         <applicableFor
+               metaModelDescriptorIdPattern="org.eclipse.sphinx.emf.metamodel.any">
+         </applicableFor>
+      </listener>
+      <listener
+            class="org.eclipse.sphinx.emf.internal.metamodel.MetaModelDescriptorCacheUpdater$MetaModelDescriptorCacheUpdaterInstaller"
+            id="org.eclipse.sphinx.emf.internal.metamodel.metaModelDescriptorCacheUpdaterInstaller">
+         <applicableFor
+               metaModelDescriptorIdPattern="org.eclipse.sphinx.emf.metamodel.any">
+         </applicableFor>
+      </listener>
+      <listener
+            class="org.eclipse.sphinx.emf.internal.resource.ResourceProblemHandler$ResourceProblemHandlerInstaller"
+            id="org.eclipse.sphinx.emf.internal.resource.resourceProblemHandlerInstaller">
+         <applicableFor
+               metaModelDescriptorIdPattern="org.eclipse.sphinx.emf.metamodel.any">
+         </applicableFor>
+      </listener>
+   </extension>
+
+   <extension
+         id="resourcescopingproblemmarker"
+         name="%resourcescopingproblemmarker.name"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <persistent value="true" />
+   </extension>
+   <extension
+         id="xmlwellformednessproblemmarker"
+         name="%xmlwellformednessproblemmarker.name"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <persistent value="true"/>
+   </extension>
+   <extension
+         id="xmlvalidityproblemmarker"
+         name="%xmlvalidityproblemmarker.name"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <persistent value="true"/>
+   </extension>
+   <extension
+         id="xmlintegrityproblemmarker"
+         name="%xmlintegrityproblemmarker.name"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <persistent value="true"/>
+   </extension>
+   <extension
+         id="proxyuriintegrityproblemmarker"
+         name="%proxyuriintegrityproblemmarker.name"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <persistent value="true"/>
+   </extension>
+   <extension
+          point="org.eclipse.emf.ecore.content_handler">
+       <contentHandler
+             class="org.eclipse.sphinx.emf.resource.SphinxManagedModelFileContentHandlerImpl"
+             priority="1000">
+       </contentHandler>
+   </extension>
+</plugin>

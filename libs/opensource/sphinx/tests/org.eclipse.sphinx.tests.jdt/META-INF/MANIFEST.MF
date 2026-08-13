@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.tests.jdt;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.sphinx.testutils,
+ org.eclipse.sphinx.jdt
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.eclipse.sphinx.tests.jdt.internal.Activator$Implementation
+Export-Package: org.eclipse.sphinx.tests.jdt,
+ org.eclipse.sphinx.tests.jdt.internal;x-internal:=true

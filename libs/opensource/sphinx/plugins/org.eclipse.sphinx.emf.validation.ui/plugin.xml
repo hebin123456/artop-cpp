@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2015 See4sys, itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    See4sys - Initial API and implementation
+    itemis - [480135] Introduce metamodel and view content agnostic problem decorator for model elements
+
+</copyright>
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.ide.markerSupport">
+      <markerGroupingEntry
+            id="org.eclipse.sphinx.emf.validation.markerErrorGroupingEntry"
+            label="Errors"
+            markerGrouping="org.eclipse.ui.ide.severity"
+            priority="2">
+      </markerGroupingEntry>
+      <markerGroupingEntry
+            id="org.eclipse.sphinx.emf.validation.markerWarningGroupingEntry"
+            label="Warnings"
+            markerGrouping="org.eclipse.ui.ide.severity"
+            priority="1">
+      </markerGroupingEntry>
+      <markerGroupingEntry
+            id="org.eclipse.sphinx.emf.validation.markerInfoGroupingEntry"
+            label="Infos"
+            markerGrouping="org.eclipse.ui.ide.severity"
+            priority="0">
+      </markerGroupingEntry>
+      <markerAttributeGrouping
+            attribute="severity"
+            markerType="sphinx.emf.validation.problem.marker">
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerErrorGroupingEntry"
+               value="2">
+         </markerAttributeMapping>
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerWarningGroupingEntry"
+               value="1">
+         </markerAttributeMapping>
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerInfoGroupingEntry"
+               value="0">
+         </markerAttributeMapping>
+      </markerAttributeGrouping>
+      <markerAttributeGrouping
+            attribute="severity"
+            markerType="org.eclipse.sphinx.emf.xmlwellformednessproblemmarker">
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerErrorGroupingEntry"
+               value="2">
+         </markerAttributeMapping>
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerWarningGroupingEntry"
+               value="1">
+         </markerAttributeMapping>
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerInfoGroupingEntry"
+               value="0">
+         </markerAttributeMapping>
+      </markerAttributeGrouping>
+      <markerAttributeGrouping
+            attribute="severity"
+            markerType="org.eclipse.sphinx.emf.xmlvalidityproblemmarker">
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerErrorGroupingEntry"
+               value="2">
+         </markerAttributeMapping>
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerWarningGroupingEntry"
+               value="1">
+         </markerAttributeMapping>
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerInfoGroupingEntry"
+               value="0">
+         </markerAttributeMapping>
+      </markerAttributeGrouping>
+      <markerAttributeGrouping
+            attribute="severity"
+            markerType="org.eclipse.sphinx.emf.xmlintegrityproblemmarker">
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerErrorGroupingEntry"
+               value="2">
+         </markerAttributeMapping>
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerWarningGroupingEntry"
+               value="1">
+         </markerAttributeMapping>
+         <markerAttributeMapping
+               markerGroupingEntry="org.eclipse.sphinx.emf.validation.markerInfoGroupingEntry"
+               value="0">
+         </markerAttributeMapping>
+      </markerAttributeGrouping>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            class="org.eclipse.sphinx.emf.validation.ui.views.ValidationView"
+            icon="icons/full/eview16/problems_view.png"
+            id="org.eclipse.sphinx.emf.validation.ui.view.validation"
+            name="Validation Results"
+            restorable="true">
+      </view>
+   </extension>
+</plugin>

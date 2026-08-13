@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extlib:Library xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extlib="http:///org/eclipse/emf/examples/library/extlibrary.ecore/1.0.0" name="MainLibrary2">
+  <branches name="BranchLibrary1">
+    <stock xsi:type="extlib:Book" title="Book1"/>
+    <stock xsi:type="extlib:Book" title="Book2"/>
+  </branches>
+  <branches name="BranchLibrary2">
+    <stock xsi:type="extlib:Book" title="Book3"/>
+    <stock xsi:type="extlib:Book" title="Book4"/>
+    <stock xsi:type="extlib:VideoCassette"/>
+  </branches>
+  <branches name="BranchLibrary3">
+    <stock xsi:type="extlib:Book" title="Book5"/>
+    <stock xsi:type="extlib:Book" title="Book6"/>
+  </branches>
+  <branches name="BranchLibrary4">
+    <stock xsi:type="extlib:Book" title="Book7"/>
+    <stock xsi:type="extlib:Book" title="Book8"/>
+  </branches>
+  <branches name="BranchLibrary5">
+    <stock xsi:type="extlib:Book" title="Book9"/>
+    <stock xsi:type="extlib:Book" title="Book10"/>
+  </branches>
+  <branches name="BranchLibrary6">
+    <stock xsi:type="extlib:Book" title="Book11"/>
+    <stock xsi:type="extlib:Book" title="Book12"/>
+  </branches>
+  <branches name="BranchLibrary7">
+    <stock xsi:type="extlib:Book" title="Book13"/>
+    <stock xsi:type="extlib:Book" title="Book14"/>
+  </branches>
+  <branches name="BranchLibrary8">
+    <stock xsi:type="extlib:Book" title="Book15"/>
+    <stock xsi:type="extlib:Book" title="Book16"/>
+  </branches>
+  <branches name="BranchLibrary9">
+    <stock xsi:type="extlib:Book" title="Book17"/>
+    <stock xsi:type="extlib:Book" title="Book18"/>
+  </branches>
+  <branches name="BranchLibrary10">
+    <stock xsi:type="extlib:Book" title="Book19"/>
+    <stock xsi:type="extlib:Book" title="Book20"/>
+  </branches>
+  <branches name="BranchLibrary11">
+    <stock xsi:type="extlib:Book" title="Book21"/>
+    <stock xsi:type="extlib:Book" title="Book22"/>
+  </branches>
+  <branches name="BranchLibrary12">
+    <stock xsi:type="extlib:Book" title="Book23"/>
+    <stock xsi:type="extlib:Book" title="Book24"/>
+  </branches>
+  <branches name="BranchLibrary13">
+    <stock xsi:type="extlib:Book" title="Book25"/>
+    <stock xsi:type="extlib:Book" title="Book26"/>
+  </branches>
+  <branches name="BranchLibrary14">
+    <stock xsi:type="extlib:Book" title="Book27"/>
+    <stock xsi:type="extlib:Book" title="Book28"/>
+  </branches>
+  <branches name="BranchLibrary15">
+    <stock xsi:type="extlib:Book" title="Book29"/>
+    <stock xsi:type="extlib:Book" title="Book30"/>
+  </branches>
+  <branches name="BranchLibrary16"/>
+  <branches name="BranchLibrary17"/>
+  <branches name="BranchLibrary18"/>
+  <branches name="BranchLibrary19"/>
+  <branches name="BranchLibrary20"/>
+  <branches name="BranchLibrary21"/>
+  <branches name="BranchLibrary22"/>
+  <branches name="BranchLibrary23"/>
+  <branches name="BranchLibrary24"/>
+  <branches name="BranchLibrary25"/>
+  <branches name="BranchLibrary26"/>
+  <branches name="BranchLibrary27"/>
+  <branches name="BranchLibrary28"/>
+  <branches name="BranchLibrary29"/>
+  <branches name="BranchLibrary30"/>
+  <branches name="BranchLibrary31"/>
+  <branches name="BranchLibrary32"/>
+  <branches name="BranchLibrary33"/>
+  <branches name="BranchLibrary34"/>
+  <branches name="BranchLibrary35"/>
+  <branches name="BranchLibrary36"/>
+  <branches name="BranchLibrary37"/>
+  <branches name="BranchLibrary38"/>
+  <branches name="BranchLibrary39"/>
+  <branches name="BranchLibrary40"/>
+  <branches name="BranchLibrary41"/>
+  <branches name="BranchLibrary42"/>
+  <branches name="BranchLibrary43"/>
+  <branches name="BranchLibrary44"/>
+  <branches name="BranchLibrary45"/>
+  <branches name="BranchLibrary46"/>
+  <branches name="BranchLibrary47"/>
+  <branches name="BranchLibrary48"/>
+  <branches name="BranchLibrary49"/>
+</extlib:Library>

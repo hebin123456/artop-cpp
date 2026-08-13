@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.examples.hummingbird.compare;singleton:=true
+Bundle-Version: 0.9.0.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-Activator: org.eclipse.sphinx.examples.hummingbird.compare.internal.Activator$Implementation
+Require-Bundle: org.eclipse.sphinx.emf.compare;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipse.sphinx.examples.hummingbird.compare.diff,
+ org.eclipse.sphinx.examples.hummingbird.compare.internal;x-internal:=true,
+ org.eclipse.sphinx.examples.hummingbird.compare.match

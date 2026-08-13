@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.examples.emf.compare.reports.html;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-Activator: org.eclipse.sphinx.examples.emf.compare.reports.html.internal.Activator$Implementation
+Require-Bundle: com.google.guava,
+ org.eclipse.xtend.lib;visibility:=reexport,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.sphinx.emf.compare
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.eclipse.sphinx.examples.emf.compare.reports.html,
+ org.eclipse.sphinx.examples.emf.compare.reports.html.internal;x-internal:=true
+

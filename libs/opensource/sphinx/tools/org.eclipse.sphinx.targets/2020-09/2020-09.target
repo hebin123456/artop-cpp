@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="Sphinx 2020-09 Target" sequenceNumber="49">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.sdk.ide" version="4.17.0.I20200902-1800"/>
+<unit id="org.eclipse.equinox.executable.feature.group" version="3.8.900.v20200819-0940"/>
+<unit id="org.eclipse.rcp.configuration.feature.group" version="1.1.1000.v20200902-1800"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.17"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.viatra.query.runtime.feature.feature.group" version="2.2.1.201909040920"/>
+<unit id="org.eclipse.viatra.query.runtime.ui" version="2.2.1.201909040920"/>
+<repository location="http://download.eclipse.org/viatra/updates/release/2.2.1"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.collections.feature.source.feature.group" version="10.1.0.v20200211-1558"/>
+<repository location="https://download.eclipse.org/collections/10.2.0/repository"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.nebula.examples.release.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.nebula.feature.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/nebula/releases/latest"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.google.guava" version="27.1.0.v20190517-1946"/>
+<unit id="org.apache.commons.cli" version="1.4.0.v20200417-1444"/>
+<unit id="org.apache.xerces" version="2.12.2.v20220131-0835"/>
+<unit id="org.apache.xml.resolver" version="1.2.0.v201005080400"/>
+<unit id="org.apache.xml.serializer" version="2.7.1.v201005080400"/>
+<unit id="org.easymock" version="2.4.0.v20090202-0900"/>
+<unit id="org.jdom" version="1.1.1.v201101151400"/>
+<repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20220302172233/repository/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.license.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/cbi/updates/license"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="3.3.12.202008311302"/>
+<unit id="org.eclipse.emf.ecore.xcore.lib.feature.group" version="1.6.0.v20200630-0516"/>
+<unit id="org.eclipse.emf.mwe.sdk.feature.group" version="1.5.3.v20200520-0756"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.23.0.v20200822-0801"/>
+<unit id="org.eclipse.emf.transaction.sdk.feature.group" version="1.12.0.201805140824"/>
+<unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.12.2.202008210805"/>
+<unit id="org.eclipse.emf.compare.feature.group" version="3.3.12.202008311302"/>
+<unit id="org.eclipse.gmf.runtime.notation.sdk.feature.group" version="1.13.0.202004160913"/>
+<unit id="org.eclipse.gmf.runtime.sdk.feature.group" version="1.13.0.202004160913"/>
+<unit id="org.eclipse.mylyn.wikitext_feature.feature.group" version="3.0.38.202008172112"/>
+<unit id="org.eclipse.uml2.sdk.feature.group" version="5.5.1.v20200302-1312"/>
+<unit id="org.eclipse.wst.xml_ui.feature.feature.group" version="3.19.0.v202008192217"/>
+<unit id="org.eclipse.xpand.sdk.feature.group" version="2.2.0.v201605260315"/>
+<unit id="org.eclipse.xsd.sdk.feature.group" version="2.23.0.v20200723-0820"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.23.0.v20200831-0926"/>
+<unit id="org.eclipse.graphiti.feature.feature.group" version="0.17.0.202005151449"/>
+<unit id="org.eclipse.graphiti.sdk.feature.feature.group" version="0.17.0.202005151449"/>
+<unit id="org.eclipse.graphiti.feature.examples.feature.group" version="0.17.0.202005151449"/>
+<repository location="http://download.eclipse.org/releases/2020-09/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" type="InstallableUnit" includeSource="true" >
+<unit id="org.eclipse.emf.examples" version="2.8.0.v20180706-1146"/>
+<unit id="org.eclipse.emf.examples.library" version="2.10.0.v20200518-1440"/>
+<repository location="https://download.eclipse.org/modeling/emf/emf/builds/release/2.23"/>
+</location>
+</locations>
+<environment>
+<nl>en_EN</nl>
+</environment>
+<launcherArgs>
+<vmArgs>-Xms128m -Xmx512m</vmArgs>
+</launcherArgs>
+</target>

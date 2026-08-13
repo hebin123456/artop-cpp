@@ -1,0 +1,69 @@
+# Contributing to Eclipse Sphinx
+
+Thanks for your interest in this project.
+
+## Project description
+
+Eclipse Sphinx™ provide a modeling tool platform for Eclipse that eases the
+development of IDE-like tool support for modeling languages used in software and
+systems development.
+
+* https://projects.eclipse.org/projects/automotive.sphinx
+
+## Developer resources
+
+Information regarding source code management, builds, coding standards, and
+more.
+
+* https://projects.eclipse.org/projects/automotive.sphinx/developer
+
+The project maintains the following source code repositories
+
+* https://git.eclipse.org/r/plugins/gitiles/sphinx/org.eclipse.sphinx
+
+This project uses Bugzilla to track ongoing development and issues.
+
+* Search for issues: https://bugs.eclipse.org/bugs/buglist.cgi?product=Sphinx
+* Create a new report:
+   https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Sphinx
+
+Be sure to search for existing bugs before you create another one. Remember that
+contributions are always welcome!
+
+## Build from source
+
+You can build the project using maven by invoking the following command in the project root folder:
+
+```
+mvn verify -f releng/org.eclipse.sphinx.releng.builds/pom.xml -P platform-oxygen
+```
+
+## Eclipse Development Process
+
+This Eclipse Foundation open project is governed by the Eclipse Foundation
+Development Process and operates under the terms of the Eclipse IP Policy.
+
+* https://eclipse.org/projects/dev_process
+* https://www.eclipse.org/org/documents/Eclipse_IP_Policy.pdf
+
+## Eclipse Contributor Agreement
+
+In order to be able to contribute to Eclipse Foundation projects you must
+electronically sign the Eclipse Contributor Agreement (ECA).
+
+* http://www.eclipse.org/legal/ECA.php
+
+The ECA provides the Eclipse Foundation with a permanent record that you agree
+that each of your contributions will comply with the commitments documented in
+the Developer Certificate of Origin (DCO). Having an ECA on file associated with
+the email address matching the "Author" field of your contribution's Git commits
+fulfills the DCO's requirement that you sign-off on your contributions.
+
+For more information, please see the Eclipse Committer Handbook:
+https://www.eclipse.org/projects/handbook/#resources-commit
+
+## Contact
+
+Contact the project developers via the project's "dev" list.
+
+* https://dev.eclipse.org/mailman/listinfo/sphinx-dev

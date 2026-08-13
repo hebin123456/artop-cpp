@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:cn="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:simpleType name="LanguageCultureName">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="en-US"/>
+      <xsd:enumeration value="de-DE"/>
+      <xsd:enumeration value="fr-FR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" name="Identifiable" mixed="true">
+    <xsd:annotation>
+      <xsd:documentation>Represents an Identifiable model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="description" type="cn:Description">
+        <xsd:annotation>
+          <xsd:documentation>Specifies the description of this Identifiable model object</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Specifies the name of this Identifiable model object</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:element name="Identifiable" type="cn:Identifiable">
+    <xsd:annotation>
+      <xsd:documentation>Represents an Identifiable model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Description" mixed="true">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Description model object</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="translations" type="cn:Translation"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="language" type="cn:LanguageCultureName"/>
+  </xsd:complexType>
+  <xsd:element name="Description" type="cn:Description">
+    <xsd:annotation>
+      <xsd:documentation>Represents a Description model object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Translation">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="language" type="cn:LanguageCultureName"/>
+    <xsd:attribute name="resourceURI" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Translation" type="cn:Translation"/>
+</xsd:schema>

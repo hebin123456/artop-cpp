@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.sphinx.sdk"
+      label="%featureName"
+      version="0.13.1.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.license"
+      license-feature-version="2.0.2.v20181016-2210">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.sphinx"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.doc"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.source"
+         version="0.0.0"/>
+
+</feature>

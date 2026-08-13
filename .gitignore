@@ -1,0 +1,66 @@
+# ===== 编译产物 / 二进制 =====
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dll
+*.dylib
+*.exe
+*.class
+*.jar
+*.war
+*.pyc
+*.pyo
+*.pdb
+*.ilk
+
+# ===== 构建目录 =====
+build/
+build-*/
+.build_cache/
+cmake-build-*/
+
+# ===== CMake =====
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!cmake/**/CMakeLists.txt
+!**/CMakeLists.txt
+
+# ===== 核心转储 / 调试 =====
+core
+core.*
+*.stackdump
+
+# ===== 大体积生成数据（不纳入版本库）=====
+baseline_96m_out.arxml
+benchmark/data/large_96m.arxml
+benchmark/cpp/comparebenchmark
+benchmark/cpp/arxml_benchmark
+benchmark/cpp/arxml_benchmark_asan
+benchmark/cpp/arxml_benchmark_tmp
+benchmark/cpp/notificationbenchmark
+benchmark/cpp/ecore_xmi_benchmark
+benchmark/cpp/validationbenchmark
+benchmark/cpp/comparediag
+
+# ===== 第三方 Eclipse/ARTOP 安装（体积过大，不纳入版本库）=====
+artop/
+
+# ===== 编辑器 / 系统 =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ===== 备份文件 =====
+*.bak
+*.orig
+*.rej

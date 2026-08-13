@@ -1,0 +1,17 @@
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+*.pyg
+*.rai
+*.rao
+*.toc
+*.err
+*.bcf
+*.gz(busy)
+*.run.xml
+.DS_Store

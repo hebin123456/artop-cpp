@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.testutils;singleton:=true
+Bundle-Version: 0.13.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.junit;visibility:=reexport,
+ org.eclipse.sphinx.pde;visibility:=reexport,
+ org.eclipse.sphinx.emf;visibility:=reexport,
+ org.eclipse.sphinx.emf.workspace;visibility:=reexport,
+ com.google.guava
+Export-Package: org.eclipse.sphinx.testutils,
+ org.eclipse.sphinx.testutils.internal;x-internal:=true,
+ org.eclipse.sphinx.testutils.messages
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.eclipse.sphinx.testutils.internal.Activator$Implementation

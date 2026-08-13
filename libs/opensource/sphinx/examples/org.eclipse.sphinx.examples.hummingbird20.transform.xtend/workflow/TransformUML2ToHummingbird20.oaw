@@ -1,0 +1,49 @@
+<!--
+  <copyright>
+  
+  Copyright (c) 2011 See4sys and others.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v2.0
+  which accompanies this distribution, and is available at
+  https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+  
+  Contributors: 
+      See4sys - Initial API and implementation
+  </copyright>
+ -->
+<workflow>
+	<property name="srcMetaModelPackage" value="org.eclipse.uml2.uml.UMLPackage" />
+	<property name="srcModelFile" value="model/sample.uml" />
+	<property name="srcModelSlot" value="uml2Model" />
+
+	<property name="dstMetaModelPackage" value="org.eclipse.sphinx.examples.hummingbird20.typemodel.TypeModel20Package" />
+	<property name="dstModelFile" value="model/sample.typemodel" />
+	<property name="dstModelSlot" value="hb20Model" />
+
+    <bean class="org.eclipse.xtend.typesystem.uml2.Setup" standardUML2Setup="true" /> 
+
+	<bean id="srcMetaModel" class="org.eclipse.xtend.typesystem.uml2.UML2MetaModel" />
+
+	<bean id="dstMetaModel" class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
+		  <metaModelPackage value="${dstMetaModelPackage}" /> 
+	</bean>
+
+	<component class="org.eclipse.xtend.typesystem.emf.XmiReader">
+		<metaModelPackage value="${srcMetaModelPackage}" />
+		<modelFile value="${srcModelFile}" />
+		<firstElementOnly value="true" />
+		<outputSlot value="${srcModelSlot}" />
+	</component>
+
+	<component class="org.eclipse.xtend.XtendComponent">
+		<metaModel idRef="srcMetaModel" />
+		<metaModel idRef="dstMetaModel" />
+		<invoke value="extensions::UML2ToHummingbird20::transform(${srcModelSlot})" />
+		<outputSlot value="${dstModelSlot}" />
+	</component>
+
+	<component class="org.eclipse.xtend.typesystem.emf.XmiWriter">
+		<inputSlot value="${dstModelSlot}" />
+		<modelFile value="${dstModelFile}" />
+	</component>
+</workflow>

@@ -1,0 +1,42 @@
+/**
+ * Copyright (c) 2002-2006 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v20.html
+ * 
+ * Contributors: 
+ *   IBM - Initial API and implementation
+ */
+package org.eclipse.emf.common.ui.celleditor;
+
+
+import org.eclipse.jface.viewers.DialogCellEditor;
+import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.swt.widgets.Composite;
+
+
+/**
+ * This uses a label provider to display a dialog cell editor.
+ */
+public abstract class ExtendedDialogCellEditor extends DialogCellEditor
+{
+  private static final long serialVersionUID = 1L;
+
+  protected ILabelProvider labelProvider;
+
+  public ExtendedDialogCellEditor(Composite composite, ILabelProvider labelProvider)
+  {
+    super(composite);
+    this.labelProvider = labelProvider;
+  }
+
+  @Override
+  protected void updateContents(Object object)
+  {
+    if (getDefaultLabel() != null && labelProvider != null)
+    {
+      getDefaultLabel().setText(labelProvider.getText(object));
+    }
+  }
+}

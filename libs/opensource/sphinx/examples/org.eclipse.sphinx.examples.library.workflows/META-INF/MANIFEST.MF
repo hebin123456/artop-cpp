@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.sphinx.examples.library.workflows
+Bundle-Version: 0.13.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.xtend.lib,
+ org.eclipse.sphinx.emf.mwe.dynamic,
+ org.eclipse.sphinx.examples.workflows.lib
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin

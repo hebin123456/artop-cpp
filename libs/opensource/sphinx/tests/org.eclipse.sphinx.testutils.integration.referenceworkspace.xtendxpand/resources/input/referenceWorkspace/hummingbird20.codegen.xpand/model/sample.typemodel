@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tm:Platform xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tm="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel" xsi:schemaLocation="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel TypeModel20XMI.xsd" name="MyPlatform"><componentTypes name="ComponentType1" providedInterfaces="//@interfaces.0">
+    <ports name="Port1" requiredInterface="//@interfaces.1"/>
+  </componentTypes><componentTypes name="ComponentType2" providedInterfaces="//@interfaces.1"/><interfaces name="Interface1" providingComponentTypes="//@componentTypes.0"/><interfaces name="Interface2" providingComponentTypes="//@componentTypes.1" requiringPorts="//@componentTypes.0/@ports.0"/></tm:Platform>

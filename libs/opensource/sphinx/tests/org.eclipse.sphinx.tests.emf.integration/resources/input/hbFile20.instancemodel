@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--COMMENT_1-->
+<!--COMMENT_2-->
+<!--COMMENT_3-->
+<im:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:im="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/instancemodel" name="Application">
+  <components name="Component">
+    <parameterValues name="paramValue" value=""/>
+  </components>
+</im:Application>

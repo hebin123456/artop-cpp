@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<im:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:im="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/instancemodel" name="Application" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/instancemodel InstanceModel200XMI.xsd">
+  <components name="Component1">
+    <type href="hb:/#//@componentTypes.0"/>
+  </components>
+  <components name="Component2">
+    <type href="hb:/#//@componentTypes.1"/>
+  </components>
+</im:Application>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:library="http://example.com/emfdemo/library">
+  <library:Publisher name="O'Reilly Media" email="contact@oreilly.com">
+    <address street="1005 Gravenstein Hwy N" city="Sebastopol" country="USA" zipCode="95472"/>
+    <books href="library.xmi#//@books.1"/>
+  </library:Publisher>
+  <library:Publisher name="Addison-Wesley" email="info@aw.com">
+    <address street="75 Arlington St" city="Boston" country="USA" zipCode="02116"/>
+    <books href="library.xmi#//@books.0"/>
+  </library:Publisher>
+</xmi:XMI>

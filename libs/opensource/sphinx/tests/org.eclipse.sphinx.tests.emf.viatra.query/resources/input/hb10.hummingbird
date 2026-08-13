@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<hb:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hb="http://www.eclipse.org/sphinx/examples/hummingbird/1.0.0" name="app1">
+  <components name="compo1" providedInterfaces="//@interfaces.0" incomingConnections="//@components.6/@outgoingConnections.0">
+    <outgoingConnections targetComponent="//@components.6" name="conn1"/>
+    <parameters name="p1"/>
+    <parameters name="p11"/>
+  </components>
+  <components name="compo2" providedInterfaces="//@interfaces.1" incomingConnections="//@components.5/@outgoingConnections.0">
+    <outgoingConnections targetComponent="//@components.5" name="conn2"/>
+    <parameters name="p2"/>
+    <parameters name="p22" value=""/>
+  </components>
+  <components name="compo3" providedInterfaces="//@interfaces.2" incomingConnections="//@components.4/@outgoingConnections.0">
+    <outgoingConnections targetComponent="//@components.4" name="conn3"/>
+    <parameters name="p3"/>
+    <parameters name="p33"/>
+  </components>
+  <components name="compo4" providedInterfaces="//@interfaces.3" incomingConnections="//@components.3/@outgoingConnections.0">
+    <outgoingConnections targetComponent="//@components.3" name="conn4"/>
+    <parameters name="p4"/>
+    <parameters name="p44"/>
+  </components>
+  <components name="compo5" providedInterfaces="//@interfaces.0" incomingConnections="//@components.2/@outgoingConnections.0">
+    <outgoingConnections targetComponent="//@components.2" name="conn5"/>
+  </components>
+  <components name="compo6" providedInterfaces="//@interfaces.1" incomingConnections="//@components.1/@outgoingConnections.0">
+    <outgoingConnections targetComponent="//@components.1" name="conn6"/>
+  </components>
+  <components name="compo7" providedInterfaces="//@interfaces.2" incomingConnections="//@components.0/@outgoingConnections.0">
+    <outgoingConnections targetComponent="//@components.0" name="conn7"/>
+  </components>
+  <interfaces name="interface1" providingComponents="//@components.0 //@components.4"/>
+  <interfaces name="interface2" providingComponents="//@components.1 //@components.5"/>
+  <interfaces name="interface3" providingComponents="//@components.2 //@components.6"/>
+  <interfaces name="interface4" providingComponents="//@components.3"/>
+</hb:Application>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2011 See4sys, itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+ 
+Contributors: 
+    See4sys - Initial API and implementation
+    itemis - itemis - Added command, menu and handler for converting projects to Xtend/Xpand-enabled plug-in projects
+    
+</copyright>
+-->
+
+<plugin>
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerActionBinding
+            viewerId="org.eclipse.sphinx.examples.explorer.views.modelExplorer">
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.sphinx.examples.codegen.xpand.ui.codeGenExampleActions">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="org.eclipse.sphinx.examples.codegen.xpand.ui.actions.providers.SphinxCodeGenExampleActionProvider"
+            id="org.eclipse.sphinx.examples.codegen.xpand.ui.codeGenExampleActions">
+         <enablement>
+	        <instanceof value="org.eclipse.emf.ecore.EObject" />
+         </enablement>
+      </actionProvider>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.eclipse.sphinx.examples.codegen.xpand.ui.commands.convertToXtendXpandEnabledPluginProject"
+            name="%sphinx.examples.codegen.xpand.ui.commands.convertToXtendXpandEnabledPluginProject.name">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
+         <command
+               commandId="org.eclipse.sphinx.examples.codegen.xpand.ui.commands.convertToXtendXpandEnabledPluginProject"
+               label="%sphinx.examples.codegen.xpand.ui.commands.convertToXtendXpandEnabledPluginProject.label"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <and>
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <and>
+                        <instanceof
+                              value="org.eclipse.core.resources.IProject"/>
+                        <not>
+                           <test
+                                 property="org.eclipse.core.resources.projectNature"
+                                 value="org.eclipse.xtend.shared.ui.xtendXPandNature">
+                           </test>
+                        </not>
+                     </and>
+                  </iterate>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.sphinx.xtendxpand.ui.commands.handlers.ConvertToXtendXpandEnabledPluginProjectHandler"
+            commandId="org.eclipse.sphinx.examples.codegen.xpand.ui.commands.convertToXtendXpandEnabledPluginProject">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            class="org.eclipse.sphinx.xtendxpand.ui.decorators.BasicOutletFolderLabelDecorator"
+            id="org.eclipse.sphinx.examples.codegen.xpand.ui.decorators.outletFolder"
+            label="%sphinx.examples.codegen.xpand.ui.decorators.outletFolder.label"
+            lightweight="true"
+            state="true">
+         <description>
+            %sphinx.examples.codegen.xpand.ui.decorators.outletFolder.description
+         </description>
+      </decorator>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.sphinx.xtendxpand.preferences.OutletsPreference"
+            class="org.eclipse.sphinx.examples.codegen.xpand.ui.internal.OutletsPreferenceAdapterFactory">
+         <adapter
+               type="org.eclipse.sphinx.platform.ui.preferences.IPropertyPageIdProvider">
+         </adapter>
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.xtend.shared.ui.properties.MetamodelContributorsPropertyPage"
+            class="org.eclipse.sphinx.examples.codegen.xpand.ui.preferences.OutletsPreferencePage"
+            id="org.eclipse.sphinx.examples.codegen.xpand.ui.preferencePages.outlets"
+            name="%sphinx.examples.codegen.xpand.ui.preferencePages.outlets.name">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            category="org.eclipse.xtend.shared.ui.properties.MetamodelContributorsPropertyPage"
+            class="org.eclipse.sphinx.examples.codegen.xpand.ui.preferences.OutletsPreferencePage"
+            id="org.eclipse.sphinx.examples.codegen.xpand.ui.propertyPages.outlets"
+            name="%sphinx.examples.codegen.xpand.ui.propertyPages.outlets.name">
+         <enabledWhen>
+            <and>
+               <adapt
+                     type="org.eclipse.core.resources.IProject">
+                  <test
+                        property="org.eclipse.core.resources.projectNature"
+                        value="org.eclipse.jdt.core.javanature">
+                  </test>
+               </adapt>
+               <adapt
+                     type="org.eclipse.core.resources.IProject">
+                  <test
+                        property="org.eclipse.core.resources.projectNature"
+                        value="org.eclipse.xtend.shared.ui.xtendXPandNature">
+                  </test>
+               </adapt>
+            </and>
+         </enabledWhen>
+      </page>
+   </extension>
+</plugin>

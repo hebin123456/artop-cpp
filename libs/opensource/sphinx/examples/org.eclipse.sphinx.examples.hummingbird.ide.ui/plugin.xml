@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2013 See4sys, itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    See4sys - Initial API and implementation
+    itemis - [402945] Add a new Hummingbird project creation wizard for Hummingbird examples
+    itemis - [402951] Add a new Hummingbird file creation wizard for Hummingbird examples
+
+</copyright>
+-->
+
+<plugin>
+
+  <!-- New wizards for creating Hummingbird projects and files -->
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.sphinx.examples.hummingbird.ide.ui.newWizards.category.hummingbirdExampleWizards"
+            name="%sphinx.examples.hummingbird.ide.ui.newWizards.category.hummingbirdExampleWizards.name"
+            parentCategory="org.eclipse.sphinx.examples.common.ui.newWizards.category.sphinxExampleWizards">
+      </category>
+      <wizard
+            category="org.eclipse.sphinx.examples.common.ui.newWizards.category.sphinxExampleWizards/org.eclipse.sphinx.examples.hummingbird.ide.ui.newWizards.category.hummingbirdExampleWizards"
+            class="org.eclipse.sphinx.examples.hummingbird.ide.ui.wizards.NewHummingbirdProjectWizard"
+            finalPerspective="org.eclipse.sphinx.examples.common.ui.perspectives.sphinx"
+            hasPages="true"
+            icon="$nl$/icons/full/obj16/hbproject_obj.gif"
+            id="org.eclipse.sphinx.examples.hummingbird.ide.ui.newWizards.hummingbirdProject"
+            name="%sphinx.examples.hummingbird.ide.ui.newWizards.hummingbirdProject.name"
+            preferredPerspectives="org.eclipse.sphinx.examples.common.ui.perspectives.sphinx"
+            project="true">
+      </wizard>
+      <wizard
+            category="org.eclipse.sphinx.examples.common.ui.newWizards.category.sphinxExampleWizards/org.eclipse.sphinx.examples.hummingbird.ide.ui.newWizards.category.hummingbirdExampleWizards"
+            class="org.eclipse.sphinx.examples.hummingbird.ide.ui.wizards.NewHummingbirdFileWizard"
+            finalPerspective="org.eclipse.sphinx.examples.common.ui.perspectives.sphinx"
+            hasPages="true"
+            icon="$nl$/icons/full/obj16/hbfile_obj.gif"
+            id="org.eclipse.sphinx.examples.hummingbird.ide.ui.newWizards.hummingbirdFile"
+            name="%sphinx.examples.hummingbird.ide.ui.newWizards.hummingbirdFile.name"
+            preferredPerspectives="org.eclipse.sphinx.examples.common.ui.perspectives.sphinx"
+            project="true">
+      </wizard>
+   </extension>
+
+   <!-- Inclusion of new Hummingbird project and file wizards in "New/Import/Export" submenus of Common Navigator Viewer context menus -->
+
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <commonWizard
+            type="new"
+            wizardId="org.eclipse.sphinx.examples.hummingbird.ide.ui.newWizards.hummingbirdProject">
+         <enablement></enablement>
+      </commonWizard>
+      <commonWizard
+            type="new"
+            wizardId="org.eclipse.sphinx.examples.hummingbird.ide.ui.newWizards.hummingbirdFile">
+         <enablement>
+            <adapt
+                  type="org.eclipse.core.resources.IResource">
+               <test
+                     property="org.eclipse.core.resources.projectNature"
+                     value="org.eclipse.sphinx.examples.hummingbird.ide.HummingbirdNature">
+               </test>
+            </adapt>
+         </enablement>
+      </commonWizard>
+   </extension>
+   
+   <!-- Inclusion of new Hummingbird project and file wizards in the Sphinx perspective's "New" submenu of the "File" menu -->
+   
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.sphinx.examples.common.ui.perspectives.sphinx">
+         <newWizardShortcut
+               id="org.eclipse.sphinx.examples.hummingbird.ide.ui.newWizards.hummingbirdProject"/>
+         <newWizardShortcut
+               id="org.eclipse.sphinx.examples.hummingbird.ide.ui.newWizards.hummingbirdFile"/>
+      </perspectiveExtension>
+   </extension>
+
+   <!-- Form editor with tabbed property sheet contribution for Hummingbird models -->
+
+   <extension
+      point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.sphinx.emf.editors.forms.BasicTransactionalFormEditor"
+            contributorClass="org.eclipse.sphinx.emf.editors.forms.BasicTransactionalEditorActionBarContributor"
+            default="true"
+            extensions="Application, org.eclipse.sphinx.examples.hummingbird20.common.Identifiable"
+            icon="$nl$/icons/full/obj16/hbfile_obj.gif"
+            id="org.eclipse.sphinx.examples.hummingbird.ide.ui.editors.hummingbird"
+            name="%sphinx.examples.hummingbird.ide.ui.editors.hummingbird.name">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.sphinx.examples.hummingbird.ide.hummingbirdXMIFile">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.eclipse.sphinx.examples.hummingbird.ide.ui.editors.hummingbird"
+            labelProvider="org.eclipse.sphinx.examples.common.ui.providers.AppearanceExampleTabbedPropertySheetTitleProvider">
+         <propertyCategory category="advanced" />
+      </propertyContributor>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.eclipse.sphinx.examples.hummingbird.ide.ui.editors.hummingbird">
+         <propertyTab
+               label="%sphinx.examples.hummingbird.ide.ui.propertyTabs.advanced.label"
+               category="advanced"
+               id="org.eclipse.sphinx.examples.hummingbird.ide.ui.propertyTabs.advanced" />
+      </propertyTabs>
+   </extension>
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.eclipse.sphinx.examples.hummingbird.ide.ui.editors.hummingbird">
+         <propertySection
+               class="org.eclipse.sphinx.emf.ui.properties.BasicTransactionalAdvancedPropertySection"
+               id="org.eclipse.sphinx.examples.hummingbird.ide.ui.propertySections.advanced"
+               tab="org.eclipse.sphinx.examples.hummingbird.ide.ui.propertyTabs.advanced">
+            <input type="java.lang.Object" />
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <!-- Overlay icon for projects with Hummingbird nature -->
+
+  <extension point="org.eclipse.ui.ide.projectNatureImages">
+    <image icon="$nl$/icons/full/ovr16/hummingbird_ovr.gif"
+           id="org.eclipse.sphinx.examples.hummingbird.ide.ui.HummingbirdNatureImage"
+           natureId="org.eclipse.sphinx.examples.hummingbird.ide.HummingbirdNature" />
+  </extension>
+
+   <!-- Label decorator indicating Hummingbird metamodel version supported by projects with Hummingbird nature -->
+
+  <extension point="org.eclipse.ui.decorators">
+    <decorator class="org.eclipse.sphinx.examples.hummingbird.ide.ui.decorators.HummingbirdProjectLabelDecorator"
+               id="org.eclipse.sphinx.examples.hummingbird.ide.ui.decorators.hummingbirdProject"
+               label="%sphinx.examples.hummingbird.ide.ui.decorators.hummingbirdProject.label"
+               lightweight="true"
+               state="true">
+      <description>
+      %sphinx.examples.hummingbird.ide.ui.decorators.hummingbirdProject.description</description>
+      <enablement>
+        <objectClass name="org.eclipse.core.resources.IProject" />
+      </enablement>
+    </decorator>
+  </extension>
+
+</plugin>

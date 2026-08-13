@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:library="http://example.com/emfdemo/library">
+  <library:Author name="Ada Lovelace" email="ada@example.com" birthYear="1815">
+    <books href="library.xmi#//@books.0"/>
+  </library:Author>
+  <library:Author name="Alan Turing" email="alan@example.com" birthYear="1912">
+    <books href="library.xmi#//@books.0"/>
+  </library:Author>
+  <library:Author name="Linus Torvalds" email="linus@example.com" birthYear="1969">
+    <books href="library.xmi#//@books.1"/>
+  </library:Author>
+</xmi:XMI>

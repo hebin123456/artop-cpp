@@ -1,0 +1,10 @@
+<xsd:element name="CHILD" minOccurs="0" maxOccurs="unbounded" type="node:NODE"/>
+
+<xsd:element name="CHILD" minOccurs="0" maxOccurs="unbounded">
+  <xsd:complexType>
+  	 <xsd:group ref="node:NODE--SUPERTYPE-GROUP"/>
+  	 <xsd:attribute name="TYPE" value="node:NODE--SUBTYPES-ENUM"/>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="CHILD" minOccurs="0" maxOccurs="unbounded" type="xsd:anyType"/>

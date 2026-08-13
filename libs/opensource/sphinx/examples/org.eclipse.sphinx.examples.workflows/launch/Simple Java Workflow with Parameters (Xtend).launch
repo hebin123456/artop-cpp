@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.sphinx.emf.mwe.dynamic.launching.launchConfigurationTypes.workflow">
+<mapAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.ARGUMENTS">
+<mapEntry key="boolComponentParam" value="true"/>
+<mapEntry key="boolWorkflowParam" value="false"/>
+<mapEntry key="componentParamWithAlias" value="componentArgWithAlias"/>
+<mapEntry key="extraArg" value="extraValue"/>
+<mapEntry key="strComponentParam" value="stringValue2"/>
+<mapEntry key="strWorkflowParam" value="stringValue1"/>
+<mapEntry key="uriComponentParam" value="file://C:/folder/file.ext#component"/>
+<mapEntry key="uriWorkflowParam" value="file://C:/folder/file.ext#workflow"/>
+<mapEntry key="workflowParamWithAlias" value="workflowArgWithAlias"/>
+</mapAttribute>
+<booleanAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.AUTO_SAVE" value="true"/>
+<stringAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.MODEL" value=""/>
+<stringAttribute key="org.eclipse.sphinx.emf.mwe.dynamic.launching.WORKFLOW" value="/org.eclipse.sphinx.examples.workflows/xtend-gen/org/eclipse/sphinx/examples/workflows/simple/xtend/SimpleXtendWorkflowWithParams.java"/>
+</launchConfiguration>

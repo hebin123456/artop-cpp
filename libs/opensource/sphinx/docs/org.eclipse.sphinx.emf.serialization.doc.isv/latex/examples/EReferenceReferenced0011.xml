@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NODE xmlns="NodesURI" name="root">
+  <CHILDREN>
+    <NODE name="sourceNode">
+      <NODE-REFTYPES>
+        <NODE-REFTYPE>targetNode1</NODE-REFTYPE>
+        <NODE-REFTYPE>targetNode2</NODE-REFTYPE>
+      </NODE-REFTYPES>
+      <SUB-NODE-REFTYPES>
+        <SUB-NODE-REFTYPE>targetSubNode</SUB-NODE-REFTYPE>
+      </SUB-NODE-REFTYPES>
+    </NODE>
+    <NODE name="targetNode1" />
+    <NODE name="targetNode2" />
+    <SUB-NODE name="targetSubNode" />
+  </CHILDREN>
+</NODE>

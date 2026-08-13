@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hb:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hb="http://www.eclipse.org/sphinx/examples/hummingbird/1.0.0" name="Application">
+  <components name="Component2" providedInterfaces="//@interfaces.0"/>
+  <interfaces name="Interface2" providingComponents="//@components.0"/>
+</hb:Application>

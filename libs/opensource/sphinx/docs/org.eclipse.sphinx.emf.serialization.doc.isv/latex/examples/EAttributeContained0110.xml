@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NODE xmlns="NodesURI">
+  <PROPERTY>
+    <STRING-VALUES>Property1 Property2</STRING-VALUES>
+  </Property>
+</NODE>

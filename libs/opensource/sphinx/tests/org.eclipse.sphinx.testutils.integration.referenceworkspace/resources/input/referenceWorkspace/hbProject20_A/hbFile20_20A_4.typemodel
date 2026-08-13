@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tm:Platform xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tm="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/typemodel" name="Platform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.0/typemodel TypeModel200XMI.xsd">
+  <interfaces name="interfaceTwin"/>
+  <interfaces name="interfaceTwin"/>
+  <interfaces name="tooLongValueTobeValidShortNameOfAnObject"/>
+  
+</tm:Platform>

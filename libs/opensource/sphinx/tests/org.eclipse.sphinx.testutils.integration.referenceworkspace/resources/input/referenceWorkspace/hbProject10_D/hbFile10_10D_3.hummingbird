@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hb:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:hb="http://www.eclipse.org/sphinx/examples/hummingbird/1.0.0" name="Application">
+  <components name="Component1">
+    <providedInterfaces href="hbFile10_10D_2.hummingbird#//@interfaces.1"/>
+    <parameters name="param11" value="value11"/>
+    <parameters name="param12" value="value12"/>
+  </components>
+  <components name="Component2">
+    <providedInterfaces href="hbFile10_10D_2.hummingbird#//@interfaces.0"/>
+    <parameters name="param21" value="value21"/>
+  </components>
+</hb:Application>

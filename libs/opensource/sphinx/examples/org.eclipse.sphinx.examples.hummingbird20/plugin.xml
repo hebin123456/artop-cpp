@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+<copyright>
+
+Copyright (c) 2008-2014 See4sys, itemis and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html
+
+Contributors:
+    See4sys - Initial API and implementation
+    itemis - Enhancements and maintenance
+    itemis - [393840] Provide example illustrating implementation of validation constraints for Sphinx-enabled metamodel
+
+</copyright>
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common"
+            class="org.eclipse.sphinx.examples.hummingbird20.common.Common20Package"
+            genModel="model/hummingbird20.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/typemodel"
+            class="org.eclipse.sphinx.examples.hummingbird20.typemodel.TypeModel20Package"
+            genModel="model/hummingbird20.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/instancemodel"
+            class="org.eclipse.sphinx.examples.hummingbird20.instancemodel.InstanceModel20Package"
+            genModel="model/hummingbird20.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <parser
+            contentTypeIdentifier="org.eclipse.sphinx.examples.hummingbird20.hummingbird20XMIFile"
+            class="org.eclipse.sphinx.examples.hummingbird20.util.Hummingbird20ResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.sphinx.examples.hummingbird.ide.hummingbirdXMIFile"
+            file-extensions="hummingbird, typemodel, instancemodel"
+            id="org.eclipse.sphinx.examples.hummingbird20.hummingbird20XMIFile"
+            name="%_UI_Hummingbird20_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespacePattern" value="http://www.eclipse.org/sphinx/examples/hummingbird/2\.0\.\d(/\w+)*"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+
+   <extension
+         point="org.eclipse.sphinx.emf.metaModelDescriptors">
+      <descriptor
+            class="org.eclipse.sphinx.examples.hummingbird20.Hummingbird20MMDescriptor"
+            id="org.eclipse.sphinx.examples.hummingbird20">
+      </descriptor>
+   </extension>
+
+   <!-- Enable Sphinx validation runtime enhancements for Hummingbird 2.0 metamodel -->
+
+   <extension
+         point="org.eclipse.sphinx.emf.validation.registration">
+      <model
+            id="org.eclipse.sphinx.examples.hummingbird20.common"
+            filter="_20"
+            Name="Hummingbird 2.0 Common"
+            NsURI="http://www.eclipse.org/sphinx/examples/hummingbird/2.0.1/common"
+            class="org.eclipse.sphinx.examples.hummingbird20.common.Identifiable">
+      </model>
+   </extension>
+
+</plugin>

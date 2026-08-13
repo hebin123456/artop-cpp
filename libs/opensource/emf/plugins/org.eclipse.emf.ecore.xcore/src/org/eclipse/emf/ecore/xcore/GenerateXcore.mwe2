@@ -1,0 +1,91 @@
+/**
+ * Copyright (c) 2011-2020 Eclipse contributors and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v2.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v20.html
+ */
+module org.eclipse.emf.ecore.xcore.Xcore
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.xtext.generator.*
+import org.eclipse.xtext.xtext.generator.model.project.*
+
+var rootPath = ".."
+var file.extensions = "xcore"
+var projectName = "org.eclipse.emf.ecore.xcore"
+var testProjectName = "org.eclipse.emf.test.ecore.xcore"
+var runtimeProject = "../${projectName}"
+var testProject = "../../tests/${testProjectName}"
+
+Workflow {
+	bean = StandaloneSetup {
+		scanClassPath = true
+		platformUri = "${runtimeProject}/.."
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}/src-gen"
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}.ui/src-gen"
+	}
+
+	component = DirectoryCleaner {
+		directory = "${testProject}/src-gen"
+	}
+
+	component = XtextGenerator {
+		configuration = {
+			project = StandardProjectConfig {
+				baseName = projectName
+				rootPath = rootPath
+				runtimeTest = {
+					enabled = true
+					root = testProject
+				}
+				genericIde = {
+					enabled = true
+					root = "${runtimeProject}.ui"
+				}
+				eclipsePlugin = {
+					enabled = true
+				}
+				eclipsePluginTest = {
+					enabled = true
+					root = testProject
+				}
+				createEclipseMetaData = true
+			}
+			code = {
+				encoding = "UTF-8"
+				lineDelimiter = '\r\n'
+				preferXtendStubs = false
+			}
+		}
+		language = StandardLanguage {
+			name = "org.eclipse.emf.ecore.xcore.Xcore"
+			fileExtensions = file.extensions
+			referencedResource = "platform:/resource/org.eclipse.emf.ecore.xcore/model/Xcore.genmodel"
+			referencedResource = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
+
+			junitSupport = {
+				generateStub = false
+			}
+			labelProvider = {
+				generateXtendStub = true
+			}
+			serializer = {
+				generateStub = false
+			}
+			validator = {
+			}
+			xbaseSupport = {
+				// supress generation of XcoreJvmModelInferrer stub
+				generateXtendInferrer = false
+				skipExportedPackage = true
+			}
+		}
+	}
+}

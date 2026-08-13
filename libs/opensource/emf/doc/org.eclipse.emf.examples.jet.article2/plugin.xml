@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+     <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            name="%TypesafeEnumWizard.name"
+            icon="icons/newenum_wiz.gif"
+            category="org.eclipse.jdt.ui.java"
+            id="org.eclipse.emf.examples.jet.article2.ui.NewTypesafeEnumCreationWizard">
+         <description>
+            %TypesafeEnumWizard.description
+         </description>
+         <class class="org.eclipse.emf.examples.jet.article2.ui.NewTypesafeEnumCreationWizard">
+	         <parameter name="javatype" value="true"/>
+	     </class>
+      </wizard>
+   </extension>
+   
+<!-- 
+  Define an extension point for activating the EmitAction
+  whenever a file with the .*jet extension is selected.
+  -->
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*jet"
+            id="emitTemplateContribution">
+         <action
+               label="%EmitSelectedTemplatesAction.label"
+               class="org.eclipse.emf.examples.jet.article2.actionexample.EmitAction"
+               enablesFor="*"
+               id="emitTemplate">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

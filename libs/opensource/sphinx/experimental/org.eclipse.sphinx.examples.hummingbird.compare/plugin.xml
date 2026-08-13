@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.compare.match.engine">
+      <matchengine
+            engineClass="org.eclipse.sphinx.examples.hummingbird.compare.match.HummingbirdMatchEngine"
+            label="%sphinx.examples.hummingbird.compare.match.hummingbirdMatchEngine.label"
+            namespacePattern="http://www.eclipse.org/sphinx/examples/hummingbird/[0-9]\.[0-9]\.[0-9](/\w+)*">
+      </matchengine>
+   </extension>
+
+<!--
+   <extension
+         point="org.eclipse.emf.compare.diff.engine">
+      <diffengine
+            engineClass="org.eclipse.sphinx.examples.hummingbird.compare.diff.HummingbirdDiffEngine"
+            label="%sphinx.examples.hummingbird.compare.diff.hummingbirdDiffEngine.label"
+            priority="low">
+      </diffengine>
+   </extension>
+-->
+</plugin>

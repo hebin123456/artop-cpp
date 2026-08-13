@@ -1,0 +1,84 @@
+=== artop Java Validation Benchmark ===
+
+# Headless AUTOSAR arxml validation via artop jars on Linux.
+# Output: load time, validation time and diagnostic counts for
+# performance comparison against a C++ implementation.
+
+--- Environment ---
+artop root        : /workspace/artop/  (Eclipse RCP, 490 plugins, cross-platform jars)
+test arxml        : /workspace/java/demo/output/ECUConfigurationParameters.arxml
+                    (AUTOSAR 4.0.48 / R19-11, 57154 ECUC objects, 12.1 MB)
+java              : /root/.local/share/mise/installs/java/temurin-8.0.482+8/bin/java (JavaSE-1.8)
+headless bundle   : com.example.arxml.validation.headless_1.0.0
+                    (/workspace/artop/plugins/com.example.arxml.validation.headless_1.0.0.jar)
+config area       : /workspace/artop/headless-config/ (config.ini + bundles.info, 79 bundles)
+constraints       : 49 ECUC JAVA batch constraints in
+                    org.artop.aal.autosar40.constraints.ecuc_4.13.0.201912171516.jar
+                    bound to clientContext autosar40.ARObject.context
+validator entry   : ModelValidationService.getInstance().newValidator(EvaluationMode.BATCH)
+                    (IBatchValidator, setIncludeLiveConstraints(true), setReportSuccesses(false))
+
+--- Final launch command ---
+cd /workspace/artop && \
+/root/.local/share/mise/installs/java/temurin-8.0.482+8/bin/java \
+  -jar plugins/org.eclipse.equinox.launcher_1.5.500.v20190715-1310.jar \
+  -configuration file:/workspace/artop/headless-config/ \
+  -application com.example.arxml.validation.headless.arxmlValidationApp \
+  -input /workspace/java/demo/output/ECUConfigurationParameters.arxml \
+  -consoleLog
+
+# Notes:
+#  - First launch after a config change should add -clean so the OSGi bundle
+#    cache is rebuilt from bundles.info. Subsequent benchmark runs omit it.
+#  - Output line per run: load_ms=X validate_ms=Y errors=Z warnings=W total_diags=N
+
+--- Per-iteration results (load_ms / validate_ms / errors / warnings / total_diags) ---
+iteration 1 (warmup, discarded): load_ms=1186 validate_ms=370 errors=86 warnings=0 total_diags=88
+iteration 2 (measured)         : load_ms=1168 validate_ms=404 errors=86 warnings=0 total_diags=88
+iteration 3 (measured)         : load_ms=1069 validate_ms=407 errors=86 warnings=0 total_diags=88
+
+--- Averaged result (iterations 2 and 3, warmup dropped) ---
+avg_load_ms     = 1118.5
+avg_validate_ms = 405.5
+errors          = 86
+warnings        = 0
+total_diags     = 88
+
+--- Validation status ---
+root EObject     : AUTOSAR (objects=57154)
+IStatus severity: ERROR
+IStatus children: 44
+
+--- Top diagnostics (sample, code 10003 = unresolvable reference destination) ---
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/ArtiOs/ArtiOsIsrInstance
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/ArtiOs/ArtiOsTaskInstance
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/Arti/ArtiStates/ArtiTaskState
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/Os/OsAppMode
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/BswM/BswMConfig/BswMArbitration/BswMLogicalExpression
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/BswM/BswMConfig/BswMArbitration/BswMModeCondition
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/BswM/BswMConfig/BswMArbitration/BswMEventRequestPort
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/BswM/BswMConfig/BswMArbitration/BswMModeRequestPort
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/BswM/BswMConfig/BswMModeControl/BswMAction
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/BswM/BswMConfig/BswMModeControl/BswMActionList
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/BswM/BswMConfig/BswMArbitration/BswMRule
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannel
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/Dio/DioConfig/DioPort/DioChannelGroup
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/Dio/DioPort
+[ERROR] code=0    Default value is not a common programming language identifier
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/Com/ComConfig/ComSignalGroup/ComGroupSignal
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/Com/ComConfig/ComSignal
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/Com/ComConfig/ComSignalGroup/ComGroupSignal
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/Com/ComConfig/ComSignal
+[ERROR] code=10003 Could not resolve destination /AUTOSAR/EcucDefs/Com/ComConfig/ComMainFunctionRx
+
+--- Caveats ---
+# 2 of the 49 ECUC constraints were auto-disabled by EMF Validation because they
+# threw a NullPointerException during evaluation (standard EMF Validation
+# behaviour: a constraint that throws is disabled for the rest of the run):
+#   - ReferenceParamDefBasicConstraint
+#   - org.artop.aal.autosar40.constraints.ecuc.EcucParamConfContainerDefConfigParameterMissingConstraint_40
+# These NPE inside the artop constraint implementation (gautosar abstract parent
+# expects a service/adapter that is null in this minimal headless setup). The
+# remaining 47 constraints ran and produced the 88 diagnostics above. This does
+# not affect the load/validate timing measurement.
+# No OSGi bundle-resolution errors remain in the final configuration.
