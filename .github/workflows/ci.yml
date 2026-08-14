@@ -95,7 +95,10 @@ jobs:
       - name: Package base release
         shell: bash
         run: |
-          python -c "import shutil; shutil.make_archive('emf-cpp-base-${{ matrix.os }}-${{ github.ref_name }}','zip','${{ github.workspace }}/staging-base')"
+          # 用 argv 传路径，避免 Windows 反斜杠路径在 Python 字符串字面量中被转义
+          python -c "import shutil, sys; shutil.make_archive(sys.argv[1], 'zip', sys.argv[2])" \
+            "emf-cpp-base-${{ matrix.os }}-${{ github.ref_name }}" \
+            "${{ github.workspace }}/staging-base"
           ls -lh emf-cpp-base-*.zip
 
       # ===== 打包生成的模型代码（源码，平台无关；仅 ubuntu 打包一次）=====
@@ -103,7 +106,9 @@ jobs:
         if: runner.os == 'Linux'
         shell: bash
         run: |
-          python -c "import shutil; shutil.make_archive('artop-model-autosar448-${{ github.ref_name }}','zip','${{ github.workspace }}/cpp/emf-cpp/emf-artop/autosar448-model')"
+          python -c "import shutil, sys; shutil.make_archive(sys.argv[1], 'zip', sys.argv[2])" \
+            "artop-model-autosar448-${{ github.ref_name }}" \
+            "${{ github.workspace }}/cpp/emf-cpp/emf-artop/autosar448-model"
           ls -lh artop-model-autosar448-*.zip
 
       - name: Upload base artifact
