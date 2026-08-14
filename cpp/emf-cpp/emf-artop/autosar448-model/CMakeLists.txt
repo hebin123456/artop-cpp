@@ -42,6 +42,10 @@ list(LENGTH MODEL_SOURCES _n)
 message(STATUS "autosar448-model: compiling ${_n} generated source files")
 
 add_library(autosar448_model STATIC ${MODEL_SOURCES} ${MODEL_HEADERS})
+# 本工程仅用于验证生成的模型代码“无编译错误”（产物为源码压缩包，非性能库），
+# 故强制 -O0 跳过优化，大幅缩短 CI 编译时间（-O3 下 3781 文件过慢）。
+# -O0 排在编译选项末尾，覆盖上层 -O3。
+target_compile_options(autosar448_model PRIVATE -O0)
 target_include_directories(autosar448_model PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}                                      # 解析 autosar40/... 跨包 include
     ${EMF_CPP_SOURCE_DIR}/emf-common/include
