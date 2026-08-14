@@ -106,9 +106,14 @@ jobs:
         if: runner.os == 'Linux'
         shell: bash
         run: |
+          # 仅打包源码，排除 build/ 编译产物（否则 zip 达 400+MB）
+          STAGING="$RUNNER_TEMP/staging-model"
+          mkdir -p "$STAGING"
+          cp -r "${{ github.workspace }}/cpp/emf-cpp/emf-artop/autosar448-model/." "$STAGING/"
+          rm -rf "$STAGING/build"
           python -c "import shutil, sys; shutil.make_archive(sys.argv[1], 'zip', sys.argv[2])" \
             "artop-model-autosar448-${{ github.ref_name }}" \
-            "${{ github.workspace }}/cpp/emf-cpp/emf-artop/autosar448-model"
+            "$STAGING"
           ls -lh artop-model-autosar448-*.zip
 
       - name: Upload base artifact
@@ -132,6 +137,9 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
