@@ -49,7 +49,6 @@ jobs:
       # 输出落到 cpp/emf-cpp/emf-artop/autosar448-model/autosar40/（与底座放一起）
       - name: Generate ARTOP model code from autosar448.ecore
         working-directory: ${{ github.workspace }}
-        shell: bash
         run: >
           cpp/emf-cpp/build/bin/emf_artop_codegen
           models/autosar448/autosar448.ecore
