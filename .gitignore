@@ -53,6 +53,10 @@ benchmark/cpp/comparediag
 # （如 include/emf/artop/、Java 包 artop/、decompiler 的 org/artop/ 等）
 /artop/
 
+# ===== 生成的 ARTOP 模型代码（CI 构建期由 emf_artop_codegen 生成，不纳入版本库）=====
+# CMakeLists.txt 已纳入版本库；其下 autosar40/ 子树为代码生成器输出。
+cpp/emf-cpp/emf-artop/autosar448-model/autosar40/
+
 # ===== 编辑器 / 系统 =====
 .vscode/
 .idea/
