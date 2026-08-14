@@ -800,7 +800,9 @@ struct ArxmlLoader {
             res.addToContents(rootObj);
         }
         // 归还 pugixml DOM 内存给 OS（glibc free 后未必立即归还，malloc_trim 强制归还）
+#if defined(__GLIBC__)
         ::malloc_trim(0);
+#endif
 
         // 阶段 2：建立 short name path 索引
         buildShortNamePathIndex();

@@ -116,7 +116,9 @@ AutosarXMLResource::~AutosarXMLResource() {
             refIsDefaultStore().size(), refDestStore().size(),
             proxyStore().size());
     }
+#if defined(__GLIBC__)
     ::malloc_trim(0);  // glibc：归还空闲 arena 顶部给 OS
+#endif
 }
 
 }  // namespace emf::artop::runtime
