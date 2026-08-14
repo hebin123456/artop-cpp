@@ -18,6 +18,7 @@
 #include "emf/ecore/EcorePackage.h"
 #include "emf/common/EList.h"
 #include "emf/common/EObject.h"
+#include <cstdint>
 #include <fstream>
 #include <sstream>
 #include <filesystem>

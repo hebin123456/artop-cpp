@@ -3,6 +3,7 @@
 #include "emf/common/EObject.h"
 #include "emf/common/Resource.h"
 
+#include <cstdint>
 #include <stdexcept>
 
 namespace emf::common {

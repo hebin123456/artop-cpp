@@ -19,6 +19,7 @@
 #include "emf/ecore/EcoreMetadata.h"
 #include "emf/ecore/util/BasicExtendedMetaData.h"
 
+#include <cstdint>
 #include <sstream>
 #include <string>
 #include <vector>

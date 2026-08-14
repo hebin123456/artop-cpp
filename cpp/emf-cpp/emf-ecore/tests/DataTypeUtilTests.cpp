@@ -5,6 +5,7 @@
 #include "emf/ecore/EcoreImpls.h"
 
 #include <any>
+#include <cstdint>
 #include <string>
 
 using emf::ecore::DataTypeUtil;

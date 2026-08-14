@@ -15,6 +15,7 @@
 // 元数据驱动（对齐 ARCHITECTURE.md）：xmlName / APRXML 规则从 EAnnotation 经
 // EAnnotationReader 读取，取代 Java 端的 AutosarXMLRuleRegistry / 常量表。
 #include "emf/artop/runtime/AutosarXMLLoader.h"
+#include <cstdint>
 #include "emf/artop/runtime/UnknownElement.h"
 #include "emf/artop/runtime/AutosarLibraryIndex.h"
 #include "emf/artop/runtime/AutosarResource.h"

@@ -9,6 +9,7 @@
 #include "emf/ecore/EcoreImpls.h"
 #include "emf/ecore/EcoreMetadata.h"
 
+#include <cstdint>
 #include <random>
 #include <sstream>
 

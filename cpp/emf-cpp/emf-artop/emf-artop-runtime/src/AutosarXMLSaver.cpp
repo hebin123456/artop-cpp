@@ -11,6 +11,7 @@
 //   6. EAttribute 按 isXmlAttribute 决定写为 XML 属性或子元素
 //   7. 无序列表按 short name 字典序排序
 #include "emf/artop/runtime/AutosarXMLSaver.h"
+#include <cstdint>
 
 #include "emf/artop/runtime/AutosarResource.h"
 #include "emf/artop/runtime/IdentifiableUtil.h"
