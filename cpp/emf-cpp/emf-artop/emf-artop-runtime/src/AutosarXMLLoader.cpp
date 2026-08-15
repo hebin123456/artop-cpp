@@ -35,7 +35,9 @@
 #include <cstring>
 #include <functional>
 #include <iostream>
-#include <malloc.h>
+#if defined(__GLIBC__)
+#  include <malloc.h>   // glibc: malloc_trim
+#endif
 #include <mutex>
 #include <optional>
 #include <sstream>

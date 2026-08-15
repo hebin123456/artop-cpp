@@ -7,7 +7,9 @@
 
 #include <cstdio>
 #include <cstdlib>
-#include <malloc.h>
+#if defined(__GLIBC__)
+#  include <malloc.h>   // glibc: malloc_trim
+#endif
 #include <unordered_set>
 #include <vector>
 
