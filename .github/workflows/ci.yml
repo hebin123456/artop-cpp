@@ -101,19 +101,82 @@ jobs:
             "${{ github.workspace }}/staging-base"
           ls -lh emf-cpp-base-*.zip
 
-      # ===== 打包生成的模型代码（源码，平台无关；仅 ubuntu 打包一次）=====
-      - name: Package model code
-        if: runner.os == 'Linux'
+      # ===== 打包自包含模型工程（模型源码 + 底座头文件 + 预编译底座库）=====
+      # 用户下载解压后可直接编译，无需另装底座。因预编译库与平台相关，每个平台各打一份。
+      - name: Stage self-contained model project
         shell: bash
         run: |
-          # 仅打包源码，排除 build/ 编译产物（否则 zip 达 400+MB）
-          STAGING="$RUNNER_TEMP/staging-model"
-          mkdir -p "$STAGING"
-          cp -r "${{ github.workspace }}/cpp/emf-cpp/emf-artop/autosar448-model/." "$STAGING/"
-          rm -rf "$STAGING/build"
+          set -e
+          WS="${{ github.workspace }}"
+          STAGE="$RUNNER_TEMP/staging-model"
+          rm -rf "$STAGE"
+          mkdir -p "$STAGE"
+
+          # 1) 底座头文件：按源码目录结构镜像（模型 CMakeLists 通过 ../../<module>/include 引用）
+          for m in emf-common emf-ecore emf-ecore-util emf-xmi emf-xsd \
+                   emf-compare emf-validation emf-sphinx emf-ecore-codegen \
+                   emf-edit emf-artop/emf-artop-runtime emf-artop/emf-artop-codegen; do
+            if [ -d "$WS/cpp/emf-cpp/$m/include" ]; then
+              mkdir -p "$STAGE/$m"
+              cp -r "$WS/cpp/emf-cpp/$m/include" "$STAGE/$m/include"
+            fi
+          done
+
+          # 2) 预编译底座静态库（仅 .a，保留 build 子目录结构，供 EMF_CPP_BUILD_DIR 定位）
+          mkdir -p "$STAGE/prebuilt"
+          ( cd "$WS/cpp/emf-cpp/build" && find . -name '*.a' ) | while read -r f; do
+            d="$STAGE/prebuilt/$(dirname "$f")"
+            mkdir -p "$d"
+            cp "$WS/cpp/emf-cpp/build/$f" "$d/"
+          done
+
+          # 3) 模型源码 + CMakeLists（排除模型自身的验证构建产物 build/）
+          mkdir -p "$STAGE/emf-artop/autosar448-model"
+          cp -r "$WS/cpp/emf-cpp/emf-artop/autosar448-model/." "$STAGE/emf-artop/autosar448-model/"
+          rm -rf "$STAGE/emf-artop/autosar448-model/build"
+
+          # 4) 顶层 CMakeLists：自动指定 EMF_CPP_BUILD_DIR，用户只需 cmake -B build -S .
+          cat > "$STAGE/CMakeLists.txt" <<'CMEOF'
+          cmake_minimum_required(VERSION 3.16)
+          project(autosar448_sdk LANGUAGES CXX)
+          set(CMAKE_CXX_STANDARD 17)
+          set(CMAKE_CXX_STANDARD_REQUIRED ON)
+          if(NOT CMAKE_BUILD_TYPE)
+              set(CMAKE_BUILD_TYPE Release)
+          endif()
+          # 指向归档内预编译底座库，模型工程通过它链接底座静态库
+          set(EMF_CPP_BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/prebuilt CACHE PATH "Pre-built emf-cpp base libs")
+          add_subdirectory(emf-artop/autosar448-model)
+          CMEOF
+
+          # 5) 一键构建脚本（Linux 原生 bash / Windows Git Bash 均可）
+          cat > "$STAGE/build.sh" <<'SHEOF'
+          #!/usr/bin/env bash
+          set -e
+          HERE="$(cd "$(dirname "$0")" && pwd)"
+          cd "$HERE/emf-artop/autosar448-model"
+          cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DEMF_CPP_BUILD_DIR="$HERE/prebuilt"
+          cmake --build build --config Release --parallel
+          echo ""
+          echo "Build succeeded: $HERE/emf-artop/autosar448-model/build/libautosar448_model.a"
+          SHEOF
+          chmod +x "$STAGE/build.sh"
+
+          echo "Staged tree:"
+          find "$STAGE" -maxdepth 2 -type d | sort | head -30
+
+      # 配置期校验自包含工程可被 cmake 解析（不编译，仅验证路径/CMakeLists 正确）
+      - name: Verify self-contained archive configures
+        shell: bash
+        run: |
+          cmake -B "$RUNNER_TEMP/verify-cfg" -S "$RUNNER_TEMP/staging-model" -DCMAKE_BUILD_TYPE=Release 2>&1 | tail -8
+
+      - name: Package self-contained model project
+        shell: bash
+        run: |
           python -c "import shutil, sys; shutil.make_archive(sys.argv[1], 'zip', sys.argv[2])" \
-            "artop-model-autosar448-${{ github.ref_name }}" \
-            "$STAGING"
+            "artop-model-autosar448-${{ matrix.os }}-${{ github.ref_name }}" \
+            "$RUNNER_TEMP/staging-model"
           ls -lh artop-model-autosar448-*.zip
 
       - name: Upload base artifact
@@ -124,10 +187,9 @@ jobs:
           retention-days: 7
 
       - name: Upload model artifact
-        if: runner.os == 'Linux'
         uses: actions/upload-artifact@v4
         with:
-          name: model-autosar448
+          name: model-autosar448-${{ matrix.os }}
           path: artop-model-autosar448-*.zip
           retention-days: 7
 
