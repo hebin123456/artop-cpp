@@ -1,4 +1,4 @@
-# emf-cpp
+# artop-cpp
 
 **C++17 重写 Eclipse EMF + Java ARTOP，定位为 headless AUTOSAR 模型工具平台。**
 
