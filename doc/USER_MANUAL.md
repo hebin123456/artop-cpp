@@ -830,18 +830,26 @@ emf::validation::AnnotationConstraintLoader::loadAll(validator, eClass);
 
 ### 6.4 AUTOSAR 业务约束
 
+AUTOSAR 约束位于 ARTOP 特化层 `emf-artop-validation`（对齐 `org.artop.aal.validation`），
+不在通用底座 `emf-validation` 中，需由调用方显式注册：
+
 ```cpp
-#include "emf/validation/AutosarConstraints.h"
+#include "emf/artop/validation/AutosarConstraints.h"
 
 emf::validation::EValidator validator;
-// 注册 5 类核心 AUTOSAR 约束（反射式，对 Referrable/Identifiable 派生类生效）
-emf::validation::registerAutosarConstraints(validator);
+// 注册核心 AUTOSAR 约束（反射式，对 Referrable/Identifiable 派生类生效）
+emf::artop::validation::registerAutosarConstraints(validator);
+// 注册 49 个 artop ECUC 约束（按 Ecuc* EClass 名过滤）
+emf::artop::validation::registerEcucConstraints(validator);
 // 注册的约束：
 //   - short_name_non_empty / short_name_unique_in_parent
 //   - uuid_non_empty
 //   - category_required
 //   - no_unresolved_proxy
 // 支持 BATCH + LIVE 双模式
+
+// 模型级 UUID 全局唯一性（跨对象，需整树遍历，独立于 per-object 约束）
+auto uuidDiags = emf::artop::validation::validateUuidUniqueness(root);
 ```
 
 ### 6.5 自定义约束（lambda）

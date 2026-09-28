@@ -210,7 +210,7 @@ EMF_TEST(OCL_ForAll_NumericCondition) {
 }
 
 EMF_TEST(OCL_ForAll_WithImpliesInBody) {
-    // 常见 AUTOSAR 模式：count > 0 的元素必须有 shortName
+    // 常见模式：count > 0 的元素必须有 shortName
     Meta m = loadMeta();
     auto* c = m.factory->create(m.containerCls);
     auto* e0 = makeElement(m, "a", 3);

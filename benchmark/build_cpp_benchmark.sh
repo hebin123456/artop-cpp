@@ -20,7 +20,8 @@ EMF_LIBS="$EMF_CPP/build/emf-common/libemf_common.a \
           $EMF_CPP/build/emf-validation/libemf_validation.a \
           $EMF_CPP/build/emf-ecore-codegen/libemf_ecore_codegen.a \
           $EMF_CPP/build/emf-edit/libemf_edit.a \
-          $EMF_CPP/build/emf-artop/emf-artop-runtime/libemf_artop_runtime.a"
+          $EMF_CPP/build/emf-artop/emf-artop-runtime/libemf_artop_runtime.a \
+          $EMF_CPP/build/emf-artop/emf-artop-validation/libemf_artop_validation.a"
 
 INCLUDES="-I$EMF_CPP/emf-common/include \
           -I$EMF_CPP/emf-ecore/include \
@@ -30,6 +31,7 @@ INCLUDES="-I$EMF_CPP/emf-common/include \
           -I$EMF_CPP/emf-validation/include \
           -I$EMF_CPP/emf-compare/include \
           -I$EMF_CPP/emf-artop/emf-artop-runtime/include \
+          -I$EMF_CPP/emf-artop/emf-artop-validation/include \
           -I$EMF_CPP/emf-ecore-codegen/include \
           -I$MODEL_GEN"
 

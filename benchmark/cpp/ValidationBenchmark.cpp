@@ -14,7 +14,7 @@
 #include "emf/validation/LiveValidator.h"
 #include "emf/validation/EValidator.h"
 #include "emf/validation/ValidationService.h"
-#include "emf/validation/AutosarConstraints.h"
+#include "emf/artop/validation/AutosarConstraints.h"
 
 #include <chrono>
 #include <cstdio>
@@ -69,10 +69,17 @@ int main(int argc, char** argv) {
         double batchMs = std::chrono::duration<double, std::milli>(batchEnd - batchStart).count();
         diagCount = static_cast<long long>(diags.size());
 
-        // 2b. ValidationService（含 ECUC 约束 + clientContext EClass 过滤，对齐 artop）
+        // 2b. ValidationService（artop 层显式注册 AUTOSAR 约束 + 模型级 UUID 校验）
+        //     解耦后 emf-validation 不再自动注册 AUTOSAR 约束，须由调用方显式注册。
         emf::validation::ValidationService vs;
+        emf::artop::validation::registerAutosarConstraints(vs.validator());
+        emf::artop::validation::registerEcucConstraints(vs.validator());
         auto vsStart = std::chrono::high_resolution_clock::now();
         auto vsDiags = vs.validateAll(root);
+        {
+            auto uuidDiags = emf::artop::validation::validateUuidUniqueness(root);
+            vsDiags.insert(vsDiags.end(), uuidDiags.begin(), uuidDiags.end());
+        }
         auto vsEnd = std::chrono::high_resolution_clock::now();
         double vsMs = std::chrono::duration<double, std::milli>(vsEnd - vsStart).count();
 

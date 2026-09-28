@@ -36,11 +36,11 @@ enum class ConstraintMode {
 // Constraint：单个校验约束（对齐 Java IConstraintConstraint）
 // 持有一个求值函数 evaluator：传入 EObject*，返回 true=通过，false=违反
 //
-// clientContext 按 EClass 过滤（对齐 artop EMF Validation 的 clientContext enablement 机制）：
+// clientContext 按 EClass 过滤（对齐 EMF Validation 的 clientContext enablement 机制）：
 //   - targets 为空 → 对所有 EObject 生效（兼容旧语义，通用约束）
 //   - targets 非空 → 只对 EObject.eClass() 命中 targets（含子类）的对象执行 evaluator
-//   - 这避免了"全树逐对象执行所有约束"的开销，artop 的 49 个 ECUC 约束正是靠此机制
-//     只对匹配 EClass（如 EcucParameterValue）执行，从而远快于通用约束。
+//   - 这避免了"全树逐对象执行所有约束"的开销：上层特化约束（如 AUTOSAR）正是靠此机制
+//     只对匹配 EClass 执行，从而远快于通用约束。
 class Constraint {
 public:
     using Evaluator = std::function<bool(emf::common::EObject*)>;
@@ -77,7 +77,7 @@ public:
     const Evaluator& getEvaluator() const { return evaluator_; }
     void setEvaluator(Evaluator e) { evaluator_ = std::move(e); }
 
-    // ===== clientContext EClass 过滤（对齐 artop constraintBindings/clientContext） =====
+    // ===== clientContext EClass 过滤（对齐 constraintBindings/clientContext） =====
     // targets 为空 → 适用所有 EObject；非空 → 仅适用 EClass 命中（含子类）的对象
     const std::vector<emf::ecore::EClass*>& getTargets() const { return targets_; }
     void addTarget(emf::ecore::EClass* cls) { if (cls) targets_.push_back(cls); }
@@ -85,7 +85,7 @@ public:
 
     // 按类名过滤（动态模型场景，无法提前拿到 EClass* 时用）：
     // targetClassNames 为空 → 不按类名过滤；非空 → eClass().getName() 包含任一子串才适用
-    // 对齐 artop clientContext enablement 的 instanceof 语义（用子串匹配覆盖 Ecuc* 继承族）。
+    // 对齐 clientContext enablement 的 instanceof 语义（用子串匹配覆盖继承族）。
     const std::vector<std::string>& getTargetClassNames() const { return targetClassNames_; }
     void addTargetClassName(const std::string& n) { if (!n.empty()) targetClassNames_.push_back(n); }
     void setTargetClassNames(std::vector<std::string> t) { targetClassNames_ = std::move(t); }

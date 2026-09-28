@@ -41,6 +41,7 @@ emf-cpp/
 │   │   ├── emf-sphinx/          # Sphinx headless 核心子集
 │   │   ├── emf-artop/           # ★ AUTOSAR 特化层（对齐 org.artop.aal.*）
 │   │   │   ├── emf-artop-runtime/   # AUTOSAR 序列化/反序列化、资源/工厂/版本元数据
+│   │   │   ├── emf-artop-validation/ # AUTOSAR 业务约束（5 类通用 + 49 ECUC + UUID 唯一性）
 │   │   │   └── emf-artop-codegen/   # 从 .ecore 生成 C++ 静态模型
 │   │   └── examples/            # arxml_roundtrip / arxml_validate 示例
 │   └── demo/                    # library 模型 demo
@@ -85,7 +86,7 @@ emf-cpp/
 
 - **第 1 层 `emf-*`（12 个模块）**：通用 EMF 模型基础设施，对齐
   `org.eclipse.emf.*` / `org.eclipse.acceleo` / `org.eclipse.sphinx.emf`，**不涉及 AUTOSAR 业务**。
-- **第 2 层 `emf-artop/*`（2 个模块）**：AUTOSAR 特化层，对齐
+- **第 2 层 `emf-artop/*`（3 个模块）**：AUTOSAR 特化层，对齐
   `org.artop.aal.*`，依赖第 1 层。
 
 详细分层图、模块职责表与对齐关系见 [doc/ARCHITECTURE.md](doc/ARCHITECTURE.md)。

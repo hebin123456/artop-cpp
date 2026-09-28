@@ -67,11 +67,11 @@ Notification / Compare / Validation / EditingDomain+Command+Transaction 子系�
 | Diagnostician | 同上 | 诊断树，对齐 |
 | LiveValidator | 同上 | 实时监听验证，对齐 |
 | OCL 子集解析器 | [ConstraintParser.cpp](file:///workspace/cpp/emf-cpp/emf-validation/src/ConstraintParser.cpp) | **已扩展**：implies/forAll/exists/**let/def**/**collect/select/reject/any/iterate**/**嵌套集合推导式**/路径导航/if-then-else/算术运算 + **String 操作库**(toUpper/toLower/substring/concat/indexOf/startsWith/endsWith/trim) + **Integer/Real 操作库**(abs/floor/ceil/round/max/min/mod/div/toString) + **SortedSet/OrderedSet 标准库**(sortedBy/first/last/at/indexOf/count/includes/includesAll/excludesAll/union/intersection/difference/flatten/sum/asSet/asBag/asSequence/asOrderedSet + 集合比较) + **Tuple 类型**(Tuple{...} 字面量构造 + `.part` 访问 + 类型推断) + oclIsUndefined/oclIsKindOf/oclIsTypeOf |
-| UUID 全局唯一性 | [AutosarConstraints.cpp](file:///workspace/cpp/emf-cpp/emf-validation/src/AutosarConstraints.cpp) | 对齐 artop FixUuidConflictsAction |
+| UUID 全局唯一性 | [AutosarConstraints.cpp](file:///workspace/cpp/emf-cpp/emf-artop/emf-artop-validation/src/AutosarConstraints.cpp) | 对齐 artop FixUuidConflictsAction |
 | shortName 兄弟唯一性 | 同上 | 反射式，对齐 |
 | proxy 未解析检查 | 同上 | 对齐 |
 | clientContext 按 EClass 过滤 | [Constraint.h](file:///workspace/cpp/emf-cpp/emf-validation/include/emf/validation/Constraint.h) | **已实现**：Constraint::targets_（EClass*）+ targetClassNames_（类名子串），appliesTo() 在 evaluate 前过滤 |
-| artop ECUC 约束（49 个） | [AutosarConstraints.cpp](file:///workspace/cpp/emf-cpp/emf-validation/src/AutosarConstraints.cpp) | **已实现全部 49 个约束**（registerEcucConstraints），按 EClass 名 clientContext 过滤，覆盖 Basic/Multiplicity/DefaultValue/ConfigurationClasses/VendorSpecific 五大类 |
+| artop ECUC 约束（49 个） | [AutosarConstraints.cpp](file:///workspace/cpp/emf-cpp/emf-artop/emf-artop-validation/src/AutosarConstraints.cpp) | **已实现全部 49 个约束**（registerEcucConstraints），按 EClass 名 clientContext 过滤，覆盖 Basic/Multiplicity/DefaultValue/ConfigurationClasses/VendorSpecific 五大类 |
 
 **测试覆盖**：149 测试（含 103 个 OCL 子集测试，覆盖 let/collect/select/iterate/String/Integer 操作库/嵌套集合推导式/SortedSet/OrderedSet 标准库/Tuple 类型）
 

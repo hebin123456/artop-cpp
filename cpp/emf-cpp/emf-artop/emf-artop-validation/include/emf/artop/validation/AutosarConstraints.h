@@ -1,5 +1,6 @@
-// EMF Validation: AUTOSAR 核心业务约束
+// ARTOP Validation: AUTOSAR 核心业务约束
 // 对齐 artop 内置 AUTOSAR 业务约束（Java 端 org.artop.aal.* 中的 common constraints）。
+// 本模块属于 ARTOP 特化层（emf-artop/*），不依赖也不属于 EMF 通用底座 emf-validation。
 //
 // 这些约束以反射方式作用于 EObject：检查 EClass 上是否存在相应 feature
 // （shortName / uuid / category），因此既适用于真实 AUTOSAR 模型（Referrable /
@@ -25,21 +26,23 @@
 #include <vector>
 
 namespace emf::validation {
-
 class EValidator;
+}
+
+namespace emf::artop::validation {
 
 // 注册核心 AUTOSAR 业务约束到 validator。
 // 幂等：重复调用会按 id 替换旧约束。
 // 注册 shortName/uuid 非空与 no_unresolved_proxy 为 BATCH+LIVE 双模式，
 // 其余为 BATCH 模式（唯一性与 category 校验适合批处理）。
-void registerAutosarConstraints(EValidator& validator);
+void registerAutosarConstraints(emf::validation::EValidator& validator);
 
 // 注册 artop ECUC 专用约束（对齐 org.artop.aal.autosar40.constraints.ecuc 的 49 个约束）。
 // 这些约束按 target EClass 名前缀过滤（clientContext enablement 等价），
 // 只对 Ecuc* 类对象执行，避免对全树扫描，性能对齐 artop clientContext 过滤机制。
 // 约束包括：EcucParameterValue/ContainerValue/ModuleConfigurationValues 等的
 // multiplicity、bounds、completeness、consistency 校验。
-void registerEcucConstraints(EValidator& validator);
+void registerEcucConstraints(emf::validation::EValidator& validator);
 
 // 模型级 UUID 全局唯一性校验（对齐 artop FixUuidConflictsAction.getUuidConflicts）。
 // 单次 DFS 遍历 root 的 containment 树，收集所有对象的 uuid feature 值，
@@ -48,4 +51,4 @@ void registerEcucConstraints(EValidator& validator);
 // 性能：O(N) 单次遍历 + O(N) hash map 操作。
 std::vector<emf::common::Diagnostic> validateUuidUniqueness(emf::common::EObject* root);
 
-}  // namespace emf::validation
+}  // namespace emf::artop::validation

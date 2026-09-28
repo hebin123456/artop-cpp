@@ -75,8 +75,8 @@ Java EMF Compare 默认 proximity 匹配对大文件 O(n²) 且易误配。artop
 ## 4. UUID 全局唯一性约束
 
 对齐 artop `FixUuidConflictsAction.getUuidConflicts()` 的行为，实现在
-[AutosarConstraints.cpp](file:///workspace/cpp/emf-cpp/emf-validation/src/AutosarConstraints.cpp) 的
-`validateUuidUniqueness(EObject* root)`：
+[AutosarConstraints.cpp](file:///workspace/cpp/emf-cpp/emf-artop/emf-artop-validation/src/AutosarConstraints.cpp) 的
+`validateUuidUniqueness(EObject* root)`（ARTOP 特化层 `emf-artop-validation`）：
 
 - DFS 遍历整棵模型树
 - `HashMap<uuid, EObject*>` 去重

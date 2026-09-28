@@ -1,6 +1,5 @@
 // ValidationService.cpp
 #include "emf/validation/ValidationService.h"
-#include "emf/validation/AutosarConstraints.h"  // validateUuidUniqueness（模型级约束）
 
 #include <algorithm>
 #include <thread>
@@ -10,12 +9,8 @@ namespace emf::validation {
 
 ValidationService::ValidationService()
     : validator_(std::make_unique<EValidator>()) {
-    // 默认注册内置约束
+    // 默认注册内置约束（通用 EMF 语义，不含任何 AUTOSAR/artop 特化约束）
     validator_->registerDefaultConstraints();
-    // 注册 artop ECUC 专用约束（对齐 org.artop.aal.autosar40.constraints.ecuc）
-    // 约束通过 evaluator 内部 classNameContains 按 EClass 名过滤（clientContext enablement 等价），
-    // 只对匹配的 Ecuc* 类对象执行，避免全树扫描开销。
-    registerEcucConstraints(*validator_);
 }
 
 ValidationService::~ValidationService() = default;
@@ -121,15 +116,6 @@ std::vector<emf::common::Diagnostic> ValidationService::validateAll(emf::common:
         }
     }
 
-    // 模型级 UUID 全局唯一性校验（对齐 artop FixUuidConflictsAction）。
-    // per-object 约束无法检测跨对象重复，需整树遍历去重。
-    // O(N) 单次遍历，与 per-object 约束的 O(N * features) 相比开销可忽略。
-    // 串行执行（需全树遍历去重，无法并行）。
-    auto uuidDiags = validateUuidUniqueness(root);
-    if (!uuidDiags.empty()) {
-        result.reserve(result.size() + uuidDiags.size());
-        for (auto& d : uuidDiags) result.push_back(std::move(d));
-    }
     return result;
 }
 

@@ -140,7 +140,7 @@ Java ARTOP 有 6 个 bundle，C++ 端根据 headless 工具定位做了取舍：
 | org.artop.aal.serialization | **合并进 runtime** | Loader/Saver 吸收 LoadImpl/SaveImpl；EAnnotation 元数据取代 RuleRegistry |
 | org.artop.aal.*.codegen | **emf-artop-codegen**（骨架） | 离线代码生成工具 |
 | org.artop.aal.extender | **不实现** | Eclipse extension point 机制不适用；SDG 按需在 runtime 补 |
-| org.artop.aal.validation | **不实现** | 核心已在 emf-validation；autosar 约束直接 registerConstraint |
+| org.artop.aal.validation | **emf-artop-validation** | AUTOSAR 业务约束，构建在 emf-validation 通用底座之上，由调用方显式注册 |
 | org.artop.aal.workspace | **不实现** | 纯 Eclipse IDE 集成（IProject/IMarker/nature），headless 不需要 |
 
 ### emf-artop-runtime
@@ -171,6 +171,19 @@ AUTOSAR 模型的序列化/反序列化核心，对齐 `org.artop.aal.common` +
 - 生成 `<Pkg>ResourceFactoryImpl.h`（继承 AutosarXMLResourceFactory，构造器组装 ReleaseDescriptor）
 - 生成 `ARTOP_ROOT_EXTENSIONS.md` marker（描述根 EClass 要注入的 mixed/extensions 字段）
 
+### emf-artop-validation
+
+AUTOSAR 业务约束，对齐 `org.artop.aal.validation`，构建在 `emf-validation` 通用底座之上：
+
+| C++ 入口 | 功能 |
+|---|---|
+| `registerAutosarConstraints(EValidator&)` | 反射式实现 5 类 artop 常见约束（shortName 非空/同父同类型唯一、uuid 非空、category 必填、无未解析 proxy），支持 BATCH+LIVE |
+| `registerEcucConstraints(EValidator&)` | 对齐 `org.artop.aal.autosar40.constraints.ecuc` 的 49 个 ECUC 约束，按 target EClass 名 clientContext 过滤 |
+| `validateUuidUniqueness(EObject*)` | 模型级 UUID 全局唯一性（对齐 `FixUuidConflictsAction`），整树 DFS 去重 |
+
+解耦约定：`emf-validation` 底座保持与 AUTOSAR 无关，仅提供 EValidator/Constraint 基础设施；
+AUTOSAR 约束由本模块提供，并由 artop 调用方**显式注册**（不再由 `ValidationService` 自动注册）。
+
 ---
 
 ## 4. 模块依赖关系
@@ -190,12 +203,13 @@ emf-common ◄── emf-ecore ◄── emf-ecore-util
     │     │
     │     └── emf-compare
     │
-    └── emf-validation
+    └── emf-validation ◄── emf-artop-validation
 ```
 
 关键依赖链：
 - `emf-artop-runtime` → `emf-common`/`emf-ecore`/`emf-xmi`/`emf-sphinx`
 - `emf-artop-codegen` → `emf-ecore-codegen` + `emf-artop-runtime`
+- `emf-artop-validation` → `emf-validation`（AUTOSAR 约束构建在通用校验底座之上）
 - `emf-acceleo` → `emf-ecore` + `emf-xcore`（对齐测试用）
 - `emf-xcore` → `emf-ecore`
 
@@ -218,7 +232,7 @@ emf-common ◄── emf-ecore ◄── emf-ecore-util
 | 省略部分 | 原因 |
 |---|---|
 | org.artop.aal.extender | Eclipse extension point 机制不适用；SDG 厂商扩展按需在 runtime 补 ResourceHandler |
-| org.artop.aal.validation | 核心已在 emf-validation；autosar 约束直接 registerConstraint |
+| org.artop.aal.validation | 已实现为 emf-artop-validation（AUTOSAR 约束构建在 emf-validation 底座之上，由调用方显式注册） |
 | org.artop.aal.workspace | 纯 Eclipse IDE 集成（IProject/IMarker/nature/preference），headless 按 URI 直接加载 |
 | 所有 Activator 类 | Eclipse plugin 生命周期管理，C++ 无对应概念 |
 | emf-edit 的 ItemProvider/UI 类 | Eclipse JFace/SWT UI 桥接，C++ 无 UI 框架（Command/EditingDomain 已实现，Provider 层仅留接口骨架） |
@@ -258,13 +272,9 @@ xcore / acceleo / compare 三个模块实现了 Java 对应功能的**子集**�
   per-EClass 编译缓存 `g_compileCache`，避免同一 EClass 的 OCL 表达式重复编译。
 - **LiveValidator 增量化**：`notifyChanged` 只 `validateNow(target)` 校验变更对象本身，
   不递归校验子树，对齐 Java live validation 的增量语义。
-- **核心 AUTOSAR 业务约束**（`AutosarConstraints.h`）：反射式实现 5 类 artop 常见约束，
-  通过 `registerAutosarConstraints(validator)` opt-in 注册：
-  - `short_name_non_empty` / `short_name_unique_in_parent`（shortName 非空 + 同父同类型唯一）
-  - `uuid_non_empty`（Identifiable.uuid 非空）
-  - `category_required`（lowerBound>=1 的 category 非空）
-  - `no_unresolved_proxy`（跨 resource 引用必须可解析）
-  支持 BATCH+LIVE 双模式。
+
+> AUTOSAR 业务约束（5 类常见约束 + 49 个 ECUC 约束 + UUID 全局唯一性）已迁出到
+> `emf-artop-validation`，底座 `emf-validation` 不再引用任何 AUTOSAR 类型。
 
 ---
 
@@ -335,6 +345,7 @@ cmake --build . -j4
 | emf-sphinx | ~69 | 通过 |
 | emf-artop-runtime | 15 | 通过 |
 | emf-artop-codegen | 3 | 通过 |
+| emf-artop-validation | 13 | 通过 |
 | emf-xmi | 78 | 通过（硬编码路径已改用 `EMFCPP_SOURCE_DIR`/`EMF_BUILD_DIR` 宏） |
 | emf-ecore-codegen | 51 | 通过（单值 EAttribute getter 命名规范已修正） |
 | emf-edit | 25 | 通过（CommandHelper + 5 命令 execute/undo/redo 全覆盖） |

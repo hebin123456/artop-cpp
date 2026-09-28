@@ -49,7 +49,7 @@ EMF C++ 库 (11 个 .a)
 
 > **重要**：EMF C++ 库必须先构建完成，才能构建任何绑定（C++ / Python / 服务端）。模型代码（约 4206 个 `.cpp`）也必须先编译为 `.o`。
 
-### 1.3 EMF 静态库清单（共 11 个）
+### 1.3 EMF 静态库清单（共 12 个）
 
 | 库名 | 源码目录 |
 | --- | --- |
@@ -64,6 +64,7 @@ EMF C++ 库 (11 个 .a)
 | `emf_ecore_codegen` | `emf-ecore-codegen` |
 | `emf_edit` | `emf-edit` |
 | `emf_artop_runtime` | `emf-artop/emf-artop-runtime` |
+| `emf_artop_validation` | `emf-artop/emf-artop-validation` |
 
 ### 1.4 Windows 与 Linux 链接差异
 

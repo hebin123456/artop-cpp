@@ -7,7 +7,7 @@
 //   - shortName 兄弟唯一性：查 eContainer 的 eContents，比较同 EClass name 的兄弟。
 //   - no_unresolved_proxy：遍历 EAllReferences，单值/多值均检查目标 eIsProxy。
 //   - 性能：每约束 O(1) 或 O(兄弟数/引用数)，整体线性，适合全量 BATCH 校验。
-#include "emf/validation/AutosarConstraints.h"
+#include "emf/artop/validation/AutosarConstraints.h"
 #include "emf/validation/EValidator.h"
 #include "emf/validation/Constraint.h"
 #include "emf/common/EObject.h"
@@ -20,7 +20,13 @@
 #include <unordered_map>
 #include <vector>
 
-namespace emf::validation {
+namespace emf::artop::validation {
+
+// 复用 emf-validation 底座的约束类型：本模块只做 AUTOSAR 特化，不重造基础类型。
+using emf::validation::Constraint;
+using emf::validation::ConstraintMode;
+using emf::validation::EValidator;
+using emf::validation::Severity;
 
 namespace {
 
@@ -1187,4 +1193,4 @@ void registerEcucConstraints(EValidator& validator) {
         Severity::WARNING, {"EcucParameterDef"});
 }
 
-}  // namespace emf::validation
+}  // namespace emf::artop::validation

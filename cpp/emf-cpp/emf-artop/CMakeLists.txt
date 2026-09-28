@@ -11,23 +11,24 @@
 #                                  → emf-artop-codegen（骨架实现）
 #   org.artop.aal.extender        → 不实现（Eclipse extension point 机制不适用；
 #                                    SDG 厂商扩展数据按需在 runtime 补 ResourceHandler）
-#   org.artop.aal.validation      → 不实现（核心已在 emf-validation；
-#                                    autosar 约束直接 registerConstraint 到 emf-validation）
+#   org.artop.aal.validation      → emf-artop-validation（AUTOSAR 业务约束，
+#                                    构建在 emf-validation 通用底座之上）
 #   org.artop.aal.workspace       → 不实现（纯 Eclipse IDE 集成 IProject/IMarker/nature，
 #                                    headless 工具按 URI 直接加载/保存）
 #
 # 依赖层级（自底向上）：
-#   第 1 层 emf-*  (emf-common / emf-ecore / emf-xmi / emf-sphinx / ...)
+#   第 1 层 emf-*  (emf-common / emf-ecore / emf-xmi / emf-sphinx / emf-validation / ...)
 #        ↓
 #   第 2 层 emf-artop-runtime   ← emf_common / emf_ecore / emf_xmi / emf_sphinx
 #        ↓ (codegen 输出)
 #   emf-artop-codegen           ← emf-ecore-codegen + emf-artop-runtime（离线工具）
+#   emf-artop-validation        ← emf-validation（AUTOSAR 约束，由调用方显式注册）
 #
 # 运行时机制（继承自 emf-xmi / emf）：
 #   - 序列化/反序列化：AutosarXMLResource / AutosarResourceFactory
 #   - 多文件编辑：ResourceSet / CrossReferenceAdapter
 #   - 运行时通知：EMF Notification/NotificationChain
-#   - 校验：emf-validation（直接调用，无需 artop 特化层）
+#   - 校验：emf-validation 提供通用校验底座，AUTOSAR 约束在 emf-artop-validation
 #   - undo/redo：emf-edit (Command/EditingDomain)
 #
 # 逆向源：
@@ -37,6 +38,9 @@
 #   /workspace/decompiler/serialization/ AutosarXMLHelper / XMLLoad / XMLSave（已吸收进 runtime）
 
 add_subdirectory(emf-artop-runtime)
+
+# AUTOSAR 业务约束（org.artop.aal.validation 对齐），依赖 emf-validation 底座
+add_subdirectory(emf-artop-validation)
 
 # codegen 是离线工具，最后加
 add_subdirectory(emf-artop-codegen)

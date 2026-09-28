@@ -12,10 +12,10 @@
 
 namespace emf::validation {
 
-// Constraint::appliesTo 实现（clientContext EClass 过滤，对齐 artop enablement）
+// Constraint::appliesTo 实现（clientContext EClass 过滤，对齐 enablement）
 // 1. targets_ 与 targetClassNames_ 均为空 → 适用所有
 // 2. targets_ 非空 → target.eClass() 命中任一 target（含子类，isSuperTypeOf 自反）
-// 3. targetClassNames_ 非空 → target.eClass().getName() 包含任一子串（覆盖 Ecuc* 继承族）
+// 3. targetClassNames_ 非空 → target.eClass().getName() 包含任一子串（覆盖派生类族）
 bool Constraint::appliesTo(emf::common::EObject* target) const {
     if (targets_.empty() && targetClassNames_.empty()) return true;  // 通用约束，适用所有
     if (!target) return false;

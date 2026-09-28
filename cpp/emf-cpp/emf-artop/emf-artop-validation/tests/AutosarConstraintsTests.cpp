@@ -6,7 +6,7 @@
 //   - 无未解析 proxy 引用
 //   - LIVE 模式实时校验
 #include "test_main.h"
-#include "emf/validation/AutosarConstraints.h"
+#include "emf/artop/validation/AutosarConstraints.h"
 #include "emf/validation/EValidator.h"
 #include "emf/validation/ValidationService.h"
 #include "emf/validation/LiveValidator.h"
@@ -36,7 +36,8 @@ using emf::common::EObjectImpl;
 using emf::validation::EValidator;
 using emf::validation::ValidationService;
 using emf::validation::ValidationLiveAdapter;
-using emf::validation::registerAutosarConstraints;
+using emf::artop::validation::registerAutosarConstraints;
+using emf::artop::validation::validateUuidUniqueness;
 
 namespace {
 
@@ -122,6 +123,15 @@ bool hasDiagWith(const std::vector<emf::common::Diagnostic>& diags, const std::s
         if (d.source().find(sub) != std::string::npos) return true;
     }
     return false;
+}
+
+// 解耦后模型级 UUID 全局唯一性不再由 ValidationService 自动执行，
+// 由 artop 层显式调用：通用 batch 校验 + AUTOSAR 模型级 UUID 校验组合。
+std::vector<emf::common::Diagnostic> validateAutosar(ValidationService& svc, EObject* root) {
+    auto diags = svc.validateAll(root);
+    auto uuidDiags = validateUuidUniqueness(root);
+    diags.insert(diags.end(), uuidDiags.begin(), uuidDiags.end());
+    return diags;
 }
 
 }  // namespace
@@ -296,7 +306,7 @@ EMF_TEST(Autosar_UniqueUuids_NoGloballyUniqueDiagnostic) {
 
     ValidationService svc;
     registerAutosarConstraints(svc.validator());
-    auto diags = svc.validateAll(container);
+    auto diags = validateAutosar(svc, container);
     EXPECT_FALSE(hasDiagWith(diags, "AutosarUuidGloballyUnique"));
 }
 
@@ -312,7 +322,7 @@ EMF_TEST(Autosar_DuplicateUuid_ProducesGloballyUniqueDiagnostic) {
 
     ValidationService svc;
     registerAutosarConstraints(svc.validator());
-    auto diags = svc.validateAll(container);
+    auto diags = validateAutosar(svc, container);
     EXPECT_TRUE(hasDiagWith(diags, "AutosarUuidGloballyUnique"));
 }
 
@@ -325,7 +335,7 @@ EMF_TEST(Autosar_EmptyUuid_ProducesGloballyUniqueDiagnostic) {
     setContainment(container, m.containerCls->getEStructuralFeature("elements"), {e});
 
     // validateUuidUniqueness 独立调用
-    auto diags = emf::validation::validateUuidUniqueness(container);
+    auto diags = validateUuidUniqueness(container);
     EXPECT_TRUE(hasDiagWith(diags, "AutosarUuidGloballyUnique"));
 }
 
@@ -345,6 +355,6 @@ EMF_TEST(Autosar_DeepNestedDuplicateUuid_ProducesDiagnostic) {
 
     ValidationService svc;
     registerAutosarConstraints(svc.validator());
-    auto diags = svc.validateAll(outer);
+    auto diags = validateAutosar(svc, outer);
     EXPECT_TRUE(hasDiagWith(diags, "AutosarUuidGloballyUnique"));
 }

@@ -9,7 +9,6 @@ add_library(emf_validation
     src/LiveValidator.cpp
     src/ValidationService.cpp
     src/AnnotationConstraintLoader.cpp
-    src/AutosarConstraints.cpp
 )
 
 target_include_directories(emf_validation
@@ -28,7 +27,6 @@ if(EMF_BUILD_TESTS)
         tests/LiveValidatorTests.cpp
         tests/ValidationE2ETests.cpp
         tests/AnnotationConstraintLoaderTests.cpp
-        tests/AutosarConstraintsTests.cpp
     )
     target_link_libraries(emf_validation_tests PRIVATE emf_validation emf_xmi)
     add_test(NAME emf_validation_tests COMMAND emf_validation_tests)

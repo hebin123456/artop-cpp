@@ -80,7 +80,8 @@ jobs:
           # 头文件：各模块 include 目录
           for m in emf-common emf-ecore emf-ecore-util emf-xmi emf-xsd \
                    emf-compare emf-validation emf-sphinx emf-ecore-codegen \
-                   emf-edit emf-artop/emf-artop-runtime emf-artop/emf-artop-codegen; do
+                   emf-edit emf-artop/emf-artop-runtime emf-artop/emf-artop-codegen \
+                   emf-artop/emf-artop-validation; do
             if [ -d "$WS/cpp/emf-cpp/$m/include" ]; then
               cp -r "$WS/cpp/emf-cpp/$m/include/." "$STAGE/include/"
             fi
@@ -115,7 +116,8 @@ jobs:
           # 1) 底座头文件：按源码目录结构镜像（模型 CMakeLists 通过 ../../<module>/include 引用）
           for m in emf-common emf-ecore emf-ecore-util emf-xmi emf-xsd \
                    emf-compare emf-validation emf-sphinx emf-ecore-codegen \
-                   emf-edit emf-artop/emf-artop-runtime emf-artop/emf-artop-codegen; do
+                   emf-edit emf-artop/emf-artop-runtime emf-artop/emf-artop-codegen \
+                   emf-artop/emf-artop-validation; do
             if [ -d "$WS/cpp/emf-cpp/$m/include" ]; then
               mkdir -p "$STAGE/$m"
               cp -r "$WS/cpp/emf-cpp/$m/include" "$STAGE/$m/include"
