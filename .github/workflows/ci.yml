@@ -69,6 +69,46 @@ jobs:
         working-directory: cpp/emf-cpp/emf-artop/autosar448-model
         run: cmake --build build --config Release --parallel
 
+      # ===== 打包“已编译的模型库”：libautosar448_model.a + 生成的模型头文件 =====
+      # 目的：下游（benchmark / 集成方）直接链接该库即可，无需每次重新编译
+      # 3780 个模型源文件（-O0 也要数十分钟）。
+      - name: Stage model library release
+        shell: bash
+        run: |
+          set -e
+          WS="${{ github.workspace }}"
+          MODEL="$WS/cpp/emf-cpp/emf-artop/autosar448-model"
+          STAGE="$WS/staging-model-lib"
+          rm -rf "$STAGE"
+          mkdir -p "$STAGE/lib" "$STAGE/include"
+
+          # 1) 静态库（Ninja 单配置：Linux/MinGW 为 .a，MSVC 为 .lib）
+          found=""
+          for f in "$MODEL/build/libautosar448_model.a" "$MODEL/build/libautosar448_model.lib" \
+                   "$MODEL/build/Release/autosar448_model.lib"; do
+            if [ -f "$f" ]; then cp "$f" "$STAGE/lib/"; found="$f"; fi
+          done
+          if [ -z "$found" ]; then
+            echo "ERROR: libautosar448_model not found under $MODEL/build" >&2
+            find "$MODEL/build" -maxdepth 2 -name '*autosar448*' >&2 || true
+            exit 1
+          fi
+
+          # 2) 生成的模型头文件（autosar40/...），供链接方 #include
+          cp -r "$MODEL/autosar40" "$STAGE/include/autosar40"
+
+          echo "Model library staged (from $found):"
+          ls -lh "$STAGE/lib"
+          echo "headers: $(find "$STAGE/include" -name '*.h' | wc -l)"
+
+      - name: Package model library
+        shell: bash
+        run: |
+          python -c "import shutil, sys; shutil.make_archive(sys.argv[1], 'zip', sys.argv[2])" \
+            "artop-model-autosar448-lib-${{ matrix.os }}-${{ github.ref_name }}" \
+            "${{ github.workspace }}/staging-model-lib"
+          ls -lh artop-model-autosar448-lib-*.zip
+
       # ===== 打包底座 release：头文件 + 静态库 + codegen 可执行 =====
       - name: Stage base release
         shell: bash
@@ -193,6 +233,13 @@ jobs:
         with:
           name: model-autosar448-${{ matrix.os }}
           path: artop-model-autosar448-*.zip
+          retention-days: 7
+
+      - name: Upload model library artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-lib-${{ matrix.os }}
+          path: artop-model-autosar448-lib-*.zip
           retention-days: 7
 
   release:
